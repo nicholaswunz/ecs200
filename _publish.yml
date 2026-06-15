@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: a123c64b-7257-410e-85d5-18349b99ffdb
+      url: https://nicholaswu.quarto.pub/ecs200

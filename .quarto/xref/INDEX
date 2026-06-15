@@ -31,5 +31,38 @@
   },
   "week3_diversity_index.qmd": {
     "week3_diversity_index.html": "e1278ef5"
+  },
+  "week5_inference.qmd": {
+    "week5_inference.html": "78a7e4e5"
+  },
+  "week6_nonparametric.qmd": {
+    "week6_nonparametric.html": "d23577a5"
+  },
+  "week8_multivariate.qmd": {
+    "week8_multivariate.html": "92546682"
+  },
+  "week7_time_series.qmd": {
+    "week7_time_series.html": "4688598a"
+  },
+  "week10_spatial.qmd": {
+    "week10_spatial.html": "4e203d29"
+  },
+  "week9_spatial.qmd": {
+    "week9_spatial.html": "04e01e98"
+  },
+  "week10_movement.qmd": {
+    "week10_movement.html": "1b792e6c"
+  },
+  "week12_random_effects.qmd": {
+    "week12_random_effects.html": "82b659bd"
+  },
+  "week11_GLM.qmd": {
+    "week11_GLM.html": "dd074ac2"
+  },
+  "R_intro.qmd": {
+    "R_intro.html": "72e02a1f"
+  },
+  "research_design.qmd": {
+    "research_design.html": "165c0b11"
   }
 }

@@ -1,26 +1,50 @@
 project:
   type: book
-  output-dir: docs
-
+  output-dir: _book
+  
 
 book:
-  title: "ECS200 - Research Methods in Ecology"
-  subtitle: "School of Environmental and Conservation Sciences, Murdoch University"
+  title: "ECS200 Research Methods in Ecology"
+  subtitle: "School of Environmental and Conservation Sciences"
   author: "Nicholas Wu"
   date: today
   date-format: Do MMM YYYY
+  page-navigation: true
+  back-to-top-navigation: true
+  search: true
+  site-url: https://nicholaswu.quarto.pub/ecs200/
+  repo-url: https://github.com/nicholaswunz/ECS200-Workshop
+  sidebar: 
+    logo: https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg
+  
+  page-footer:
+    border: true
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a [CC-BY-NC-ND 4.0 Int License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+  
+  
   favicon: images/MU_CREST_Red.png
   chapters:
     - index.qmd
-    - week1_getting_started.qmd
-    - week2_tidy_data.qmd
-    - week3_diversity_index.qmd
-    - week4_descriptive_stats.qmd
-    - references.qmd
+    - R_intro.qmd
+    - part: "Weeks"
+      chapters:
+      - week1_getting_started.qmd
+      - week2_tidy_data.qmd
+      - week3_diversity_index.qmd
+      - week4_descriptive_stats.qmd
+      - week5_inference.qmd
+      - week6_nonparametric.qmd
+      - week7_time_series.qmd
+      - week8_multivariate.qmd
+      - week9_spatial.qmd
+      - week10_movement.qmd
+      - week11_GLM.qmd
+      - week12_random_effects.qmd
+  appendices:
     - the_islands.qmd
-  navbar:
-    search: true
-    logo: images/MU_CREST_Red.png
+    - research_design.qmd
+    - references.qmd
 
 bibliography: ./bib/references.bib
 csl: ./bib/the-journal-of-experimental-biology.csl
@@ -28,38 +52,21 @@ link-citations: true
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-  pdf:
-    documentclass: scrreprt
+    grid:
+      body-width: 900px
+    mainfont: Roboto
+    monofont: Fira Code
+    highlight-style: arrow
+    monobackgroundcolor: "#F7F7F7"
+    include-in-header: _fathom.html
+    theme: 
+      - theme.css
+      - theme.scss
+      - lumen
 
-#fontsize: 95%;
+filters:
+  - shinylive
+
+fontsize: 98%;
 
 #linkcolor: "#e12744" 
-
-
-
-name: Deploy Quarto Book to GitHub Pages
-
-on:
-  push:
-    branches: [ "main" ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render Quarto Book
-        run: quarto render
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v5
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_book

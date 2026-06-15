@@ -96,11 +96,11 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -155,25 +155,10 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/MU_CREST_Red.png" alt="" class="navbar-logo">
-    </a>
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">ECS200 - Research Methods in Ecology</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
-</div>
-          <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -182,13 +167,26 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week3_diversity_index.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diversity Indices</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 - Research Methods in Ecology</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -758,7 +756,7 @@ D_2 = \frac{1}{\sum_{i=1}^{S} p_i^2}
 <section id="assessment" class="level1 unnumbered">
 <h1 class="unnumbered">Assessment</h1>
 <p>Task to complete before the end of the workshop.</p>
-<p>Here is an example from a real dataset looking at the effects of experimental <strong>drought</strong> on soil invertebrate communities, called <code>invert_exp_survey.csv</code> <span class="citation" data-cites="Farkas2025">(<a href="references.html#ref-Farkas2025" role="doc-biblioref">Farkas et al., 2025</a>)</span>.</p>
+<p>Here is an example from a real dataset looking at the effects of experimental <strong>drought</strong> on soil invertebrate communities, called <code>invert_exp_survey.csv</code> <span class="citation" data-cites="Farkas2025">(<a href="#ref-Farkas2025" role="doc-biblioref">Farkas et al., 2025</a>)</span>.</p>
 <p>The invertebrate diversity is grouped at order level, with the exception of Crustacea (subphylum), Diplopoda (class), Chilopoda (class), and Annelida (phylum).</p>
 <p><img src="images/invert_diveristy.jpg" class="img-fluid"></p>
 <p>Use the skills that you learnt in the previous practical and this weeks practical to complete the following assessment with the example dataset <code>invert_exp_survey.csv</code>:</p>
@@ -848,7 +846,7 @@ D_2 = \frac{1}{\sum_{i=1}^{S} p_i^2}
 <p>*Note: It’s good to familiarise yourself with the Islands anyway as a backup project if your field or lab study does not go well.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Farkas2025" class="csl-entry" role="listitem">
 <strong>Farkas, K. R., Brown, Z. A., King, J. L., Nicotra, A. B., Head, M. L. and Arnold, P. A.</strong> (2025). <a href="https://doi.org/10.1111/een.70015">Combined heat and drought affect the abundance, composition and diversity of subalpine surface-active soil arthropod communities</a>. <em>Ecological Entomology</em>.
 </div>

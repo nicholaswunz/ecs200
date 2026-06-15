@@ -8,7 +8,7 @@
 
 <meta name="author" content="Nicholas Wu">
 
-<title>ECS200 - Research Methods in Ecology</title>
+<title>ECS200 Research Methods in Ecology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week1_getting_started.html" rel="next">
+<link href="./R_intro.html" rel="next">
 <link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -41,13 +41,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b04de4150bb9fa8515c8aba0ebe657d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -69,29 +69,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
 
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/MU_CREST_Red.png" alt="" class="navbar-logo">
-    </a>
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">ECS200 - Research Methods in Ecology</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
-</div>
-          <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -100,13 +86,32 @@ ul.task-list li input[type="checkbox"] {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -117,40 +122,122 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./week1_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week2_tidy_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week3_diversity_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week4_descriptive_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive Stats</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="./week5_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week6_nonparametric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Non-parametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week7_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">OPTIONAL - Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week8_multivariate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multivariate Analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week9_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL - Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL - Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_GLM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_random_effects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Effects</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./the_islands.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Islands</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -163,9 +250,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
   <ul class="collapse">
-  <li><a href="#learning-objectives-of-the-unit" id="toc-learning-objectives-of-the-unit" class="nav-link" data-scroll-target="#learning-objectives-of-the-unit">Learning Objectives of the Unit</a></li>
+  <li><a href="#unit-learning-objectives" id="toc-unit-learning-objectives" class="nav-link" data-scroll-target="#unit-learning-objectives">Unit Learning Objectives</a></li>
   </ul></li>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#schedule-to-update-2027" id="toc-schedule-to-update-2027" class="nav-link" data-scroll-target="#schedule-to-update-2027">Schedule (to update 2027)</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -175,8 +262,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ECS200 - Research Methods in Ecology</h1>
-<p class="subtitle lead">School of Environmental and Conservation Sciences, Murdoch University</p>
+<h1 class="title">ECS200 Research Methods in Ecology</h1>
+<p class="subtitle lead">School of Environmental and Conservation Sciences</p>
 </div>
 
 
@@ -193,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">19th Dec 2025</p>
+      <p class="date">10th Jun 2026</p>
     </div>
   </div>
   
@@ -205,28 +292,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Workshop materials in the github repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p>All workshop materials are provided in the github repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>, and the contents were developed by <a href="https://researchportal.murdoch.edu.au/esploro/profile/nicholas_wu/overview">Nicholas Wu</a> and <a href="https://researchportal.murdoch.edu.au/esploro/profile/alethea_rea/overview">Alethea Rea</a>.</p>
 <section id="welcome" class="level1 unnumbered">
 <h1 class="unnumbered">Welcome</h1>
-<p>The <a href="https://handbook.murdoch.edu.au/units/07/ecs200">ECS200 - Research Methods in Ecology</a> workshops will go through the steps of a typical data science project that looks something like Figure 1.</p>
+<p>The <a href="https://handbook.murdoch.edu.au/units/07/ecs200">ECS200 - Research Methods in Ecology</a> workshops will go through the steps of a typical research project that looks something like <strong>Figure 1</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/base.png" class="img-fluid figure-img"></p>
 <figcaption><strong>Fig. 1</strong>. You start with data import and tidying. Next, you understand your data with an iterative cycle of transforming, visualizing, and modeling. You finish the process by communicating your results to other humans.</figcaption>
 </figure>
 </div>
-<p>First, you must <strong>import</strong> (<a href="./week1_getting_started.html">week 1</a>) your data into R. This usually means loading data stored in a file, database, or web application programming interface (API) into a data frame in R. If you can’t get your data into R, you can’t do any data science with it!</p>
-<p>Once your data is imported, it’s a good idea to <strong>tidy</strong> (<a href="./week2_tidy_data.html">week 2</a>) it. Tidying means putting it into a consistent format where each column is a variable and each row is an observation. This alignment between the structure and meaning of the data makes analysis far easier. Tidy data lets you focus on answering questions rather than reformatting for each new task.</p>
-<p>Next, you’ll often <strong>transform</strong> (<a href="./week2_tidy_data.html">week 2</a>) your data. This might include filtering for specific observations (e.g.&nbsp;animals from one site or data from the past year), creating new variables (e.g.&nbsp;calculating speed from distance and time), or summarising patterns (e.g.&nbsp;counts or averages). Tidying and transforming are often called wrangling, because getting data into a usable form can feel like a struggle!</p>
+<p>First, you must <strong>import</strong> your data into R (<a href="./week1_getting_started.html">week 1</a>). This usually means loading data stored in a file, database, or web application programming interface (API) into a data frame in R. If you can’t get your data into R, you can’t do any data science with it!</p>
+<p>Once your data is imported, it’s a good idea to <strong>tidy</strong> it (<a href="./week2_tidy_data.html">week 2</a>). Tidying means putting it into a consistent format where each column is a variable and each row is an observation. This alignment between the structure and meaning of the data makes analysis far easier. Tidy data lets you focus on answering questions rather than reformatting for each new task.</p>
+<p>Next, you’ll often <strong>transform</strong> your data (<a href="./week2_tidy_data.html">week 2</a>). This might include filtering for specific observations (e.g.&nbsp;animals from one site or data from the past year), creating new variables (e.g.&nbsp;calculating speed from distance and time), or summarising patterns (e.g.&nbsp;counts or averages). Tidying and transforming are often called wrangling, because getting data into a usable form can feel like a struggle!</p>
 <p>Once you have tidy, relevant data, you’ll typically turn to two main tools: visualisation and modelling. These are complementary, and most analyses move back and forth between them.</p>
 <ul>
-<li><p><strong>Visualisation</strong> (<a href="./week4_descriptive_stats.html">week 4</a>) is fundamental. A good plot can reveal unexpected patterns or raise new questions. It might even suggest you’re asking the wrong question or need better data. Visualisations can be powerful—but they don’t scale well, since they rely on human interpretation.</p></li>
-<li><p><strong>Models</strong> (week 5 to week 12) complement visualisation. Once you’ve clearly defined your questions, a model can help answer them. Models are mathematical or computational, so they scale well—and if needed, more computers are easier to get than more people! However, models come with assumptions and can’t question those assumptions or truly surprise you.</p></li>
+<li><p><strong>Visualisation</strong> is fundamental (<a href="./week4_descriptive_stats.html">week 4</a>). A good plot can reveal unexpected patterns or raise new questions. It might even suggest you’re asking the wrong question or need better data. Visualisations can be powerful—but they don’t scale well, since they rely on human interpretation.</p></li>
+<li><p><strong>Models</strong> (week 5 to week 13) complement visualisation. Once you’ve clearly defined your questions, a model can help answer them. Models are mathematical or computational, so they scale well—and if needed, more computers are easier to get than more people! However, models come with assumptions and can’t question those assumptions or truly surprise you.</p></li>
 </ul>
 <p>The final step in data science is <strong>communication</strong> (visualisation and model weeks). Even the best models or visuals are useless unless you can clearly explain your findings to others. Effective communication is critical.</p>
 <p>Surrounding all these activities is <strong>programming</strong>. You’ll use code throughout every step of a data science project. You don’t need to be a programming expert, but improving your coding skills pays off—it helps you automate tasks and solve problems more efficiently.</p>
-<section id="learning-objectives-of-the-unit" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives-of-the-unit">Learning Objectives of the Unit</h2>
+<section id="unit-learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="unit-learning-objectives">Unit Learning Objectives</h2>
 <p>At the end of the unit, students should be able to:</p>
 <ol type="1">
 <li><strong>Design</strong> ecological research using appropriate sampling strategies and analytical methods.</li>
@@ -237,8 +324,10 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 </section>
 </section>
-<section id="schedule" class="level1">
-<h1>Schedule</h1>
+<section id="schedule-to-update-2027" class="level1">
+<h1>Schedule (to update 2027)</h1>
+<p>If you are not familiar with R, please go through this <a href="./R_intro.html">tutorial</a> and get yourself familar before the workshops start.</p>
+<p>If you are not familiar with R, please go through the <a href="R.intro.qmd">Introduction to R</a> tutorial before class.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -252,85 +341,92 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td style="text-align: center;"><a href="./week1_getting_started.html">Data quality checks</a></td>
-<td style="text-align: center;">23-Feb</td>
+<td style="text-align: center;"><a href="./week1_getting_started.html">Data quality check</a></td>
+<td style="text-align: center;">25-Feb</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
 <td style="text-align: center;"><a href="./week2_tidy_data.html">Tidy data and clean code</a></td>
-<td style="text-align: center;">02-Mar</td>
+<td style="text-align: center;">04-Mar</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
 <td style="text-align: center;"><a href="./week3_diversity_index.html">Diversity indices</a></td>
-<td style="text-align: center;">09-Mar</td>
+<td style="text-align: center;">11-Mar</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
 <td style="text-align: center;"><a href="./week4_descriptive_stats.html">Descriptive statistics</a></td>
-<td style="text-align: center;">16-Mar</td>
+<td style="text-align: center;">18-Mar</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td style="text-align: center;">Statistics 1</td>
-<td style="text-align: center;">23-Mar</td>
+<td style="text-align: center;"><a href="./week5_inference.html">t-test, ANOVA, simple regression</a></td>
+<td style="text-align: center;">25-Mar</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td style="text-align: center;">Statistics 2</td>
-<td style="text-align: center;">30-Mar</td>
+<td style="text-align: center;"><a href="./week6_nonparametric.html">Chi-square and non-parametric tests</a></td>
+<td style="text-align: center;">01-Apr</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">7</td>
-<td style="text-align: center;"><strong>Study Week</strong></td>
+<td style="text-align: center;"><strong>Study Week</strong> <a href="./week7_time_series.html">Optional - Time series</a></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">8</td>
-<td style="text-align: center;">Statistics 3</td>
-<td style="text-align: center;">13-Apr</td>
+<td style="text-align: center;"><a href="./week8_multivariate.html">Multiple regression</a></td>
+<td style="text-align: center;">15-Apr</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">9</td>
-<td style="text-align: center;">Mid-semester test</td>
-<td style="text-align: center;">20-Apr</td>
+<td style="text-align: center;">Mid-semester test <a href="./week9_spatial.html">Optional - Spatial data</a></td>
+<td style="text-align: center;">22-Apr</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">10</td>
-<td style="text-align: center;"><strong>Study Week</strong></td>
+<td style="text-align: center;"><strong>Study Week</strong> <a href="./week10_movement.html">Optional - Movement data</a></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">11</td>
-<td style="text-align: center;">Statistics 4</td>
-<td style="text-align: center;">04-May</td>
+<td style="text-align: center;"><a href="./week11_GLM.html">Generalised linear model</a></td>
+<td style="text-align: center;">06-May</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">12</td>
-<td style="text-align: center;">Statistics 5</td>
-<td style="text-align: center;">11-May</td>
+<td style="text-align: center;"><a href="./week12_random_effects.html">Extensions to GLMs</a></td>
+<td style="text-align: center;">13-May</td>
+<td style="text-align: center;">8:30 - 10:30</td>
+<td style="text-align: center;">450.2.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;"><a href="./week12_random_effects.html">Extensions to GLMs</a></td>
+<td style="text-align: center;">13-May</td>
 <td style="text-align: center;">8:30 - 10:30</td>
 <td style="text-align: center;">450.2.001</td>
 </tr>
@@ -435,7 +531,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -766,12 +862,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week1_getting_started.html" class="pagination-link" aria-label="Quality Check">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./R_intro.html" class="pagination-link" aria-label="Introduction to R">
+        <span class="nav-page-text">Introduction to R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
 
 
 

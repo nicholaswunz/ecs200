@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Quality Check – ECS200 - Research Methods in Ecology</title>
+<title>1&nbsp; Quality Check – ECS200 Research Methods in Ecology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./week2_tidy_data.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./R_intro.html" rel="prev">
 <link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -75,13 +75,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b04de4150bb9fa8515c8aba0ebe657d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -103,44 +103,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
 
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/MU_CREST_Red.png" alt="" class="navbar-logo">
-    </a>
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">ECS200 - Research Methods in Ecology</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
-</div>
-          <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week1_getting_started.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week1_getting_started.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week1_getting_started.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -151,40 +156,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./week1_getting_started.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week2_tidy_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week3_diversity_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week4_descriptive_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive Stats</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="./week5_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week6_nonparametric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Non-parametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week7_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">OPTIONAL - Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week8_multivariate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multivariate Analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week9_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL - Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL - Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_GLM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_random_effects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Effects</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./the_islands.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Islands</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -195,28 +282,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#before-we-start" id="toc-before-we-start" class="nav-link active" data-scroll-target="#before-we-start">Before we start</a>
-  <ul class="collapse">
-  <li><a href="#murdoch-computer" id="toc-murdoch-computer" class="nav-link" data-scroll-target="#murdoch-computer">Murdoch computer</a></li>
-  <li><a href="#your-own-computer" id="toc-your-own-computer" class="nav-link" data-scroll-target="#your-own-computer">Your own computer</a></li>
-  </ul></li>
-  <li><a href="#step-1-open-rstudio" id="toc-step-1-open-rstudio" class="nav-link" data-scroll-target="#step-1-open-rstudio">Step 1: Open RStudio</a></li>
-  <li><a href="#step-2-first-r-commands" id="toc-step-2-first-r-commands" class="nav-link" data-scroll-target="#step-2-first-r-commands">Step 2: First R Commands</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1-min" id="toc-exercise-1-min" class="nav-link" data-scroll-target="#exercise-1-min">Exercise (1 min)</a></li>
-  </ul></li>
-  <li><a href="#step-3-loading-packages" id="toc-step-3-loading-packages" class="nav-link" data-scroll-target="#step-3-loading-packages">Step 3: Loading Packages</a></li>
-  <li><a href="#step-4-loading-files" id="toc-step-4-loading-files" class="nav-link" data-scroll-target="#step-4-loading-files">Step 4: Loading Files</a></li>
-  <li><a href="#step-5-exploring-the-data" id="toc-step-5-exploring-the-data" class="nav-link" data-scroll-target="#step-5-exploring-the-data">Step 5: Exploring the Data</a></li>
-  <li><a href="#assessment-1" id="toc-assessment-1" class="nav-link" data-scroll-target="#assessment-1">Assessment 1</a>
-  <ul class="collapse">
-  <li><a href="#for-the-adventurous-folks" id="toc-for-the-adventurous-folks" class="nav-link" data-scroll-target="#for-the-adventurous-folks">For the adventurous folks</a></li>
-  </ul></li>
-  <li><a href="#part-2---quality-check" id="toc-part-2---quality-check" class="nav-link" data-scroll-target="#part-2---quality-check">Part 2 - Quality Check</a>
-  <ul class="collapse">
-  <li><a href="#background-reading" id="toc-background-reading" class="nav-link" data-scroll-target="#background-reading">Background reading</a></li>
-  </ul></li>
-  <li><a href="#before-we-start-1" id="toc-before-we-start-1" class="nav-link" data-scroll-target="#before-we-start-1">Before we start</a>
+  <li><a href="#background-reading" id="toc-background-reading" class="nav-link active" data-scroll-target="#background-reading">Background Reading</a></li>
+  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">Tidyverse</a></li>
+  <li><a href="#before-we-start" id="toc-before-we-start" class="nav-link" data-scroll-target="#before-we-start">Before We Start</a>
   <ul class="collapse">
   <li><a href="#exercise-5-min" id="toc-exercise-5-min" class="nav-link" data-scroll-target="#exercise-5-min">Exercise (5 min)</a></li>
   </ul></li>
@@ -230,39 +298,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#exercise-5-min-2" id="toc-exercise-5-min-2" class="nav-link" data-scroll-target="#exercise-5-min-2">Exercise (5 min)</a></li>
   </ul></li>
-  <li><a href="#check-for-duplicates" id="toc-check-for-duplicates" class="nav-link" data-scroll-target="#check-for-duplicates">1.3. Check for duplicates</a>
+  <li><a href="#checking-duplicates" id="toc-checking-duplicates" class="nav-link" data-scroll-target="#checking-duplicates">1.3. Checking duplicates</a>
   <ul class="collapse">
   <li><a href="#exercise-3-min" id="toc-exercise-3-min" class="nav-link" data-scroll-target="#exercise-3-min">Exercise (3 min)</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#step-2-visualising-data" id="toc-step-2-visualising-data" class="nav-link" data-scroll-target="#step-2-visualising-data">Step 2: Visualising Data</a>
   <ul class="collapse">
-  <li><a href="#check-for-outliers" id="toc-check-for-outliers" class="nav-link" data-scroll-target="#check-for-outliers">2.1 Check for outliers</a>
+  <li><a href="#check-for-outliers" id="toc-check-for-outliers" class="nav-link" data-scroll-target="#check-for-outliers">2.1 Check for outliers</a></li>
+  <li><a href="#is-data-normally-distributed" id="toc-is-data-normally-distributed" class="nav-link" data-scroll-target="#is-data-normally-distributed">2.2 Is data normally distributed?</a></li>
+  </ul></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a>
   <ul class="collapse">
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
-  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  <li><a href="#coding" id="toc-coding" class="nav-link" data-scroll-target="#coding">Coding</a></li>
+  <li><a href="#optional---for-the-adventurous-folks" id="toc-optional---for-the-adventurous-folks" class="nav-link" data-scroll-target="#optional---for-the-adventurous-folks">Optional - For the adventurous folks</a></li>
   </ul></li>
-  <li><a href="#is-the-data-normally-distributed" id="toc-is-the-data-normally-distributed" class="nav-link" data-scroll-target="#is-the-data-normally-distributed">2.2 Is the data normally distributed</a></li>
-  </ul></li>
-  <li><a href="#assessment-2" id="toc-assessment-2" class="nav-link" data-scroll-target="#assessment-2">Assessment 2</a>
-  <ul class="collapse">
-  <li><a href="#for-the-adventurous-folks-1" id="toc-for-the-adventurous-folks-1" class="nav-link" data-scroll-target="#for-the-adventurous-folks-1">For the adventurous folks</a></li>
-  </ul></li>
-  <li><a href="#extra-stuff" id="toc-extra-stuff" class="nav-link" data-scroll-target="#extra-stuff">Extra Stuff</a>
-  <ul class="collapse">
-  <li><a href="#why-is-my-code-not-working" id="toc-why-is-my-code-not-working" class="nav-link" data-scroll-target="#why-is-my-code-not-working">Why is my code not working!</a>
-  <ul class="collapse">
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
-  </ul></li>
-  <li><a href="#additional-resource" id="toc-additional-resource" class="nav-link" data-scroll-target="#additional-resource">Additional resource</a></li>
-  </ul></li>
+  <li><a href="#additional-resource" id="toc-additional-resource" class="nav-link" data-scroll-target="#additional-resource">Additional Resource</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week1_getting_started.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week1_getting_started.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></h1>
 </div>
@@ -282,294 +341,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><strong>Week 1</strong> - Quality checks and data exploration</p>
-<p>In this first workshop, we’ll introduce you to <strong>R</strong>, <strong>RStudio</strong>, and the basics of coding. You’ll be writing your first lines of R code and importing data today!</p>
-<section id="before-we-start" class="level1 unnumbered">
-<h1 class="unnumbered">Before we start</h1>
-<p>This step can be skipped if you have R and Rstudio already downloaded and installed.</p>
-<section id="murdoch-computer" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="murdoch-computer">Murdoch computer</h3>
-<p>All Murdoch computers have R and Rstudio available. Login to your account and access Rstudio on your work computer.</p>
-</section>
-<section id="your-own-computer" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="your-own-computer">Your own computer</h3>
-<p>If you are using your own personal computer in this unit, here are the steps for downloading and installing R and Rstudio.</p>
-<ol type="1">
-<li><strong>Install R</strong>
-<ul>
-<li>Go to <a href="https://cran.r-project.org">https://cran.r-project.org</a></li>
-<li>Choose your operating system and follow the instructions to install.</li>
-</ul></li>
-<li><strong>Install RStudio</strong>
-<ul>
-<li>Go to <a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a></li>
-<li>Download the free version of RStudio Desktop.</li>
-<li>Install it on your computer.</li>
-</ul></li>
-</ol>
-</section>
-</section>
-<section id="step-1-open-rstudio" class="level1 unnumbered">
-<h1 class="unnumbered">Step 1: Open RStudio</h1>
-<p>Once you have opened RStudio, you are introduced to the interface where you can see four panels:</p>
-<ul>
-<li><strong>Console</strong>: Where commands run.</li>
-<li><strong>Source</strong>: Where you write and save your code.</li>
-<li><strong>Environment/History</strong>: See your datasets and objects (variables) and previous commands (“History” tab).</li>
-<li><strong>Plots/Packages/Help/Files</strong>: View graphs and manage tools. You can also use the “Files” tab to navigate and set the working directory. The “Plots” tab will show the output of any plots generated. In “Packages” you will see what packages are actively loaded, or you can attach installed packages. “Help” will display help files for R functions and packages. “Viewer” will allow you to view local web content (e.g.&nbsp;HTML outputs).</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/rstudio_session_4pane_layout.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Fig. 1</strong>. Layout with the four major windows (or panals) of the RStudio environment.</figcaption>
-</figure>
-</div>
-</section>
-<section id="step-2-first-r-commands" class="level1 unnumbered">
-<h1 class="unnumbered">Step 2: First R Commands</h1>
-<p>Click <strong>File &gt; New File &gt; R Script</strong> to start.</p>
-<p>Start by noting who is writing, the date, and the main goal. In our case, determining how many species from different taxa have been recorded in Perth Here’s an example, which you can copy, paste and edit into your new script and change the content:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 1 workshop - Getting started</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting familiar with R and load a file</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Written by Nicholas Wu, 06/11/2024, Murdoch University</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The # (hash/pound) is to tell R to not run this line of text. i.e., the comment will not be evaluated. Typically, the # is used to annotate or give explanation for what the code is doing.</p>
-<p><strong>Note</strong>: Comment often and in detail. Someone should be able to understand what you did and why. Including your future self.</p>
-<p>Let’s try typing and running some code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a variable: number of frogs counted at a pond</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>frogs <span class="ot">&lt;-</span> <span class="dv">18</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 5 frogs observed the next day</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>frogs_total <span class="ot">&lt;-</span> frogs <span class="sc">+</span> <span class="dv">5</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print result</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>frogs_total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here, you can created a new object <code>frogs</code> with the assignment operator “<a href="https://stackoverflow.com/questions/6140694/is-there-a-technical-difference-between-and">&lt;-</a>”. <strong>object_name &lt;- value</strong></p>
-<p>Try this one too:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean leaf size of 5 Eucalyptus trees (cm²)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>leaf_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">23.4</span>, <span class="fl">21.8</span>, <span class="fl">25.1</span>, <span class="fl">19.7</span>, <span class="fl">22.5</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average leaf size using the mean() function</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(leaf_sizes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can combine multiple elements into a <a href="https://www.w3schools.com/r/r_vectors.asp">vector</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> with <code>c()</code>.</p>
-<section id="exercise-1-min" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="exercise-1-min">Exercise (1 min)</h3>
-<p>🧪 <strong>Challenge: How would you find the largest leaf size?</strong></p>
-<details>
-<summary>
-<strong>Show answer</strong>
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(leaf_sizes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
-</section>
-</section>
-<section id="step-3-loading-packages" class="level1 unnumbered">
-<h1 class="unnumbered">Step 3: Loading Packages</h1>
-<p><img src="images/base_import.png" class="img-fluid"></p>
-<p>The next few lines of code usually load the packages you will be needing for your analysis. A <strong>package</strong> is a bundle of commands that can be loaded into R to provide extra functionality. For example, you might load a package for formatting data, or for making maps.</p>
-<p>To install a package, type <code>install.packages("package-name")</code>. You only need to install packages once, so in this case you can type directly in the console box, rather than saving the line in your script and re-installing the package every time.</p>
-<p>Once installed, you just need to load the packages using <code>library(package-name)</code>. Here, we will load the most common packages we will be using in this unit.</p>
-<p>The next lines of code should define your <strong>working directory</strong>. This is a folder on your computer where R will look for data, save your plots, etc. To make your workflow easier, it is good practice to save everything related to one project in the same place, as it will save you a lot of time typing up computer paths or hunting for files that got saved R-knows-where.</p>
-<p>For instance, you could save your script and all the data for this tutorial in a folder called “Intro_to_R”. (It is good practice to avoid spaces in file names as it can sometimes confuse R.) For bigger projects, consider having a root folder with the name of the project (e.g.&nbsp;“My_PhD”) as your working directory, and other folders nested within to separate data, scripts, images, etc. (e.g.&nbsp;My_PhD/Chapter_1/data, My_PhD/Chapter_1/plots, My_PhD/Chapter_2/data, etc.)</p>
-<p>To find out where your working directory is now, run the code <code>getwd()</code>. If you want to change it, you can use <code>setwd()</code>. Set your working directory to the folder you just downloaded from GitHub:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages using the install.packages() function.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tidyverse package</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an example filepath. Change the quoted area to your own filepath</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/User/CC-1-RBasics-master"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>There are quotation marks when installing a package, but not when loading it.</p>
-</div>
-</div>
-</section>
-<section id="step-4-loading-files" class="level1 unnumbered">
-<h1 class="unnumbered">Step 4: Loading Files</h1>
-<p>Imagine we’ve collected leaf-trait data to look at the growth of seedlings from <strong>untreated</strong> (control) and <strong>calcium-treated</strong> sites. The additional calcium is hypothesised to increase the growth of the seedlings. The file is called <code>plant_calcium.csv</code> from the GitHub page. The original data with background explanation of the study is linked <a href="https://lter.github.io/lterdatasampler/articles/hbr_maples_vignette.html">here</a>.</p>
-<p>First, save the file from the <a href="https://github.com/nicholaswunz/ECS200-Workshop">GitHub</a> page to your RStudio project folder (wherever you set your directory).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a CSV file</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plant_calcium_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/data/plant_calcium.csv"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(plant_calcium_data)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Displays the last rows</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(plant_calcium_data) </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># Tells you whether the variables are continuous, integers, categorical or characters</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(plant_calcium_data)                </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Remember to save your script once in a while! If you haven’t saved it already, why not save it in the same directory as the rest of the tutorial file, and give it a meaningful name.</p>
-</div>
-</div>
-</section>
-<section id="step-5-exploring-the-data" class="level1 unnumbered">
-<h1 class="unnumbered">Step 5: Exploring the Data</h1>
-<p><code>str(object.name)</code> is a great command that shows the structure of your data (<a href="https://resbaz.github.io/2014-r-materials/lessons/01-intro_r/data-structures.html">atomic class</a>). So often, analyses in R go wrong because R decides that a variable is a certain type of data that it is not. For instance, you might have four study groups that you simply called “1, 2, 3, 4”, and while you know that it should be a categorical grouping variable (i.e.&nbsp;a <strong>factor</strong>), R might decide that this column contains <strong>numeric</strong> (numbers) or <strong>integer</strong> (whole number or count) data. If your study groups were called “one, two, three, four”, R might decide it’s a <strong>character</strong> variable (words or strings of words), which will not get you far if you want to compare means among groups. Bottom line: always check your data structure!</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 26%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Class</th>
-<th style="text-align: center;">Description</th>
-<th style="text-align: center;">Examples</th>
-<th style="text-align: center;">Use</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">numeric</td>
-<td style="text-align: center;">These are numbers that can take any value within a range (continuous).</td>
-<td style="text-align: center;">3.14, -2.5, 100.5</td>
-<td style="text-align: center;">Height, weight, temperature.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">integers</td>
-<td style="text-align: center;">Whole numbers without decimal points.</td>
-<td style="text-align: center;">1, 10, 100, 0, -42</td>
-<td style="text-align: center;">Counting items, indexing.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">factors</td>
-<td style="text-align: center;">Variables that take on a limited number of distinct values (categorical).</td>
-<td style="text-align: center;">“low”, “medium”, “high” or “male”, “female”</td>
-<td style="text-align: center;">Grouping data, statistical modeling.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">character</td>
-<td style="text-align: center;">Text data.</td>
-<td style="text-align: center;">“apple”, “hello world”</td>
-<td style="text-align: center;">Names, labels, descriptions.</td>
-</tr>
-</tbody>
-</table>
-<p>You can see that when you run <code>str(plant_calcium_data)</code>, each column has the name of the varliable and the class type next to them. e.g.&nbsp;<code>year</code> is a <em>num</em> class (numeric), <code>elevation</code> is a <em>chr</em> class (character) etc.</p>
-<p>You’ll notice the <code>watershed</code> variable shows as a character variable, but it should be a factor (categorical variable) consisting of a <em>reference</em> (untreated) category and a <em>W1</em> (calcium-trated) category, so we’ll force it to be one. When you want to access just one column of a data frame, you append the variable name to the object name with a dollar $sign. This syntax lets you see, modify, and/or reassign this variable.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Displays the first few rows of this column only (the reference group)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(plant_calcium_data<span class="sc">$</span>watershed)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tells you what type of variable we're dealing with: it's character now but we want it to be a factor</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(plant_calcium_data<span class="sc">$</span>watershed)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># What are we doing here?!</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plant_calcium_data<span class="sc">$</span>watershed <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(plant_calcium_data<span class="sc">$</span>watershed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>In that last line of code, the <code>as.factor(</code>) function turns whatever values you put inside into a factor (here, we specified we wanted to transform the character values in the <code>watershed</code> column from the edidiv object). However, if you were to run just the bit of code on the right side of the arrow, it would work that one time, but would not modify the data stored in the object. By assigning with the arrow the output of the function to the variable, the original <code>plant_calcium_data$watershed</code> in fact gets overwritten : the transformation is stored in the object. Try again to run <code>class(plant_calcium_data$watershed)</code> - what do you notice?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># More exploration</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Displays number of rows and columns</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(plant_calcium_data)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Gives you a summary of the data</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plant_calcium_data)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a> <span class="co"># Gives you a summary of that particular variable (column) in your dataset</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plant_calcium_data<span class="sc">$</span>watershed) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Whenever you see an error like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in library(ggrepel) : there is no package called ‘ggrepel’</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You need to run <code>install.packages("ggrepel")</code> to install the package.</p>
-</div>
-</div>
-</section>
-<section id="assessment-1" class="level1 unnumbered">
-<h1 class="unnumbered">Assessment 1</h1>
-<p>Task to complete before the end of the workshop.</p>
-<ol type="1">
-<li>Create and manipulate variables:</li>
-</ol>
-<ul>
-<li>Create a variable called <code>birds</code> and assign it a value (e.g., number of birds seen).</li>
-<li>Create another variable called <code>sites</code> and a value between 2 and 10.</li>
-<li>Add a third observation and multiple <code>birds</code> and <code>sites</code> to get the result in a new variable <code>birds_total</code>.</li>
-</ul>
-<ol start="2" type="1">
-<li>Work with vectors:</li>
-</ol>
-<ul>
-<li>Create a vector called <code>tree_heights</code> with ten numeric values, or generate.</li>
-<li>Find the average tree height using the base R function.</li>
-<li>Find the minimum tree height using the base R function.</li>
-</ul>
-<ol start="3" type="1">
-<li>Set a new R script working directory:</li>
-</ol>
-<ul>
-<li>Create a new R script and include the header with the workshop name, the main goal and your name and date for the next workshop.</li>
-<li>Load the <code>tidyverse</code> package.</li>
-<li>set up your directory.</li>
-<li>Load the <code>plant_calcium.csv</code>.</li>
-</ul>
-<p>We will use this new R script for the next workshop.</p>
-<p><strong>Note</strong>: You can use Google and ChatGPT to find the appropriate function. In the real world, you won’t be remembering every single function, but your skills in finding and using the right function will greatly help your career. In your future job, don’t just blindly cut and paste code to your R script. Understand why the code is presented and if it is relevent to your task. I’ve noticed AI models sometimes give extra code or takes unncessesary steps to get to the answer. Be efficient and comfortable with your code.</p>
-<section id="for-the-adventurous-folks" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="for-the-adventurous-folks">For the adventurous folks</h2>
-<p>For those comfortable with R and coding and would like an additional challenge. Here is a task for you before the next week.</p>
-<ul>
-<li>Create a vector <code>tree_heights</code> with 100 numeric values between 0-50 using the R random number generator.</li>
-<li>Find the quartile range of the from the <code>tree_heights</code>vector.</li>
-</ul>
-</section>
-</section>
-<section id="part-2---quality-check" class="level1 unnumbered">
-<h1 class="unnumbered">Part 2 - Quality Check</h1>
+<p>In this section, you will learn how to check the quality of the raw data you imported, and steps to correct errors in the raw data. Workshop materials are available in the github repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
 <blockquote class="blockquote">
 <p>All statistical techniques have in common the problem of ‘<em>rubbish in, rubbish out</em>’</p>
 </blockquote>
-<p>In this section, you will learn how to check the quality of the raw data you imported, and steps to correct errors in the raw data.</p>
 <p><img src="images/base_tidy.png" class="img-fluid"></p>
 <section id="background-reading" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="background-reading">Background reading</h2>
+<h2 class="unnumbered anchored" data-anchor-id="background-reading">Background Reading</h2>
 <p>How do we know the data is ready for analysis? Before we do any analysis, we need to check the raw data for the following:</p>
 <ul>
 <li><strong>Check data structure and types</strong>: Use <code>str()</code> and <code>summary()</code> to ensure each column is the correct type (numeric, factor, character, etc.) and matches your expectations. e.g., Convert relevant character columns to factors for categorical analysis.</li>
@@ -583,32 +361,107 @@ Note
 </ul>
 <p>These steps help ensure your data is reliable, interpretable, and suitable for statistical analysis. Importantly, it makes you a trustworthy researcher!</p>
 </section>
-</section>
-<section id="before-we-start-1" class="level1 unnumbered">
-<h1 class="unnumbered">Before we start</h1>
-<p>Click <strong>File &gt; New File &gt; R Script</strong> to start. Write the workshop name, the main goal and your name and date. Always do this when starting a new script.</p>
+<section id="tidyverse" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="tidyverse">Tidyverse</h2>
+<p>From here on, we will follow the <code>tidyverse</code> syntax for consistency. Tidyverse is a collection of R packages designed for data import, cleaning, manipulation, visualisation, and analysis</p>
+<p>It is widely used in ecology because ecological datasets are often large, messy, spatial or temporal related, and often have nested replicates. Tidyverse provides a consistent and readable workflow.</p>
+<p>Some important concepts include:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Pipes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Data Structure</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The pipe operator (either <code>%&gt;%</code> or <code>|&gt;</code>) passes the output of one step into the next step.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 1 workshop - Getting started</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting familiar with R and load a file</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Written by Nicholas Wu, 06/11/2024, Murdoch University</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="co"># first step is your data source</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>() <span class="sc">%&gt;%</span> <span class="co"># next step is what you want to do to the data</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>() <span class="co"># the following step after you have done step 1 and so on.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Without pipes</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">log</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># with pipes</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pipes make ecological workflows easier to read because analyses often involve multiple steps. An example workflow includes</p>
+<ul>
+<li>Import data</li>
+<li>Filter sites</li>
+<li>Remove missing values</li>
+<li>Calculate summaries</li>
+<li>Plot results</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>As a general rule, tidyverse works best if the data looks like this:</p>
+<p><img src="images/tidy_table.png" class="img-fluid"></p>
+<ul>
+<li>Each row = one observation</li>
+<li>Each column = one variable</li>
+<li>Each cell = one value</li>
+</ul>
+<p>The way you record information in the field or in the lab is probably very different to the way you want your data entered into R.</p>
+<p>In the field, you want tables that you can ideally draw up ahead of time and fill in as you go, and you will be adding notes and all sorts of information in addition to the data you want to analyse. For instance, if you monitor the height of seedlings during a factorial experiment using warming and fertilisation treatments, you might record your data like this:</p>
+<p><img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/data_excel.png" class="img-fluid"></p>
+<p>Let’s say you want to run a test to determine whether warming and/or fertilisation affected seedling growth. <strong>You may know how your experiment is set up, but R doesn’t!</strong> At the moment, with 8 measures per row (combination of all treatments and species for one replicate, or block), you cannot run an analysis. On the contrary, tidy datasets are arranged so that each row represents an observation and each column represents a variable. In our case, this would look something like this:</p>
+<p><img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/data_tidy.png" class="img-fluid"></p>
+<p>This makes a much longer dataframe row-wise, which is why this form is often called <em>long format</em>. Now if you wanted to compare between groups, treatments, species, etc., R would be able to split the dataframe correctly, as each grouping factor has its own column.</p>
+<p>Example dataset in R suitable for tidyverse:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is the a an example species and mass using the data.frame function.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">site =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Skink"</span>, <span class="st">"Agamid"</span>, <span class="st">"Skink"</span>, <span class="st">"Frog"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">temperature =</span> <span class="fu">c</span>(<span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">26</span>, <span class="dv">22</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">abundance =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">4</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Output:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>example_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  site species temperature abundance
+1    A   Skink          28         5
+2    A  Agamid          31         2
+3    B   Skink          26         8
+4    B    Frog          22         4</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="before-we-start" class="level1 unnumbered">
+<h1 class="unnumbered">Before We Start</h1>
+<p>Create a new R file. You don’t need to save the previous one. Click <strong>File &gt; New File &gt; R Script</strong> to start. Write the workshop name, your name, your student number, and date. Always do this when starting a new script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 1 workshop - Data quality check</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Written by Nicholas Wu, 1234578, 06/11/2026</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="exercise-5-min" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="exercise-5-min">Exercise (5 min)</h3>
 <p>🧪 <strong>Get your workflow set up</strong></p>
 <p>Next, load your appropriate packages (the same <code>tidyverse</code>, and a one for visualising missing data called <a href="https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html"><code>visdat</code></a> at this stage), set your working directory via <code>setwd()</code>, and load the <code>plant_calcium.csv</code> via <code>read_csv()</code>.</p>
-<p>Lets call the imported data object <code>plant_data.csv</code> this time.</p>
+<p>Lets call the imported data object <code>plant_calcium_data</code> this time.</p>
+<p>Details on installing and loading R prackages, setting your working directory, and loading your csv file can be found in the pre-lab <a href="./R_intro.html">Introduction to R</a> tutorial.</p>
 <details>
 <summary>
 <strong>Show answer</strong>
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("visdat")</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a CSV file</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plant_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"YOUR-LOCAL-DIRECTORY/plant_calcium.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("visdat")</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load relevent libraries</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your working directory</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"YOUR-LOCAL-DIRECTORY/"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a CSV file</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plant_calcium_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"plant_calcium.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </section>
@@ -628,24 +481,53 @@ Note
 <p><img src="images/check_initial.png" class="img-fluid"></p>
 <p>For small datasets (like in this workshop) it is easier to make fixes directly from Excel and import the new .csv file. As before, we will check the data here first with the <code>str()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the structure of your data</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(plant_data)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a summary of all variables</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plant_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the structure of your data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(plant_calcium_data)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(plant_calcium_data)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a summary of all variables</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plant_calcium_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you would like to change the mistake in R directly, here is the code to do so using the <code>recode()</code> function. For example, let’s say you have three sites called A, B, C, but you noticed one site was mistakenly labelled as E. Here is how to change “E” to “B”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create fake dataframe with A,B,C sites but one is mislabelled E.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">site =</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"A"</span>,<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"E"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"C"</span>,<span class="st">"C"</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_1 =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">8</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>fake_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">site =</span> <span class="fu">recode</span>(site, <span class="st">"E"</span> <span class="ot">=</span> <span class="st">"B"</span>)) <span class="co"># recode order by providing the variable you want to change "E", and the new variable name "B".</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s say you have a character that is suppose to be a numeric value. e.g.&nbsp;“nine” instead of “9”, you will do the same thing as above but convert ‘chr’ to ‘num’ using <code>as.numeric()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create fake dataframe with species numbers but one was not correctly labelled.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">site =</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"A"</span>,<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"E"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"C"</span>,<span class="st">"C"</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_1 =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="st">"nine"</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">8</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new object called fake_clean_data that replaces 'nine' with '9' and change species_1 to numeric</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>fake_clean_data <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species_1 =</span> <span class="fu">recode</span>(species_1, <span class="st">"nine"</span> <span class="ot">=</span> <span class="st">"9"</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">species_1 =</span> <span class="fu">as.numeric</span>(species_1))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># check if species_1 is numeric in the new fake_clean_data</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(fake_clean_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="exercise-5-min-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="exercise-5-min-1">Exercise (5 min)</h3>
 <p>🧪 <strong>Find the incorrect class in this dataset</strong></p>
 <p>I have created an example dataset called <code>fake_data</code> with three things wrong with it. Find the three issues in this dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">site =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"a"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_1 =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">38</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">31</span>, <span class="dv">34</span>, <span class="dv">22</span>, <span class="dv">41</span>, <span class="dv">25</span>, <span class="dv">22</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">13</span>, <span class="dv">45</span>, <span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">7</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">19</span>, <span class="dv">2</span>, <span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">38</span>, <span class="dv">27</span>, <span class="dv">44</span>, <span class="dv">44</span>),</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_2 =</span> <span class="fu">c</span>(<span class="fl">9.3</span>, <span class="fl">8.6</span>, <span class="fl">0.8</span> , <span class="fl">7.5</span>, <span class="dv">9</span> , <span class="fl">9.1</span>, <span class="fl">4.3</span>, <span class="fl">8.6</span>, <span class="fl">0.1</span>, <span class="fl">7.8</span>, <span class="fl">1.2</span>, <span class="fl">6.2</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="fl">7.4</span>, <span class="fl">1.9</span>, <span class="fl">8.3</span>, <span class="fl">7.8</span>, <span class="fl">2.9</span>, <span class="fl">9.3</span>, <span class="fl">9.1</span>, <span class="fl">2.3</span>, <span class="fl">6.3</span>, <span class="fl">8.5</span>, <span class="fl">6.5</span>, <span class="fl">6.6</span>, <span class="st">"1,7"</span>, <span class="fl">1.8</span>, <span class="fl">8.4</span>, <span class="fl">4.7</span>, <span class="fl">4.7</span>),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_3 =</span> <span class="fu">c</span>(<span class="dv">190</span>, <span class="dv">160</span>, <span class="dv">70</span>, <span class="dv">430</span>, <span class="dv">310</span>, <span class="dv">99</span>, <span class="dv">530</span>, <span class="dv">420</span>, <span class="dv">371</span>, <span class="dv">357</span>, <span class="dv">198</span>, <span class="dv">171</span>, <span class="dv">463</span>, <span class="dv">124</span>, <span class="dv">254</span>, <span class="dv">484</span>, <span class="dv">435</span>, <span class="dv">409</span>, <span class="dv">122</span>, <span class="dv">305</span>, <span class="dv">410</span>, <span class="dv">162</span>, <span class="dv">473</span>, <span class="dv">200</span>, <span class="dv">401</span>, <span class="dv">273</span>, <span class="dv">421</span>, <span class="dv">419</span>, <span class="dv">293</span>, <span class="dv">487</span>, <span class="dv">487</span>),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_4 =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="fl">6.7</span>, <span class="dv">3</span>, <span class="fl">7.2</span>, <span class="fl">4.3</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="fl">1.7</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="fl">8.2</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">site =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"a"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_1 =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">38</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">31</span>, <span class="dv">34</span>, <span class="dv">22</span>, <span class="dv">41</span>, <span class="dv">25</span>, <span class="dv">22</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">13</span>, <span class="dv">45</span>, <span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">7</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">19</span>, <span class="dv">2</span>, <span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">38</span>, <span class="dv">27</span>, <span class="dv">44</span>, <span class="dv">44</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_2 =</span> <span class="fu">c</span>(<span class="fl">9.3</span>, <span class="fl">8.6</span>, <span class="fl">0.8</span> , <span class="fl">7.5</span>, <span class="dv">9</span> , <span class="fl">9.1</span>, <span class="fl">4.3</span>, <span class="fl">8.6</span>, <span class="fl">0.1</span>, <span class="fl">7.8</span>, <span class="fl">1.2</span>, <span class="fl">6.2</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="fl">7.4</span>, <span class="fl">1.9</span>, <span class="fl">8.3</span>, <span class="fl">7.8</span>, <span class="fl">2.9</span>, <span class="fl">9.3</span>, <span class="fl">9.1</span>, <span class="fl">2.3</span>, <span class="fl">6.3</span>, <span class="fl">8.5</span>, <span class="fl">6.5</span>, <span class="fl">6.6</span>, <span class="st">"1,7"</span>, <span class="fl">1.8</span>, <span class="fl">8.4</span>, <span class="fl">4.7</span>, <span class="fl">4.7</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_3 =</span> <span class="fu">c</span>(<span class="dv">190</span>, <span class="dv">160</span>, <span class="dv">70</span>, <span class="dv">430</span>, <span class="dv">310</span>, <span class="dv">99</span>, <span class="dv">530</span>, <span class="dv">420</span>, <span class="dv">371</span>, <span class="dv">357</span>, <span class="dv">198</span>, <span class="dv">171</span>, <span class="dv">463</span>, <span class="dv">124</span>, <span class="dv">254</span>, <span class="dv">484</span>, <span class="dv">435</span>, <span class="dv">409</span>, <span class="dv">122</span>, <span class="dv">305</span>, <span class="dv">410</span>, <span class="dv">162</span>, <span class="dv">473</span>, <span class="dv">200</span>, <span class="dv">401</span>, <span class="dv">273</span>, <span class="dv">421</span>, <span class="dv">419</span>, <span class="dv">293</span>, <span class="dv">487</span>, <span class="dv">487</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_4 =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="fl">6.7</span>, <span class="dv">3</span>, <span class="fl">7.2</span>, <span class="fl">4.3</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="fl">1.7</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="fl">8.2</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What are the identified issues?</p>
 <details>
@@ -665,32 +547,39 @@ Note
 <p>Missing data may appear as blanks, “NA”, “.”, or other placeholders. If not handled properly, this can cause errors or misinterpretation during analysis.</p>
 <p><img src="images/check_missing.png" class="img-fluid"></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values in each column</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(plant_data))</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise missing data pattern</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_dat</span>(plant_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values in each column</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(plant_calcium_data))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise missing data pattern</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_dat</span>(plant_calcium_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>vis_dat()</code> visualises the whole dataframe at once, and provides information about the class of the data input into R, as well as whether the data is missing or not.</p>
 <p>The function <code>vis_miss()</code> provides a summary of whether the data is missing or not. It also provides the amount of missings in each columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise missing data pattern</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(plant_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise missing data pattern</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(plant_calcium_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Option</strong>: Removing columns with missing values</p>
+<p><strong>Option</strong>: Removing columns with missing values.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removes all rows with NA in the dataset</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plant_data_clean <span class="ot">&lt;-</span> plant_data <span class="sc">%&gt;%</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># not recommended if NA is scattered across columns (e.g. leaf1area) because some important variables might be dropped out.</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where NA is present in the elevation column only.</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plant_data_clean <span class="ot">&lt;-</span> plant_data <span class="sc">%&gt;%</span> </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(elevation)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the vis_miss again on the clean data to check if the NA rows are removed. </span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(plant_data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removes all rows with NA in the dataset</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plant_data_clean <span class="ot">&lt;-</span> plant_calcium_data <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># not recommended if NA is scattered across columns (e.g. leaf1area) because some important variables might be dropped out.</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># If you only want to drop rows where NA is present in the elevation column only.</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>plant_data_clean <span class="ot">&lt;-</span> plant_calcium_data <span class="sc">%&gt;%</span> </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(elevation)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the vis_miss again on the clean data to check if the NA rows are removed. </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(plant_data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week1_getting_started_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 <section id="exercise-5-min-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="exercise-5-min-2">Exercise (5 min)</h3>
@@ -706,44 +595,45 @@ Note
 <strong>Show answer</strong>
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values in each column</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(fake_data)) <span class="co"># species_4, # 5 missing values</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise missing data pattern</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_dat</span>(fake_data) </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where NA is present in the elevation column only.</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>fake_data_clean <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(species_4)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the vis_miss again on the clean data to check if the NA rows are removed. </span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(fake_data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values in each column</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(fake_data)) <span class="co"># species_4, # 5 missing values</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise missing data pattern</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_dat</span>(fake_data) </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where NA is present in the species_4 column only.</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>fake_data_clean <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(species_4)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the vis_miss again on the clean data to check if the NA rows are removed. </span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(fake_data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </section>
 </section>
-<section id="check-for-duplicates" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="check-for-duplicates">1.3. Check for duplicates</h2>
+<section id="checking-duplicates" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="checking-duplicates">1.3. Checking duplicates</h2>
 <p><img src="images/check_duplicate.png" class="img-fluid"></p>
 <p>There are two common duplicate types that can happen in your dataset.</p>
 <ol type="1">
 <li><strong>Row duplicates</strong>: where the values and names of two rows are identical 99% of the time, this is user error (e.g.&nbsp;copy pasted). These must be identified and removed.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(plant_data))  <span class="co"># Returns the number of duplicate rows</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View the duplicate rows themselves</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plant_data[<span class="fu">duplicated</span>(plant_data), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(plant_calcium_data))  <span class="co"># Returns the number of duplicate rows</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View the duplicate rows themselves</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plant_data[<span class="fu">duplicated</span>(plant_calcium_data), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In the <code>plant_data</code>, there are no row duplicates.</p>
+<p>In the <code>plant_calcium_data</code>, there are no row duplicates.</p>
 <ol start="2" type="1">
-<li><strong>Value duplicates</strong>: 90% of value duplicates in a column might be biologically realistic responses and is likely due to rounding of values during recording (e.g.&nbsp;values 2.5 and 2.5 might look duplicated due to user rounding. Actual values are 2.47 and 2.49). This is usually okay and can be kept in the dataset. User error occurs if there is a pattern in duplicates (e.g.&nbsp;<strong>2</strong>,<strong>2</strong>,6,1,<strong>2</strong>,<strong>2</strong>,9,4,<strong>2</strong>,<strong>2</strong>,5,9). This can occur due to copy and pasting in the following row by accident.</li>
+<li><strong>Value duplicates</strong>: 90% of value duplicates in a column might be biologically realistic responses and is likely due to rounding of values during recording (e.g.&nbsp;values 2.5 and 2.5 might look duplicated due to user rounding. Actual values are 2.47 and 2.49). This is usually okay and can be kept in the dataset.</li>
 </ol>
+<p>User error occurs if there is a pattern in duplicates (e.g.&nbsp;<strong>2</strong>,<strong>2</strong>,6,1,<strong>2</strong>, <strong>2</strong>,9,4,<strong>2</strong>,<strong>2</strong>,5,9). This can occur due to copy and pasting in the following row by accident.</p>
 <p>You the researcher must decide whether these duplicate responses are real or due to user error.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(plant_data<span class="sc">$</span>leaf_dry_mass))  <span class="co"># Returns the number of duplicate rows</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plant_data[<span class="fu">duplicated</span>(plant_data<span class="sc">$</span>leaf_dry_mass) <span class="sc">|</span> <span class="fu">duplicated</span>(plant_data<span class="sc">$</span>leaf_dry_mass, <span class="at">fromLast =</span> <span class="cn">TRUE</span>), ] <span class="co"># Returns all occurrences of duplicated numbers </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(plant_calcium_data<span class="sc">$</span>leaf_dry_mass))  <span class="co"># Returns the number of duplicate rows</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plant_data[<span class="fu">duplicated</span>(plant_calcium_data<span class="sc">$</span>leaf_dry_mass) <span class="sc">|</span> <span class="fu">duplicated</span>(plant_calcium_data<span class="sc">$</span>leaf_dry_mass, <span class="at">fromLast =</span> <span class="cn">TRUE</span>), ] <span class="co"># Returns all occurrences of duplicated numbers </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the <code>leaf_dry_mass</code> column, there are 51 value duplicates.</p>
 <section id="exercise-3-min" class="level3 unnumbered">
@@ -759,15 +649,15 @@ Note
 <strong>Show answer</strong>
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data)) <span class="co"># 1 duplicate found</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View the duplicate rows themselves</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>fake_data[<span class="fu">duplicated</span>(fake_data), ] <span class="co">#1 duplicate row in row 31</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_1))  <span class="co"># species_1 = 7</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_2))  <span class="co"># species_2 = 6</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_3))  <span class="co"># species_3 = 1</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_4))  <span class="co"># species_4 = 15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data)) <span class="co"># 1 duplicate found</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View the duplicate rows themselves</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>fake_data[<span class="fu">duplicated</span>(fake_data), ] <span class="co">#1 duplicate row in row 31</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_1))  <span class="co"># species_1 = 7</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_2))  <span class="co"># species_2 = 6</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_3))  <span class="co"># species_3 = 1</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(fake_data<span class="sc">$</span>species_4))  <span class="co"># species_4 = 15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </section>
@@ -784,46 +674,39 @@ Note
 <li><strong>Indicate user error</strong>: Data entry mistakes (e.g., typing 1000 instead of 100), measurement errors (e.g., faulty sensors), incorrect data merging (e.g., mixing units like metres and feet).</li>
 </ol>
 <p>There are different ways we can check for outliers. See a more comprehensive <a href="https://statsandr.com/blog/outliers-detection-in-r/">page</a> for more options. Here, we will create two common plots to check for outliers, and run some simple methods for detecting and removing outliers.</p>
-<section id="boxplot" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="boxplot">Boxplot</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Boxplot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>We can use the <code>ggplot()</code> function from the <a href="https://www.sthda.com/english/wiki/ggplot2-essentials"><code>ggplot</code></a> package to create a boxplot via <code>geom_boxplot()</code> showing the distribution of the <code>lead2area</code> data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of leaf2area to detect potential outliers</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant_data, <span class="fu">aes</span>(<span class="at">y =</span> leaf2area)) <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 117 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of leaf2area to detect potential outliers</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant_data_clean, <span class="fu">aes</span>(<span class="at">y =</span> leaf2area)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week1_getting_started_files/figure-html/boxplot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week1_getting_started_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="histogram" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="histogram">Histogram</h3>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>Another way we can visualise outliers is with histograms via <code>geom_histogram()</code> or density plots via <a href="https://www.sthda.com/english/wiki/ggplot2-density-plot-quick-start-guide-r-software-and-data-visualization"><code>geom_density()</code></a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of height to detect potential outliers</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant_data, <span class="fu">aes</span>(<span class="at">x =</span> leaf2area)) <span class="sc">+</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of height to detect potential outliers</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant_data_clean, <span class="fu">aes</span>(<span class="at">x =</span> leaf2area)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 117 rows containing non-finite outside the scale range
-(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week1_getting_started_files/figure-html/hist-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week1_getting_started_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -831,20 +714,22 @@ Note
 <p>Here you can see one clear outlier with a value above 100. All other values are below 25. You can either manually remove the outlier on Excel, or with the following code below.</p>
 <p><strong>Option</strong>: Remove outliers using the interquartile range (IQR) rule.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View potential outliers using IQR rule</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(plant_data<span class="sc">$</span>leaf2area, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(plant_data<span class="sc">$</span>leaf2area, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>IQR <span class="ot">&lt;-</span> Q3 <span class="sc">-</span> Q1</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows with height outside 1.5 * IQR range</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">filter</span>(plant, height <span class="sc">&lt;</span> (Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR) <span class="sc">|</span> height <span class="sc">&gt;</span> (Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR))</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>outliers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View potential outliers using IQR rule</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(plant_data_clean<span class="sc">$</span>leaf2area, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(plant_data_clean<span class="sc">$</span>leaf2area, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>IQR <span class="ot">&lt;-</span> Q3 <span class="sc">-</span> Q1</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows with height outside 1.5 * IQR range</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">filter</span>(plant_data_clean, leaf2area <span class="sc">&lt;</span> (Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR) <span class="sc">|</span> leaf2area <span class="sc">&gt;</span> (Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR))</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>outliers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Make sure the numbers are biologically realistic based on intuition and comparing with the literature. If the values are unrealistic, it is a safe assumption to remove them.</p>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="is-the-data-normally-distributed" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="is-the-data-normally-distributed">2.2 Is the data normally distributed</h2>
+<section id="is-data-normally-distributed" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="is-data-normally-distributed">2.2 Is data normally distributed?</h2>
 <p>This step is required to check if the data is suitable for certain types of analysis. Sometimes, <a href="./week2_tidy_data.html">transformation</a> is required for certain data to meet the assumptions of certain statistical methods and improve the interpretability and performance of models. Many statistical techniques—like linear regression, ANOVA, and t-tests—assume that the data is normally distributed, has constant variance, and is linearly related (from your <a href="https://handbook.murdoch.edu.au/units/18/MAS183">MAS183 - Statistical Data Analysis</a> and <a href="https://handbook.murdoch.edu.au/units/02/mas224">MAS224 - Biostatistical Methods</a> units). If the data is skewed, has outliers, or shows non-constant variance (heteroscedasticity), these assumptions are violated, which can lead to <strong>biased estimates, incorrect conclusions, or poor model fit</strong>.</p>
 <p>By applying transformations such as logarithmic, square root, or Box-Cox, we can:</p>
 <ul>
@@ -855,20 +740,20 @@ Note
 </ul>
 <p>Let’s check the distribution of <code>leaf2area</code> after removing that one outlier.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove values above 100</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plant_data_clean <span class="ot">&lt;-</span> plant_data <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(leaf2area <span class="sc">&lt;</span> <span class="dv">100</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant_data_clean, <span class="fu">aes</span>(<span class="at">x =</span> leaf2area)) <span class="sc">+</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove values above 100</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plant_data_clean <span class="ot">&lt;-</span> plant_data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(leaf2area <span class="sc">&lt;</span> <span class="dv">100</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant_data_clean, <span class="fu">aes</span>(<span class="at">x =</span> leaf2area)) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="week1_getting_started_files/figure-html/normal-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="week1_getting_started_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -876,58 +761,53 @@ Note
 <p>Looks normally distributed to me! We will learn data transformation in next weeks workshop.</p>
 </section>
 </section>
-<section id="assessment-2" class="level1 unnumbered">
-<h1 class="unnumbered">Assessment 2</h1>
-<p>Task to complete before the end of the workshop.</p>
+<section id="assessment" class="level1 unnumbered">
+<h1 class="unnumbered">Assessment</h1>
+<section id="interpretation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="interpretation">Interpretation</h2>
+</section>
+<section id="coding" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="coding">Coding</h2>
 <p>We will use a modified <code>plant_calcium.csv</code> dataset called <code>plant_calcium_task.csv</code> for the next workshop. Here, you need to conduct a quality check and data exploration of this new dataset and fix any potential issues.</p>
+<p>Download <code>plant_calcium_task.csv</code> from the <a href="https://github.com/nicholaswunz/ECS200-Workshop">GitHub</a> page to your local folder (wherever you set your directory).</p>
+<p>The <code>plant_calcium_task.csv</code> is in the ‘data’ folder.</p>
+<p>Set up your working directory and load the <code>plant_calcium_task.csv</code> to R and give it am object name. If you like, you can call it <code>plant_task_data_raw</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 1 workshop - Data quality check</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Name, Student ID, date</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your working directory</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"YOUR-DIRECTORY"</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load your data</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>plant_task_data_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"plant_calcium_task.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>To make it a bit easier for you, I have given you hints where the errors are so you dont have to look through every single column or every problem. But in your own dataset, you will need to thoroughly check your own data in the future.</p>
 <p>Hints:</p>
 <ol type="1">
 <li>Identify <strong>missing values</strong> in one of the numeric columns. Remember to check if you really need to remove these missing value rows or not.</li>
-<li>There is an <strong>inconsistent coding</strong> in one of the categorical variables. Correct the incorrect coding. You can do this on Excel, or from R (see adventurous folks section).</li>
+<li>There is an <strong>inconsistent coding</strong> in one of the categorical variables. Correct the incorrect coding. You can do this on Excel, or in R but do comment which one you used.</li>
 <li>There are <strong>two numeric columns</strong> with outliers. One is biologically realistic, the other one is a data entry mistake. Decide which one is the data entry mistake and remove/correct that outlier.</li>
 <li>Create a <strong>clean version</strong> of the data after removing the errors as <code>plant_task_data_clean</code> and <strong>visualise</strong> one of the numeric columns as a density plot.</li>
 </ol>
-<p>Remember to create a header with the next workshop titled “Week 3 workshop - Tidying data”, a description called “Tidy data through transformation and filtering”, your name, and the next workshops date.</p>
-<section id="for-the-adventurous-folks-1" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="for-the-adventurous-folks-1">For the adventurous folks</h2>
+<p>When you have completed the assessment, save your <code>plant_task_data_clean</code> data as a csv file. The <code>plant_task_data_clean</code> should have the NA’s and outliers removed, and watershed transect changed to factor.</p>
+<p>Here’s how to do it in R with <code>write.csv()</code>. The location of the saved file should be your working directory.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(plant_task_data_clean, <span class="at">file =</span> <span class="st">"plant_task_data_clean.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="optional---for-the-adventurous-folks" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="optional---for-the-adventurous-folks">Optional - For the adventurous folks</h2>
 <p>Here we will start thinking about writing code efficiently. For example, you would have noticed by now that whatever raw data we load in R, any categorical columns are automatically listed as characters. So you can write a code that both loads the data and change the characters to factors in the same line of code (e.g.&nbsp;using the <code>dplyr::mutate()</code> function). Load the <code>plant_calcium_task.csv</code> and change categorical variables from character and factor.</p>
 <p>Repeat the same assessment as above, but instead of correcting the errors by editing them on Excel, do all the corrections within the R environment. Visualise the <strong>clean version</strong> of the the data with a density plot but separate the density by the treatment groups (reference and W1 variables).</p>
 </section>
 </section>
-<section id="extra-stuff" class="level1 unnumbered">
-<h1 class="unnumbered">Extra Stuff</h1>
-<section id="why-is-my-code-not-working" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="why-is-my-code-not-working">Why is my code not working!</h2>
-<p>Computers are only as smart as the humans that use them.</p>
-<p>If your code is not working there is most likely a spelling mistake or a typographic error. These human errors are easy to miss but equally easy to fix!</p>
-<p>If your code is not working take a moment to breathe. Then check for common, minor errors such as:</p>
-<ul>
-<li>Spelling mistakes</li>
-<li>Wrong dataset name</li>
-<li>Wrong variable (column) name</li>
-<li>Missing or wrong quotation mark</li>
-<li>Missing bracket</li>
-<li>Inconsistent cases (e.g.&nbsp;Uppercase)</li>
-<li>Missed a step</li>
-<li>Invalid syntax (e.g.&nbsp;spaces)</li>
-<li>Duplicates of the same function with multiple errors – keep your scripts tidy!</li>
-<li>These reading/typing mistakes are the majority of encountered errors. They are not a big deal and are easily corrected.</li>
-</ul>
-<p>You can and should easily fix the above mistakes yourself! We want you to know how to work problems out independently.</p>
-<section id="exercise" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="exercise">Exercise</h3>
-<p>🧪 <strong>Why does this code not work?</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>my_variable <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>my_varıable</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: object 'my_varıable' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Look carefully! (This may seem like an exercise in pointlessness, but training your brain to notice even the tiniest difference will pay off when programming.)</p>
-</section>
-</section>
-<section id="additional-resource" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="additional-resource">Additional resource</h2>
+<section id="additional-resource" class="level1 unnumbered">
+<h1 class="unnumbered">Additional Resource</h1>
 <ul>
 <li>Loading <a href="https://r4ds.hadley.nz/data-import.html#other-file-types">other file types</a> (if not .csv).</li>
 <li>How to <a href="https://www.r-bloggers.com/2024/03/title-how-to-rename-factor-levels-in-r-with-examples/">rename factor levels</a> in R.</li>
@@ -935,13 +815,6 @@ Note
 </ul>
 
 
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>A vector is simply a list of items that are of the same type.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1035,7 +908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1364,8 +1237,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Welcome">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      <a href="./R_intro.html" class="pagination-link" aria-label="Introduction to R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1375,6 +1248,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
 
 
 

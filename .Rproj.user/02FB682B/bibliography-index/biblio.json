@@ -1,6 +1,46 @@
 {
     "sources": [
         {
+            "DOI": "doi.org/10.1111/2041-210X.13185",
+            "author": [
+                {
+                    "family": "Blasco-Moreno",
+                    "given": "Anabel"
+                },
+                {
+                    "family": "Pérez-Casany",
+                    "given": "Marta"
+                },
+                {
+                    "family": "Puig",
+                    "given": "Pedro"
+                },
+                {
+                    "family": "Morante",
+                    "given": "Maria"
+                },
+                {
+                    "family": "Castells",
+                    "given": "Eva"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "genre": "Journal Article",
+            "id": "Blasco2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "949-959",
+            "publisher": "Wiley Online Library",
+            "title": "What does a zero mean? Understanding false, random and structural zeros in ecology",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
             "DOI": "10.1093/comjnl/27.2.97",
             "ISSN": "0010-4620",
             "URL": "https://doi.org/10.1093/comjnl/27.2.97",
@@ -127,7 +167,35 @@
             "volume": "87"
         },
         {
-            "DOI": "doi.org/10.1023/B:BIOG.0000015787.44175.3f",
+            "DOI": "10.7554/eLife.48175",
+            "author": [
+                {
+                    "family": "Makin",
+                    "given": "Tamar R"
+                },
+                {
+                    "family": "Orban de Xivry",
+                    "given": "Jean-Jacques"
+                }
+            ],
+            "container-title": "Elife",
+            "genre": "Journal Article",
+            "id": "Makin2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "e48175",
+            "publisher": "eLife Sciences Publications, Ltd",
+            "title": "Ten common statistical mistakes to watch out for when writing or reviewing a manuscript",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "DOI": "10.1023/B:BIOG.0000015787.44175.3f",
             "author": [
                 {
                     "family": "Peters",
@@ -161,6 +229,42 @@
             "title": "Dissolution of wollastonite during the experimental manipulation of hubbard brook watershed 1",
             "type": "article-journal",
             "volume": "67"
+        },
+        {
+            "DOI": "10.1111/1365-2656.13029",
+            "author": [
+                {
+                    "family": "Ross",
+                    "given": "Samuel RP-J"
+                },
+                {
+                    "family": "Friedman",
+                    "given": "Nicholas R"
+                },
+                {
+                    "family": "Janicki",
+                    "given": "Julia"
+                },
+                {
+                    "family": "Economo",
+                    "given": "Evan P"
+                }
+            ],
+            "container-title": "Journal of Animal Ecology",
+            "genre": "Journal Article",
+            "id": "Ross2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "1392-1405",
+            "publisher": "Wiley Online Library",
+            "title": "A test of trophic and functional island biogeography theory with the avifauna of a continental archipelago",
+            "type": "article-journal",
+            "volume": "88"
         }
     ],
     "project_biblios": [

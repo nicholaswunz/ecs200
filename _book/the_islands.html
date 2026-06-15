@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Islands – ECS200 - Research Methods in Ecology</title>
+<title>The Islands – ECS200 Research Methods in Ecology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="prev">
+<link href="./research_design.html" rel="next">
+<link href="./week12_random_effects.html" rel="prev">
 <link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -40,13 +41,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b04de4150bb9fa8515c8aba0ebe657d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -68,44 +69,78 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/MU_CREST_Red.png" alt="" class="navbar-logo">
-    </a>
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">ECS200 - Research Methods in Ecology</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
-</div>
-          <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./the_islands.html">The Islands</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./the_islands.html">Appendices</a></li><li class="breadcrumb-item"><a href="./the_islands.html">The Islands</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -116,40 +151,122 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./week1_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week2_tidy_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week3_diversity_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week4_descriptive_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive Stats</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="./week5_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week6_nonparametric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Non-parametric Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week7_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">OPTIONAL - Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week8_multivariate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multivariate Analyses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week9_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL - Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL - Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_GLM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_random_effects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Effects</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./the_islands.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">The Islands</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -162,15 +279,16 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#design-your-project" id="toc-design-your-project" class="nav-link active" data-scroll-target="#design-your-project">Design your project</a>
   <ul class="collapse">
-  <li><a href="#what-you-can-measure" id="toc-what-you-can-measure" class="nav-link" data-scroll-target="#what-you-can-measure">What you can measure?</a></li>
+  <li><a href="#randomisation" id="toc-randomisation" class="nav-link" data-scroll-target="#randomisation">Randomisation</a></li>
   </ul></li>
+  <li><a href="#what-you-can-measure" id="toc-what-you-can-measure" class="nav-link" data-scroll-target="#what-you-can-measure">What you can measure?</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./the_islands.html">Appendices</a></li><li class="breadcrumb-item"><a href="./the_islands.html">The Islands</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">The Islands</h1>
 </div>
@@ -189,32 +307,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The Island is a virtual environment where the original intention was for students to collect data for addressing questions in epidemiology. However, the Island has since been updated to include field stations that allow for plant growth. The plants can represent any plant, either an agriculturally significant plant, an indigenous significant plant, or a species of conservation concern. <strong>You decide on what plant it is and how it related to your topic</strong>.</p>
-<p><strong>Note</strong>, the plants grow in real time, and typically take 14 days to fully grow, depending on the local climate.</p>
-<p>Access The Island from <a href="https://moodleprod.murdoch.edu.au/course/view.php?id=28681">myMurdoch Learning</a>.</p>
+<p>The Island is a virtual environment where the original intention was for students to collect data for addressing questions in epidemiology. However, the Island has since been updated to include field stations that allow for plant growth. The plants can represent any plant species, either an agriculturally significant plant, an indigenous significant plant, a species of conservation concern, or a pest species. <strong>You will decide on what plant it is and how it is related to your topic</strong>.</p>
+<p><strong>Note</strong>, the plants grow in real time, and typically take at least 14 days to fully grow, depending on the local climate.</p>
+<p>Access ‘The Island’ from <a href="https://moodleprod.murdoch.edu.au/course/view.php?id=28681">myMurdoch Learning</a> under the ‘Group Project’ tab</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/islands_labelled.png" class="img-fluid figure-img"></p>
 <figcaption><strong>Fig. 1</strong>. Layout of the islands with locations of the field and weather stations.</figcaption>
 </figure>
 </div>
-<p>There are three islands of focus (<strong>Fig. 1</strong>):</p>
+<p>There are three islands in this world, all occupied by human settlers with a plant field and weather station (<strong>Fig. 1</strong>):</p>
 <ol type="1">
 <li><p><strong>Ironbard</strong>: Ironbard is the most northern island and has a temperate climate (equivalent to Tasmania’s climate). The plant field station in Ironbard is called <strong>Hofn Field Station</strong>. The local weather station is called <strong>Abramsen Climate Station</strong>.</p></li>
-<li><p><strong>Providance</strong>: Providance is the island located on the east and has a semi-arid climate (equivalent to Perth’s climate). The plant field station in Providanceis called <strong>Biruwa Field Station</strong>. The local weather station is called <strong>Kennedy Climate Station</strong>.</p></li>
-<li><p><strong>Bonne Sante</strong>: Bonne Sante is the most southern island and has a subtropical climate (equivalent to Brisbane’s climate). The plant field station in Providanceis called <strong>Mutalau Field Station</strong>. The local weather station is called <strong>Nanu Forest Climate Station</strong>.</p></li>
+<li><p><strong>Providance</strong>: Providance is the island located on the east and has a semi-arid climate (equivalent to Perth’s climate). The plant field station in Providance is called <strong>Biruwa Field Station</strong>. The local weather station is called <strong>Kennedy Climate Station</strong>.</p></li>
+<li><p><strong>Bonne Sante</strong>: Bonne Sante is the most southern island and has a subtropical climate (equivalent to Brisbane’s climate). The plant field station in Bonne Santr is called <strong>Mutalau Field Station</strong>. The local weather station is called <strong>Nanu Forest Climate Station</strong>.</p></li>
 </ol>
 <p>Altogether, there are three field stations from three islands with differing climates. Each station has <strong>36 plots</strong>.</p>
 <section id="design-your-project" class="level2">
 <h2 class="anchored" data-anchor-id="design-your-project">Design your project</h2>
-<p>You can manipulate Nitrogen (N) and Phosphorus (P) levels in the soil prior to growing the plants. The level of N and P are represented by blacks. Two blocks are the default, so we would consider them normal levels (<strong>Fig. 2</strong>), no blocks mean no N or P, four blocks means twice the concentration of normal levels, and five blocks is the maximum allowed (represents 2.5 times normal levels). Give the blocks some values. Use realistic values based on the literature and what is considered normal for the plant of interest.</p>
+<p>First, you are designing your experiment as if it was a real experiment. So chose a plant species of your choice to tell your story.</p>
+<p>Next, you can manipulate Nitrogen (N) and Phosphorus (P) levels in the soil prior to growing the plants. The level of N and P are represented by ‘blocks’. Two blocks are the default settling, so we would consider this normal level of N and P (<strong>Fig. 2</strong>). No blocks means no N or P, four blocks means twice the concentration of normal levels, and five blocks is the maximum allowed (represents 2.5 times normal levels). Give the blocks some values (e.g.&nbsp;milligram nitrogen per kilogram of soil; mg/kg). <strong>Use realistic values based on the literature</strong> and what is considered normal for the plant of interest.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/islands_blocks.png" class="img-fluid figure-img" width="300"></p>
 <figcaption><strong>Fig. 2</strong>. Example nitrogen (N) or phosphorus (P) block manipulation, where no blocks mean no N or P, two blocks is the default/normal N or P levels, four blocks means twice the concentration of normal levels, and five blocks is the maximum allowed (represents 2.5 times normal levels).</figcaption>
 </figure>
 </div>
-<p>Because there are three stations that span across different climates. You can compare the effect of temperature or rainfall on plant growth, fruit production etc. All stations provide the date, maximum temperature in degrees Celsius and rainfall in millimetres (<strong>Table 1</strong>). You can use this data to correlate with your dependent variables. You have the option to look at the interaction of N or P with temperature or rainfall (factorial design).</p>
+<p>Because there are three stations that span across different climates, you can compare the effect of temperature or rainfall on plant growth, fruit production etc. All stations provide the date, maximum temperature in degrees Celsius and rainfall in millimetres (<strong>Table 1</strong>). You can use this data to correlate with your dependent variables. You have the option to look at the interaction of N or P with temperature or rainfall (factorial design).</p>
 <table class="caption-top table">
 <caption><strong>Table 1</strong>: Example table output from the Kennedy Climate Station on Providence Island. Date is based on the simulation and presented by day, Max Temp is the maximum temperature (°C) recorded on the day, and Rainfall is the cumulative rainfall of the day (mm).</caption>
 <thead>
@@ -253,22 +372,34 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>For the 36 plots per site, it means you can have 18 replicate plots/treatment if you have <strong>two treatments</strong>, 12 replicate plots/treatment if you have <strong>three treatments</strong>, 9 replicate plots/treatment if you have <strong>four treatments</strong>, and 6 replicate plots/treatment if you have <strong>five treatments</strong>. Balance between number of treatments and number of replicates.</p>
-<section id="what-you-can-measure" class="level3">
-<h3 class="anchored" data-anchor-id="what-you-can-measure">What you can measure?</h3>
-<p>Your plant will look like this (<strong>Fig. 3</strong>). The green parts represent leaves, the purple circles represent fruits, and the white circles represent flowers. You can measure the following as response dependent variables:</p>
+<section id="randomisation" class="level3">
+<h3 class="anchored" data-anchor-id="randomisation">Randomisation</h3>
+<p>Take note that the 36 plots are laid out with potential spatial autocorrelation to replicate real landscapes. Meaning neighboring plots will have similar soil composition than distant plots.</p>
+<p>This can be a problem if you don’t randomise because if you put all your control treatments on the top row, it is impossible to know whether differences across are due to the actual treatment effects or due to spatial autocorrelation. This is why randomisation is important in research designs. See the second lecture slides for example ways you can randomise your design.</p>
+</section>
+</section>
+<section id="what-you-can-measure" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-can-measure">What you can measure?</h2>
+<p>Your plant will look like this (<strong>Fig. 3</strong>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/islands_plants.png" class="img-fluid figure-img" width="300"></p>
 <figcaption><strong>Fig. 3</strong>. Example plant after 10 days since germination.</figcaption>
 </figure>
 </div>
-<p><strong>Height</strong>: You can use a ruler to measure on your screen.</p>
-<p><strong>Growth rate</strong>: If you measure height over time, you can calculate growth rate. Note, make sure your screen is the same size to ensure consistency in your measurements over time.</p>
-<p><strong>Number of leaves</strong>: Count the number of green parts.</p>
-<p><strong>Number of fruits</strong>: Count the number of purple circles.</p>
-<p><strong>Number of flowers</strong>: Count the number of white spots.</p>
-<p><strong>Branches</strong>: Count the number of diverging branches from the main stem.</p>
-<p><strong>Yield</strong>: Once harvested, you will get a number in the “Harvest” tab (<strong>Table 2</strong>). The data table will include Date of harvest, the row and column of the plot, and the yield or biomass (g). Once harvested, the plant doesn’t grow again (ONE time, destructive). So, be careful on when you plan to harvest the plant.</p>
+<p>The green parts represent leaves, the purple circles represent fruits, and the white circles represent flowers. You can measure the following as response dependent variables:</p>
+<p><strong>1. Height</strong>: You can use a ruler to measure height on your screen.</p>
+<p><strong>2. Growth rate</strong>: If you measure height over time, you can calculate absolute growth rate (AGR) as:</p>
+<p><span class="math display">\[
+\text{AGR}=\frac{H_{2}-H_{1}}{t_{2}-t_{1}}
+\]</span> where <span class="math inline">\(H_{1}\)</span> is the initial measured height at time <span class="math inline">\(t_{1}\)</span>, and <span class="math inline">\(H_{2}\)</span> is the final or next measured height at time <span class="math inline">\(t_{2}\)</span>. Note, make sure your screen is the same size to ensure consistency in your measurements over time.</p>
+<p><strong>3. Number of leaves</strong>: Count the number of green parts at specific time point.</p>
+<p><strong>4. Number of fruits</strong>: Count the number of purple circles at specific time point.</p>
+<p><strong>5. Number of flowers</strong>: Count the number of white spots at specific time point.</p>
+<p><strong>6. Branches</strong>: Count the number of diverging branches from the main stem at specific time point.</p>
+<p><strong>7. Time to first flowering</strong>: The time difference from the start of the experiment to the first observed flower in the experimental plot.</p>
+<p><strong>8. Time to first fruit</strong>: The time difference from the start of the experiment to the first observed fruit in the experimental plot.</p>
+<p><strong>9. Yield</strong>: Once harvested, you will get a number in the “Harvest” tab (<strong>Table 2</strong>). The data table will include Date of harvest, the row and column of the plot, and the yield or biomass (g). Once harvested, the plant doesn’t grow again (ONE time, destructive). So, be careful on when you plan to harvest the plant.</p>
 <table class="caption-top table">
 <caption><strong>Table 2</strong>: Example yield table output from Hofn Field Station on Ironbard. Date is based on the simulation and presented by day, Row and Column are the positon of the plant in the field grid, and Yield is total biomass value (g).</caption>
 <thead>
@@ -312,10 +443,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>I have no idea what the red circles are. You can count them and assign a name to them if you like (e.g.&nbsp;berries, fungal pathogen).</p>
+<p>I have no idea what the <strong>red circles</strong> are. You can count them and assign a name to them if you like (e.g.&nbsp;berries, fungal pathogen).</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -409,7 +539,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -738,14 +868,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./week12_random_effects.html" class="pagination-link" aria-label="Random Effects">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Effects</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./research_design.html" class="pagination-link" aria-label="Research Design">
+        <span class="nav-page-text">Research Design</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
 
 
 
