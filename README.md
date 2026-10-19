@@ -3,7 +3,7 @@
 Materials for [ECS200](https://handbook.murdoch.edu.au/units/07/ecs200) Research
 Methods in Ecology at Murdoch University.
 
-Access the workshops here: https://nicholaswu.quarto.pub/ecs200/
+Access the workshops here: https://nicholaswunz.github.io/ecs200/
 
 ## Packages
 
