@@ -1,0 +1,109 @@
+project:
+  type: book
+  output-dir: _book
+  # Files students can download from the website (only the datasets used in the workshops)
+  resources:
+    - "data/plant_calcium.csv"
+    - "data/plant_calcium_task.csv"
+    - "data/invert_exp_survey.csv"
+    - "data/lizard_sprint.csv"
+    - "data/invaded.csv"
+    - "data/altitude.csv"
+    - "data/foraging.csv"
+    - "data/pie_crab.csv"
+    - "data/coralreefdata.csv"
+    - "data/island.csv"
+    - "data/foraging_shrub.csv"
+    - "data/stream_mayflies.csv"
+    - "data/pollinator_visits.csv"
+    - "data/frog_ponds.csv"
+    - "data/coral_bleaching.csv"
+    - "data/lizard_repeated.csv"
+    - "data/seagrass_meadows.csv"
+    - "data/woylie_survival.csv"
+    - "data/ant_knockdown.csv"
+    - "data/winter_clim_dat.csv"
+    - "data/logger_bad.csv"
+    - "data/gps_study/*.csv"
+    - "assessments/*.R"
+    - "apps/*.js"
+
+book:
+  title: "ECS200 Research Methods in Ecology"
+  subtitle: "School of Environmental and Conservation Sciences"
+  author: "Nicholas Wu"
+  date: today
+  date-format: Do MMM YYYY
+  page-navigation: true
+  back-to-top-navigation: true
+  search: true
+  site-url: https://nicholaswu.quarto.pub/ecs200/
+  repo-url: https://github.com/nicholaswunz/ECS200-Workshop
+  sidebar:
+    logo: https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg
+
+  page-footer:
+    border: true
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a [CC-BY-NC-ND 4.0 Int License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+  favicon: images/MU_CREST_Red.png
+  chapters:
+    - index.qmd
+    - R_intro.qmd
+    - part: "Weeks"
+      chapters:
+      - week01_quality_check.qmd
+      - week02_tidy_data.qmd
+      - week03_descriptive_stats.qmd
+      - week04_diversity.qmd
+      - week05_inference.qmd
+      - week06_time_series.qmd
+      - week07_regression.qmd
+      - week08_glm_counts.qmd
+      - week09_spatial.qmd
+      - week10_movement.qmd
+      - week11_glm_binary.qmd
+      - week12_mixed_models.qmd
+      - week13_survival.qmd
+  appendices:
+    - the_islands.qmd
+    - research_design.qmd
+    - references.qmd
+
+bibliography:
+  - ./bib/references.bib
+csl: ./bib/the-journal-of-experimental-biology.csl
+link-citations: true
+
+execute:
+  # Re-run code only when a page changes (speeds up rendering and avoids
+  # re-downloading online data for the optional weeks)
+  freeze: auto
+  warning: false
+  message: false
+
+format:
+  html:
+    grid:
+      body-width: 900px
+    mainfont: Roboto
+    monofont: Fira Code
+    highlight-style: arrow
+    monobackgroundcolor: "#F7F7F7"
+    code-copy: true
+    code-fold: show            # code is shown, with a "Hide code" toggle on every chunk
+    code-summary: "Code"       # label on each toggle
+    code-tools:
+      toggle: true             # "</> Code" menu at the top of each page: show/hide all code
+      source: false            # do not offer "View source" (it would reveal hidden chunks)
+    fig-align: center
+    fig-width: 7
+    fig-height: 4.5
+    include-in-header: ./styles/_fathom.html
+    theme:
+      - ./styles/theme.css
+      - ./styles/theme.scss
+      - lumen
+
+fontsize: 98%;

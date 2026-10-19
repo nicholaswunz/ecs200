@@ -1,7 +1,7 @@
 {
     "sources": [
         {
-            "DOI": "doi.org/10.1111/2041-210X.13185",
+            "DOI": "10.1111/2041-210X.13185",
             "author": [
                 {
                     "family": "Blasco-Moreno",
@@ -265,6 +265,1275 @@
             "title": "A test of trophic and functional island biogeography theory with the avifauna of a continental archipelago",
             "type": "article-journal",
             "volume": "88"
+        },
+        {
+            "DOI": "10.1017/CBO9780511806384",
+            "author": [
+                {
+                    "family": "Quinn",
+                    "given": "Gerry P."
+                },
+                {
+                    "family": "Keough",
+                    "given": "Michael J."
+                }
+            ],
+            "id": "Quinn2002",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "publisher": "Cambridge University Press",
+            "publisher-place": "Cambridge",
+            "title": "Experimental design and data analysis for biologists",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1890/ES13-00160.1",
+            "author": [
+                {
+                    "family": "Steel",
+                    "given": "E. Ashley"
+                },
+                {
+                    "family": "Kennedy",
+                    "given": "Maureen C."
+                },
+                {
+                    "family": "Cunningham",
+                    "given": "Patrick G."
+                },
+                {
+                    "family": "Stanovick",
+                    "given": "John S."
+                }
+            ],
+            "container-title": "Ecosphere",
+            "id": "Steel2013",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "page": "115",
+            "title": "Applied statistics in ecology: Common pitfalls and simple solutions",
+            "title-short": "Applied statistics in ecology",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "DOI": "10.1080/00031305.2018.1505657",
+            "author": [
+                {
+                    "family": "Steel",
+                    "given": "E. Ashley"
+                },
+                {
+                    "family": "Liermann",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Guttorp",
+                    "given": "Peter"
+                }
+            ],
+            "container-title": "The American Statistician",
+            "id": "Steel2019",
+            "issue": "sup1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "392-401",
+            "title": "Beyond calculations: A course in statistical thinking",
+            "title-short": "Beyond calculations",
+            "type": "article-journal",
+            "volume": "73"
+        },
+        {
+            "DOI": "10.1111/j.2041-210X.2009.00001.x",
+            "author": [
+                {
+                    "family": "Zuur",
+                    "given": "Alain F."
+                },
+                {
+                    "family": "Ieno",
+                    "given": "Elena N."
+                },
+                {
+                    "family": "Elphick",
+                    "given": "Chris S."
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "Zuur2010",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "page": "3-14",
+            "title": "A protocol for data exploration to avoid common statistical problems",
+            "type": "article-journal",
+            "volume": "1"
+        },
+        {
+            "DOI": "10.1111/2041-210X.12577",
+            "author": [
+                {
+                    "family": "Zuur",
+                    "given": "Alain F."
+                },
+                {
+                    "family": "Ieno",
+                    "given": "Elena N."
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "Zuur2016",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "636-645",
+            "title": "A protocol for conducting and presenting results of regression-type analyses",
+            "type": "article-journal",
+            "volume": "7"
+        },
+        {
+            "DOI": "10.1111/j.1600-0587.2012.07348.x",
+            "author": [
+                {
+                    "family": "Dormann",
+                    "given": "Carsten F."
+                },
+                {
+                    "family": "Elith",
+                    "given": "Jane"
+                },
+                {
+                    "family": "Bacher",
+                    "given": "Sven"
+                },
+                {
+                    "family": "Buchmann",
+                    "given": "Carsten"
+                },
+                {
+                    "family": "Carl",
+                    "given": "Gudrun"
+                },
+                {
+                    "family": "Carré",
+                    "given": "Gabriel"
+                },
+                {
+                    "family": "García Marquéz",
+                    "given": "Jaime R."
+                },
+                {
+                    "family": "Gruber",
+                    "given": "Bernd"
+                },
+                {
+                    "family": "Lafourcade",
+                    "given": "Bruno"
+                },
+                {
+                    "family": "Leitão",
+                    "given": "Pedro J."
+                },
+                {
+                    "family": "Münkemüller",
+                    "given": "Tamara"
+                },
+                {
+                    "family": "McClean",
+                    "given": "Colin"
+                },
+                {
+                    "family": "Osborne",
+                    "given": "Patrick E."
+                },
+                {
+                    "family": "Reineking",
+                    "given": "Björn"
+                },
+                {
+                    "family": "Schröder",
+                    "given": "Boris"
+                },
+                {
+                    "family": "Skidmore",
+                    "given": "Andrew K."
+                },
+                {
+                    "family": "Zurell",
+                    "given": "Damaris"
+                },
+                {
+                    "family": "Lautenbach",
+                    "given": "Sven"
+                }
+            ],
+            "container-title": "Ecography",
+            "id": "Dormann2013",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "page": "27-46",
+            "title": "Collinearity: A review of methods to deal with it and a simulation study evaluating their performance",
+            "title-short": "Collinearity",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "DOI": "10.7717/peerj.4794",
+            "author": [
+                {
+                    "family": "Harrison",
+                    "given": "Xavier A."
+                },
+                {
+                    "family": "Donaldson",
+                    "given": "Lynda"
+                },
+                {
+                    "family": "Correa-Cano",
+                    "given": "Maria Eugenia"
+                },
+                {
+                    "family": "Evans",
+                    "given": "Julian"
+                },
+                {
+                    "family": "Fisher",
+                    "given": "David N."
+                },
+                {
+                    "family": "Goodwin",
+                    "given": "Cecily E. D."
+                },
+                {
+                    "family": "Robinson",
+                    "given": "Beth S."
+                },
+                {
+                    "family": "Hodgson",
+                    "given": "David J."
+                },
+                {
+                    "family": "Inger",
+                    "given": "Richard"
+                }
+            ],
+            "container-title": "PeerJ",
+            "id": "Harrison2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "e4794",
+            "title": "A brief introduction to mixed effects modelling and multi-model inference in ecology",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "DOI": "10.7717/peerj.6876",
+            "author": [
+                {
+                    "family": "Pedersen",
+                    "given": "Eric J."
+                },
+                {
+                    "family": "Miller",
+                    "given": "David L."
+                },
+                {
+                    "family": "Simpson",
+                    "given": "Gavin L."
+                },
+                {
+                    "family": "Ross",
+                    "given": "Noam"
+                }
+            ],
+            "container-title": "PeerJ",
+            "id": "Pedersen2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "e6876",
+            "title": "Hierarchical generalized additive models in ecology: An introduction with mgcv",
+            "title-short": "Hierarchical generalized additive models in ecology",
+            "type": "article-journal",
+            "volume": "7"
+        },
+        {
+            "DOI": "10.1111/2041-210X.14270",
+            "author": [
+                {
+                    "family": "Popovic",
+                    "given": "Gordana"
+                },
+                {
+                    "family": "Mason",
+                    "given": "Tanya Jane"
+                },
+                {
+                    "family": "Drobniak",
+                    "given": "Szymon Marian"
+                },
+                {
+                    "family": "Marques",
+                    "given": "Tiago André"
+                },
+                {
+                    "family": "Potts",
+                    "given": "Joanne"
+                },
+                {
+                    "family": "Joo",
+                    "given": "Rocío"
+                },
+                {
+                    "family": "Altwegg",
+                    "given": "Res"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "Popovic2024",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "page": "266-281",
+            "title": "Four principles for improved statistical ecology",
+            "type": "article-journal",
+            "volume": "15"
+        },
+        {
+            "DOI": "10.1111/2041-210X.12842",
+            "author": [
+                {
+                    "family": "Specht",
+                    "given": "Hannah M."
+                },
+                {
+                    "family": "Reich",
+                    "given": "Henry T."
+                },
+                {
+                    "family": "Iannarilli",
+                    "given": "Fabiola"
+                },
+                {
+                    "family": "Edwards",
+                    "given": "Margaret R."
+                },
+                {
+                    "family": "Stapleton",
+                    "given": "Seth P."
+                },
+                {
+                    "family": "Weegman",
+                    "given": "Mitch D."
+                },
+                {
+                    "family": "Johnson",
+                    "given": "Michael K."
+                },
+                {
+                    "family": "Yohannes",
+                    "given": "Brittney J."
+                },
+                {
+                    "family": "Arnold",
+                    "given": "Todd W."
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "Specht2017",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "1725-1734",
+            "title": "Occupancy surveys with conditional replicates: An alternative sampling design for rare species",
+            "title-short": "Occupancy surveys with conditional replicates",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "DOI": "10.2307/1942661",
+            "author": [
+                {
+                    "family": "Hurlbert",
+                    "given": "Stuart H."
+                }
+            ],
+            "container-title": "Ecological Monographs",
+            "id": "Hurlbert1984",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1984
+                    ]
+                ]
+            },
+            "page": "187-211",
+            "title": "Pseudoreplication and the design of ecological field experiments",
+            "type": "article-journal",
+            "volume": "54"
+        },
+        {
+            "DOI": "10.1111/1365-2664.13499",
+            "author": [
+                {
+                    "family": "Christie",
+                    "given": "Alec P."
+                },
+                {
+                    "family": "Amano",
+                    "given": "Tatsuya"
+                },
+                {
+                    "family": "Martin",
+                    "given": "Philip A."
+                },
+                {
+                    "family": "Shackelford",
+                    "given": "Gorm E."
+                },
+                {
+                    "family": "Simmons",
+                    "given": "Benno I."
+                },
+                {
+                    "family": "Sutherland",
+                    "given": "William J."
+                }
+            ],
+            "container-title": "Journal of Applied Ecology",
+            "id": "Christie2019",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "2742-2754",
+            "title": "Simple study designs in ecology produce inaccurate estimates of biodiversity responses",
+            "type": "article-journal",
+            "volume": "56"
+        },
+        {
+            "DOI": "10.1038/s41467-020-20142-y",
+            "author": [
+                {
+                    "family": "Christie",
+                    "given": "Alec P."
+                },
+                {
+                    "family": "Abecasis",
+                    "given": "David"
+                },
+                {
+                    "family": "Adjeroud",
+                    "given": "Mehdi"
+                },
+                {
+                    "family": "Alonso",
+                    "given": "Juan C."
+                },
+                {
+                    "family": "Amano",
+                    "given": "Tatsuya"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Nature Communications",
+            "id": "Christie2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "6377",
+            "title": "Quantifying and addressing the prevalence and bias of study designs in the environmental and social sciences",
+            "type": "article-journal",
+            "volume": "11"
+        },
+        {
+            "DOI": "10.1002/2688-8319.12069",
+            "author": [
+                {
+                    "family": "Ockendon",
+                    "given": "Nancy"
+                },
+                {
+                    "family": "Amano",
+                    "given": "Tatsuya"
+                },
+                {
+                    "family": "Cadotte",
+                    "given": "Marc"
+                },
+                {
+                    "family": "Downey",
+                    "given": "Harriet"
+                },
+                {
+                    "family": "Hancock",
+                    "given": "Mark H."
+                },
+                {
+                    "family": "Thornton",
+                    "given": "Ann"
+                },
+                {
+                    "family": "Tinsley-Marshall",
+                    "given": "Paul"
+                },
+                {
+                    "family": "Sutherland",
+                    "given": "William J."
+                }
+            ],
+            "container-title": "Ecological Solutions and Evidence",
+            "id": "Ockendon2021",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "e12069",
+            "title": "Effectively integrating experiments into conservation practice",
+            "type": "article-journal",
+            "volume": "2"
+        },
+        {
+            "DOI": "10.1111/ele.14400",
+            "author": [
+                {
+                    "family": "Marshall",
+                    "given": "Dustin J."
+                }
+            ],
+            "container-title": "Ecology Letters",
+            "id": "Marshall2024",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "page": "e14400",
+            "title": "Principles of experimental design for ecology and evolution",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "DOI": "10.1111/2041-210X.12758",
+            "author": [
+                {
+                    "family": "Gerstner",
+                    "given": "Katharina"
+                },
+                {
+                    "family": "Moreno-Mateos",
+                    "given": "David"
+                },
+                {
+                    "family": "Gurevitch",
+                    "given": "Jessica"
+                },
+                {
+                    "family": "Beckmann",
+                    "given": "Michael"
+                },
+                {
+                    "family": "Kambach",
+                    "given": "Stephan"
+                },
+                {
+                    "family": "Jones",
+                    "given": "Holly P."
+                },
+                {
+                    "family": "Seppelt",
+                    "given": "Ralf"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "Gerstner2017",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "777-784",
+            "title": "Will your paper be used in a meta-analysis? Make the reach of your research broader and longer lasting",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "DOI": "10.1002/ecs2.4539",
+            "author": [
+                {
+                    "family": "Davis",
+                    "given": "Amy J."
+                },
+                {
+                    "family": "Kay",
+                    "given": "Shannon"
+                }
+            ],
+            "container-title": "Ecosphere",
+            "id": "Davis2023",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "page": "e4539",
+            "title": "Writing statistical methods for ecologists",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "DOI": "10.1177/00236772221140669",
+            "author": [
+                {
+                    "family": "Rowe",
+                    "given": "Anthony"
+                }
+            ],
+            "container-title": "Laboratory Animals",
+            "id": "Rowe2023",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "page": "224-235",
+            "title": "Recommendations to improve use and reporting of statistics in animal experiments",
+            "type": "article-journal",
+            "volume": "57"
+        },
+        {
+            "DOI": "10.6073/pasta/4c27d2e778d3325d3830a5142e3839bb",
+            "author": [
+                {
+                    "family": "Johnson",
+                    "given": "David"
+                }
+            ],
+            "id": "Johnson2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "note": "ver 1. Environmental Data Initiative",
+            "title": "Fiddler crab body size in salt marshes from florida to massachusetts, USA at PIE and VCR LTER and NOAA NERR sites during summer 2016",
+            "type": ""
+        },
+        {
+            "DOI": "10.1002/ecs2.3176",
+            "author": [
+                {
+                    "family": "Martin",
+                    "given": "Jeff M."
+                },
+                {
+                    "family": "Barboza",
+                    "given": "Perry S."
+                }
+            ],
+            "container-title": "Ecosphere",
+            "id": "Martin2020",
+            "issue": "7",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "e03176",
+            "title": "Thermal biology and growth of bison (<i>bison bison</i>) along the Great Plains: Examining four theories of endotherm body size",
+            "title-short": "Thermal biology and growth of bison (<i>bison bison</i>) along the Great Plains",
+            "type": "article-journal",
+            "volume": "11"
+        },
+        {
+            "DOI": "10.21105/joss.03139",
+            "author": [
+                {
+                    "family": "Lüdecke",
+                    "given": "Daniel"
+                },
+                {
+                    "family": "Ben-Shachar",
+                    "given": "Mattan S."
+                },
+                {
+                    "family": "Patil",
+                    "given": "Indrajeet"
+                },
+                {
+                    "family": "Waggoner",
+                    "given": "Philip"
+                },
+                {
+                    "family": "Makowski",
+                    "given": "Dominique"
+                }
+            ],
+            "container-title": "Journal of Open Source Software",
+            "id": "Ludecke2021",
+            "issue": "60",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "3139",
+            "title": "performance: An R package for assessment, comparison and testing of statistical models",
+            "title-short": "performance",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "DOI": "10.1080/01584197.2023.2214581",
+            "author": [
+                {
+                    "family": "Counilh",
+                    "given": "Aurore"
+                },
+                {
+                    "family": "Arnould",
+                    "given": "John PY"
+                }
+            ],
+            "container-title": "Emu-Austral Ornithology",
+            "id": "counilh2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "page": "206-216",
+            "publisher": "Taylor & Francis",
+            "title": "Environmental effects on movement and breeding of australasian gannets: Insights from banding records",
+            "title-short": "Environmental effects on movement and breeding of australasian gannets",
+            "type": "article-journal",
+            "volume": "123"
+        },
+        {
+            "DOI": "10.1038/s41598-022-09950-y",
+            "author": [
+                {
+                    "family": "Yu",
+                    "given": "Xin"
+                },
+                {
+                    "family": "Wu",
+                    "given": "Nicholas C"
+                },
+                {
+                    "family": "Ge",
+                    "given": "Luyuan"
+                },
+                {
+                    "family": "Li",
+                    "given": "Lianshan"
+                },
+                {
+                    "family": "Zhang",
+                    "given": "Zhengwang"
+                },
+                {
+                    "family": "Lei",
+                    "given": "Juan"
+                }
+            ],
+            "container-title": "Scientific Reports",
+            "id": "yu2022",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "page": "5879",
+            "publisher": "Nature Publishing Group UK London",
+            "title": "Artificial shelters provide suitable thermal habitat for a cold-blooded animal",
+            "type": "article-journal",
+            "volume": "12"
+        },
+        {
+            "DOI": "10.1071/WR21088",
+            "author": [
+                {
+                    "dropping-particle": "van",
+                    "family": "Harten",
+                    "given": "Emmi"
+                },
+                {
+                    "family": "Lawrence",
+                    "given": "Ruth"
+                },
+                {
+                    "family": "Lumsden",
+                    "given": "Lindy F"
+                },
+                {
+                    "family": "Reardon",
+                    "given": "Terry"
+                },
+                {
+                    "family": "Bennett",
+                    "given": "Andrew F"
+                },
+                {
+                    "family": "Prowse",
+                    "given": "Thomas AA"
+                }
+            ],
+            "container-title": "Wildlife Research",
+            "id": "van2022",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "page": "646-658",
+            "publisher": "CSIRO Publishing",
+            "title": "Seasonal population dynamics and movement patterns of a critically endangered, cave-dwelling bat, miniopterus orianae bassanii",
+            "type": "article-journal",
+            "volume": "49"
+        },
+        {
+            "DOI": "10.1186/s40462-026-00637-x",
+            "author": [
+                {
+                    "family": "Ržičková",
+                    "given": "Jana"
+                },
+                {
+                    "family": "Elek",
+                    "given": "Zoltán"
+                }
+            ],
+            "container-title": "Movement Ecology",
+            "id": "ruuvzivckova2026",
+            "issued": {
+                "date-parts": [
+                    [
+                        2026
+                    ]
+                ]
+            },
+            "page": "25",
+            "publisher": "Springer",
+            "title": "Challenges and approaches in tracking and analyzing movement of ground-dwelling insects",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "DOI": "10.1002/ecs2.4847",
+            "author": [
+                {
+                    "family": "Peel",
+                    "given": "Lauren R"
+                },
+                {
+                    "family": "Whiting",
+                    "given": "Scott D"
+                },
+                {
+                    "family": "Pendoley",
+                    "given": "Kellie"
+                },
+                {
+                    "family": "Whittock",
+                    "given": "Paul A"
+                },
+                {
+                    "family": "Ferreira",
+                    "given": "Luciana C"
+                },
+                {
+                    "family": "Thums",
+                    "given": "Michele"
+                },
+                {
+                    "family": "Whiting",
+                    "given": "Andrea U"
+                },
+                {
+                    "family": "Tucker",
+                    "given": "Anton D"
+                },
+                {
+                    "family": "Rossendell",
+                    "given": "Jason"
+                },
+                {
+                    "family": "McFarlane",
+                    "given": "Glenn"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Ecosphere",
+            "id": "peel2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "page": "e4847",
+            "publisher": "Wiley Online Library",
+            "title": "I still call australia home: Satellite telemetry informs the protection of flatback turtles in western australian waters",
+            "title-short": "I still call australia home",
+            "type": "article-journal",
+            "volume": "15"
+        },
+        {
+            "DOI": "10.1371/journal.pone.0040713",
+            "author": [
+                {
+                    "family": "Hoenner",
+                    "given": "Xavier"
+                },
+                {
+                    "family": "Whiting",
+                    "given": "Scott D"
+                },
+                {
+                    "family": "Hindell",
+                    "given": "Mark A"
+                },
+                {
+                    "family": "McMahon",
+                    "given": "Clive R"
+                }
+            ],
+            "container-title": "PLoS One",
+            "id": "hoenner2012",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "page": "e40713",
+            "publisher": "Public Library of Science San Francisco, USA",
+            "title": "Enhancing the use of argos satellite data for home range and long distance migration studies of marine animals",
+            "type": "article-journal",
+            "volume": "7"
+        },
+        {
+            "DOI": "10.1016/j.anbehav.2023.02.015",
+            "author": [
+                {
+                    "family": "Baker",
+                    "given": "Cameron J"
+                },
+                {
+                    "family": "Frère",
+                    "given": "Céline H"
+                },
+                {
+                    "family": "Franklin",
+                    "given": "Craig E"
+                },
+                {
+                    "family": "Campbell",
+                    "given": "Hamish A"
+                },
+                {
+                    "family": "Irwin",
+                    "given": "Terri R"
+                },
+                {
+                    "family": "Dwyer",
+                    "given": "Ross G"
+                }
+            ],
+            "container-title": "Animal Behaviour",
+            "id": "baker2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "page": "59-78",
+            "publisher": "Elsevier",
+            "title": "Long-term tracking reveals a dynamic crocodylian social system",
+            "type": "article-journal",
+            "volume": "199"
+        },
+        {
+            "DOI": "10.1111/1365-2656.70091",
+            "author": [
+                {
+                    "family": "Wild",
+                    "given": "Kristoffer H"
+                },
+                {
+                    "family": "Roe",
+                    "given": "John H"
+                },
+                {
+                    "family": "Curran",
+                    "given": "Jonathan"
+                },
+                {
+                    "family": "Pearson",
+                    "given": "Phillip R"
+                },
+                {
+                    "family": "Schwanz",
+                    "given": "Lisa"
+                },
+                {
+                    "family": "Georges",
+                    "given": "Arthur"
+                },
+                {
+                    "family": "Sarre",
+                    "given": "Stephen D"
+                }
+            ],
+            "container-title": "Journal of Animal Ecology",
+            "id": "wild2025",
+            "issued": {
+                "date-parts": [
+                    [
+                        2025
+                    ]
+                ]
+            },
+            "page": "1823-1836",
+            "publisher": "Wiley Online Library",
+            "title": "Thermal performance curves, activity and survival in a free-ranging ectotherm",
+            "type": "article-journal",
+            "volume": "94"
+        },
+        {
+            "DOI": "10.1126/science.add4445",
+            "author": [
+                {
+                    "family": "Royer",
+                    "given": "Mark"
+                },
+                {
+                    "family": "Meyer",
+                    "given": "Carl"
+                },
+                {
+                    "family": "Royer",
+                    "given": "John"
+                },
+                {
+                    "family": "Maloney",
+                    "given": "Kelsey"
+                },
+                {
+                    "family": "Cardona",
+                    "given": "Edward"
+                },
+                {
+                    "family": "Blandino",
+                    "given": "Chloé"
+                },
+                {
+                    "family": "Fernandes da Silva",
+                    "given": "Guilherme"
+                },
+                {
+                    "family": "Whittingham",
+                    "given": "Kate"
+                },
+                {
+                    "family": "Holland",
+                    "given": "Kim N"
+                }
+            ],
+            "container-title": "Science",
+            "id": "royer2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "page": "651-655",
+            "publisher": "American Association for the Advancement of Science",
+            "title": "“Breath holding” as a thermoregulation strategy in the deep-diving scalloped hammerhead shark",
+            "type": "article-journal",
+            "volume": "380"
+        },
+        {
+            "DOI": "10.1111/1365-2656.14111",
+            "author": [
+                {
+                    "family": "Langley",
+                    "given": "Liam P"
+                },
+                {
+                    "family": "Lang",
+                    "given": "Stephen DJ"
+                },
+                {
+                    "family": "Ozsanlav-Harris",
+                    "given": "Luke"
+                },
+                {
+                    "family": "Trevail",
+                    "given": "Alice M"
+                }
+            ],
+            "container-title": "Journal of Animal Ecology",
+            "id": "langley2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "page": "784-795",
+            "publisher": "Wiley Online Library",
+            "title": "ExMove: An open-source toolkit for processing and exploring animal-tracking data in r",
+            "title-short": "ExMove",
+            "type": "article-journal",
+            "volume": "93"
+        },
+        {
+            "DOI": "10.1242/jeb.143867",
+            "author": [
+                {
+                    "family": "Clemente",
+                    "given": "Christofer J"
+                },
+                {
+                    "family": "Cooper",
+                    "given": "Christine E"
+                },
+                {
+                    "family": "Withers",
+                    "given": "Philip C"
+                },
+                {
+                    "family": "Freakley",
+                    "given": "Craig"
+                },
+                {
+                    "family": "Singh",
+                    "given": "Surya"
+                },
+                {
+                    "family": "Terrill",
+                    "given": "Philip"
+                }
+            ],
+            "container-title": "Journal of Experimental Biology",
+            "id": "clemente2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "3271-3283",
+            "publisher": "The Company of Biologists Ltd",
+            "title": "The private life of echidnas: Using accelerometry and GPS to examine field biomechanics and assess the ecological impact of a widespread, semi-fossorial monotreme",
+            "title-short": "The private life of echidnas",
+            "type": "article-journal",
+            "volume": "219"
         }
     ],
     "project_biblios": [

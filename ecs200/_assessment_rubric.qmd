@@ -1,0 +1,17 @@
+::: {.callout-note collapse="true"}
+## How your assessment is marked
+
+Submit **one R script** (`.R`) before the end of the class. Write your answers to
+written questions as `#` comments next to the code that produced them.
+
+| Score | What it looks like |
+|:-----:|:-------------------|
+| 0     | No submission or no attempt. |
+| 0.25  | Submitted, but a very poor attempt (e.g. incomplete, or lots of gaps). |
+| 0.5   | Most questions answered, **or** all answered but most annotations missing. |
+| 0.75  | All questions answered, but some annotations missing or some answers incorrect. |
+| 1     | Everything completed, with annotations on all code so the marker can follow it. |
+
+**Tip**: an annotation is a short `#` comment that says *what* the line does and
+*why*. For example: `# remove the one plant with a stem dry mass of 7.4 g (data entry error)`.
+:::

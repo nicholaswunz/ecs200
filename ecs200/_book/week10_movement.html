@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>10&nbsp; OPTIONAL: Movement Data – ECS200 Research Methods in Ecology</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week11_glm_binary.html" rel="next">
+<link href="./week09_spatial.html" rel="prev">
+<link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c140cb0e3f64d73de25775a391ba3148.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
+
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week10_movement.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01_quality_check.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02_tidy_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03_descriptive_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics and Figures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04_diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">OPTIONAL: Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08_glm_counts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Count Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL: Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_glm_binary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Binary Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_mixed_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mixed-Effects Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13_survival.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./the_islands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Islands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#tracking-technologies" id="toc-tracking-technologies" class="nav-link active" data-scroll-target="#tracking-technologies">Tracking technologies</a></li>
+  <li><a href="#process-gps-data" id="toc-process-gps-data" class="nav-link" data-scroll-target="#process-gps-data">Process GPS data</a>
+  <ul class="collapse">
+  <li><a href="#load-all-the-gps-files" id="toc-load-all-the-gps-files" class="nav-link" data-scroll-target="#load-all-the-gps-files">Load all the GPS files</a></li>
+  <li><a href="#merge-with-metadata" id="toc-merge-with-metadata" class="nav-link" data-scroll-target="#merge-with-metadata">Merge with metadata</a></li>
+  <li><a href="#duplicates-and-missing-fixes" id="toc-duplicates-and-missing-fixes" class="nav-link" data-scroll-target="#duplicates-and-missing-fixes">Duplicates and missing fixes</a></li>
+  <li><a href="#movement-metrics" id="toc-movement-metrics" class="nav-link" data-scroll-target="#movement-metrics">Movement metrics</a></li>
+  <li><a href="#filter-out-errors" id="toc-filter-out-errors" class="nav-link" data-scroll-target="#filter-out-errors">Filter out errors</a></li>
+  <li><a href="#plot-the-clean-data" id="toc-plot-the-clean-data" class="nav-link" data-scroll-target="#plot-the-clean-data">Plot the clean data</a></li>
+  </ul></li>
+  <li><a href="#other-tracking-data" id="toc-other-tracking-data" class="nav-link" data-scroll-target="#other-tracking-data">Other tracking data</a></li>
+  <li><a href="#analysing-movement-data" id="toc-analysing-movement-data" class="nav-link" data-scroll-target="#analysing-movement-data">Analysing movement data</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week10_movement.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Week 10 (study week)</strong>: Cleaning and plotting animal tracking data</p>
+<p>This is an optional tutorial for anyone working with animal tracking (telemetry) data.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This tutorial is <strong>optional and not assessed</strong>, and it will not be in the exam. Work through it in your own time if tracking data are relevant to your project.</p>
+</div>
+</div>
+<p>Tracking data combine <strong>location</strong> and <strong>time</strong>, so this tutorial builds on the optional <a href="./week06_time_series.html">time series</a> and <a href="./week09_spatial.html">spatial data</a> tutorials.</p>
+<section id="tracking-technologies" class="level1 unnumbered">
+<h1 class="unnumbered">Tracking technologies</h1>
+<p>How do we track animals in the wild? There are many methods, and <strong>how you process, analyse and interpret movement data depends heavily on the method used</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/insect_telemetry.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Methods for marking and tagging insects. Image from <span class="citation" data-cites="ruuvzivckova2026">(<a href="references.html#ref-ruuvzivckova2026" role="doc-biblioref">Ržičková and Elek, 2026</a>)</span>.</figcaption>
+</figure>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Marking</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Radio telemetry</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Satellite telemetry</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Acoustic telemetry</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Onboard loggers</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The simplest and cheapest method uses capture–mark–recapture or direct observation of marked animals. It is time-consuming, and following or recapturing animals can <strong>disturb their behaviour</strong>. It is still widely used, for example to monitor bird movements through citizen science reports of leg bands. <strong>Example study <span class="citation" data-cites="counilh2023">(<a href="references.html#ref-counilh2023" role="doc-biblioref">Counilh and Arnould, 2023</a>)</span></strong></p>
+<p><img src="images/gannet_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>VHF radio telemetry</strong>: a small transmitter (usually &lt; 5% of the animal’s body mass) emits a very high frequency (VHF) radio signal that the researcher tracks with a receiver and antenna. Tags are cheap, light and have long battery lives, which suits terrestrial and semi-aquatic animals (e.g.&nbsp;freshwater turtles). However, tracking is labour intensive and gives only a few locations per day. Automated networks such as <a href="https://motus.org/">MOTUS</a> use fixed receivers to detect tags continuously. <strong>Example study <span class="citation" data-cites="yu2022">(<a href="references.html#ref-yu2022" role="doc-biblioref">Yu et al., 2022</a>)</span></strong></p>
+<p><img src="images/snake_track_study.jpg" class="img-fluid" style="width:100.0%"></p>
+<p><strong>Radio-frequency identification (RFID)</strong>: tiny, battery-free passive integrated transponder (PIT) tags are detected when an animal passes close to an antenna, for example at cave entrances to record when bats move between caves. <strong>Example study <span class="citation" data-cites="van2022">(<a href="references.html#ref-van2022" role="doc-biblioref">Harten et al., 2022</a>)</span></strong>.</p>
+<p><img src="images/bat_track_study.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>GPS telemetry</strong>: tags (collars, backpacks, harnesses) record locations from satellites, often many per hour. GPS tags are among the most expensive options. <strong>GSM (cellular) tags</strong> upload data over the mobile network, so you do not need to recover the tag, but they need phone coverage <strong>Example study <span class="citation" data-cites="peel2024">(<a href="references.html#ref-peel2024" role="doc-biblioref"><span class="nocase">Peel et al.</span>, 2024</a>)</span></strong>.</p>
+<p><img src="images/turtle_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
+<p><strong>Argos satellite telemetry</strong>: tags (platform transmitter terminals, PTTs) send signals to satellites, which estimate the location from the Doppler shift. Argos locations are less accurate than GPS (up to kilometres), but tags can last months to years, which suits large, wide-ranging species such as sharks, turtles and seals. <strong>Example study <span class="citation" data-cites="hoenner2012">(<a href="references.html#ref-hoenner2012" role="doc-biblioref">Hoenner et al., 2012</a>)</span></strong></p>
+<p><img src="images/argos_track_study.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>Radio signals do not travel through salt water, so most underwater tracking uses <strong>acoustic tags</strong>, which send coded sound pulses to fixed or mobile receivers. Tags can last for years, but you only detect animals near a receiver, so the design of the receiver array is crucial. It works best in confined habitats such as rivers, estuaries and reefs. <strong>Example study <span class="citation" data-cites="baker2023">(<a href="references.html#ref-baker2023" role="doc-biblioref">Baker et al., 2023</a>)</span></strong></p>
+<p><img src="images/croc_study.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p><strong>Accelerometers</strong> measure acceleration in three axes (the same technology as in smartwatches). They can show activity levels, classify behaviours (foraging, resting, hunting) and estimate energy expenditure. Behaviours must first be calibrated against known behaviours, and accelerometers do not record location, so they are often combined with GPS or VHF tags <strong>Example study <span class="citation" data-cites="wild2025">(<a href="references.html#ref-wild2025" role="doc-biblioref">Wild et al., 2025</a>)</span></strong>.</p>
+<p><img src="images/lizard_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
+<p><strong>Biologgers</strong> record other variables such as light, temperature, depth, heart rate or internal body temperature <strong>Example study <span class="citation" data-cites="royer2023">(<a href="references.html#ref-royer2023" role="doc-biblioref">Royer et al., 2023</a>)</span></strong>.</p>
+<p><img src="images/shark_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="process-gps-data" class="level1 unnumbered">
+<h1 class="unnumbered">Process GPS data</h1>
+<p>Basic tracking data contain the <strong>ID</strong> of each animal, its location (<strong>longitude</strong> and <strong>latitude</strong>) and the <strong>date and time</strong> of each location (a <em>fix</em>). Here we use GPS data from three red-footed boobies (<em>Sula sula</em>) nesting on Diego Garcia in the Indian Ocean. We loosely follow the <a href="https://exmove.github.io/">ExMove workflow</a> for cleaning and processing tracking data <span class="citation" data-cites="langley2024">(<a href="references.html#ref-langley2024" role="doc-biblioref">Langley et al., 2024</a>)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/track_processing_workflow.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>The ExMove workflow applied to GPS-tracked red-footed boobies.</figcaption>
+</figure>
+</div>
+<p>Download the three GPS files and the metadata file, and save them in a folder called <code>gps_study</code> inside your <code>data</code> folder.</p>
+<p><a href="data/gps_study/GV37501_201606_DG_RFB.csv" class="btn btn-outline-danger btn-sm download-btn" download="GV37501_201606_DG_RFB.csv"><i class="bi bi-download"></i> GV37501_201606_DG_RFB.csv</a> <a href="data/gps_study/GV37503_201606_DG_RFB.csv" class="btn btn-outline-danger btn-sm download-btn" download="GV37503_201606_DG_RFB.csv"><i class="bi bi-download"></i> GV37503_201606_DG_RFB.csv</a> <a href="data/gps_study/GV37734_201807_NI_RFB.csv" class="btn btn-outline-danger btn-sm download-btn" download="GV37734_201807_NI_RFB.csv"><i class="bi bi-download"></i> GV37734_201807_NI_RFB.csv</a> <a href="data/gps_study/RFB_metadata.csv" class="btn btn-outline-danger btn-sm download-btn" download="RFB_metadata.csv"><i class="bi bi-download"></i> RFB_metadata.csv</a></p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 10 workshop (optional) - Movement data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Written by Nicholas Wu, 1234578, 29/04/2027</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("geosphere")  # run once in the console if needed</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># data wrangling, plotting, dates (lubridate) and text (stringr)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geosphere)  <span class="co"># distances between longitude/latitude points</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)  <span class="co"># combine plots</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd("C:/Users/YOUR-NAME/Documents/ECS200")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="load-all-the-gps-files" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="load-all-the-gps-files">Load all the GPS files</h2>
+<p>Each bird has its own file. <code>list.files()</code> finds them, and <code>purrr::map()</code> imports each one with <code>readr::read_csv()</code>, then <code>purrr::list_rbind()</code> stacks them into one data frame. <code>id = "file_name"</code> adds a column with the name of the file each row came from. We read <code>Date</code> and <code>Time</code> as text because the files use different date formats.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find every file in the gps_study folder that starts with "GV" and ends in .csv</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>gps_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">"data/gps_study"</span>, <span class="at">pattern =</span> <span class="st">"^GV.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>gps_files</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data/gps_study/GV37501_201606_DG_RFB.csv"
+[2] "data/gps_study/GV37503_201606_DG_RFB.csv"
+[3] "data/gps_study/GV37734_201807_NI_RFB.csv"</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import every file and stack them</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gps_raw <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(gps_files, readr<span class="sc">::</span>read_csv,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">id =</span> <span class="st">"file_name"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">col_types =</span> readr<span class="sc">::</span><span class="fu">cols</span>(<span class="at">Date =</span> <span class="st">"c"</span>, <span class="at">Time =</span> <span class="st">"c"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">list_rbind</span>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(gps_raw)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6,650
+Columns: 11
+$ file_name &lt;chr&gt; "data/gps_study/GV37501_201606_DG_RFB.csv", "data/gps_study/…
+$ Date      &lt;chr&gt; "24/06/2016", "24/06/2016", "24/06/2016", "24/06/2016", "24/…
+$ Time      &lt;chr&gt; "05:06:00", "05:21:39", "05:29:50", "05:54:28", "06:22:02", …
+$ Latitude  &lt;dbl&gt; -7.261829, -7.261829, -7.261744, -7.261623, -7.261651, -7.26…
+$ Longitude &lt;dbl&gt; 72.37609, 72.37609, 72.37622, 72.37614, 72.37633, 72.37629, …
+$ Altitude  &lt;dbl&gt; 56.18, 56.18, 64.91, -15.77, 30.91, 26.80, 21.77, 30.78, 27.…
+$ Speed     &lt;dbl&gt; 3636, 3636, 5112, 936, 1080, 0, 0, 2844, 1476, 0, 1476, 36, …
+$ Course    &lt;dbl&gt; 93, 93, 32, 291, 124, 280, 183, 268, 44, 260, 70, 340, 106, …
+$ Type      &lt;dbl&gt; -2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ Distance  &lt;dbl&gt; 0.00, 0.00, 17.17, 16.34, 22.06, 6.26, 10.73, 1.84, 8.38, 60…
+$ Essential &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</code></pre>
+</div>
+</div>
+<p>Now tidy the columns. The bird ID is the first 7 characters of the file name (e.g. “GV37501” from “GV37501_201606_DG_RFB.csv”), which <code>stringr::str_sub()</code> extracts. This only works because every ID has the same length and position.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gps_data <span class="ot">&lt;-</span> gps_raw <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">file_name =</span> <span class="fu">basename</span>(file_name),                          <span class="co"># drop the folder from the name</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ID        =</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(file_name, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">7</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date      =</span> lubridate<span class="sc">::</span><span class="fu">parse_date_time</span>(Date, <span class="at">orders =</span> <span class="fu">c</span>(<span class="st">"dmy"</span>, <span class="st">"ymd"</span>)), <span class="co"># files use different formats</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_time =</span> lubridate<span class="sc">::</span><span class="fu">ymd_hms</span>(<span class="fu">paste</span>(<span class="fu">as.Date</span>(Date), Time), <span class="at">tz =</span> <span class="st">"GMT"</span>),  <span class="co"># GPS time is in GMT</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon       =</span> Longitude,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat       =</span> Latitude) <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ID, date_time, lon, lat) <span class="sc">%&gt;%</span>                  <span class="co"># keep only the columns we need</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(ID, date_time)                               <span class="co"># order by bird, then time</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(gps_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6,650
+Columns: 4
+$ ID        &lt;chr&gt; "GV37501", "GV37501", "GV37501", "GV37501", "GV37501", "GV37…
+$ date_time &lt;dttm&gt; 2016-06-24 05:06:00, 2016-06-24 05:21:39, 2016-06-24 05:29:…
+$ lon       &lt;dbl&gt; 72.37609, 72.37609, 72.37622, 72.37614, 72.37633, 72.37629, …
+$ lat       &lt;dbl&gt; -7.261829, -7.261829, -7.261744, -7.261623, -7.261651, -7.26…</code></pre>
+</div>
+</div>
+</section>
+<section id="merge-with-metadata" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="merge-with-metadata">Merge with metadata</h2>
+<p>The metadata file holds one row per tag deployment: the bird ID, when the tag was attached and removed, and the nest location. These times were recorded in local time (Indian/Chagos), so we convert them to GMT to match the GPS data.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/gps_study/RFB_metadata.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ID          =</span> BirdID,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">deploy_time =</span> lubridate<span class="sc">::</span><span class="fu">dmy_hms</span>(<span class="fu">paste</span>(DeploymentDate, DeploymentTime), <span class="at">tz =</span> <span class="st">"Indian/Chagos"</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">deploy_time =</span> lubridate<span class="sc">::</span><span class="fu">with_tz</span>(deploy_time, <span class="at">tzone =</span> <span class="st">"GMT"</span>),   <span class="co"># local time to GMT</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">nest_lon    =</span> NestLong,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">nest_lat    =</span> NestLat) <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ID, Population, BreedingStage, deploy_time, nest_lon, nest_lat)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>meta_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+  ID      Population BreedingStage deploy_time         nest_lon nest_lat
+  &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;         &lt;dttm&gt;                 &lt;dbl&gt;    &lt;dbl&gt;
+1 GV37501 DG         Chick rearing 2016-06-25 10:25:00     72.4    -7.24
+2 GV37503 DG         Chick rearing 2016-06-26 02:30:00     72.4    -7.24
+3 GV37734 NI         Chick rearing 2018-07-08 03:48:00     72.3    -5.68</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the metadata to every GPS fix of the matching bird</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>gps_merged <span class="ot">&lt;-</span> gps_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(meta_data, <span class="at">by =</span> <span class="st">"ID"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Look at the raw tracks:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(gps_merged, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat, <span class="at">colour =</span> ID)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_path</span>() <span class="sc">+</span>   <span class="co"># joins the fixes in time order</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week10_movement_files/figure-html/raw-tracks-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Some fixes for GV37734 look wrong: they are far away from the rest of the track. Before dealing with them, check for duplicates and missing data (Week 1).</p>
+</section>
+<section id="duplicates-and-missing-fixes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="duplicates-and-missing-fixes">Duplicates and missing fixes</h2>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(gps_merged))   <span class="co"># duplicated rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(gps_merged))    <span class="co"># missing values in each column</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>           ID     date_time           lon           lat    Population 
+            0             0             0             0             0 
+BreedingStage   deploy_time      nest_lon      nest_lat 
+            0             0             0             0 </code></pre>
+</div>
+</div>
+<p>There are no duplicated rows and no missing values in these data (if there were, <code>dplyr::distinct()</code> would remove the duplicates). A few random missing fixes are not a problem, but <strong>many consecutive missing fixes are not random</strong>. For example, dense forest canopy blocks GPS signals, which biases the data against forest habitats.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>gps_merged <span class="ot">&lt;-</span> gps_merged <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="movement-metrics" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="movement-metrics">Movement metrics</h2>
+<p>To find impossible fixes, calculate for each fix (within each bird):</p>
+<ul>
+<li>the <strong>distance</strong> from the previous fix,</li>
+<li>the <strong>time</strong> since the previous fix,</li>
+<li>the <strong>speed</strong> (distance / time),</li>
+<li>the <strong>net displacement</strong>: the distance from the first fix (the nest).</li>
+</ul>
+<p><code>geosphere::distHaversine()</code> calculates the distance in metres between two sets of longitude/latitude points, allowing for the curvature of the Earth. <code>dplyr::lag()</code> gives the previous value, and <code>dplyr::first()</code> the first value.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gps_metrics <span class="ot">&lt;-</span> gps_merged <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span>                                       <span class="co"># calculate within each bird</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">dist_m     =</span> geosphere<span class="sc">::</span><span class="fu">distHaversine</span>(<span class="fu">cbind</span>(lon, lat), <span class="fu">cbind</span>(dplyr<span class="sc">::</span><span class="fu">lag</span>(lon), dplyr<span class="sc">::</span><span class="fu">lag</span>(lat))),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">time_s     =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(date_time, dplyr<span class="sc">::</span><span class="fu">lag</span>(date_time), <span class="at">units =</span> <span class="st">"secs"</span>)),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">speed_ms   =</span> dist_m <span class="sc">/</span> time_s,                               <span class="co"># metres per second</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">netdisp_km =</span> geosphere<span class="sc">::</span><span class="fu">distHaversine</span>(<span class="fu">cbind</span>(lon, lat), <span class="fu">cbind</span>(dplyr<span class="sc">::</span><span class="fu">first</span>(lon), dplyr<span class="sc">::</span><span class="fu">first</span>(lat))) <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gps_metrics<span class="sc">$</span>speed_ms)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.      NAs 
+ 0.00000  0.01305  0.02700  0.67629  0.07005 18.70463        3 </code></pre>
+</div>
+</div>
+<p>Plot the distributions of these metrics to spot errors:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>time_plot <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(gps_metrics, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> time_s <span class="sc">/</span> <span class="dv">60</span>)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>() <span class="sc">+</span>                       <span class="co"># log scale: most gaps are short</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time between fixes (minutes, log scale)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span> ID) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>speed_plot <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(gps_metrics, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> speed_ms)) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Speed (m/s)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span> ID) <span class="sc">+</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>disp_plot <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(gps_metrics, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> netdisp_km)) <span class="sc">+</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Net displacement from first fix (km)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span> ID) <span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>time_plot <span class="sc">/</span> speed_plot <span class="sc">/</span> disp_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week10_movement_files/figure-html/metric-plots-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="filter-out-errors" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="filter-out-errors">Filter out errors</h2>
+<p>Choose thresholds from the biology of your species (and the literature), then filter:</p>
+<ul>
+<li><strong>Deployment period</strong>: remove the first 30 minutes after the tag was attached, when the bird may behave unnaturally after handling.</li>
+<li><strong>Speed</strong>: red-footed boobies rarely fly faster than about 20 m/s, so faster “movements” are GPS errors.</li>
+<li><strong>Net displacement</strong>: these birds were rearing chicks and returning to the nest, so fixes more than 300 km away are errors.</li>
+</ul>
+<p>If your GPS data have a dilution of precision (DOP) column, you can also remove fixes with poor precision (e.g.&nbsp;DOP &gt; 8).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>gps_clean <span class="ot">&lt;-</span> gps_metrics <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(date_time <span class="sc">&gt;</span> deploy_time <span class="sc">+</span> lubridate<span class="sc">::</span><span class="fu">minutes</span>(<span class="dv">30</span>), <span class="co"># after the first 30 min</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">is.na</span>(speed_ms) <span class="sc">|</span> speed_ms <span class="sc">&lt;</span> <span class="dv">20</span>,                 <span class="co"># keep the first fix (no speed) and realistic speeds</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                netdisp_km <span class="sc">&lt;=</span> <span class="dv">300</span>)                               <span class="co"># within 300 km of the start</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># How many fixes were removed for each bird?</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(dplyr<span class="sc">::</span><span class="fu">count</span>(gps_metrics, ID, <span class="at">name =</span> <span class="st">"before"</span>),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                 dplyr<span class="sc">::</span><span class="fu">count</span>(gps_clean, ID, <span class="at">name =</span> <span class="st">"after"</span>),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">by =</span> <span class="st">"ID"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  ID      before after
+  &lt;chr&gt;    &lt;int&gt; &lt;int&gt;
+1 GV37501   1725  1609
+2 GV37503   1646  1364
+3 GV37734   3279  3069</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>raw_plot <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(gps_metrics, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat, <span class="at">colour =</span> ID)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Raw data"</span>, <span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>clean_plot <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(gps_clean, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat, <span class="at">colour =</span> ID)) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Filtered data"</span>, <span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>raw_plot <span class="sc">+</span> clean_plot <span class="sc">+</span> patchwork<span class="sc">::</span><span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>) <span class="co"># one shared legend</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week10_movement_files/figure-html/compare-tracks-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Coordinate reference systems
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Longitude and latitude are in degrees (CRS code EPSG:4326). <code>geosphere</code> handles these directly. If you combine tracks with other maps or rasters (e.g.&nbsp;habitat or sea surface temperature), make sure every layer uses the <strong>same coordinate reference system</strong>, and use a projected CRS in metres for area calculations such as home ranges. See the optional <a href="./week09_spatial.html">spatial data</a> tutorial and the <a href="https://epsg.io/">EPSG database</a>.</p>
+</div>
+</div>
+</section>
+<section id="plot-the-clean-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="plot-the-clean-data">Plot the clean data</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Speed over time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Speed over space</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>gps_clean <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">days_elapsed =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(date_time, <span class="fu">min</span>(date_time), <span class="at">units =</span> <span class="st">"days"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> days_elapsed, <span class="at">y =</span> speed_ms)) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time since the first fix (days)"</span>, <span class="at">y =</span> <span class="st">"Speed (m/s)"</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span> ID) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week10_movement_files/figure-html/speed-time-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(gps_clean, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat, <span class="at">colour =</span> speed_ms)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_path</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">group =</span> ID), <span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">data =</span> meta_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> nest_lon, <span class="at">y =</span> nest_lat),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">shape =</span> <span class="dv">17</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># nest</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"inferno"</span>) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Longitude"</span>, <span class="at">y =</span> <span class="st">"Latitude"</span>, <span class="at">colour =</span> <span class="st">"Speed (m/s)"</span>) <span class="sc">+</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week10_movement_files/figure-html/speed-space-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="other-tracking-data" class="level1 unnumbered">
+<h1 class="unnumbered">Other tracking data</h1>
+<p>Other technologies need different cleaning steps:</p>
+<ul>
+<li><strong>Argos tags</strong>: each location has a <em>location class</em> (accuracy category) instead of a DOP. Error estimates differ among classes, and tracks are often processed with state-space models.</li>
+<li><strong>Acoustic telemetry</strong>: sound signals are easily corrupted, so false detections occur. Detections of tag IDs that are not in your study are easy to remove, but false detections of real tag IDs are harder to spot. Most studies use speed filters or summarise detections over longer time periods.</li>
+</ul>
+</section>
+<section id="analysing-movement-data" class="level1 unnumbered">
+<h1 class="unnumbered">Analysing movement data</h1>
+<p>Movement analysis is beyond this unit, because it needs models that handle autocorrelated, multidimensional (<em>x</em>, <em>y</em>, time) and irregularly sampled data. Some possibilities:</p>
+<ul>
+<li><strong>Home range / space use</strong>: minimum convex polygons (<a href="https://jamesepaterson.github.io/jamespatersonblog/03_trackingworkshop_homeranges">MCP</a>), kernel density estimates (<a href="https://jamesepaterson.github.io/jamespatersonblog/04_trackingworkshop_kernels">KDE</a>) and autocorrelated KDE (<a href="https://ecoisilva.github.io/AKDE_minireview/code/AKDE_R-tutorial.html">AKDE</a>).</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 36%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Complexity</th>
+<th style="text-align: left;">Data needed</th>
+<th style="text-align: left;">Gives intensity of use?</th>
+<th style="text-align: left;">Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MCP</td>
+<td style="text-align: left;">Very simple</td>
+<td style="text-align: left;">Low (≥ 30 points)</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Coarse, presence-only questions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KDE</td>
+<td style="text-align: left;">Moderate</td>
+<td style="text-align: left;">Moderate (≥ 50 points)</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Core areas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AKDE</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">High (≥ 100 points)</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Rigorous inference from intensive GPS data</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Home range or space use?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>home range</strong> is “<em>that area traversed by an individual in its normal activities of food gathering, mating and caring for young</em>” (Burt, 1943). Tracking data alone cannot show whether an area is used for all these activities, and an animal tracked for one season may use a completely different area in another. The safest term is <strong>space use</strong>, interpreted in the context of the study design (e.g.&nbsp;one week vs several months of tracking).</p>
+</div>
+</div>
+<ul>
+<li><strong>Behavioural states</strong>: high-resolution movement and accelerometer data can separate resting, foraging and travelling using methods such as hidden Markov models.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/echidna_study.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Classifying echidna behaviour from accelerometer traces <span class="citation" data-cites="clemente2016">(<a href="references.html#ref-clemente2016" role="doc-biblioref">Clemente et al., 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Social networks</strong>: when and where tracked animals meet can be used to build social networks.</li>
+<li><strong>Disease spread</strong>: movement data help predict how diseases spread through populations, as seen for <a href="https://data.who.int/dashboards/covid19/cases">COVID-19</a>.</li>
+</ul>
+</section>
+<section id="additional-resources" class="level1 unnumbered">
+<h1 class="unnumbered">Additional resources</h1>
+<ul>
+<li><a href="https://exmove.github.io/">ExMove</a>: a complete, step-by-step toolkit for cleaning and processing tracking data (the basis of this tutorial).</li>
+<li><a href="https://doi.org/10.1111/2041-210X.13999">A guide to sampling design for GPS-based studies of animal societies</a>.</li>
+<li><a href="https://doi.org/10.1111/1365-2656.13116">Navigating through the R packages for movement</a>: a review of R packages for movement ecology.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-baker2023" class="csl-entry" role="listitem">
+<strong>Baker, C. J., Frère, C. H., Franklin, C. E., Campbell, H. A., Irwin, T. R. and Dwyer, R. G.</strong> (2023). <a href="https://doi.org/10.1016/j.anbehav.2023.02.015">Long-term tracking reveals a dynamic crocodylian social system</a>. <em>Animal Behaviour</em> <strong>199</strong>, 59–78.
+</div>
+<div id="ref-clemente2016" class="csl-entry" role="listitem">
+<strong>Clemente, C. J., Cooper, C. E., Withers, P. C., Freakley, C., Singh, S. and Terrill, P.</strong> (2016). <a href="https://doi.org/10.1242/jeb.143867">The private life of echidnas: Using accelerometry and GPS to examine field biomechanics and assess the ecological impact of a widespread, semi-fossorial monotreme</a>. <em>Journal of Experimental Biology</em> <strong>219</strong>, 3271–3283.
+</div>
+<div id="ref-counilh2023" class="csl-entry" role="listitem">
+<strong>Counilh, A. and Arnould, J. P.</strong> (2023). <a href="https://doi.org/10.1080/01584197.2023.2214581">Environmental effects on movement and breeding of australasian gannets: Insights from banding records</a>. <em>Emu-Austral Ornithology</em> <strong>123</strong>, 206–216.
+</div>
+<div id="ref-van2022" class="csl-entry" role="listitem">
+<strong>Harten, E. van, Lawrence, R., Lumsden, L. F., Reardon, T., Bennett, A. F. and Prowse, T. A.</strong> (2022). <a href="https://doi.org/10.1071/WR21088">Seasonal population dynamics and movement patterns of a critically endangered, cave-dwelling bat, miniopterus orianae bassanii</a>. <em>Wildlife Research</em> <strong>49</strong>, 646–658.
+</div>
+<div id="ref-hoenner2012" class="csl-entry" role="listitem">
+<strong>Hoenner, X., Whiting, S. D., Hindell, M. A. and McMahon, C. R.</strong> (2012). <a href="https://doi.org/10.1371/journal.pone.0040713">Enhancing the use of argos satellite data for home range and long distance migration studies of marine animals</a>. <em>PLoS One</em> <strong>7</strong>, e40713.
+</div>
+<div id="ref-langley2024" class="csl-entry" role="listitem">
+<strong>Langley, L. P., Lang, S. D., Ozsanlav-Harris, L. and Trevail, A. M.</strong> (2024). <a href="https://doi.org/10.1111/1365-2656.14111">ExMove: An open-source toolkit for processing and exploring animal-tracking data in r</a>. <em>Journal of Animal Ecology</em> <strong>93</strong>, 784–795.
+</div>
+<div id="ref-peel2024" class="csl-entry" role="listitem">
+<strong><span class="nocase">Peel, L. R., Whiting, S. D., Pendoley, K., Whittock, P. A., Ferreira, L. C., Thums, M., Whiting, A. U., Tucker, A. D., Rossendell, J., McFarlane, G., et al.</span></strong> (2024). <a href="https://doi.org/10.1002/ecs2.4847">I still call australia home: Satellite telemetry informs the protection of flatback turtles in western australian waters</a>. <em>Ecosphere</em> <strong>15</strong>, e4847.
+</div>
+<div id="ref-royer2023" class="csl-entry" role="listitem">
+<strong>Royer, M., Meyer, C., Royer, J., Maloney, K., Cardona, E., Blandino, C., Fernandes da Silva, G., Whittingham, K. and Holland, K. N.</strong> (2023). <a href="https://doi.org/10.1126/science.add4445"><span>“Breath holding”</span> as a thermoregulation strategy in the deep-diving scalloped hammerhead shark</a>. <em>Science</em> <strong>380</strong>, 651–655.
+</div>
+<div id="ref-ruuvzivckova2026" class="csl-entry" role="listitem">
+<strong>Ržičková, J. and Elek, Z.</strong> (2026). <a href="https://doi.org/10.1186/s40462-026-00637-x">Challenges and approaches in tracking and analyzing movement of ground-dwelling insects</a>. <em>Movement Ecology</em> <strong>14</strong>, 25.
+</div>
+<div id="ref-wild2025" class="csl-entry" role="listitem">
+<strong>Wild, K. H., Roe, J. H., Curran, J., Pearson, P. R., Schwanz, L., Georges, A. and Sarre, S. D.</strong> (2025). <a href="https://doi.org/10.1111/1365-2656.70091">Thermal performance curves, activity and survival in a free-ranging ectotherm</a>. <em>Journal of Animal Ecology</em> <strong>94</strong>, 1823–1836.
+</div>
+<div id="ref-yu2022" class="csl-entry" role="listitem">
+<strong>Yu, X., Wu, N. C., Ge, L., Li, L., Zhang, Z. and Lei, J.</strong> (2022). <a href="https://doi.org/10.1038/s41598-022-09950-y">Artificial shelters provide suitable thermal habitat for a cold-blooded animal</a>. <em>Scientific Reports</em> <strong>12</strong>, 5879.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week09_spatial.html" class="pagination-link" aria-label="OPTIONAL: Spatial Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL: Spatial Data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week11_glm_binary.html" class="pagination-link" aria-label="Generalised Linear Models: Binary Data">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Binary Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

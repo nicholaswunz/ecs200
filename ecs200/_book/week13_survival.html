@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; Survival Analysis – ECS200 Research Methods in Ecology</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./the_islands.html" rel="next">
+<link href="./week12_mixed_models.html" rel="prev">
+<link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c140cb0e3f64d73de25775a391ba3148.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
+
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week13_survival.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01_quality_check.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02_tidy_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03_descriptive_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics and Figures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04_diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">OPTIONAL: Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08_glm_counts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Count Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL: Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_glm_binary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Binary Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_mixed_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mixed-Effects Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13_survival.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./the_islands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Islands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#before-we-start" id="toc-before-we-start" class="nav-link active" data-scroll-target="#before-we-start">Before we start</a>
+  <ul class="collapse">
+  <li><a href="#study-context" id="toc-study-context" class="nav-link" data-scroll-target="#study-context">Study context</a></li>
+  </ul></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">1. Background</a>
+  <ul class="collapse">
+  <li><a href="#censoring" id="toc-censoring" class="nav-link" data-scroll-target="#censoring">Censoring</a></li>
+  <li><a href="#survival-curves-the-log-rank-test-and-the-cox-model" id="toc-survival-curves-the-log-rank-test-and-the-cox-model" class="nav-link" data-scroll-target="#survival-curves-the-log-rank-test-and-the-cox-model">Survival curves, the log-rank test and the Cox model</a></li>
+  </ul></li>
+  <li><a href="#visualise" id="toc-visualise" class="nav-link" data-scroll-target="#visualise">2. Visualise</a></li>
+  <li><a href="#check-assumptions" id="toc-check-assumptions" class="nav-link" data-scroll-target="#check-assumptions">3. Check assumptions</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. Model</a></li>
+  <li><a href="#interpret" id="toc-interpret" class="nav-link" data-scroll-target="#interpret">5. Interpret</a></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week13_survival.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Week 13</strong>: Time-to-event data, censoring, Kaplan–Meier curves and Cox models</p>
+<p>How long does a translocated animal survive? How many days until a seed germinates, a plant flowers, or an insect is knocked down by heat? These are <strong>time-to-event</strong> questions. They need their own methods, because in almost every study some individuals have not had the event by the time the study ends.</p>
+<p>This week you will learn <strong>survival analysis</strong>, which handles this properly. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p><img src="images/base_model.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Learning outcomes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this workshop you should be able to:</p>
+<ol type="1">
+<li>Explain what censoring is and why it rules out a <em>t</em>-test or logistic regression.</li>
+<li>Estimate and plot survival curves with the Kaplan–Meier method.</li>
+<li>Compare survival between groups with a log-rank test and a Cox proportional hazards model.</li>
+<li>Interpret hazard ratios, check the proportional hazards assumption and write up the results.</li>
+</ol>
+</div>
+</div>
+<section id="before-we-start" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="before-we-start">Before we start</h2>
+<p><a href="data/woylie_survival.csv" class="btn btn-outline-danger btn-sm download-btn" download="woylie_survival.csv"><i class="bi bi-download"></i> woylie_survival.csv</a></p>
+<p>We use <code>survival</code>, which comes installed with R, for the models, and <code>ggsurvfit</code> to draw survival curves with ggplot2.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 13 workshop - Survival analysis</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Written by Nicholas Wu, 1234578, 20/05/2027</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggsurvfit")  # run once in the console if needed</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># data import, wrangling and plotting</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)   <span class="co"># survival models (installed with R)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsurvfit)  <span class="co"># survival curves with ggplot2</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd("C:/Users/YOUR-NAME/Documents/ECS200")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="study-context" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="study-context">Study context</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/woylie.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Woylie or brush-tailed bettong (<em>Bettongia ogilbyi</em>) illustration by H. C. Richter in Gould’s Mammals of Australia, 1863.</figcaption>
+</figure>
+</div>
+<p>The woylie (brush-tailed bettong, <em>Bettongia penicillata</em>) is a critically endangered marsupial from south-west Western Australia. Predation by introduced foxes and cats is a major threat, so woylies are often translocated into <strong>predator-proof fenced reserves</strong>. Translocations outside fences can establish wider populations, but only if enough animals survive.</p>
+<p>Sixty woylies were radio-collared and released, 30 inside a fenced reserve and 30 in an unfenced reserve with predator baiting. Each animal was tracked for up to <strong>365 days</strong>. For each woylie, the data record:</p>
+<ul>
+<li><code>days</code>: days from release until death, or until tracking stopped;</li>
+<li><code>status</code>: <strong>1</strong> = the woylie died during the study; <strong>0</strong> = the woylie was still alive when tracking stopped (the study ended, or its collar failed);</li>
+<li><code>release_site</code> (fenced or unfenced) and body mass at release (<code>mass_g</code>).</li>
+</ul>
+<p><strong>Question</strong>: Does survival differ between fenced and unfenced release sites?</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>woylie_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/woylie_survival.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">release_site =</span> <span class="fu">factor</span>(release_site, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"fenced"</span>, <span class="st">"unfenced"</span>)))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(woylie_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 60
+Columns: 5
+$ woylie_id    &lt;chr&gt; "W01", "W02", "W03", "W04", "W05", "W06", "W07", "W08", "…
+$ release_site &lt;fct&gt; fenced, fenced, fenced, fenced, fenced, fenced, fenced, f…
+$ mass_g       &lt;dbl&gt; 1478, 1383, 1353, 1194, 1318, 1236, 1267, 1382, 1587, 144…
+$ days         &lt;dbl&gt; 195, 359, 365, 272, 365, 6, 365, 365, 194, 124, 365, 365,…
+$ status       &lt;dbl&gt; 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, …</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many deaths (status = 1) and censored animals (status = 0) per site?</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>woylie_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(release_site, status)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  release_site status     n
+  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;
+1 fenced            0    23
+2 fenced            1     7
+3 unfenced          0     2
+4 unfenced          1    28</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="background" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="background">1. Background</h2>
+<section id="censoring" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="censoring">Censoring</h3>
+<p>Most woylies released inside the fence were still alive after 365 days. We know they survived <strong>at least</strong> 365 days, but not how long they would actually live. Their survival time is <strong>censored</strong>. A collar that fails on day 200 also gives a censored time: the animal was alive on day 200, and after that we do not know.</p>
+<p>Censored observations contain real information, so they must not be thrown away or treated as deaths:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Approach</th>
+<th style="text-align: left;">Problem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>t</em>-test on <code>days</code></td>
+<td style="text-align: left;">Censored animals lived <em>longer</em> than recorded, so the mean is underestimated, most of all in the group that survives best</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Drop the censored animals</td>
+<td style="text-align: left;">Removes the survivors, which makes survival look worse than it is</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Logistic regression on dead/alive</td>
+<td style="text-align: left;">Ignores <em>when</em> animals died. Dying on day 5 and on day 360 count the same, and animals followed for different lengths of time are not comparable</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="survival-curves-the-log-rank-test-and-the-cox-model" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="survival-curves-the-log-rank-test-and-the-cox-model">Survival curves, the log-rank test and the Cox model</h3>
+<ul>
+<li>The <strong>survival function</strong> <span class="math inline">\(S(t)\)</span> is the probability of surviving beyond time <em>t</em>. It starts at 1 and steps down every time an animal dies.</li>
+<li>The <strong>Kaplan–Meier</strong> method estimates <span class="math inline">\(S(t)\)</span> from data with censoring. At each death, the proportion surviving is multiplied by (1 − deaths / number still at risk). Censored animals count as “at risk” until the day they are censored, and then they leave the calculation. They are not counted as deaths.</li>
+<li>The <strong>log-rank test</strong> compares survival curves between groups (H<sub>0</sub>: the curves are the same).</li>
+<li>The <strong>Cox proportional hazards model</strong> is the regression model for survival data. It models the <strong>hazard</strong> (the instantaneous risk of death at any moment) and can include several predictors, numeric or categorical:</li>
+</ul>
+<p><span class="math display">\[
+h(t) = h_0(t)\, e^{\beta_1 x_1 + \beta_2 x_2 + \dots}
+\]</span></p>
+<p><span class="math inline">\(e^{\beta}\)</span> is the <strong>hazard ratio (HR)</strong>. HR = 2 means twice the risk of dying at any moment, HR = 0.5 means half the risk, and HR = 1 means no effect. The model assumes the hazard ratio stays the same throughout the study: the <strong>proportional hazards</strong> assumption.</p>
+<p>Use the app to see how survival curves, censoring and sample size interact.</p>
+<div class="app-box column-body-outset">
+<div class="app-title">
+<p>App: Kaplan–Meier survival curves and censoring</p>
+</div>
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell hidden">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="134" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 133;"><span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {rng<span class="op">,</span> rexp<span class="op">,</span> kaplanMeier<span class="op">,</span> logrank<span class="op">,</span> fmt<span class="op">,</span> fmtp<span class="op">,</span> red<span class="op">,</span> grey<span class="op">,</span> dark} <span class="im">from</span> <span class="st">"./apps/ecs200.js"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display hidden">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="140" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 139;"><span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a>viewof sv_medA <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">20</span><span class="op">,</span> <span class="dv">600</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Median survival, fenced (days)"</span>})</span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a>viewof sv_medB <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">20</span><span class="op">,</span> <span class="dv">600</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Median survival, unfenced (days)"</span>})</span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a>viewof sv_end <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">30</span><span class="op">,</span> <span class="dv">365</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">365</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Study length (days)"</span>})</span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a>viewof sv_n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">5</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Animals per group"</span>})</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a>viewof sv_seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Resample"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="150" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 149;"><span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a>sv_data <span class="op">=</span> {</span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">1313</span> <span class="op">+</span> sv_seed)<span class="op">;</span></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> make <span class="op">=</span> (median) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> t <span class="op">=</span> <span class="fu">rexp</span>(r<span class="op">,</span> sv_n<span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">2</span>) <span class="op">/</span> median)<span class="op">;</span></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="dt">times</span><span class="op">:</span> t<span class="op">.</span><span class="fu">map</span>((v) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">ceil</span>(v)<span class="op">,</span> sv_end))<span class="op">,</span> <span class="dt">status</span><span class="op">:</span> t<span class="op">.</span><span class="fu">map</span>((v) <span class="kw">=&gt;</span> (v <span class="op">&lt;=</span> sv_end <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>))}<span class="op">;</span></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> A <span class="op">=</span> <span class="fu">make</span>(sv_medA)<span class="op">,</span> B <span class="op">=</span> <span class="fu">make</span>(sv_medB)<span class="op">;</span></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> kmA <span class="op">=</span> <span class="fu">kaplanMeier</span>(A<span class="op">.</span><span class="at">times</span><span class="op">,</span> A<span class="op">.</span><span class="at">status</span>)<span class="op">,</span> kmB <span class="op">=</span> <span class="fu">kaplanMeier</span>(B<span class="op">.</span><span class="at">times</span><span class="op">,</span> B<span class="op">.</span><span class="at">status</span>)<span class="op">;</span></span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> [</span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span>kmA<span class="op">.</span><span class="at">steps</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> ({<span class="op">...</span>d<span class="op">,</span> <span class="dt">group</span><span class="op">:</span> <span class="st">"fenced"</span>}))<span class="op">,</span> {<span class="dt">time</span><span class="op">:</span> sv_end<span class="op">,</span> <span class="dt">surv</span><span class="op">:</span> kmA<span class="op">.</span><span class="at">steps</span><span class="op">.</span><span class="fu">at</span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">.</span><span class="at">surv</span><span class="op">,</span> <span class="dt">group</span><span class="op">:</span> <span class="st">"fenced"</span>}<span class="op">,</span></span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span>kmB<span class="op">.</span><span class="at">steps</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> ({<span class="op">...</span>d<span class="op">,</span> <span class="dt">group</span><span class="op">:</span> <span class="st">"unfenced"</span>}))<span class="op">,</span> {<span class="dt">time</span><span class="op">:</span> sv_end<span class="op">,</span> <span class="dt">surv</span><span class="op">:</span> kmB<span class="op">.</span><span class="at">steps</span><span class="op">.</span><span class="fu">at</span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">.</span><span class="at">surv</span><span class="op">,</span> <span class="dt">group</span><span class="op">:</span> <span class="st">"unfenced"</span>}</span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> cens <span class="op">=</span> [<span class="op">...</span>kmA<span class="op">.</span><span class="at">censored</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> ({<span class="op">...</span>d<span class="op">,</span> <span class="dt">group</span><span class="op">:</span> <span class="st">"fenced"</span>}))<span class="op">,</span> <span class="op">...</span>kmB<span class="op">.</span><span class="at">censored</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> ({<span class="op">...</span>d<span class="op">,</span> <span class="dt">group</span><span class="op">:</span> <span class="st">"unfenced"</span>}))]<span class="op">;</span></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> lr <span class="op">=</span> <span class="fu">logrank</span>(A<span class="op">.</span><span class="at">times</span><span class="op">,</span> A<span class="op">.</span><span class="at">status</span><span class="op">,</span> B<span class="op">.</span><span class="at">times</span><span class="op">,</span> B<span class="op">.</span><span class="at">status</span>)<span class="op">;</span></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ncens <span class="op">=</span> A<span class="op">.</span><span class="at">status</span><span class="op">.</span><span class="fu">filter</span>((s) <span class="kw">=&gt;</span> s <span class="op">===</span> <span class="dv">0</span>)<span class="op">.</span><span class="at">length</span> <span class="op">+</span> B<span class="op">.</span><span class="at">status</span><span class="op">.</span><span class="fu">filter</span>((s) <span class="kw">=&gt;</span> s <span class="op">===</span> <span class="dv">0</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {steps<span class="op">,</span> cens<span class="op">,</span> lr<span class="op">,</span> ncens}<span class="op">;</span></span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">320</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Days since release"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">365</span>]}<span class="op">,</span></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Proportion surviving"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">"fenced"</span><span class="op">,</span> <span class="st">"unfenced"</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [grey<span class="op">,</span> red]<span class="op">,</span> <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(sv_data<span class="op">.</span><span class="at">steps</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"surv"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"group"</span><span class="op">,</span> <span class="dt">curve</span><span class="op">:</span> <span class="st">"step-after"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(sv_data<span class="op">.</span><span class="at">cens</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"surv"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"group"</span><span class="op">,</span> <span class="dt">symbol</span><span class="op">:</span> <span class="st">"plus"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span>})<span class="op">,</span></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([sv_end]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,3"</span>})</span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="180" data-source-offset="-1494"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 179;"><span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div class="app-verdict"&gt;Log-rank test: χ² = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(sv_data<span class="op">.</span><span class="at">lr</span><span class="op">.</span><span class="at">chisq</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;, &lt;i&gt;p&lt;/i&gt; &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmtp</span>(sv_data<span class="op">.</span><span class="at">lr</span><span class="op">.</span><span class="at">p</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;.</span></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;b&gt;</span><span class="sc">${</span>sv_data<span class="op">.</span><span class="at">ncens</span><span class="sc">}</span><span class="vs">&lt;/b&gt; of </span><span class="sc">${</span><span class="dv">2</span> <span class="op">*</span> sv_n<span class="sc">}</span><span class="vs"> animals were censored (+ symbols), i.e. still alive when the study ended (dashed line).</span></span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a><span class="vs">Shorten the study and watch how many observations become censored and how much harder it is to detect a difference.&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualise" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="visualise">2. Visualise</h2>
+<p>The response in a survival analysis is a pair of columns, time and status, combined with <code>survival::Surv()</code>. The <code>+</code> signs printed below mark censored times.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time and status combined into one "survival" response</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(woylie_data<span class="sc">$</span>days, woylie_data<span class="sc">$</span>status), <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 195+ 359  365+ 272+ 365+   6  365+ 365+ 194+ 124+</code></pre>
+</div>
+</div>
+<p>Plot the <strong>Kaplan–Meier curves</strong> for each release site. <code>ggsurvfit::survfit2()</code> estimates the curves, and <code>ggsurvfit::ggsurvfit()</code> plots them as a ggplot.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kaplan-Meier estimate for each release site</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>woylie_km <span class="ot">&lt;-</span> ggsurvfit<span class="sc">::</span><span class="fu">survfit2</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(days, status) <span class="sc">~</span> release_site,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data =</span> woylie_data)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>woylie_km <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  ggsurvfit<span class="sc">::</span><span class="fu">ggsurvfit</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  ggsurvfit<span class="sc">::</span><span class="fu">add_confidence_interval</span>() <span class="sc">+</span>  <span class="co"># 95% CI bands</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ggsurvfit<span class="sc">::</span><span class="fu">add_censor_mark</span>() <span class="sc">+</span>          <span class="co"># + marks for censored animals</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  ggsurvfit<span class="sc">::</span><span class="fu">add_risktable</span>() <span class="sc">+</span>            <span class="co"># number still being tracked</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey30"</span>, <span class="st">"#e12744"</span>)) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey30"</span>, <span class="st">"#e12744"</span>)) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Days since release"</span>, <span class="at">y =</span> <span class="st">"Proportion surviving"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_survival_files/figure-html/km-plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Median survival time (with 95% CI) for each site</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>woylie_km</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: survfit(formula = survival::Surv(days, status) ~ release_site, 
+    data = woylie_data)
+
+                       n events median 0.95LCL 0.95UCL
+release_site=fenced   30      7     NA      NA      NA
+release_site=unfenced 30     28     95      83     147</code></pre>
+</div>
+</div>
+<ul>
+<li><code>n</code>: number of woylies in each group. <code>events</code>: number that died.</li>
+<li><code>median</code>: the time by which half the animals had died, with its 95% CI (<code>0.95LCL</code> to <code>0.95UCL</code>). <code>NA</code> means the curve never fell below 0.5 (or the CI never reached it).</li>
+</ul>
+<p>Survival inside the fence stayed high all year, while most woylies released outside the fence died within the first few months. The median survival for the fenced site is <code>NA</code> because fewer than half of those woylies died, so the curve never dropped below 0.5.</p>
+</section>
+<section id="check-assumptions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="check-assumptions">3. Check assumptions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Assumption</th>
+<th style="text-align: left;">How to check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Independent (non-informative) censoring</strong>: whether an animal is censored has nothing to do with its risk of dying</td>
+<td style="text-align: left;">Study design. A collar failing at random is fine. Losing track of animals <em>because</em> they were dying (e.g.&nbsp;collar destroyed by a predator but recorded as “lost”) is not</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Independent individuals</strong></td>
+<td style="text-align: left;">Study design</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Proportional hazards</strong> (Cox model only): the hazard ratio is constant over time</td>
+<td style="text-align: left;"><code>survival::cox.zph()</code>: a non-significant test, and a roughly flat line in its plot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Enough events</strong>: roughly 10 events (deaths) per predictor in a Cox model</td>
+<td style="text-align: left;">Count the events ✅ (35 deaths, 2 predictors)</td>
+</tr>
+</tbody>
+</table>
+<p>Fit the Cox model first, then test the proportional hazards assumption.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>woylie_cox <span class="ot">&lt;-</span> survival<span class="sc">::</span><span class="fu">coxph</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(days, status) <span class="sc">~</span> release_site <span class="sc">+</span> mass_g,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> woylie_data)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Test of the proportional hazards assumption for each predictor and overall</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>woylie_zph <span class="ot">&lt;-</span> survival<span class="sc">::</span><span class="fu">cox.zph</span>(woylie_cox)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>woylie_zph</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>               chisq df     p
+release_site 3.18384  1 0.074
+mass_g       0.00231  1 0.962
+GLOBAL       3.18466  2 0.203</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One plot per predictor: the line should be roughly flat</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># two plots side by side</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(woylie_zph)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_survival_files/figure-html/cox-fit-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))  <span class="co"># back to one plot per page</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>All <em>p</em>-values are above 0.05 and the lines are roughly flat, so the proportional hazards assumption is reasonable.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>When is a Cox model NOT appropriate? (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Situation</th>
+<th style="text-align: left;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Survival curves <strong>cross</strong>, or <code>cox.zph()</code> is significant</td>
+<td style="text-align: left;">Hazards are not proportional. Report Kaplan–Meier curves and the log-rank test, stratify the model (<code>strata()</code>), or split the study period into intervals</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Censoring is related to the risk of death (informative censoring)</td>
+<td style="text-align: left;">Fix the design: check collars more often and follow up mortality signals</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Individuals grouped in sites, cohorts or families</td>
+<td style="text-align: left;">Add a random effect (a <em>frailty</em> term, e.g.&nbsp;the <code>coxme</code> package), the survival version of Week 12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Events only checked every few weeks, so the exact day is unknown</td>
+<td style="text-align: left;">Interval-censored methods, or analyse survival per interval with a binomial GLM (Week 11)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">An event that can happen repeatedly (e.g.&nbsp;repeated nest failures)</td>
+<td style="text-align: left;">Recurrent event models</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Predictors that change during the study (e.g.&nbsp;body condition at each capture)</td>
+<td style="text-align: left;">Time-varying covariates in <code>coxph()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model">4. Model</h2>
+<p><strong>Log-rank test</strong>: do the two survival curves differ?</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>survival<span class="sc">::</span><span class="fu">survdiff</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(days, status) <span class="sc">~</span> release_site, <span class="at">data =</span> woylie_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survival::survdiff(formula = survival::Surv(days, status) ~ release_site, 
+    data = woylie_data)
+
+                       N Observed Expected (O-E)^2/E (O-E)^2/V
+release_site=fenced   30        7     24.1      12.1        44
+release_site=unfenced 30       28     10.9      26.8        44
+
+ Chisq= 44  on 1 degrees of freedom, p= 3e-11 </code></pre>
+</div>
+</div>
+<p>The output gives everything you need:</p>
+<ul>
+<li><code>N</code>: number of woylies in each group.</li>
+<li><code>Observed</code>: the number of deaths that actually happened in each group.</li>
+<li><code>Expected</code>: the number of deaths expected in each group if both groups had the same survival curve (the null hypothesis). Many more observed than expected deaths in the unfenced group means survival was worse there.</li>
+<li><code>(O-E)^2/E</code> and <code>(O-E)^2/V</code>: how far observed is from expected in each group; they add up to the test statistic.</li>
+<li><code>Chisq= ... on 1 degrees of freedom</code>: the log-rank test statistic. The df is the number of groups minus 1.</li>
+<li><code>p= ...</code>: the probability of curves this different if survival were really the same at both sites.</li>
+</ul>
+<p><strong>Cox model</strong>: how big is the effect of release site, and does body mass matter?</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(woylie_cox)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survival::coxph(formula = survival::Surv(days, status) ~ release_site + 
+    mass_g, data = woylie_data)
+
+  n= 60, number of events= 35 
+
+                          coef exp(coef)  se(coef)      z Pr(&gt;|z|)    
+release_siteunfenced  2.880952 17.831238  0.570532  5.050 4.43e-07 ***
+mass_g               -0.001267  0.998734  0.001258 -1.007    0.314    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+                     exp(coef) exp(-coef) lower .95 upper .95
+release_siteunfenced   17.8312    0.05608    5.8283    54.553
+mass_g                  0.9987    1.00127    0.9963     1.001
+
+Concordance= 0.754  (se = 0.039 )
+Likelihood ratio test= 45.09  on 2 df,   p=2e-10
+Wald test            = 27.47  on 2 df,   p=1e-06
+Score (logrank) test = 44.71  on 2 df,   p=2e-10</code></pre>
+</div>
+</div>
+<p>The output gives everything you need:</p>
+<ul>
+<li><code>n = ..., number of events = ...</code>: the number of animals and deaths used.</li>
+<li>The first table has one row per predictor:
+<ul>
+<li><code>coef</code>: the effect on the <strong>log-hazard</strong> scale. Positive means a higher risk of death, negative a lower risk. <code>release_siteunfenced</code> compares unfenced with fenced (the reference level); <code>mass_g</code> is per gram of body mass.</li>
+<li><code>exp(coef)</code>: the <strong>hazard ratio</strong>. Above 1 = higher risk, below 1 = lower risk, 1 = no effect.</li>
+<li><code>se(coef)</code>: the standard error of <code>coef</code>.</li>
+<li><code>z</code> and <code>Pr(&gt;|z|)</code>: the test statistic and <em>p</em>-value for each predictor.</li>
+</ul></li>
+<li>The second table repeats <code>exp(coef)</code> with its 95% confidence interval (<code>lower .95</code> to <code>upper .95</code>). If the CI does not include 1, the effect is significant at α = 0.05. <code>exp(-coef)</code> is the same hazard ratio the other way round (e.g.&nbsp;fenced compared with unfenced).</li>
+<li><code>Concordance</code>: how well the model ranks which animals died first (0.5 = no better than chance, 1 = perfect).</li>
+<li><code>Likelihood ratio test</code>, <code>Wald test</code> and <code>Score (logrank) test</code>: three versions of an overall test of whether the predictors together explain survival. They usually agree; report the predictor-level results above.</li>
+</ul>
+</section>
+<section id="interpret" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="interpret">5. Interpret</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 37%">
+<col style="width: 21%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: center;">Hazard ratio</th>
+<th style="text-align: center;">95% CI</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>release_siteunfenced</code></td>
+<td style="text-align: center;">17.8</td>
+<td style="text-align: center;">5.8–54.6</td>
+<td style="text-align: left;">At any point in the study, a woylie released outside the fence was 17.8 times as likely to die as one inside the fence (of the same body mass)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>mass_g</code></td>
+<td style="text-align: center;">0.9987</td>
+<td style="text-align: center;">0.9963–1.0012</td>
+<td style="text-align: left;">The HR is per gram, so it looks tiny. Per 100 g heavier, HR = 0.88 (95% CI 0.69–1.13). The CI includes 1, so there is no clear effect of body mass</td>
+</tr>
+</tbody>
+</table>
+<p>A hazard ratio is about the <strong>rate</strong> of dying, not the total number that die. Survival curves and the proportion surviving to a given time are easier for most readers to understand, so report them as well.</p>
+<p><strong>Methods sentence</strong>: <em>Survival of radio-collared woylies was estimated with the Kaplan–Meier method and compared between release sites with a log-rank test using the <code>ggsurvfit::survfit2()</code> function in R. The effects of release site and body mass on the risk of death were estimated with a Cox proportional hazards model, using the <code>survival::coxph()</code> function from the <code>survival</code> package in R. Animals alive at the end of the 365-day study or whose collars failed were treated as censored. The proportional hazards assumption was checked with Schoenfeld residuals (<code>cox.zph()</code>). Significance was set with α = 0.05.</em></p>
+<p><strong>Results sentence</strong>:</p>
+<blockquote class="blockquote">
+<p>Survival over the first year was much higher inside the fenced reserve (71% surviving at 365 days) than at the unfenced site (0%; median survival = 95 days; log-rank χ²<sub>1</sub> = 44, <em>p</em> &lt; 0.001; Fig. 1). After accounting for body mass, woylies released outside the fence had 17.8 times the hazard of death (95% CI 5.8–54.6, <em>p</em> &lt; 0.001). There was no clear effect of body mass on the risk of death (HR per 100 g = 0.88, 95% CI 0.69–1.13, <em>p</em> = 0.31).</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Link to your project
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Survival analysis is not only about death. In <a href="./the_islands.html">The Islands</a> project, <strong>time to first flowering</strong> and <strong>time to first fruit</strong> are time-to-event data. Plots that had not flowered when you harvested them are censored.</p>
+</div>
+</div>
+</section>
+<section id="assessment" class="level1 unnumbered">
+<h1 class="unnumbered">Assessment</h1>
+<p>Task to complete before the end of the workshop.</p>
+<p><a href="assessments/week13_assessment.R" class="btn btn-danger btn-sm download-btn" download="week13_assessment.R"><i class="bi bi-download"></i> week13_assessment.R</a> <a href="data/ant_knockdown.csv" class="btn btn-outline-danger btn-sm download-btn" download="ant_knockdown.csv"><i class="bi bi-download"></i> ant_knockdown.csv</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ants_nyc.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Lewis Thomas and the Ants of New York City.</figcaption>
+</figure>
+</div>
+<p><strong>Are city ants more heat tolerant?</strong> Cities are hotter than the surrounding countryside (the urban heat island). To test whether urban ants tolerate heat better, workers of one ant species were collected from <strong>rural</strong> and <strong>urban</strong> colonies and placed individually in vials in a heat block at a constant 42 °C. The <strong>knockdown time</strong> (minutes until the ant lost coordination and could no longer stand) was recorded. The trial stopped after <strong>60 minutes</strong>, so ants still standing at 60 minutes were censored. Head width (mm) was measured as an index of body size.</p>
+<p><strong>Note</strong>: For the purpose of this excerise, we assume the ants are <em>independent</em> of their colonies. In reality, we would need to include colony source as a random effect due to genetic similarities among related ant individuals.</p>
+<p>Columns: <code>ant_id</code>, <code>origin</code> (rural/urban), <code>head_width</code> (mm), <code>knockdown_min</code> (minutes), <code>status</code> (1 = knocked down, 0 = still standing at 60 minutes).</p>
+<ol type="1">
+<li>Import the data, check its structure and count how many ants from each origin were knocked down and how many were censored.</li>
+<li>Explain in one or two sentences why a <em>t</em>-test comparing <code>knockdown_min</code> between origins would give a misleading answer.</li>
+<li>Plot Kaplan–Meier curves of the proportion of ants still standing over time for each origin, and report the median knockdown time for each origin.</li>
+<li>Use a log-rank test to compare the two origins.</li>
+<li>Fit a Cox model with <code>origin</code> and <code>head_width</code> as predictors and check the proportional hazards assumption.</li>
+<li>Report and interpret the hazard ratios for origin and head width (careful: here the “event” is being knocked down, so what does a hazard ratio below 1 mean?).</li>
+<li>Write a results sentence.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How your assessment is marked
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Submit <strong>one R script</strong> (<code>.R</code>) before the end of the class. Write your answers to written questions as <code>#</code> comments next to the code that produced them.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 74%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Score</th>
+<th style="text-align: left;">What it looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">No submission or no attempt.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.25</td>
+<td style="text-align: left;">Submitted, but a very poor attempt (e.g.&nbsp;incomplete, or lots of gaps).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.5</td>
+<td style="text-align: left;">Most questions answered, <strong>or</strong> all answered but most annotations missing.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.75</td>
+<td style="text-align: left;">All questions answered, but some annotations missing or some answers incorrect.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Everything completed, with annotations on all code so the marker can follow it.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tip</strong>: an annotation is a short <code>#</code> comment that says <em>what</em> the line does and <em>why</em>. For example: <code># remove the one plant with a stem dry mass of 7.4 g (data entry error)</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="additional-resources" class="level1 unnumbered">
+<h1 class="unnumbered">Additional resources</h1>
+<ul>
+<li><a href="https://www.emilyzabor.com/survival-analysis-in-r.html">Survival analysis in R (E. Zabor)</a>: an excellent, step-by-step tutorial using <code>survival</code> and <code>ggsurvfit</code>.</li>
+<li><a href="https://www.danieldsjoberg.com/ggsurvfit/"><code>ggsurvfit</code> documentation</a>: more ways to customise survival plots.</li>
+<li><a href="http://www.sthda.com/english/wiki/cox-proportional-hazards-model">STHDA: Cox proportional hazards model</a>: short explanations of hazard ratios and the PH assumption.</li>
+<li>Woylie conservation: <a href="https://www.australianwildlife.org/wildlife/woylie/">Australian Wildlife Conservancy</a>.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7cm5nLCByZXhwLCBrYXBsYW5NZWllciwgbG9ncmFuaywgZm10LCBmbXRwLCByZWQsIGdyZXksIGRhcmt9IGZyb20gXCIuL2FwcHMvZWNzMjAwLmpzXCJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBzdl9tZWRBID0gSW5wdXRzLnJhbmdlKFsyMCwgNjAwXSwge3ZhbHVlOiA0MDAsIHN0ZXA6IDEwLCBsYWJlbDogXCJNZWRpYW4gc3Vydml2YWwsIGZlbmNlZCAoZGF5cylcIn0pXG52aWV3b2Ygc3ZfbWVkQiA9IElucHV0cy5yYW5nZShbMjAsIDYwMF0sIHt2YWx1ZTogMTEwLCBzdGVwOiAxMCwgbGFiZWw6IFwiTWVkaWFuIHN1cnZpdmFsLCB1bmZlbmNlZCAoZGF5cylcIn0pXG52aWV3b2Ygc3ZfZW5kID0gSW5wdXRzLnJhbmdlKFszMCwgMzY1XSwge3ZhbHVlOiAzNjUsIHN0ZXA6IDUsIGxhYmVsOiBcIlN0dWR5IGxlbmd0aCAoZGF5cylcIn0pXG52aWV3b2Ygc3ZfbiA9IElucHV0cy5yYW5nZShbNSwgNjBdLCB7dmFsdWU6IDMwLCBzdGVwOiAxLCBsYWJlbDogXCJBbmltYWxzIHBlciBncm91cFwifSlcbnZpZXdvZiBzdl9zZWVkID0gSW5wdXRzLmJ1dHRvbihcIlJlc2FtcGxlXCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJzdl9kYXRhID0ge1xuICBjb25zdCByID0gcm5nKDEzMTMgKyBzdl9zZWVkKTtcbiAgY29uc3QgbWFrZSA9IChtZWRpYW4pID0+IHtcbiAgICBjb25zdCB0ID0gcmV4cChyLCBzdl9uLCBNYXRoLmxvZygyKSAvIG1lZGlhbik7XG4gICAgcmV0dXJuIHt0aW1lczogdC5tYXAoKHYpID0+IE1hdGgubWluKE1hdGguY2VpbCh2KSwgc3ZfZW5kKSksIHN0YXR1czogdC5tYXAoKHYpID0+ICh2IDw9IHN2X2VuZCA/IDEgOiAwKSl9O1xuICB9O1xuICBjb25zdCBBID0gbWFrZShzdl9tZWRBKSwgQiA9IG1ha2Uoc3ZfbWVkQik7XG4gIGNvbnN0IGttQSA9IGthcGxhbk1laWVyKEEudGltZXMsIEEuc3RhdHVzKSwga21CID0ga2FwbGFuTWVpZXIoQi50aW1lcywgQi5zdGF0dXMpO1xuICBjb25zdCBzdGVwcyA9IFtcbiAgICAuLi5rbUEuc3RlcHMubWFwKChkKSA9PiAoey4uLmQsIGdyb3VwOiBcImZlbmNlZFwifSkpLCB7dGltZTogc3ZfZW5kLCBzdXJ2OiBrbUEuc3RlcHMuYXQoLTEpLnN1cnYsIGdyb3VwOiBcImZlbmNlZFwifSxcbiAgICAuLi5rbUIuc3RlcHMubWFwKChkKSA9PiAoey4uLmQsIGdyb3VwOiBcInVuZmVuY2VkXCJ9KSksIHt0aW1lOiBzdl9lbmQsIHN1cnY6IGttQi5zdGVwcy5hdCgtMSkuc3VydiwgZ3JvdXA6IFwidW5mZW5jZWRcIn1cbiAgXTtcbiAgY29uc3QgY2VucyA9IFsuLi5rbUEuY2Vuc29yZWQubWFwKChkKSA9PiAoey4uLmQsIGdyb3VwOiBcImZlbmNlZFwifSkpLCAuLi5rbUIuY2Vuc29yZWQubWFwKChkKSA9PiAoey4uLmQsIGdyb3VwOiBcInVuZmVuY2VkXCJ9KSldO1xuICBjb25zdCBsciA9IGxvZ3JhbmsoQS50aW1lcywgQS5zdGF0dXMsIEIudGltZXMsIEIuc3RhdHVzKTtcbiAgY29uc3QgbmNlbnMgPSBBLnN0YXR1cy5maWx0ZXIoKHMpID0+IHMgPT09IDApLmxlbmd0aCArIEIuc3RhdHVzLmZpbHRlcigocykgPT4gcyA9PT0gMCkubGVuZ3RoO1xuICByZXR1cm4ge3N0ZXBzLCBjZW5zLCBsciwgbmNlbnN9O1xufVxuXG5QbG90LnBsb3Qoe1xuICB3aWR0aDogNTYwLCBoZWlnaHQ6IDMyMCwgbWFyZ2luTGVmdDogNTAsXG4gIHg6IHtsYWJlbDogXCJEYXlzIHNpbmNlIHJlbGVhc2VcIiwgZG9tYWluOiBbMCwgMzY1XX0sXG4gIHk6IHtsYWJlbDogXCJQcm9wb3J0aW9uIHN1cnZpdmluZ1wiLCBkb21haW46IFswLCAxXSwgZ3JpZDogdHJ1ZX0sXG4gIGNvbG9yOiB7ZG9tYWluOiBbXCJmZW5jZWRcIiwgXCJ1bmZlbmNlZFwiXSwgcmFuZ2U6IFtncmV5LCByZWRdLCBsZWdlbmQ6IHRydWV9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZShzdl9kYXRhLnN0ZXBzLCB7eDogXCJ0aW1lXCIsIHk6IFwic3VydlwiLCBzdHJva2U6IFwiZ3JvdXBcIiwgY3VydmU6IFwic3RlcC1hZnRlclwiLCBzdHJva2VXaWR0aDogMi41fSksXG4gICAgUGxvdC5kb3Qoc3ZfZGF0YS5jZW5zLCB7eDogXCJ0aW1lXCIsIHk6IFwic3VydlwiLCBzdHJva2U6IFwiZ3JvdXBcIiwgc3ltYm9sOiBcInBsdXNcIiwgcjogNX0pLFxuICAgIFBsb3QucnVsZVgoW3N2X2VuZF0sIHtzdHJva2U6IGRhcmssIHN0cm9rZURhc2hhcnJheTogXCI0LDNcIn0pXG4gIF1cbn0pXG5cbmh0bWxgPGRpdiBjbGFzcz1cImFwcC12ZXJkaWN0XCI+TG9nLXJhbmsgdGVzdDogz4fCsiA9IDxiPiR7Zm10KHN2X2RhdGEubHIuY2hpc3EpfTwvYj4sIDxpPnA8L2k+IDxiPiR7Zm10cChzdl9kYXRhLmxyLnApfTwvYj4uXG48Yj4ke3N2X2RhdGEubmNlbnN9PC9iPiBvZiAkezIgKiBzdl9ufSBhbmltYWxzIHdlcmUgY2Vuc29yZWQgKCsgc3ltYm9scyksIGkuZS4gc3RpbGwgYWxpdmUgd2hlbiB0aGUgc3R1ZHkgZW5kZWQgKGRhc2hlZCBsaW5lKS5cblNob3J0ZW4gdGhlIHN0dWR5IGFuZCB3YXRjaCBob3cgbWFueSBvYnNlcnZhdGlvbnMgYmVjb21lIGNlbnNvcmVkIGFuZCBob3cgbXVjaCBoYXJkZXIgaXQgaXMgdG8gZGV0ZWN0IGEgZGlmZmVyZW5jZS48L2Rpdj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3N2X21lZEEnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc3ZfbWVkQicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzdl9lbmQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc3ZfbicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzdl9zZWVkJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week12_mixed_models.html" class="pagination-link" aria-label="Mixed-Effects Models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mixed-Effects Models</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./the_islands.html" class="pagination-link" aria-label="The Islands">
+        <span class="nav-page-text">The Islands</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

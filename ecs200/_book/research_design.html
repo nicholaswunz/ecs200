@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Research Design – ECS200 Research Methods in Ecology</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./the_islands.html" rel="prev">
+<link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c140cb0e3f64d73de25775a391ba3148.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
+
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./the_islands.html">Appendices</a></li><li class="breadcrumb-item"><a href="./research_design.html">Research Design</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01_quality_check.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02_tidy_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03_descriptive_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics and Figures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04_diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">OPTIONAL: Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08_glm_counts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Count Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL: Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_glm_binary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Binary Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_mixed_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mixed-Effects Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13_survival.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./the_islands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Islands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#from-question-to-analysis" id="toc-from-question-to-analysis" class="nav-link active" data-scroll-target="#from-question-to-analysis">From question to analysis</a>
+  <ul class="collapse">
+  <li><a href="#who-or-what-are-you-making-conclusions-about" id="toc-who-or-what-are-you-making-conclusions-about" class="nav-link" data-scroll-target="#who-or-what-are-you-making-conclusions-about">Who or what are you making conclusions about?</a></li>
+  <li><a href="#replicate-at-the-right-scale" id="toc-replicate-at-the-right-scale" class="nav-link" data-scroll-target="#replicate-at-the-right-scale">Replicate at the right scale</a></li>
+  <li><a href="#randomise-intersperse-and-block" id="toc-randomise-intersperse-and-block" class="nav-link" data-scroll-target="#randomise-intersperse-and-block">Randomise, intersperse and block</a></li>
+  <li><a href="#controls-and-beforeafter-designs" id="toc-controls-and-beforeafter-designs" class="nav-link" data-scroll-target="#controls-and-beforeafter-designs">Controls and before–after designs</a></li>
+  <li><a href="#design-decisions-determine-the-analysis" id="toc-design-decisions-determine-the-analysis" class="nav-link" data-scroll-target="#design-decisions-determine-the-analysis">Design decisions determine the analysis</a></li>
+  </ul></li>
+  <li><a href="#how-many-samples-do-i-need" id="toc-how-many-samples-do-i-need" class="nav-link" data-scroll-target="#how-many-samples-do-i-need">How many samples do I need?</a>
+  <ul class="collapse">
+  <li><a href="#power-analysis-in-r" id="toc-power-analysis-in-r" class="nav-link" data-scroll-target="#power-analysis-in-r">Power analysis in R</a></li>
+  <li><a href="#how-much-survey-effort" id="toc-how-much-survey-effort" class="nav-link" data-scroll-target="#how-much-survey-effort">How much survey effort?</a></li>
+  </ul></li>
+  <li><a href="#zeros-and-nas-in-r" id="toc-zeros-and-nas-in-r" class="nav-link" data-scroll-target="#zeros-and-nas-in-r">Zeros and NAs in R</a></li>
+  <li><a href="#common-statistical-mistakes" id="toc-common-statistical-mistakes" class="nav-link" data-scroll-target="#common-statistical-mistakes">Common statistical mistakes</a></li>
+  <li><a href="#recording-and-reporting" id="toc-recording-and-reporting" class="nav-link" data-scroll-target="#recording-and-reporting">Recording and reporting</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./the_islands.html">Appendices</a></li><li class="breadcrumb-item"><a href="./research_design.html">Research Design</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Research Design</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Good analysis cannot rescue a poor design. Most of the problems you will meet in Weeks 5–13 (non-independent data, confounded treatments, too few replicates, false zeros) are much easier to prevent when you plan a study than to fix after the data are collected. This appendix adds to the lecture notes on research design, with a focus on designing studies that are <strong>easy to analyse</strong>.</p>
+<section id="from-question-to-analysis" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="from-question-to-analysis">From question to analysis</h2>
+<p>Plan your analysis <strong>before</strong> you collect data. Four principles for sound statistical ecology <span class="citation" data-cites="Popovic2024">(<a href="references.html#ref-Popovic2024" role="doc-biblioref"><span class="nocase">Popovic et al.</span>, 2024</a>)</span>:</p>
+<ol type="1">
+<li><strong>Define a focused research question</strong>, then plan the sampling and the analysis to answer it.</li>
+<li><strong>Use a model that accounts for the distribution and dependence of your data</strong> (counts → Week 8, yes/no → Week 11, grouped or repeated measurements → Week 12).</li>
+<li><strong>Emphasise effect sizes</strong> (how big is the effect, with a confidence interval) rather than only whether <em>p</em> &lt; 0.05.</li>
+<li><strong>Report your methods and results in enough detail</strong> that someone else could repeat the study and use your results <span class="citation" data-cites="Davis2023 Gerstner2017">(<a href="references.html#ref-Davis2023" role="doc-biblioref">Davis and Kay, 2023</a>; <a href="references.html#ref-Gerstner2017" role="doc-biblioref">Gerstner et al., 2017</a>)</span>.</li>
+</ol>
+<p>A useful exercise: before collecting any data, <strong>sketch the figure</strong> you expect to make and <strong>write the R model formula</strong> you plan to fit, e.g. <code>lm(sprint_speed ~ temperature * population)</code>. If you cannot write the formula, the design is not finished yet.</p>
+<section id="who-or-what-are-you-making-conclusions-about" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="who-or-what-are-you-making-conclusions-about">Who or what are you making conclusions about?</h3>
+<p>The <strong>scope of inference</strong> is the “population” your conclusions apply to. Define it in three dimensions before you sample:</p>
+<ul>
+<li><strong>Spatial</strong>: one wetland, all wetlands on the Swan Coastal Plain, or all of south-west WA?</li>
+<li><strong>Temporal</strong>: one breeding season, or long-term conditions? A question about a 10-year cycle needs more than one year of data.</li>
+<li><strong>Ecological</strong>: one species, one life stage, or a whole community?</li>
+</ul>
+<p>Your sample can only represent the population you actually sampled from. Larger and more variable populations need more samples.</p>
+</section>
+<section id="replicate-at-the-right-scale" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="replicate-at-the-right-scale">Replicate at the right scale</h3>
+<p>The most important design decision is the <strong>experimental (or sampling) unit</strong>: the smallest unit to which a treatment is <strong>independently</strong> applied, or that is independently sampled. Replication must happen at the same scale as the treatment <span class="citation" data-cites="Marshall2024 Hurlbert1984">(<a href="references.html#ref-Hurlbert1984" role="doc-biblioref">Hurlbert, 1984</a>; <a href="references.html#ref-Marshall2024" role="doc-biblioref">Marshall, 2024</a>)</span>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 20%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Design</th>
+<th style="text-align: left;">Treatment applied to</th>
+<th style="text-align: left;">True replicate</th>
+<th style="text-align: left;">Pseudoreplicates (subsamples)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Nutrients added to individual pots</td>
+<td style="text-align: left;">Pot</td>
+<td style="text-align: left;">Pot</td>
+<td style="text-align: left;">Several leaves per plant</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Water heated in a tank holding 5 snails</td>
+<td style="text-align: left;">Tank</td>
+<td style="text-align: left;">Tank</td>
+<td style="text-align: left;">The 5 snails</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fire applied to whole plots</td>
+<td style="text-align: left;">Plot</td>
+<td style="text-align: left;">Plot</td>
+<td style="text-align: left;">Quadrats within each plot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Comparing burnt and unburnt <em>sites</em></td>
+<td style="text-align: left;">Site</td>
+<td style="text-align: left;">Site</td>
+<td style="text-align: left;">Traps within each site</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Comparing high and low pH <em>populations</em></td>
+<td style="text-align: left;">Population</td>
+<td style="text-align: left;">Population</td>
+<td style="text-align: left;">Individuals within a population</td>
+</tr>
+</tbody>
+</table>
+<p>Subsamples are useful (they give a better estimate for each unit), but they are not independent replicates. Either average them for each experimental unit, or include the unit as a random effect (Week 12).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Link to your project
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On <a href="./the_islands.html">The Islands</a>, each plot is the experimental unit for a nutrient treatment. Ten plants measured in one plot are not ten replicates. And if you compare islands, you have only <strong>one</strong> field station per island, so island and climate are completely confounded: any difference could be caused by climate, soil, or anything else that differs between the islands. Say so clearly in your report.</p>
+</div>
+</div>
+</section>
+<section id="randomise-intersperse-and-block" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="randomise-intersperse-and-block">Randomise, intersperse and block</h3>
+<ul>
+<li><strong>Randomise</strong> which units get which treatment, so unmeasured differences (soil, shade, observer) are spread evenly among treatments. Use R to do it:</li>
+</ul>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly assign 3 nutrient treatments to 36 plots (12 plots each)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2027</span>)  <span class="co"># makes the randomisation repeatable; change the number for your own design</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plot_design <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot      =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">treatment =</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"low N"</span>, <span class="st">"high N"</span>), <span class="at">each =</span> <span class="dv">12</span>)) <span class="co"># shuffle the 36 labels</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(plot_design)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  plot treatment
+1    1   control
+2    2   control
+3    3    high N
+4    4     low N
+5    5    high N
+6    6     low N</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Intersperse</strong> treatments in space and time. Putting all the controls in one row, or measuring all controls in the morning and all treatments in the afternoon, confounds the treatment with location or time.</li>
+<li><strong>Block</strong> when there is a known gradient (e.g.&nbsp;slope, distance from the coast). Group similar units into blocks and assign every treatment within each block. Block then becomes a random effect (Week 12) or a fixed factor in the analysis.</li>
+</ul>
+</section>
+<section id="controls-and-beforeafter-designs" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="controls-and-beforeafter-designs">Controls and before–after designs</h3>
+<p>To measure the effect of an impact (mining, fire, restoration), you need to know what would have happened <strong>without</strong> it. Simple designs often give wrong answers: an analysis of hundreds of ecological datasets found that before–after or control–impact designs alone can be very inaccurate, and that <strong>before–after control–impact (BACI)</strong> and randomised designs were much more reliable <span class="citation" data-cites="Christie2019 Christie2020">(<a href="references.html#ref-Christie2019" role="doc-biblioref">Christie et al., 2019</a>; <a href="references.html#ref-Christie2020" role="doc-biblioref"><span class="nocase">Christie et al.</span>, 2020</a>)</span>. Where possible, collect data <strong>before</strong> the impact at both impact and control sites, and use <strong>several</strong> control sites. Experiments built into management actions are one of the best ways to get this evidence <span class="citation" data-cites="Ockendon2021">(<a href="references.html#ref-Ockendon2021" role="doc-biblioref">Ockendon et al., 2021</a>)</span>. The <em>Controls</em> app below shows why.</p>
+</section>
+<section id="design-decisions-determine-the-analysis" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="design-decisions-determine-the-analysis">Design decisions determine the analysis</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 38%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">If your design has…</th>
+<th style="text-align: left;">…you will need</th>
+<th style="text-align: center;">Week</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Two or more groups and a continuous response</td>
+<td style="text-align: left;"><em>t</em>-test or ANOVA</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A numeric predictor (gradient)</td>
+<td style="text-align: left;">Linear regression</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Several correlated predictors</td>
+<td style="text-align: left;">Choose predictors carefully, check VIF</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Counts (individuals, species, seeds)</td>
+<td style="text-align: left;">Poisson or negative binomial GLM</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unequal effort among samples (trap nights, area)</td>
+<td style="text-align: left;">An offset in a GLM: <strong>record the effort!</strong></td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes/no responses (present, survived, bleached)</td>
+<td style="text-align: left;">Logistic regression</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Several measurements per individual, site or tank</td>
+<td style="text-align: left;">Mixed-effects model</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Time until an event, with some individuals not reaching it</td>
+<td style="text-align: left;">Survival analysis</td>
+<td style="text-align: center;">13</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="how-many-samples-do-i-need" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="how-many-samples-do-i-need">How many samples do I need?</h2>
+<p><strong>Statistical power</strong> is the probability that a study will detect an effect (<em>p</em> &lt; 0.05) if the effect is real. Studies with low power often miss real effects, and when they do find something, they tend to overestimate it. A common target is <strong>80% power</strong>.</p>
+<p>Power depends on four things:</p>
+<ol type="1">
+<li><strong>Effect size</strong>: the smallest difference that would matter biologically. Decide this from the literature or from what would matter for management, not from what you hope to find.</li>
+<li><strong>Variability</strong> (SD) of the response. Estimate it from a pilot study, previous studies or similar data.</li>
+<li><strong>Sample size</strong> (<em>n</em>).</li>
+<li><strong>Significance level</strong> (α, usually 0.05).</li>
+</ol>
+<p>Choose three of them, and you can calculate the fourth. Use the app to see how they trade off.</p>
+<div class="app-box column-body-outset">
+<div class="app-title">
+<p>App: statistical power and sample size (two-group comparison)</p>
+</div>
+<div class="cell hidden">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="151" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 150;"><span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {rng<span class="op">,</span> rnorm<span class="op">,</span> mean<span class="op">,</span> sd<span class="op">,</span> cor<span class="op">,</span> lm1<span class="op">,</span> qt975<span class="op">,</span> powerT<span class="op">,</span> fmt<span class="op">,</span> fmtp<span class="op">,</span> red<span class="op">,</span> grey<span class="op">,</span> dark<span class="op">,</span> blue} <span class="im">from</span> <span class="st">"./apps/ecs200.js"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display hidden">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="158" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 157;"><span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>viewof pw_delta <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.05</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.3</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Difference you want to detect (e.g. m/s)"</span>})</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a>viewof pw_sd <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.05</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.25</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Standard deviation within groups"</span>})</span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>viewof pw_target <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.5</span><span class="op">,</span> <span class="fl">0.95</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.8</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Target power"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="166" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 165;"><span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>pw_curve <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">99</span>}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">n</span><span class="op">:</span> i <span class="op">+</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">power</span><span class="op">:</span> <span class="fu">powerT</span>(i <span class="op">+</span> <span class="dv">2</span><span class="op">,</span> pw_delta<span class="op">,</span> pw_sd)}))</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>pw_need <span class="op">=</span> pw_curve<span class="op">.</span><span class="fu">find</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">power</span> <span class="op">&gt;=</span> pw_target)</span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">320</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Sample size per group (n)"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]}<span class="op">,</span></span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Power"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([pw_target]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,3"</span>})<span class="op">,</span></span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>    pw_need <span class="op">?</span> Plot<span class="op">.</span><span class="fu">ruleX</span>([pw_need<span class="op">.</span><span class="at">n</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,3"</span>}) <span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(pw_curve<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"n"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"power"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>})</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>})<span class="sc">}</span></span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;Standardised effect size (difference / SD) = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(pw_delta <span class="op">/</span> pw_sd)<span class="sc">}</span><span class="vs">&lt;/b&gt;.</span></span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a><span class="sc">${</span>pw_need <span class="op">?</span> <span class="vs">`You need about &lt;b&gt;</span><span class="sc">${</span>pw_need<span class="op">.</span><span class="at">n</span><span class="sc">}</span><span class="vs">&lt;/b&gt; replicates per group for </span><span class="sc">${</span><span class="fu">fmt</span>(pw_target <span class="op">*</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">0</span>)<span class="sc">}</span><span class="vs">% power.`</span> <span class="op">:</span> <span class="st">"Even 100 per group is not enough: reduce the variability or reconsider the effect size."</span><span class="sc">}</span></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a><span class="vs">Halving the SD (better measurements, blocking, more uniform study units) reduces the sample size you need by about four times.&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="power-analysis-in-r" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="power-analysis-in-r">Power analysis in R</h3>
+<p>Base R has functions for the simplest designs. Leave out the one quantity you want R to calculate.</p>
+<p><strong>Two groups (<em>t</em>-test)</strong>: the lizard experiment in Week 5. Suppose a pilot study gave an SD in sprint speed of 0.25 m/s, and a difference of 0.3 m/s between temperatures would be biologically important. How many lizards per temperature?</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.t.test</span>(<span class="at">delta =</span> <span class="fl">0.3</span>, <span class="at">sd =</span> <span class="fl">0.25</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Two-sample t test power calculation 
+
+              n = 11.94228
+          delta = 0.3
+             sd = 0.25
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group</code></pre>
+</div>
+</div>
+<p>Round <strong>up</strong>: 12 lizards per group. And what power would you have with only 10 per group?</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.t.test</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">delta =</span> <span class="fl">0.3</span>, <span class="at">sd =</span> <span class="fl">0.25</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Two-sample t test power calculation 
+
+              n = 10
+          delta = 0.3
+             sd = 0.25
+      sig.level = 0.05
+          power = 0.7184022
+    alternative = two.sided
+
+NOTE: n is number in *each* group</code></pre>
+</div>
+</div>
+<p><strong>Three or more groups (one-way ANOVA)</strong>: give the expected group means and the within-group variance (SD<sup>2</sup>):</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected mean sprint speed at 20, 28 and 36 C, and a within-group SD of 0.25</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>expected_means <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups      =</span> <span class="dv">3</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">between.var =</span> <span class="fu">var</span>(expected_means),  <span class="co"># variance among the expected means</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">within.var  =</span> <span class="fl">0.25</span><span class="sc">^</span><span class="dv">2</span>,                <span class="co"># SD squared</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">power       =</span> <span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Balanced one-way analysis of variance power calculation 
+
+         groups = 3
+              n = 4.395181
+    between.var = 0.09333333
+     within.var = 0.0625
+      sig.level = 0.05
+          power = 0.8
+
+NOTE: n is number in each group</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Going further: power by simulation (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For GLMs, mixed models and other complex designs there is no simple formula. Instead, <strong>simulate</strong> the study many times with your planned sample size and effect, analyse each simulated dataset, and count how often the effect is significant. This is optional, but it is a very powerful way to plan a study.</p>
+<p>Example: will 20 plots per treatment detect a 30% increase in fruit number (from a mean of 5 to 6.5 fruits per plant) with a Poisson GLM?</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>n_per_group <span class="ot">&lt;-</span> <span class="dv">20</span>       <span class="co"># plots per treatment</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n_sims      <span class="ot">&lt;-</span> <span class="dv">500</span>      <span class="co"># number of simulated studies</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>p_values    <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n_sims)  <span class="co"># empty vector to store each study's p-value</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_sims) {</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1. Simulate one study</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  sim_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">treatment =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"fertilised"</span>), <span class="at">each =</span> n_per_group))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  sim_data<span class="sc">$</span>fruits <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">2</span> <span class="sc">*</span> n_per_group,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                           <span class="at">lambda =</span> <span class="fu">ifelse</span>(sim_data<span class="sc">$</span>treatment <span class="sc">==</span> <span class="st">"control"</span>, <span class="dv">5</span>, <span class="fl">6.5</span>))</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2. Analyse it</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  sim_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(fruits <span class="sc">~</span> treatment, <span class="at">family =</span> poisson, <span class="at">data =</span> sim_data)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3. Store the p-value for the treatment effect</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  p_values[i] <span class="ot">&lt;-</span> <span class="fu">summary</span>(sim_model)<span class="sc">$</span>coefficients[<span class="st">"treatmentfertilised"</span>, <span class="st">"Pr(&gt;|z|)"</span>]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Power = proportion of simulated studies with p &lt; 0.05</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(p_values <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.522</code></pre>
+</div>
+</div>
+<p>Only about half of the simulated studies detect the effect, so 20 plots per treatment is not enough. Increase <code>n_per_group</code> and run it again to find the sample size that gives 80% power. Real counts are usually overdispersed (Week 8), so you would need even more.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-much-survey-effort" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="how-much-survey-effort">How much survey effort?</h3>
+<p>For surveys, “sample size” also means <strong>effort</strong>: how many visits, traps or quadrats.</p>
+<p><strong>Detecting a species that is present.</strong> If a species is detected with probability <em>p</em> on a single visit when it is present, the chance of missing it on <em>k</em> visits is (1 − <em>p</em>)<sup><em>k</em></sup>. To be 95% sure of detecting it:</p>
+<p><span class="math display">\[
+k = \frac{\log(1 - 0.95)}{\log(1 - p)}
+\]</span></p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of visits needed to be 95% sure of detecting a species that is present,</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for single-visit detection probabilities of 0.1 to 0.9</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">p_detect =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>, <span class="at">by =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">visits_needed =</span> <span class="fu">ceiling</span>(<span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.95</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> p_detect)))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>detection</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  p_detect visits_needed
+1      0.1            29
+2      0.2            14
+3      0.3             9
+4      0.4             6
+5      0.5             5
+6      0.6             4
+7      0.7             3
+8      0.8             2
+9      0.9             2</code></pre>
+</div>
+</div>
+<p>A cryptic frog detected on 30% of visits needs 9 visits per site before “not detected” reasonably means “absent”. With fewer visits, many of your zeros will be <strong>false zeros</strong> (see below). Occupancy designs that repeat visits only where a species has not yet been detected can save a lot of effort for rare species <span class="citation" data-cites="Specht2017">(<a href="references.html#ref-Specht2017" role="doc-biblioref">Specht et al., 2017</a>)</span>.</p>
+<p><strong>Finding most of the species in a community.</strong> A <strong>species accumulation curve</strong> shows how many species you find as you add samples. When the curve flattens, extra samples add few new species.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Invertebrate pitfall data from Week 4: one row per trap, one column per order</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>invert_matrix <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/invert_exp_survey.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Blattodea<span class="sc">:</span>Annelida)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected number of orders found for 1, 2, 3... traps (random order of traps)</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>invert_accum <span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">specaccum</span>(invert_matrix, <span class="at">method =</span> <span class="st">"random"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>accum_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">traps    =</span> invert_accum<span class="sc">$</span>sites,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">richness =</span> invert_accum<span class="sc">$</span>richness,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sd       =</span> invert_accum<span class="sc">$</span>sd)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(accum_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> traps, <span class="at">y =</span> richness)) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_ribbon</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">ymin =</span> richness <span class="sc">-</span> sd, <span class="at">ymax =</span> richness <span class="sc">+</span> sd), <span class="at">fill =</span> <span class="st">"grey85"</span>) <span class="sc">+</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of pitfall traps"</span>, <span class="at">y =</span> <span class="st">"Number of orders found"</span>) <span class="sc">+</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="research_design_files/figure-html/specaccum-1.png" class="img-fluid figure-img" width="528"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here, about 20 traps find most of the orders, and the remaining traps add only rare ones.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Link to your project
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each Island field station has <strong>36 plots</strong>. More treatment levels means fewer replicates per treatment: 2 treatments give 18 plots each, 3 give 12, 4 give 9 and 6 give 6. Use <code>power.t.test()</code> or <code>power.anova.test()</code>, with an SD from the literature or a pilot run, to check whether your design has a reasonable chance of detecting the effect you care about <strong>before</strong> you plant anything.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="zeros-and-nas-in-r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="zeros-and-nas-in-r">Zeros and NAs in R</h2>
+<p>Ecological data are messy, but R doesn’t care: <em>rubbish in, rubbish out</em>. When designing surveys, it is essential to <strong>distinguish carefully between “0” and “NA”</strong> in your data sheet, because they mean completely different things.</p>
+<ul>
+<li>Record a <strong>0</strong> only when a site was actually sampled with adequate effort and the species was not detected. Sampling happened, detection was possible, and the count was zero. <strong>A zero is data.</strong></li>
+<li>Record an <strong>NA</strong> when the site was not sampled, sampling failed, effort was inadequate, or the value is otherwise missing. <strong>An NA means “we do not know”.</strong></li>
+</ul>
+<p>Mixing them up causes real problems:</p>
+<ul>
+<li>Coding a missing value as <strong>0</strong> claims a confirmed absence. This biases occupancy or abundance estimates downwards, adds extra zeros and can lead you to fit the wrong model (e.g.&nbsp;a zero-inflated model when the real problem is missing data). If your pH meter broke, the pH of those samples is unknown, not 0.</li>
+<li>Coding a true zero as <strong>NA</strong> means R drops that observation from many analyses (e.g.&nbsp;<code>tidyr::drop_na()</code>), reducing your sample size and biasing results.</li>
+</ul>
+<p>Zeros can arise in different ways <span class="citation" data-cites="Blasco2019">(<a href="references.html#ref-Blasco2019" role="doc-biblioref">Blasco-Moreno et al., 2019</a>)</span>. In the example below (herbivorous insect species on a plant species), zeros caused by an inexperienced observer (<strong>a–b</strong>) or by a poor design (<strong>c–h</strong>) are <strong>false zeros</strong>, which should be minimised through good design. <strong>Structural zeros</strong>, caused by the biology of the system (<strong>i–k</strong>), and <strong>random zeros</strong> from sampling variation (<strong>l</strong>) are <strong>true zeros</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/blasco2019_fig1.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Sources of zeros in count data. From <span class="citation" data-cites="Blasco2019">Blasco-Moreno et al. (<a href="references.html#ref-Blasco2019" role="doc-biblioref">2019</a>)</span>, Figure 1.</figcaption>
+</figure>
+</div>
+<p>The scenarios that produce a zero, and how to minimise false zeros:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 24%">
+<col style="width: 14%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: left;">How to reduce it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/blasco2019a.jpg" class="img-fluid"></td>
+<td style="text-align: left;">The insects or their damage are too small for the observer to detect</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Sample when insects are well developed</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="images/blasco2019b.jpg" class="img-fluid"></td>
+<td style="text-align: left;">The observer misses the herbivore (e.g.&nbsp;mistakes it for a seed) or attributes damage to another cause</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Train observers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/blasco2019c.jpg" class="img-fluid"></td>
+<td style="text-align: left;">The distributions of the herbivore and the plant do not overlap</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Know the species’ distributions before sampling</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="images/blasco2019d.jpg" class="img-fluid"></td>
+<td style="text-align: left;">The herbivore is absent from a location within its range (e.g.&nbsp;unsuitable microclimate)</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Sample suitable habitats, or replicate surveys across areas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/blasco2019e.jpg" class="img-fluid"></td>
+<td style="text-align: left;">A single survey does not coincide with the herbivore’s life cycle</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Know the life cycle, or survey repeatedly</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="images/blasco2019f.jpg" class="img-fluid"></td>
+<td style="text-align: left;">A long-term survey samples too infrequently to catch the herbivore</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Sample more often</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/blasco2019g.jpg" class="img-fluid"></td>
+<td style="text-align: left;">Herbivores are absent at the time of sampling</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Record plant damage instead of insects</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="images/blasco2019h.jpg" class="img-fluid"></td>
+<td style="text-align: left;">Herbivores are so rare that the design cannot detect them</td>
+<td style="text-align: center;">False</td>
+<td style="text-align: left;">Sample more extensively, with more replicates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/blasco2019i.jpg" class="img-fluid"></td>
+<td style="text-align: left;">Plant and herbivore phenologies do not overlap</td>
+<td style="text-align: center;">True (structural)</td>
+<td style="text-align: left;">–</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="images/blasco2019j.jpg" class="img-fluid"></td>
+<td style="text-align: left;">Herbivores do not recognise the plant as a host</td>
+<td style="text-align: center;">True (structural)</td>
+<td style="text-align: left;">–</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img src="images/blasco2019k.jpg" class="img-fluid"></td>
+<td style="text-align: left;">Herbivores prefer another host species</td>
+<td style="text-align: center;">True (structural)</td>
+<td style="text-align: left;">–</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="images/blasco2019l.jpg" class="img-fluid"></td>
+<td style="text-align: left;">The herbivore population is too small to use all the plants</td>
+<td style="text-align: center;">True (random)</td>
+<td style="text-align: left;">–</td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/zero_NA_meme.jpg" class="img-fluid" style="width:60.0%"></p>
+</section>
+<section id="common-statistical-mistakes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="common-statistical-mistakes">Common statistical mistakes</h2>
+<p>Most mistakes in published research are not failures of advanced mathematics. They are everyday errors of design and interpretation that are easy to make and easy to miss <span class="citation" data-cites="Makin2019">(<a href="references.html#ref-Makin2019" role="doc-biblioref">Makin and Orban de Xivry, 2019</a>)</span>. Each tab below has an app: move the sliders, press <em>Resample</em> and watch how the conclusion can change, often dramatically, from nothing more than chance, sample size or a decision made by the researcher. The apps were inspired by <a href="https://gtatters.github.io/CommonStatisticalMistakes/">BIOL 3P96 Biostatistics</a>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Controls</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Fake correlation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Confounders</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Non-significant results</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<blockquote class="blockquote">
+<p>Mistaking a change over time for a real treatment effect.</p>
+</blockquote>
+<p>Does mining increase feral cat activity (e.g.&nbsp;because of more human activity)? A before–after, control–impact (BACI) design compares four groups:</p>
+<ul>
+<li><strong>Control before</strong>: the reference (unmined) site before mining started.</li>
+<li><strong>Control after</strong>: the reference site after mining started elsewhere.</li>
+<li><strong>Impact before</strong>: the mine site before mining.</li>
+<li><strong>Impact after</strong>: the mine site after mining.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/camera_trap_cat.jpg" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>A feral cat recorded on a camera trap. Image from Hohnen et al.&nbsp;(2021), NESP Threatened Species Recovery Hub Project 8.4.1 report.</figcaption>
+</figure>
+</div>
+<p>Cat activity can change over time for reasons that have nothing to do with mining (e.g.&nbsp;season or rainfall). Only the control site tells you how big that background change is.</p>
+<div class="app-box">
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb17" data-startfrom="416" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 415;"><span id="cb17-416"><a href="#cb17-416" aria-hidden="true" tabindex="-1"></a>viewof bc_eff <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.25</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"True effect of mining on cat activity"</span>})</span>
+<span id="cb17-417"><a href="#cb17-417" aria-hidden="true" tabindex="-1"></a>viewof bc_drift <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.25</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Change over time at all sites (e.g. season)"</span>})</span>
+<span id="cb17-418"><a href="#cb17-418" aria-hidden="true" tabindex="-1"></a>viewof bc_n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">5</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Number of cameras per site"</span>})</span>
+<span id="cb17-419"><a href="#cb17-419" aria-hidden="true" tabindex="-1"></a>viewof bc_seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Resample"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb18" data-startfrom="425" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 424;"><span id="cb18-425"><a href="#cb18-425" aria-hidden="true" tabindex="-1"></a>bc <span class="op">=</span> {</span>
+<span id="cb18-426"><a href="#cb18-426" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">101</span> <span class="op">+</span> bc_seed)<span class="op">;</span></span>
+<span id="cb18-427"><a href="#cb18-427" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctrlPre <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> bc_n<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb18-428"><a href="#cb18-428" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctrlPost <span class="op">=</span> ctrlPre<span class="op">.</span><span class="fu">map</span>((v) <span class="kw">=&gt;</span> v <span class="op">+</span> bc_drift <span class="op">+</span> <span class="fu">rnorm</span>(r<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">2</span>)[<span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb18-429"><a href="#cb18-429" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> trtPre <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> bc_n<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb18-430"><a href="#cb18-430" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> trtPost <span class="op">=</span> trtPre<span class="op">.</span><span class="fu">map</span>((v) <span class="kw">=&gt;</span> v <span class="op">+</span> bc_drift <span class="op">+</span> bc_eff <span class="op">+</span> <span class="fu">rnorm</span>(r<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">2</span>)[<span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb18-431"><a href="#cb18-431" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> groups <span class="op">=</span> [[ctrlPre<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="st">"control"</span>]<span class="op">,</span> [ctrlPost<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="st">"control"</span>]<span class="op">,</span> [trtPre<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="st">"impact"</span>]<span class="op">,</span> [trtPost<span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="st">"impact"</span>]]<span class="op">;</span></span>
+<span id="cb18-432"><a href="#cb18-432" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pts <span class="op">=</span> groups<span class="op">.</span><span class="fu">flatMap</span>(([g<span class="op">,</span> x<span class="op">,</span> s]) <span class="kw">=&gt;</span> g<span class="op">.</span><span class="fu">map</span>((v) <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> x <span class="op">+</span> (<span class="fu">r</span>() <span class="op">-</span> <span class="fl">0.5</span>) <span class="op">*</span> <span class="fl">0.3</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> v})))<span class="op">;</span></span>
+<span id="cb18-433"><a href="#cb18-433" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ms <span class="op">=</span> groups<span class="op">.</span><span class="fu">map</span>(([g<span class="op">,</span> x<span class="op">,</span> s]) <span class="kw">=&gt;</span> {</span>
+<span id="cb18-434"><a href="#cb18-434" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> m <span class="op">=</span> <span class="fu">mean</span>(g)<span class="op">,</span> h <span class="op">=</span> <span class="fu">qt975</span>(g<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="fu">sd</span>(g) <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(g<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span>
+<span id="cb18-435"><a href="#cb18-435" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {x<span class="op">,</span> m<span class="op">,</span> <span class="dt">lo</span><span class="op">:</span> m <span class="op">-</span> h<span class="op">,</span> <span class="dt">hi</span><span class="op">:</span> m <span class="op">+</span> h<span class="op">,</span> <span class="dt">site</span><span class="op">:</span> s}<span class="op">;</span></span>
+<span id="cb18-436"><a href="#cb18-436" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb18-437"><a href="#cb18-437" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> apparent <span class="op">=</span> ms[<span class="dv">3</span>]<span class="op">.</span><span class="at">m</span> <span class="op">-</span> ms[<span class="dv">2</span>]<span class="op">.</span><span class="at">m</span><span class="op">,</span> control <span class="op">=</span> ms[<span class="dv">1</span>]<span class="op">.</span><span class="at">m</span> <span class="op">-</span> ms[<span class="dv">0</span>]<span class="op">.</span><span class="at">m</span><span class="op">;</span></span>
+<span id="cb18-438"><a href="#cb18-438" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {pts<span class="op">,</span> ms<span class="op">,</span> apparent<span class="op">,</span> control<span class="op">,</span> <span class="dt">real</span><span class="op">:</span> apparent <span class="op">-</span> control}<span class="op">;</span></span>
+<span id="cb18-439"><a href="#cb18-439" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-440"><a href="#cb18-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-441"><a href="#cb18-441" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb18-442"><a href="#cb18-442" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">320</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb18-443"><a href="#cb18-443" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="fl">0.4</span><span class="op">,</span> <span class="fl">5.6</span>]<span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> <span class="dt">tickFormat</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> ({<span class="dv">1</span><span class="op">:</span> <span class="st">"Control before"</span><span class="op">,</span> <span class="dv">2</span><span class="op">:</span> <span class="st">"Control after"</span><span class="op">,</span> <span class="dv">4</span><span class="op">:</span> <span class="st">"Impact before"</span><span class="op">,</span> <span class="dv">5</span><span class="op">:</span> <span class="st">"Impact after"</span>})[d]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb18-444"><a href="#cb18-444" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Cat activity (detections)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb18-445"><a href="#cb18-445" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">"control"</span><span class="op">,</span> <span class="st">"impact"</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [grey<span class="op">,</span> red]}<span class="op">,</span></span>
+<span id="cb18-446"><a href="#cb18-446" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb18-447"><a href="#cb18-447" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(bc<span class="op">.</span><span class="at">pts</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#d6d6d6"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb18-448"><a href="#cb18-448" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(bc<span class="op">.</span><span class="at">ms</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"site"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"site"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb18-449"><a href="#cb18-449" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>(bc<span class="op">.</span><span class="at">ms</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"lo"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"hi"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"site"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb18-450"><a href="#cb18-450" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(bc<span class="op">.</span><span class="at">ms</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"site"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span>})</span>
+<span id="cb18-451"><a href="#cb18-451" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb18-452"><a href="#cb18-452" aria-hidden="true" tabindex="-1"></a>})<span class="sc">}</span></span>
+<span id="cb18-453"><a href="#cb18-453" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;At the mine site alone, cat activity increased by &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(bc<span class="op">.</span><span class="at">apparent</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;. But the control site changed by &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(bc<span class="op">.</span><span class="at">control</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt; without any mining.</span></span>
+<span id="cb18-454"><a href="#cb18-454" aria-hidden="true" tabindex="-1"></a><span class="vs">The estimated effect of mining is the difference: &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(bc<span class="op">.</span><span class="at">real</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;. Without a control site, the whole increase would have been blamed on mining.&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<blockquote class="blockquote">
+<p>How a single outlier, or two groups pooled together, can create a correlation.</p>
+</blockquote>
+<p>A correlation can look real but be created by <strong>one extreme point</strong> (e.g.&nbsp;a data entry error, Week 1) or by <strong>two groups pooled together</strong>.</p>
+<p>For example, you might study how body mass affects home range size. Without recording sex, <code>lm(home_range ~ mass)</code> shows a positive relationship. But if the species is sexually dimorphic (males are bigger) and males have larger home ranges for other reasons, the relationship within each sex may be flat. Accounting for sex, <code>lm(home_range ~ mass + sex)</code>, reveals this.</p>
+<div class="app-box">
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb19" data-startfrom="478" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 477;"><span id="cb19-478"><a href="#cb19-478" aria-hidden="true" tabindex="-1"></a>viewof fc_type <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"A single outlier"</span><span class="op">,</span> <span class="st">"outlier"</span>]<span class="op">,</span> [<span class="st">"Two groups pooled together"</span><span class="op">,</span> <span class="st">"groups"</span>]])<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="st">"outlier"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Cause"</span>})</span>
+<span id="cb19-479"><a href="#cb19-479" aria-hidden="true" tabindex="-1"></a>viewof fc_size <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">8</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Distance of the outlier / separation of the groups"</span>})</span>
+<span id="cb19-480"><a href="#cb19-480" aria-hidden="true" tabindex="-1"></a>viewof fc_seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Resample"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb20" data-startfrom="486" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 485;"><span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a>fc <span class="op">=</span> {</span>
+<span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">40</span> <span class="op">+</span> fc_seed)<span class="op">;</span></span>
+<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> X <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> <span class="dv">20</span>)<span class="op">,</span> Y <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> <span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pts<span class="op">;</span></span>
+<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (fc_type <span class="op">===</span> <span class="st">"outlier"</span>) {</span>
+<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a>    pts <span class="op">=</span> X<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> v<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> Y[i]<span class="op">,</span> <span class="dt">g</span><span class="op">:</span> <span class="st">"data"</span>}))<span class="op">;</span></span>
+<span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a>    pts<span class="op">.</span><span class="fu">push</span>({<span class="dt">x</span><span class="op">:</span> fc_size<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> fc_size<span class="op">,</span> <span class="dt">g</span><span class="op">:</span> <span class="st">"special"</span>})<span class="op">;</span></span>
+<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a>    pts <span class="op">=</span> X<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> {</span>
+<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> shift <span class="op">=</span> i <span class="op">&lt;</span> <span class="dv">10</span> <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> fc_size <span class="op">*</span> <span class="fl">0.75</span><span class="op">;</span></span>
+<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> {<span class="dt">x</span><span class="op">:</span> v <span class="op">+</span> shift<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> Y[i] <span class="op">+</span> shift<span class="op">,</span> <span class="dt">g</span><span class="op">:</span> i <span class="op">&lt;</span> <span class="dv">10</span> <span class="op">?</span> <span class="st">"data"</span> <span class="op">:</span> <span class="st">"special"</span>}<span class="op">;</span></span>
+<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xs <span class="op">=</span> pts<span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">x</span>)<span class="op">,</span> ys <span class="op">=</span> pts<span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">y</span>)<span class="op">;</span></span>
+<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> fit <span class="op">=</span> <span class="fu">lm1</span>(xs<span class="op">,</span> ys)<span class="op">;</span></span>
+<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a>  <span class="co">// bootstrap 95% CI for r</span></span>
+<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> boots <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> b <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> b <span class="op">&lt;</span> <span class="dv">500</span><span class="op">;</span> b<span class="op">++</span>) {</span>
+<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> idx <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> xs<span class="op">.</span><span class="at">length</span>}<span class="op">,</span> () <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="fu">r</span>() <span class="op">*</span> xs<span class="op">.</span><span class="at">length</span>))<span class="op">;</span></span>
+<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> rb <span class="op">=</span> <span class="fu">cor</span>(idx<span class="op">.</span><span class="fu">map</span>((i) <span class="kw">=&gt;</span> xs[i])<span class="op">,</span> idx<span class="op">.</span><span class="fu">map</span>((i) <span class="kw">=&gt;</span> ys[i]))<span class="op">;</span></span>
+<span id="cb20-506"><a href="#cb20-506" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="bu">Number</span><span class="op">.</span><span class="fu">isFinite</span>(rb)) boots<span class="op">.</span><span class="fu">push</span>(rb)<span class="op">;</span></span>
+<span id="cb20-507"><a href="#cb20-507" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a>  boots<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">-</span> b)<span class="op">;</span></span>
+<span id="cb20-509"><a href="#cb20-509" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xr <span class="op">=</span> [<span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="op">...</span>xs) <span class="op">-</span> <span class="fl">0.5</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="op">...</span>xs) <span class="op">+</span> <span class="fl">0.5</span>]<span class="op">;</span></span>
+<span id="cb20-510"><a href="#cb20-510" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {pts<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="fu">cor</span>(xs<span class="op">,</span> ys)<span class="op">,</span> <span class="dt">lo</span><span class="op">:</span> boots[<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="fl">0.025</span> <span class="op">*</span> boots<span class="op">.</span><span class="at">length</span>)]<span class="op">,</span> <span class="dt">hi</span><span class="op">:</span> boots[<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="fl">0.975</span> <span class="op">*</span> boots<span class="op">.</span><span class="at">length</span>)]<span class="op">,</span></span>
+<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a>          <span class="dt">line</span><span class="op">:</span> xr<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> fit<span class="op">.</span><span class="at">b0</span> <span class="op">+</span> fit<span class="op">.</span><span class="at">b1</span> <span class="op">*</span> x}))}<span class="op">;</span></span>
+<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-514"><a href="#cb20-514" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb20-515"><a href="#cb20-515" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">290</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb20-516"><a href="#cb20-516" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> fc_type <span class="op">===</span> <span class="st">"groups"</span> <span class="op">?</span> <span class="st">"Body mass (standardised)"</span> <span class="op">:</span> <span class="st">"X"</span>}<span class="op">,</span></span>
+<span id="cb20-517"><a href="#cb20-517" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> fc_type <span class="op">===</span> <span class="st">"groups"</span> <span class="op">?</span> <span class="st">"Home range (standardised)"</span> <span class="op">:</span> <span class="st">"Y"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb20-518"><a href="#cb20-518" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">"data"</span><span class="op">,</span> <span class="st">"special"</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [grey<span class="op">,</span> red]}<span class="op">,</span></span>
+<span id="cb20-519"><a href="#cb20-519" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb20-520"><a href="#cb20-520" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(fc<span class="op">.</span><span class="at">line</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb20-521"><a href="#cb20-521" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(fc<span class="op">.</span><span class="at">pts</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"g"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span>})</span>
+<span id="cb20-522"><a href="#cb20-522" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb20-523"><a href="#cb20-523" aria-hidden="true" tabindex="-1"></a>})<span class="sc">}</span></span>
+<span id="cb20-524"><a href="#cb20-524" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;Pearson's &lt;i&gt;r&lt;/i&gt; = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(fc<span class="op">.</span><span class="at">r</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt; (bootstrap 95% CI </span><span class="sc">${</span><span class="fu">fmt</span>(fc<span class="op">.</span><span class="at">lo</span>)<span class="sc">}</span><span class="vs"> to </span><span class="sc">${</span><span class="fu">fmt</span>(fc<span class="op">.</span><span class="at">hi</span>)<span class="sc">}</span><span class="vs">).</span></span>
+<span id="cb20-525"><a href="#cb20-525" aria-hidden="true" tabindex="-1"></a><span class="sc">${</span>fc_type <span class="op">===</span> <span class="st">"outlier"</span></span>
+<span id="cb20-526"><a href="#cb20-526" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="st">"The grey points are unrelated random numbers. As the single red point moves away, the correlation increases, although nothing about the relationship between the other points has changed. Always plot your data."</span></span>
+<span id="cb20-527"><a href="#cb20-527" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="st">"Within each group (grey = females, red = males) there is no relationship. Pooling two groups that differ in both variables creates a correlation. Include the grouping variable in the model."</span><span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<blockquote class="blockquote">
+<p>A shared cause can create a relationship.</p>
+</blockquote>
+<p>A correlation between two variables does not mean one causes the other. Both may be driven by a third, often unmeasured, variable: a <strong>confounder</strong>. Once you account for it, the apparent link can disappear.</p>
+<ul>
+<li><strong>Chocolate and Nobel prizes</strong>: across countries, chocolate consumption is correlated with the number of Nobel laureates. Chocolate does not make scientists. Wealthier countries simply have more chocolate <em>and</em> more research funding.</li>
+<li><strong>Speed and predation</strong>: you track animals with GPS and find that faster animals are less likely to be killed by predators (<code>lm(risk ~ speed)</code>). But larger animals are both faster <em>and</em> better at defending themselves. After accounting for body mass (<code>lm(risk ~ speed + mass)</code>), the link between speed and risk disappears. Body mass is the confounder.</li>
+</ul>
+<div class="app-box">
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb21" data-startfrom="555" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 554;"><span id="cb21-555"><a href="#cb21-555" aria-hidden="true" tabindex="-1"></a>viewof cf_ex <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Chocolate and Nobel prizes"</span><span class="op">,</span> <span class="st">"choc"</span>]<span class="op">,</span> [<span class="st">"Speed and predation risk"</span><span class="op">,</span> <span class="st">"pred"</span>]])<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="st">"pred"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Example"</span>})</span>
+<span id="cb21-556"><a href="#cb21-556" aria-hidden="true" tabindex="-1"></a>viewof cf_str <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="fl">0.95</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Strength of the confounder"</span>})</span>
+<span id="cb21-557"><a href="#cb21-557" aria-hidden="true" tabindex="-1"></a>viewof cf_adj <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">toggle</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">"Account for the confounder"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="kw">false</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-8-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-8-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-8-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb22" data-startfrom="563" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 562;"><span id="cb22-563"><a href="#cb22-563" aria-hidden="true" tabindex="-1"></a>cf <span class="op">=</span> {</span>
+<span id="cb22-564"><a href="#cb22-564" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">1010</span>)<span class="op">;</span></span>
+<span id="cb22-565"><a href="#cb22-565" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> n <span class="op">=</span> <span class="dv">60</span><span class="op">,</span> s <span class="op">=</span> cf_str<span class="op">;</span></span>
+<span id="cb22-566"><a href="#cb22-566" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> Z <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> n)<span class="op">;</span></span>
+<span id="cb22-567"><a href="#cb22-567" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> e1 <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> n)<span class="op">,</span> e2 <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> n)<span class="op">;</span></span>
+<span id="cb22-568"><a href="#cb22-568" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> X <span class="op">=</span> Z<span class="op">.</span><span class="fu">map</span>((z<span class="op">,</span> i) <span class="kw">=&gt;</span> s <span class="op">*</span> z <span class="op">+</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(<span class="dv">1</span> <span class="op">-</span> s <span class="op">*</span> s) <span class="op">*</span> e1[i])<span class="op">;</span></span>
+<span id="cb22-569"><a href="#cb22-569" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> sign <span class="op">=</span> cf_ex <span class="op">===</span> <span class="st">"pred"</span> <span class="op">?</span> <span class="op">-</span><span class="dv">1</span> <span class="op">:</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb22-570"><a href="#cb22-570" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> Y <span class="op">=</span> Z<span class="op">.</span><span class="fu">map</span>((z<span class="op">,</span> i) <span class="kw">=&gt;</span> sign <span class="op">*</span> s <span class="op">*</span> z <span class="op">+</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(<span class="dv">1</span> <span class="op">-</span> s <span class="op">*</span> s) <span class="op">*</span> e2[i])<span class="op">;</span></span>
+<span id="cb22-571"><a href="#cb22-571" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rx <span class="op">=</span> <span class="fu">lm1</span>(Z<span class="op">,</span> X)<span class="op">.</span><span class="at">resid</span><span class="op">,</span> ry <span class="op">=</span> <span class="fu">lm1</span>(Z<span class="op">,</span> Y)<span class="op">.</span><span class="at">resid</span><span class="op">;</span></span>
+<span id="cb22-572"><a href="#cb22-572" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xs <span class="op">=</span> cf_adj <span class="op">?</span> rx <span class="op">:</span> X<span class="op">,</span> ys <span class="op">=</span> cf_adj <span class="op">?</span> ry <span class="op">:</span> Y<span class="op">;</span></span>
+<span id="cb22-573"><a href="#cb22-573" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> fit <span class="op">=</span> <span class="fu">lm1</span>(xs<span class="op">,</span> ys)<span class="op">;</span></span>
+<span id="cb22-574"><a href="#cb22-574" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xr <span class="op">=</span> [<span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="op">...</span>xs)<span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="op">...</span>xs)]<span class="op">;</span></span>
+<span id="cb22-575"><a href="#cb22-575" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="dt">pts</span><span class="op">:</span> xs<span class="op">.</span><span class="fu">map</span>((x<span class="op">,</span> i) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> ys[i]}))<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="fu">cor</span>(xs<span class="op">,</span> ys)<span class="op">,</span> <span class="dt">line</span><span class="op">:</span> xr<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> fit<span class="op">.</span><span class="at">b0</span> <span class="op">+</span> fit<span class="op">.</span><span class="at">b1</span> <span class="op">*</span> x}))}<span class="op">;</span></span>
+<span id="cb22-576"><a href="#cb22-576" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-577"><a href="#cb22-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-578"><a href="#cb22-578" aria-hidden="true" tabindex="-1"></a>cf_labels <span class="op">=</span> cf_ex <span class="op">===</span> <span class="st">"choc"</span></span>
+<span id="cb22-579"><a href="#cb22-579" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"Chocolate consumption"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"Nobel laureates per capita"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"national wealth"</span>}</span>
+<span id="cb22-580"><a href="#cb22-580" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"Movement speed"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"Predation risk"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"body mass"</span>}</span>
+<span id="cb22-581"><a href="#cb22-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-582"><a href="#cb22-582" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb22-583"><a href="#cb22-583" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">290</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb22-584"><a href="#cb22-584" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> cf_labels<span class="op">.</span><span class="at">x</span> <span class="op">+</span> (cf_adj <span class="op">?</span> <span class="vs">` (after removing </span><span class="sc">${</span>cf_labels<span class="op">.</span><span class="at">z</span><span class="sc">}</span><span class="vs">)`</span> <span class="op">:</span> <span class="st">""</span>)}<span class="op">,</span></span>
+<span id="cb22-585"><a href="#cb22-585" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> cf_labels<span class="op">.</span><span class="at">y</span> <span class="op">+</span> (cf_adj <span class="op">?</span> <span class="st">" (adjusted)"</span> <span class="op">:</span> <span class="st">""</span>)<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb22-586"><a href="#cb22-586" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb22-587"><a href="#cb22-587" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(cf<span class="op">.</span><span class="at">line</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb22-588"><a href="#cb22-588" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(cf<span class="op">.</span><span class="at">pts</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> cf_adj <span class="op">?</span> red <span class="op">:</span> grey<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span>})</span>
+<span id="cb22-589"><a href="#cb22-589" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb22-590"><a href="#cb22-590" aria-hidden="true" tabindex="-1"></a>})<span class="sc">}</span></span>
+<span id="cb22-591"><a href="#cb22-591" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;Correlation &lt;i&gt;r&lt;/i&gt; = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(cf<span class="op">.</span><span class="at">r</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;.</span></span>
+<span id="cb22-592"><a href="#cb22-592" aria-hidden="true" tabindex="-1"></a><span class="sc">${</span>cf_adj</span>
+<span id="cb22-593"><a href="#cb22-593" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="vs">`After accounting for </span><span class="sc">${</span>cf_labels<span class="op">.</span><span class="at">z</span><span class="sc">}</span><span class="vs">, the correlation is close to zero: the apparent link was entirely caused by </span><span class="sc">${</span>cf_labels<span class="op">.</span><span class="at">z</span><span class="sc">}</span><span class="vs"> driving both variables.`</span></span>
+<span id="cb22-594"><a href="#cb22-594" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="vs">`In these simulated data, </span><span class="sc">${</span>cf_labels<span class="op">.</span><span class="at">x</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="sc">}</span><span class="vs"> has &lt;b&gt;no&lt;/b&gt; effect on </span><span class="sc">${</span>cf_labels<span class="op">.</span><span class="at">y</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="sc">}</span><span class="vs">. Both are driven by </span><span class="sc">${</span>cf_labels<span class="op">.</span><span class="at">z</span><span class="sc">}</span><span class="vs">. Tick the box to account for it.`</span><span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-9-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-9-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-9-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<blockquote class="blockquote">
+<p>Absence of evidence is not evidence of absence.</p>
+</blockquote>
+<p>A non-significant <em>p</em>-value cannot tell the difference between “there is no effect” and “the study was not sensitive enough to detect the effect” (too few independent replicates, too much noise, a poor design). A real effect studied with small samples gives a wide confidence interval that includes zero.</p>
+<p>The app simulates five studies of the same real effect with different sample sizes. <strong>Report the effect size and its confidence interval, not just the <em>p</em>-value</strong>, and plan your sample size in advance (see above).</p>
+<div class="app-box">
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb23" data-startfrom="618" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 617;"><span id="cb23-618"><a href="#cb23-618" aria-hidden="true" tabindex="-1"></a>viewof ns_eff <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"True effect size"</span>})</span>
+<span id="cb23-619"><a href="#cb23-619" aria-hidden="true" tabindex="-1"></a>viewof ns_seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Resample"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-10-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-10-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb24" data-startfrom="625" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 624;"><span id="cb24-625"><a href="#cb24-625" aria-hidden="true" tabindex="-1"></a>ns <span class="op">=</span> {</span>
+<span id="cb24-626"><a href="#cb24-626" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">909</span> <span class="op">+</span> ns_seed)<span class="op">;</span></span>
+<span id="cb24-627"><a href="#cb24-627" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pool <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> <span class="dv">100</span><span class="op">,</span> ns_eff<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb24-628"><a href="#cb24-628" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">.</span><span class="fu">map</span>((n<span class="op">,</span> i) <span class="kw">=&gt;</span> {</span>
+<span id="cb24-629"><a href="#cb24-629" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x <span class="op">=</span> pool<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> n)<span class="op">,</span> m <span class="op">=</span> <span class="fu">mean</span>(x)<span class="op">,</span> h <span class="op">=</span> <span class="fu">qt975</span>(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="fu">sd</span>(x) <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(n)<span class="op">;</span></span>
+<span id="cb24-630"><a href="#cb24-630" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="dt">study</span><span class="op">:</span> <span class="vs">`n = </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">`</span><span class="op">,</span> m<span class="op">,</span> <span class="dt">lo</span><span class="op">:</span> m <span class="op">-</span> h<span class="op">,</span> <span class="dt">hi</span><span class="op">:</span> m <span class="op">+</span> h<span class="op">,</span> <span class="dt">sig</span><span class="op">:</span> m <span class="op">-</span> h <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">||</span> m <span class="op">+</span> h <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">"significant"</span> <span class="op">:</span> <span class="st">"not significant"</span>}<span class="op">;</span></span>
+<span id="cb24-631"><a href="#cb24-631" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb24-632"><a href="#cb24-632" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-633"><a href="#cb24-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-634"><a href="#cb24-634" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb24-635"><a href="#cb24-635" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">70</span><span class="op">,</span></span>
+<span id="cb24-636"><a href="#cb24-636" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Estimated effect (95% CI)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb24-637"><a href="#cb24-637" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">"n = 5"</span><span class="op">,</span> <span class="st">"n = 10"</span><span class="op">,</span> <span class="st">"n = 20"</span><span class="op">,</span> <span class="st">"n = 50"</span><span class="op">,</span> <span class="st">"n = 100"</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb24-638"><a href="#cb24-638" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="st">"significant"</span><span class="op">,</span> <span class="st">"not significant"</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [grey<span class="op">,</span> red]<span class="op">,</span> <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb24-639"><a href="#cb24-639" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb24-640"><a href="#cb24-640" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> dark})<span class="op">,</span></span>
+<span id="cb24-641"><a href="#cb24-641" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([ns_eff]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> blue<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"5,4"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb24-642"><a href="#cb24-642" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">link</span>(ns<span class="op">,</span> {<span class="dt">x1</span><span class="op">:</span> <span class="st">"lo"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"hi"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"study"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"study"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"sig"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb24-643"><a href="#cb24-643" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(ns<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"study"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"sig"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span>})</span>
+<span id="cb24-644"><a href="#cb24-644" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb24-645"><a href="#cb24-645" aria-hidden="true" tabindex="-1"></a>})<span class="sc">}</span></span>
+<span id="cb24-646"><a href="#cb24-646" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;</span><span class="sc">${</span>ns_eff <span class="op">===</span> <span class="dv">0</span></span>
+<span id="cb24-647"><a href="#cb24-647" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="st">"The true effect is zero here. Even so, the small studies cannot prove it: their intervals are wide. A non-significant result from a small study is uninformative, not proof of no effect."</span></span>
+<span id="cb24-648"><a href="#cb24-648" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="vs">`The true effect is &lt;b&gt;</span><span class="sc">${</span>ns_eff<span class="sc">}</span><span class="vs">&lt;/b&gt; (blue dashed line), so it really exists. Small studies give wide intervals that often include zero (red, "not significant"). The effect did not disappear: those studies were just too small to detect it.`</span><span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-11-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-11-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="recording-and-reporting" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="recording-and-reporting">Recording and reporting</h2>
+<ul>
+<li><strong>Design your data sheet for analysis</strong>: one row per observation, one column per variable (Week 1), with a unique ID for every sampling unit and columns for the grouping structure (site, plot, individual, block) and effort (trap nights, area, minutes).</li>
+<li><strong>Keep a metadata file</strong> that explains every column, its units, and how NAs and zeros were recorded.</li>
+<li><strong>Write methods that someone else could repeat</strong>: the sampling unit, sample sizes, the model (response, predictors, distribution, random effects), how assumptions were checked, and the software and packages used <span class="citation" data-cites="Davis2023 Rowe2023">(<a href="references.html#ref-Davis2023" role="doc-biblioref">Davis and Kay, 2023</a>; <a href="references.html#ref-Rowe2023" role="doc-biblioref">Rowe, 2023</a>)</span>.</li>
+<li><strong>Report results that others can reuse</strong>: means, SDs and sample sizes for each group, effect sizes with confidence intervals and exact <em>p</em>-values, even for non-significant results. This lets your study be included in future meta-analyses <span class="citation" data-cites="Gerstner2017">(<a href="references.html#ref-Gerstner2017" role="doc-biblioref">Gerstner et al., 2017</a>)</span>.</li>
+</ul>
+</section>
+<section id="additional-resources" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="additional-resources">Additional resources</h2>
+<ul>
+<li><span class="citation" data-cites="Marshall2024">Marshall (<a href="references.html#ref-Marshall2024" role="doc-biblioref">2024</a>)</span> <em>Principles of experimental design for ecology and evolution</em>: a short, clear guide to choosing the right scale of replication.</li>
+<li><span class="citation" data-cites="Popovic2024"><span class="nocase">Popovic et al.</span> (<a href="references.html#ref-Popovic2024" role="doc-biblioref">2024</a>)</span> <em>Four principles for improved statistical ecology</em>.</li>
+<li><span class="citation" data-cites="Steel2013">Steel et al. (<a href="references.html#ref-Steel2013" role="doc-biblioref">2013</a>)</span> <em>Applied statistics in ecology: common pitfalls and simple solutions</em>, and <span class="citation" data-cites="Steel2019">Steel et al. (<a href="references.html#ref-Steel2019" role="doc-biblioref">2019</a>)</span> on thinking statistically rather than just calculating.</li>
+<li><span class="citation" data-cites="Christie2019">Christie et al. (<a href="references.html#ref-Christie2019" role="doc-biblioref">2019</a>)</span>: why BACI and randomised designs give more accurate answers.</li>
+<li><span class="citation" data-cites="Ockendon2021">Ockendon et al. (<a href="references.html#ref-Ockendon2021" role="doc-biblioref">2021</a>)</span>: how to build experiments into conservation management.</li>
+<li><span class="citation" data-cites="Blasco2019">Blasco-Moreno et al. (<a href="references.html#ref-Blasco2019" role="doc-biblioref">2019</a>)</span>: understanding false, random and structural zeros.</li>
+<li><span class="citation" data-cites="Makin2019">Makin and Orban de Xivry (<a href="references.html#ref-Makin2019" role="doc-biblioref">2019</a>)</span>: ten common statistical mistakes to watch out for.</li>
+<li>Quinn &amp; Keough <span class="citation" data-cites="Quinn2002">(<a href="references.html#ref-Quinn2002" role="doc-biblioref">2002</a>)</span>, chapter 7 (design and power analysis).</li>
+<li>Coding Club: <a href="https://ourcodingclub.github.io/tutorials/model-design/">Intro to model design</a>.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Blasco2019" class="csl-entry" role="listitem">
+<strong>Blasco-Moreno, A., Pérez-Casany, M., Puig, P., Morante, M. and Castells, E.</strong> (2019). <a href="https://doi.org/10.1111/2041-210X.13185">What does a zero mean? Understanding false, random and structural zeros in ecology</a>. <em>Methods in Ecology and Evolution</em> <strong>10</strong>, 949–959.
+</div>
+<div id="ref-Christie2019" class="csl-entry" role="listitem">
+<strong>Christie, A. P., Amano, T., Martin, P. A., Shackelford, G. E., Simmons, B. I. and Sutherland, W. J.</strong> (2019). <a href="https://doi.org/10.1111/1365-2664.13499">Simple study designs in ecology produce inaccurate estimates of biodiversity responses</a>. <em>Journal of Applied Ecology</em> <strong>56</strong>, 2742–2754.
+</div>
+<div id="ref-Christie2020" class="csl-entry" role="listitem">
+<strong><span class="nocase">Christie, A. P., Abecasis, D., Adjeroud, M., Alonso, J. C., Amano, T., et al.</span></strong> (2020). <a href="https://doi.org/10.1038/s41467-020-20142-y">Quantifying and addressing the prevalence and bias of study designs in the environmental and social sciences</a>. <em>Nature Communications</em> <strong>11</strong>, 6377.
+</div>
+<div id="ref-Davis2023" class="csl-entry" role="listitem">
+<strong>Davis, A. J. and Kay, S.</strong> (2023). <a href="https://doi.org/10.1002/ecs2.4539">Writing statistical methods for ecologists</a>. <em>Ecosphere</em> <strong>14</strong>, e4539.
+</div>
+<div id="ref-Gerstner2017" class="csl-entry" role="listitem">
+<strong>Gerstner, K., Moreno-Mateos, D., Gurevitch, J., Beckmann, M., Kambach, S., Jones, H. P. and Seppelt, R.</strong> (2017). <a href="https://doi.org/10.1111/2041-210X.12758">Will your paper be used in a meta-analysis? Make the reach of your research broader and longer lasting</a>. <em>Methods in Ecology and Evolution</em> <strong>8</strong>, 777–784.
+</div>
+<div id="ref-Hurlbert1984" class="csl-entry" role="listitem">
+<strong>Hurlbert, S. H.</strong> (1984). <a href="https://doi.org/10.2307/1942661">Pseudoreplication and the design of ecological field experiments</a>. <em>Ecological Monographs</em> <strong>54</strong>, 187–211.
+</div>
+<div id="ref-Makin2019" class="csl-entry" role="listitem">
+<strong>Makin, T. R. and Orban de Xivry, J.-J.</strong> (2019). <a href="https://doi.org/10.7554/eLife.48175">Ten common statistical mistakes to watch out for when writing or reviewing a manuscript</a>. <em>Elife</em> <strong>8</strong>, e48175.
+</div>
+<div id="ref-Marshall2024" class="csl-entry" role="listitem">
+<strong>Marshall, D. J.</strong> (2024). <a href="https://doi.org/10.1111/ele.14400">Principles of experimental design for ecology and evolution</a>. <em>Ecology Letters</em> <strong>27</strong>, e14400.
+</div>
+<div id="ref-Ockendon2021" class="csl-entry" role="listitem">
+<strong>Ockendon, N., Amano, T., Cadotte, M., Downey, H., Hancock, M. H., Thornton, A., Tinsley-Marshall, P. and Sutherland, W. J.</strong> (2021). <a href="https://doi.org/10.1002/2688-8319.12069">Effectively integrating experiments into conservation practice</a>. <em>Ecological Solutions and Evidence</em> <strong>2</strong>, e12069.
+</div>
+<div id="ref-Popovic2024" class="csl-entry" role="listitem">
+<strong><span class="nocase">Popovic, G., Mason, T. J., Drobniak, S. M., Marques, T. A., Potts, J., Joo, R., Altwegg, R., et al.</span></strong> (2024). <a href="https://doi.org/10.1111/2041-210X.14270">Four principles for improved statistical ecology</a>. <em>Methods in Ecology and Evolution</em> <strong>15</strong>, 266–281.
+</div>
+<div id="ref-Quinn2002" class="csl-entry" role="listitem">
+<strong>Quinn, G. P. and Keough, M. J.</strong> (2002). <em><a href="https://doi.org/10.1017/CBO9780511806384">Experimental design and data analysis for biologists</a></em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-Rowe2023" class="csl-entry" role="listitem">
+<strong>Rowe, A.</strong> (2023). <a href="https://doi.org/10.1177/00236772221140669">Recommendations to improve use and reporting of statistics in animal experiments</a>. <em>Laboratory Animals</em> <strong>57</strong>, 224–235.
+</div>
+<div id="ref-Specht2017" class="csl-entry" role="listitem">
+<strong>Specht, H. M., Reich, H. T., Iannarilli, F., Edwards, M. R., Stapleton, S. P., Weegman, M. D., Johnson, M. K., Yohannes, B. J. and Arnold, T. W.</strong> (2017). <a href="https://doi.org/10.1111/2041-210X.12842">Occupancy surveys with conditional replicates: An alternative sampling design for rare species</a>. <em>Methods in Ecology and Evolution</em> <strong>8</strong>, 1725–1734.
+</div>
+<div id="ref-Steel2013" class="csl-entry" role="listitem">
+<strong>Steel, E. A., Kennedy, M. C., Cunningham, P. G. and Stanovick, J. S.</strong> (2013). <a href="https://doi.org/10.1890/ES13-00160.1">Applied statistics in ecology: Common pitfalls and simple solutions</a>. <em>Ecosphere</em> <strong>4</strong>, 115.
+</div>
+<div id="ref-Steel2019" class="csl-entry" role="listitem">
+<strong>Steel, E. A., Liermann, M. and Guttorp, P.</strong> (2019). <a href="https://doi.org/10.1080/00031305.2018.1505657">Beyond calculations: A course in statistical thinking</a>. <em>The American Statistician</em> <strong>73</strong>, 392–401.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7cm5nLCBybm9ybSwgbWVhbiwgc2QsIGNvciwgbG0xLCBxdDk3NSwgcG93ZXJULCBmbXQsIGZtdHAsIHJlZCwgZ3JleSwgZGFyaywgYmx1ZX0gZnJvbSBcIi4vYXBwcy9lY3MyMDAuanNcIlxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHB3X2RlbHRhID0gSW5wdXRzLnJhbmdlKFswLjA1LCAxXSwge3ZhbHVlOiAwLjMsIHN0ZXA6IDAuMDUsIGxhYmVsOiBcIkRpZmZlcmVuY2UgeW91IHdhbnQgdG8gZGV0ZWN0IChlLmcuIG0vcylcIn0pXG52aWV3b2YgcHdfc2QgPSBJbnB1dHMucmFuZ2UoWzAuMDUsIDFdLCB7dmFsdWU6IDAuMjUsIHN0ZXA6IDAuMDUsIGxhYmVsOiBcIlN0YW5kYXJkIGRldmlhdGlvbiB3aXRoaW4gZ3JvdXBzXCJ9KVxudmlld29mIHB3X3RhcmdldCA9IElucHV0cy5yYW5nZShbMC41LCAwLjk1XSwge3ZhbHVlOiAwLjgsIHN0ZXA6IDAuMDUsIGxhYmVsOiBcIlRhcmdldCBwb3dlclwifSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InB3X2N1cnZlID0gQXJyYXkuZnJvbSh7bGVuZ3RoOiA5OX0sIChfLCBpKSA9PiAoe246IGkgKyAyLCBwb3dlcjogcG93ZXJUKGkgKyAyLCBwd19kZWx0YSwgcHdfc2QpfSkpXG5wd19uZWVkID0gcHdfY3VydmUuZmluZCgoZCkgPT4gZC5wb3dlciA+PSBwd190YXJnZXQpXG5cbmh0bWxgPGRpdj4ke1Bsb3QucGxvdCh7XG4gIHdpZHRoOiA1NjAsIGhlaWdodDogMzIwLCBtYXJnaW5MZWZ0OiA0NSxcbiAgeDoge2xhYmVsOiBcIlNhbXBsZSBzaXplIHBlciBncm91cCAobilcIiwgZG9tYWluOiBbMCwgMTAwXX0sXG4gIHk6IHtsYWJlbDogXCJQb3dlclwiLCBkb21haW46IFswLCAxXSwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5ydWxlWShbcHdfdGFyZ2V0XSwge3N0cm9rZTogZGFyaywgc3Ryb2tlRGFzaGFycmF5OiBcIjQsM1wifSksXG4gICAgcHdfbmVlZCA/IFBsb3QucnVsZVgoW3B3X25lZWQubl0sIHtzdHJva2U6IHJlZCwgc3Ryb2tlRGFzaGFycmF5OiBcIjQsM1wifSkgOiBudWxsLFxuICAgIFBsb3QubGluZShwd19jdXJ2ZSwge3g6IFwiblwiLCB5OiBcInBvd2VyXCIsIHN0cm9rZTogcmVkLCBzdHJva2VXaWR0aDogM30pXG4gIF1cbn0pfVxuPGRpdiBjbGFzcz1cImFwcC12ZXJkaWN0XCI+U3RhbmRhcmRpc2VkIGVmZmVjdCBzaXplIChkaWZmZXJlbmNlIC8gU0QpID0gPGI+JHtmbXQocHdfZGVsdGEgLyBwd19zZCl9PC9iPi5cbiR7cHdfbmVlZCA/IGBZb3UgbmVlZCBhYm91dCA8Yj4ke3B3X25lZWQubn08L2I+IHJlcGxpY2F0ZXMgcGVyIGdyb3VwIGZvciAke2ZtdChwd190YXJnZXQgKiAxMDAsIDApfSUgcG93ZXIuYCA6IFwiRXZlbiAxMDAgcGVyIGdyb3VwIGlzIG5vdCBlbm91Z2g6IHJlZHVjZSB0aGUgdmFyaWFiaWxpdHkgb3IgcmVjb25zaWRlciB0aGUgZWZmZWN0IHNpemUuXCJ9XG5IYWx2aW5nIHRoZSBTRCAoYmV0dGVyIG1lYXN1cmVtZW50cywgYmxvY2tpbmcsIG1vcmUgdW5pZm9ybSBzdHVkeSB1bml0cykgcmVkdWNlcyB0aGUgc2FtcGxlIHNpemUgeW91IG5lZWQgYnkgYWJvdXQgZm91ciB0aW1lcy48L2Rpdj48L2Rpdj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgYmNfZWZmID0gSW5wdXRzLnJhbmdlKFswLCA0XSwge3ZhbHVlOiAxLCBzdGVwOiAwLjI1LCBsYWJlbDogXCJUcnVlIGVmZmVjdCBvZiBtaW5pbmcgb24gY2F0IGFjdGl2aXR5XCJ9KVxudmlld29mIGJjX2RyaWZ0ID0gSW5wdXRzLnJhbmdlKFswLCA0XSwge3ZhbHVlOiAxLjUsIHN0ZXA6IDAuMjUsIGxhYmVsOiBcIkNoYW5nZSBvdmVyIHRpbWUgYXQgYWxsIHNpdGVzIChlLmcuIHNlYXNvbilcIn0pXG52aWV3b2YgYmNfbiA9IElucHV0cy5yYW5nZShbNSwgNTBdLCB7dmFsdWU6IDIwLCBzdGVwOiAxLCBsYWJlbDogXCJOdW1iZXIgb2YgY2FtZXJhcyBwZXIgc2l0ZVwifSlcbnZpZXdvZiBiY19zZWVkID0gSW5wdXRzLmJ1dHRvbihcIlJlc2FtcGxlXCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJiYyA9IHtcbiAgY29uc3QgciA9IHJuZygxMDEgKyBiY19zZWVkKTtcbiAgY29uc3QgY3RybFByZSA9IHJub3JtKHIsIGJjX24sIDEwLCAyKTtcbiAgY29uc3QgY3RybFBvc3QgPSBjdHJsUHJlLm1hcCgodikgPT4gdiArIGJjX2RyaWZ0ICsgcm5vcm0ociwgMSwgMCwgMilbMF0pO1xuICBjb25zdCB0cnRQcmUgPSBybm9ybShyLCBiY19uLCAxMCwgMik7XG4gIGNvbnN0IHRydFBvc3QgPSB0cnRQcmUubWFwKCh2KSA9PiB2ICsgYmNfZHJpZnQgKyBiY19lZmYgKyBybm9ybShyLCAxLCAwLCAyKVswXSk7XG4gIGNvbnN0IGdyb3VwcyA9IFtbY3RybFByZSwgMSwgXCJjb250cm9sXCJdLCBbY3RybFBvc3QsIDIsIFwiY29udHJvbFwiXSwgW3RydFByZSwgNCwgXCJpbXBhY3RcIl0sIFt0cnRQb3N0LCA1LCBcImltcGFjdFwiXV07XG4gIGNvbnN0IHB0cyA9IGdyb3Vwcy5mbGF0TWFwKChbZywgeCwgc10pID0+IGcubWFwKCh2KSA9PiAoe3g6IHggKyAocigpIC0gMC41KSAqIDAuMywgeTogdn0pKSk7XG4gIGNvbnN0IG1zID0gZ3JvdXBzLm1hcCgoW2csIHgsIHNdKSA9PiB7XG4gICAgY29uc3QgbSA9IG1lYW4oZyksIGggPSBxdDk3NShnLmxlbmd0aCAtIDEpICogc2QoZykgLyBNYXRoLnNxcnQoZy5sZW5ndGgpO1xuICAgIHJldHVybiB7eCwgbSwgbG86IG0gLSBoLCBoaTogbSArIGgsIHNpdGU6IHN9O1xuICB9KTtcbiAgY29uc3QgYXBwYXJlbnQgPSBtc1szXS5tIC0gbXNbMl0ubSwgY29udHJvbCA9IG1zWzFdLm0gLSBtc1swXS5tO1xuICByZXR1cm4ge3B0cywgbXMsIGFwcGFyZW50LCBjb250cm9sLCByZWFsOiBhcHBhcmVudCAtIGNvbnRyb2x9O1xufVxuXG5odG1sYDxkaXY+JHtQbG90LnBsb3Qoe1xuICB3aWR0aDogNTYwLCBoZWlnaHQ6IDMyMCwgbWFyZ2luTGVmdDogNDUsXG4gIHg6IHtkb21haW46IFswLjQsIDUuNl0sIHRpY2tzOiBbMSwgMiwgNCwgNV0sIHRpY2tGb3JtYXQ6IChkKSA9PiAoezE6IFwiQ29udHJvbCBiZWZvcmVcIiwgMjogXCJDb250cm9sIGFmdGVyXCIsIDQ6IFwiSW1wYWN0IGJlZm9yZVwiLCA1OiBcIkltcGFjdCBhZnRlclwifSlbZF0sIGxhYmVsOiBudWxsfSxcbiAgeToge2xhYmVsOiBcIkNhdCBhY3Rpdml0eSAoZGV0ZWN0aW9ucylcIiwgZ3JpZDogdHJ1ZX0sXG4gIGNvbG9yOiB7ZG9tYWluOiBbXCJjb250cm9sXCIsIFwiaW1wYWN0XCJdLCByYW5nZTogW2dyZXksIHJlZF19LFxuICBtYXJrczogW1xuICAgIFBsb3QuZG90KGJjLnB0cywge3g6IFwieFwiLCB5OiBcInlcIiwgZmlsbDogXCIjZDZkNmQ2XCIsIHI6IDIuNX0pLFxuICAgIFBsb3QubGluZShiYy5tcywge3g6IFwieFwiLCB5OiBcIm1cIiwgejogXCJzaXRlXCIsIHN0cm9rZTogXCJzaXRlXCIsIHN0cm9rZVdpZHRoOiAyfSksXG4gICAgUGxvdC5ydWxlWChiYy5tcywge3g6IFwieFwiLCB5MTogXCJsb1wiLCB5MjogXCJoaVwiLCBzdHJva2U6IFwic2l0ZVwiLCBzdHJva2VXaWR0aDogM30pLFxuICAgIFBsb3QuZG90KGJjLm1zLCB7eDogXCJ4XCIsIHk6IFwibVwiLCBmaWxsOiBcInNpdGVcIiwgcjogNn0pXG4gIF1cbn0pfVxuPGRpdiBjbGFzcz1cImFwcC12ZXJkaWN0XCI+QXQgdGhlIG1pbmUgc2l0ZSBhbG9uZSwgY2F0IGFjdGl2aXR5IGluY3JlYXNlZCBieSA8Yj4ke2ZtdChiYy5hcHBhcmVudCl9PC9iPi4gQnV0IHRoZSBjb250cm9sIHNpdGUgY2hhbmdlZCBieSA8Yj4ke2ZtdChiYy5jb250cm9sKX08L2I+IHdpdGhvdXQgYW55IG1pbmluZy5cblRoZSBlc3RpbWF0ZWQgZWZmZWN0IG9mIG1pbmluZyBpcyB0aGUgZGlmZmVyZW5jZTogPGI+JHtmbXQoYmMucmVhbCl9PC9iPi4gV2l0aG91dCBhIGNvbnRyb2wgc2l0ZSwgdGhlIHdob2xlIGluY3JlYXNlIHdvdWxkIGhhdmUgYmVlbiBibGFtZWQgb24gbWluaW5nLjwvZGl2PjwvZGl2PmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBmY190eXBlID0gSW5wdXRzLnJhZGlvKG5ldyBNYXAoW1tcIkEgc2luZ2xlIG91dGxpZXJcIiwgXCJvdXRsaWVyXCJdLCBbXCJUd28gZ3JvdXBzIHBvb2xlZCB0b2dldGhlclwiLCBcImdyb3Vwc1wiXV0pLCB7dmFsdWU6IFwib3V0bGllclwiLCBsYWJlbDogXCJDYXVzZVwifSlcbnZpZXdvZiBmY19zaXplID0gSW5wdXRzLnJhbmdlKFswLCA4XSwge3ZhbHVlOiA0LCBzdGVwOiAwLjUsIGxhYmVsOiBcIkRpc3RhbmNlIG9mIHRoZSBvdXRsaWVyIC8gc2VwYXJhdGlvbiBvZiB0aGUgZ3JvdXBzXCJ9KVxudmlld29mIGZjX3NlZWQgPSBJbnB1dHMuYnV0dG9uKFwiUmVzYW1wbGVcIilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZjID0ge1xuICBjb25zdCByID0gcm5nKDQwICsgZmNfc2VlZCk7XG4gIGNvbnN0IFggPSBybm9ybShyLCAyMCksIFkgPSBybm9ybShyLCAyMCk7XG4gIGxldCBwdHM7XG4gIGlmIChmY190eXBlID09PSBcIm91dGxpZXJcIikge1xuICAgIHB0cyA9IFgubWFwKCh2LCBpKSA9PiAoe3g6IHYsIHk6IFlbaV0sIGc6IFwiZGF0YVwifSkpO1xuICAgIHB0cy5wdXNoKHt4OiBmY19zaXplLCB5OiBmY19zaXplLCBnOiBcInNwZWNpYWxcIn0pO1xuICB9IGVsc2Uge1xuICAgIHB0cyA9IFgubWFwKCh2LCBpKSA9PiB7XG4gICAgICBjb25zdCBzaGlmdCA9IGkgPCAxMCA/IDAgOiBmY19zaXplICogMC43NTtcbiAgICAgIHJldHVybiB7eDogdiArIHNoaWZ0LCB5OiBZW2ldICsgc2hpZnQsIGc6IGkgPCAxMCA/IFwiZGF0YVwiIDogXCJzcGVjaWFsXCJ9O1xuICAgIH0pO1xuICB9XG4gIGNvbnN0IHhzID0gcHRzLm1hcCgoZCkgPT4gZC54KSwgeXMgPSBwdHMubWFwKChkKSA9PiBkLnkpO1xuICBjb25zdCBmaXQgPSBsbTEoeHMsIHlzKTtcbiAgLy8gYm9vdHN0cmFwIDk1JSBDSSBmb3IgclxuICBjb25zdCBib290cyA9IFtdO1xuICBmb3IgKGxldCBiID0gMDsgYiA8IDUwMDsgYisrKSB7XG4gICAgY29uc3QgaWR4ID0gQXJyYXkuZnJvbSh7bGVuZ3RoOiB4cy5sZW5ndGh9LCAoKSA9PiBNYXRoLmZsb29yKHIoKSAqIHhzLmxlbmd0aCkpO1xuICAgIGNvbnN0IHJiID0gY29yKGlkeC5tYXAoKGkpID0+IHhzW2ldKSwgaWR4Lm1hcCgoaSkgPT4geXNbaV0pKTtcbiAgICBpZiAoTnVtYmVyLmlzRmluaXRlKHJiKSkgYm9vdHMucHVzaChyYik7XG4gIH1cbiAgYm9vdHMuc29ydCgoYSwgYikgPT4gYSAtIGIpO1xuICBjb25zdCB4ciA9IFtNYXRoLm1pbiguLi54cykgLSAwLjUsIE1hdGgubWF4KC4uLnhzKSArIDAuNV07XG4gIHJldHVybiB7cHRzLCByOiBjb3IoeHMsIHlzKSwgbG86IGJvb3RzW01hdGguZmxvb3IoMC4wMjUgKiBib290cy5sZW5ndGgpXSwgaGk6IGJvb3RzW01hdGguZmxvb3IoMC45NzUgKiBib290cy5sZW5ndGgpXSxcbiAgICAgICAgICBsaW5lOiB4ci5tYXAoKHgpID0+ICh7eCwgeTogZml0LmIwICsgZml0LmIxICogeH0pKX07XG59XG5cbmh0bWxgPGRpdj4ke1Bsb3QucGxvdCh7XG4gIHdpZHRoOiA1NjAsIGhlaWdodDogMjkwLCBtYXJnaW5MZWZ0OiA0NSxcbiAgeDoge2xhYmVsOiBmY190eXBlID09PSBcImdyb3Vwc1wiID8gXCJCb2R5IG1hc3MgKHN0YW5kYXJkaXNlZClcIiA6IFwiWFwifSxcbiAgeToge2xhYmVsOiBmY190eXBlID09PSBcImdyb3Vwc1wiID8gXCJIb21lIHJhbmdlIChzdGFuZGFyZGlzZWQpXCIgOiBcIllcIiwgZ3JpZDogdHJ1ZX0sXG4gIGNvbG9yOiB7ZG9tYWluOiBbXCJkYXRhXCIsIFwic3BlY2lhbFwiXSwgcmFuZ2U6IFtncmV5LCByZWRdfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LmxpbmUoZmMubGluZSwge3g6IFwieFwiLCB5OiBcInlcIiwgc3Ryb2tlOiBkYXJrLCBzdHJva2VEYXNoYXJyYXk6IFwiNiw0XCIsIHN0cm9rZVdpZHRoOiAyfSksXG4gICAgUGxvdC5kb3QoZmMucHRzLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBmaWxsOiBcImdcIiwgcjogNX0pXG4gIF1cbn0pfVxuPGRpdiBjbGFzcz1cImFwcC12ZXJkaWN0XCI+UGVhcnNvbidzIDxpPnI8L2k+ID0gPGI+JHtmbXQoZmMucil9PC9iPiAoYm9vdHN0cmFwIDk1JSBDSSAke2ZtdChmYy5sbyl9IHRvICR7Zm10KGZjLmhpKX0pLlxuJHtmY190eXBlID09PSBcIm91dGxpZXJcIlxuICA/IFwiVGhlIGdyZXkgcG9pbnRzIGFyZSB1bnJlbGF0ZWQgcmFuZG9tIG51bWJlcnMuIEFzIHRoZSBzaW5nbGUgcmVkIHBvaW50IG1vdmVzIGF3YXksIHRoZSBjb3JyZWxhdGlvbiBpbmNyZWFzZXMsIGFsdGhvdWdoIG5vdGhpbmcgYWJvdXQgdGhlIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIHRoZSBvdGhlciBwb2ludHMgaGFzIGNoYW5nZWQuIEFsd2F5cyBwbG90IHlvdXIgZGF0YS5cIlxuICA6IFwiV2l0aGluIGVhY2ggZ3JvdXAgKGdyZXkgPSBmZW1hbGVzLCByZWQgPSBtYWxlcykgdGhlcmUgaXMgbm8gcmVsYXRpb25zaGlwLiBQb29saW5nIHR3byBncm91cHMgdGhhdCBkaWZmZXIgaW4gYm90aCB2YXJpYWJsZXMgY3JlYXRlcyBhIGNvcnJlbGF0aW9uLiBJbmNsdWRlIHRoZSBncm91cGluZyB2YXJpYWJsZSBpbiB0aGUgbW9kZWwuXCJ9PC9kaXY+PC9kaXY+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC04IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGNmX2V4ID0gSW5wdXRzLnJhZGlvKG5ldyBNYXAoW1tcIkNob2NvbGF0ZSBhbmQgTm9iZWwgcHJpemVzXCIsIFwiY2hvY1wiXSwgW1wiU3BlZWQgYW5kIHByZWRhdGlvbiByaXNrXCIsIFwicHJlZFwiXV0pLCB7dmFsdWU6IFwicHJlZFwiLCBsYWJlbDogXCJFeGFtcGxlXCJ9KVxudmlld29mIGNmX3N0ciA9IElucHV0cy5yYW5nZShbMCwgMC45NV0sIHt2YWx1ZTogMC43LCBzdGVwOiAwLjA1LCBsYWJlbDogXCJTdHJlbmd0aCBvZiB0aGUgY29uZm91bmRlclwifSlcbnZpZXdvZiBjZl9hZGogPSBJbnB1dHMudG9nZ2xlKHtsYWJlbDogXCJBY2NvdW50IGZvciB0aGUgY29uZm91bmRlclwiLCB2YWx1ZTogZmFsc2V9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC05IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiY2YgPSB7XG4gIGNvbnN0IHIgPSBybmcoMTAxMCk7XG4gIGNvbnN0IG4gPSA2MCwgcyA9IGNmX3N0cjtcbiAgY29uc3QgWiA9IHJub3JtKHIsIG4pO1xuICBjb25zdCBlMSA9IHJub3JtKHIsIG4pLCBlMiA9IHJub3JtKHIsIG4pO1xuICBjb25zdCBYID0gWi5tYXAoKHosIGkpID0+IHMgKiB6ICsgTWF0aC5zcXJ0KDEgLSBzICogcykgKiBlMVtpXSk7XG4gIGNvbnN0IHNpZ24gPSBjZl9leCA9PT0gXCJwcmVkXCIgPyAtMSA6IDE7XG4gIGNvbnN0IFkgPSBaLm1hcCgoeiwgaSkgPT4gc2lnbiAqIHMgKiB6ICsgTWF0aC5zcXJ0KDEgLSBzICogcykgKiBlMltpXSk7XG4gIGNvbnN0IHJ4ID0gbG0xKFosIFgpLnJlc2lkLCByeSA9IGxtMShaLCBZKS5yZXNpZDtcbiAgY29uc3QgeHMgPSBjZl9hZGogPyByeCA6IFgsIHlzID0gY2ZfYWRqID8gcnkgOiBZO1xuICBjb25zdCBmaXQgPSBsbTEoeHMsIHlzKTtcbiAgY29uc3QgeHIgPSBbTWF0aC5taW4oLi4ueHMpLCBNYXRoLm1heCguLi54cyldO1xuICByZXR1cm4ge3B0czogeHMubWFwKCh4LCBpKSA9PiAoe3gsIHk6IHlzW2ldfSkpLCByOiBjb3IoeHMsIHlzKSwgbGluZTogeHIubWFwKCh4KSA9PiAoe3gsIHk6IGZpdC5iMCArIGZpdC5iMSAqIHh9KSl9O1xufVxuXG5jZl9sYWJlbHMgPSBjZl9leCA9PT0gXCJjaG9jXCJcbiAgPyB7eDogXCJDaG9jb2xhdGUgY29uc3VtcHRpb25cIiwgeTogXCJOb2JlbCBsYXVyZWF0ZXMgcGVyIGNhcGl0YVwiLCB6OiBcIm5hdGlvbmFsIHdlYWx0aFwifVxuICA6IHt4OiBcIk1vdmVtZW50IHNwZWVkXCIsIHk6IFwiUHJlZGF0aW9uIHJpc2tcIiwgejogXCJib2R5IG1hc3NcIn1cblxuaHRtbGA8ZGl2PiR7UGxvdC5wbG90KHtcbiAgd2lkdGg6IDU2MCwgaGVpZ2h0OiAyOTAsIG1hcmdpbkxlZnQ6IDQ1LFxuICB4OiB7bGFiZWw6IGNmX2xhYmVscy54ICsgKGNmX2FkaiA/IGAgKGFmdGVyIHJlbW92aW5nICR7Y2ZfbGFiZWxzLnp9KWAgOiBcIlwiKX0sXG4gIHk6IHtsYWJlbDogY2ZfbGFiZWxzLnkgKyAoY2ZfYWRqID8gXCIgKGFkanVzdGVkKVwiIDogXCJcIiksIGdyaWQ6IHRydWV9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZShjZi5saW5lLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IGRhcmssIHN0cm9rZURhc2hhcnJheTogXCI2LDRcIiwgc3Ryb2tlV2lkdGg6IDJ9KSxcbiAgICBQbG90LmRvdChjZi5wdHMsIHt4OiBcInhcIiwgeTogXCJ5XCIsIGZpbGw6IGNmX2FkaiA/IHJlZCA6IGdyZXksIHI6IDR9KVxuICBdXG59KX1cbjxkaXYgY2xhc3M9XCJhcHAtdmVyZGljdFwiPkNvcnJlbGF0aW9uIDxpPnI8L2k+ID0gPGI+JHtmbXQoY2Yucil9PC9iPi5cbiR7Y2ZfYWRqXG4gID8gYEFmdGVyIGFjY291bnRpbmcgZm9yICR7Y2ZfbGFiZWxzLnp9LCB0aGUgY29ycmVsYXRpb24gaXMgY2xvc2UgdG8gemVybzogdGhlIGFwcGFyZW50IGxpbmsgd2FzIGVudGlyZWx5IGNhdXNlZCBieSAke2NmX2xhYmVscy56fSBkcml2aW5nIGJvdGggdmFyaWFibGVzLmBcbiAgOiBgSW4gdGhlc2Ugc2ltdWxhdGVkIGRhdGEsICR7Y2ZfbGFiZWxzLngudG9Mb3dlckNhc2UoKX0gaGFzIDxiPm5vPC9iPiBlZmZlY3Qgb24gJHtjZl9sYWJlbHMueS50b0xvd2VyQ2FzZSgpfS4gQm90aCBhcmUgZHJpdmVuIGJ5ICR7Y2ZfbGFiZWxzLnp9LiBUaWNrIHRoZSBib3ggdG8gYWNjb3VudCBmb3IgaXQuYH08L2Rpdj48L2Rpdj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEwIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIG5zX2VmZiA9IElucHV0cy5yYW5nZShbMCwgMV0sIHt2YWx1ZTogMC40LCBzdGVwOiAwLjA1LCBsYWJlbDogXCJUcnVlIGVmZmVjdCBzaXplXCJ9KVxudmlld29mIG5zX3NlZWQgPSBJbnB1dHMuYnV0dG9uKFwiUmVzYW1wbGVcIilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJucyA9IHtcbiAgY29uc3QgciA9IHJuZyg5MDkgKyBuc19zZWVkKTtcbiAgY29uc3QgcG9vbCA9IHJub3JtKHIsIDEwMCwgbnNfZWZmLCAxKTtcbiAgcmV0dXJuIFs1LCAxMCwgMjAsIDUwLCAxMDBdLm1hcCgobiwgaSkgPT4ge1xuICAgIGNvbnN0IHggPSBwb29sLnNsaWNlKDAsIG4pLCBtID0gbWVhbih4KSwgaCA9IHF0OTc1KG4gLSAxKSAqIHNkKHgpIC8gTWF0aC5zcXJ0KG4pO1xuICAgIHJldHVybiB7c3R1ZHk6IGBuID0gJHtufWAsIG0sIGxvOiBtIC0gaCwgaGk6IG0gKyBoLCBzaWc6IG0gLSBoID4gMCB8fCBtICsgaCA8IDAgPyBcInNpZ25pZmljYW50XCIgOiBcIm5vdCBzaWduaWZpY2FudFwifTtcbiAgfSk7XG59XG5cbmh0bWxgPGRpdj4ke1Bsb3QucGxvdCh7XG4gIHdpZHRoOiA1NjAsIGhlaWdodDogMjUwLCBtYXJnaW5MZWZ0OiA3MCxcbiAgeDoge2xhYmVsOiBcIkVzdGltYXRlZCBlZmZlY3QgKDk1JSBDSSlcIiwgZ3JpZDogdHJ1ZX0sXG4gIHk6IHtkb21haW46IFtcIm4gPSA1XCIsIFwibiA9IDEwXCIsIFwibiA9IDIwXCIsIFwibiA9IDUwXCIsIFwibiA9IDEwMFwiXSwgbGFiZWw6IG51bGx9LFxuICBjb2xvcjoge2RvbWFpbjogW1wic2lnbmlmaWNhbnRcIiwgXCJub3Qgc2lnbmlmaWNhbnRcIl0sIHJhbmdlOiBbZ3JleSwgcmVkXSwgbGVnZW5kOiB0cnVlfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJ1bGVYKFswXSwge3N0cm9rZTogZGFya30pLFxuICAgIFBsb3QucnVsZVgoW25zX2VmZl0sIHtzdHJva2U6IGJsdWUsIHN0cm9rZURhc2hhcnJheTogXCI1LDRcIiwgc3Ryb2tlV2lkdGg6IDJ9KSxcbiAgICBQbG90LmxpbmsobnMsIHt4MTogXCJsb1wiLCB4MjogXCJoaVwiLCB5MTogXCJzdHVkeVwiLCB5MjogXCJzdHVkeVwiLCBzdHJva2U6IFwic2lnXCIsIHN0cm9rZVdpZHRoOiAzfSksXG4gICAgUGxvdC5kb3QobnMsIHt4OiBcIm1cIiwgeTogXCJzdHVkeVwiLCBmaWxsOiBcInNpZ1wiLCByOiA2fSlcbiAgXVxufSl9XG48ZGl2IGNsYXNzPVwiYXBwLXZlcmRpY3RcIj4ke25zX2VmZiA9PT0gMFxuICA/IFwiVGhlIHRydWUgZWZmZWN0IGlzIHplcm8gaGVyZS4gRXZlbiBzbywgdGhlIHNtYWxsIHN0dWRpZXMgY2Fubm90IHByb3ZlIGl0OiB0aGVpciBpbnRlcnZhbHMgYXJlIHdpZGUuIEEgbm9uLXNpZ25pZmljYW50IHJlc3VsdCBmcm9tIGEgc21hbGwgc3R1ZHkgaXMgdW5pbmZvcm1hdGl2ZSwgbm90IHByb29mIG9mIG5vIGVmZmVjdC5cIlxuICA6IGBUaGUgdHJ1ZSBlZmZlY3QgaXMgPGI+JHtuc19lZmZ9PC9iPiAoYmx1ZSBkYXNoZWQgbGluZSksIHNvIGl0IHJlYWxseSBleGlzdHMuIFNtYWxsIHN0dWRpZXMgZ2l2ZSB3aWRlIGludGVydmFscyB0aGF0IG9mdGVuIGluY2x1ZGUgemVybyAocmVkLCBcIm5vdCBzaWduaWZpY2FudFwiKS4gVGhlIGVmZmVjdCBkaWQgbm90IGRpc2FwcGVhcjogdGhvc2Ugc3R1ZGllcyB3ZXJlIGp1c3QgdG9vIHNtYWxsIHRvIGRldGVjdCBpdC5gfTwvZGl2PjwvZGl2PmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncHdfZGVsdGEnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncHdfc2QnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncHdfdGFyZ2V0JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2JjX2VmZicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdiY19kcmlmdCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdiY19uJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2JjX3NlZWQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZmNfdHlwZScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmY19zaXplJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ZjX3NlZWQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY2ZfZXgnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY2Zfc3RyJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2NmX2FkaicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCduc19lZmYnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnbnNfc2VlZCcpIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./the_islands.html" class="pagination-link" aria-label="The Islands">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The Islands</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

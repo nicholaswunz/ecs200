@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Diversity Indices – ECS200 Research Methods in Ecology</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week05_inference.html" rel="next">
+<link href="./week03_descriptive_stats.html" rel="prev">
+<link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c140cb0e3f64d73de25775a391ba3148.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
+
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week04_diversity.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01_quality_check.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02_tidy_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03_descriptive_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics and Figures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04_diversity.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">OPTIONAL: Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08_glm_counts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Count Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL: Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_glm_binary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Binary Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_mixed_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mixed-Effects Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13_survival.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./the_islands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Islands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#before-we-start" id="toc-before-we-start" class="nav-link" data-scroll-target="#before-we-start">Before we start</a></li>
+  <li><a href="#part-1-abundance" id="toc-part-1-abundance" class="nav-link" data-scroll-target="#part-1-abundance">Part 1: Abundance</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-10-min" id="toc-exercise-1-10-min" class="nav-link" data-scroll-target="#exercise-1-10-min">Exercise 1 (10 min)</a></li>
+  </ul></li>
+  <li><a href="#part-2-species-richness" id="toc-part-2-species-richness" class="nav-link" data-scroll-target="#part-2-species-richness">Part 2: Species richness</a></li>
+  <li><a href="#part-3-diversity-indices" id="toc-part-3-diversity-indices" class="nav-link" data-scroll-target="#part-3-diversity-indices">Part 3: Diversity indices</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2-10-min" id="toc-exercise-2-10-min" class="nav-link" data-scroll-target="#exercise-2-10-min">Exercise 2 (10 min)</a></li>
+  </ul></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a>
+  <ul class="collapse">
+  <li><a href="#for-the-adventurous" id="toc-for-the-adventurous" class="nav-link" data-scroll-target="#for-the-adventurous">For the adventurous</a></li>
+  </ul></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week04_diversity.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Week 4</strong>: Measuring abundance, richness and diversity</p>
+<p>How many individuals are there? How many species? How evenly are individuals spread among those species? In this workshop you will calculate the most common measures of abundance, species richness and diversity from survey data. These skills are essential for field-based projects and for jobs in ecological consulting and monitoring. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p><img src="images/biodiversity.jpg" class="img-fluid" style="width:100.0%"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Learning outcomes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this workshop you should be able to:</p>
+<ol type="1">
+<li>Calculate absolute abundance, relative abundance and density.</li>
+<li>Calculate species richness, and explain when rarefied richness is needed.</li>
+<li>Calculate and interpret the Shannon and Simpson diversity indices.</li>
+<li>Choose a suitable metric for a survey design and justify your choice.</li>
+</ol>
+</div>
+</div>
+<section id="background" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="background">Background</h2>
+<p>Biodiversity has two main components: <strong>richness</strong> (how many species) and <strong>evenness</strong> (how equally individuals are spread among the species). Different metrics capture different combinations of these.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">What it measures</th>
+<th style="text-align: left;">Watch out for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="#absolute">Absolute abundance</a> (<span class="math inline">\(N_i\)</span>)</td>
+<td style="text-align: left;">Number of individuals of a species</td>
+<td style="text-align: left;">Depends on sampling effort. Only compare surveys with the same effort</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="#relative">Relative abundance</a> (<span class="math inline">\(p_i\)</span>)</td>
+<td style="text-align: left;">Proportion of all individuals that belong to a species</td>
+<td style="text-align: left;">Hides differences in total abundance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="#density">Density</a> (<span class="math inline">\(d_i\)</span>)</td>
+<td style="text-align: left;">Individuals per unit area or effort</td>
+<td style="text-align: left;">Needs an accurate measure of area or effort</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="#richness">Species richness</a> (<span class="math inline">\(S\)</span>)</td>
+<td style="text-align: left;">Number of species</td>
+<td style="text-align: left;">Increases with sampling effort and is sensitive to rare species</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="#rarefied">Rarefied richness</a></td>
+<td style="text-align: left;">Richness standardised to the same number of individuals</td>
+<td style="text-align: left;">Throws away information when samples differ a lot in size</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="#shannon">Shannon index</a> (<span class="math inline">\(H'\)</span>)</td>
+<td style="text-align: left;">Richness and evenness together</td>
+<td style="text-align: left;">Hard to interpret in real-world terms. Moderately sensitive to rare species</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="#simpson">Simpson index</a> (<span class="math inline">\(D\)</span>)</td>
+<td style="text-align: left;">Mostly evenness and dominance</td>
+<td style="text-align: left;">Not very sensitive to rare species</td>
+</tr>
+</tbody>
+</table>
+<p>Other measures, such as <em>alpha</em>, <em>beta</em> and <em>gamma</em> diversity (diversity within a site, between sites and across a region) and taxonomic diversity, can be calculated with the <a href="https://vegandevs.r-universe.dev/vegan/doc/diversity-vegan.pdf"><code>vegan</code></a> package.</p>
+<p>Use the app to see how richness and evenness change the Shannon and Simpson indices.</p>
+<div class="app-box column-body-outset">
+<div class="app-title">
+<p>App: richness, evenness and diversity</p>
+</div>
+<div class="cell hidden">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="53" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 52;"><span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {fmt<span class="op">,</span> red<span class="op">,</span> grey} <span class="im">from</span> <span class="st">"./apps/ecs200.js"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display hidden">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="60" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 59;"><span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>viewof dv_s <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Number of species (richness, S)"</span>})</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>viewof dv_dom <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="fl">0.95</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Dominance of the most common species (0 = perfectly even)"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="67" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 66;"><span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>dv <span class="op">=</span> {</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the first species takes a share set by the slider; the rest is split evenly</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> s <span class="op">=</span> dv_s<span class="op">;</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> p<span class="op">;</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (s <span class="op">===</span> <span class="dv">1</span>) p <span class="op">=</span> [<span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> first <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> s <span class="op">+</span> dv_dom <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span> <span class="op">/</span> s)<span class="op">;</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> [first<span class="op">,</span> <span class="op">...</span><span class="bu">Array</span>(s <span class="op">-</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">fill</span>((<span class="dv">1</span> <span class="op">-</span> first) <span class="op">/</span> (s <span class="op">-</span> <span class="dv">1</span>))]<span class="op">;</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rows <span class="op">=</span> p<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">species</span><span class="op">:</span> <span class="vs">`sp</span><span class="sc">${</span>i <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="vs">`</span><span class="op">,</span> <span class="dt">p</span><span class="op">:</span> v}))<span class="op">;</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> H <span class="op">=</span> <span class="op">-</span>p<span class="op">.</span><span class="fu">filter</span>((v) <span class="kw">=&gt;</span> v <span class="op">&gt;</span> <span class="dv">0</span>)<span class="op">.</span><span class="fu">reduce</span>((a<span class="op">,</span> v) <span class="kw">=&gt;</span> a <span class="op">+</span> v <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span>(v)<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> simpson <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> p<span class="op">.</span><span class="fu">reduce</span>((a<span class="op">,</span> v) <span class="kw">=&gt;</span> a <span class="op">+</span> v <span class="op">*</span> v<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> inv <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> p<span class="op">.</span><span class="fu">reduce</span>((a<span class="op">,</span> v) <span class="kw">=&gt;</span> a <span class="op">+</span> v <span class="op">*</span> v<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {rows<span class="op">,</span> H<span class="op">,</span> simpson<span class="op">,</span> inv<span class="op">,</span> <span class="dt">Hmax</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span>(s)}<span class="op">;</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> dv<span class="op">.</span><span class="at">rows</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">species</span>)}<span class="op">,</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Relative abundance (pᵢ)"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [Plot<span class="op">.</span><span class="fu">barY</span>(dv<span class="op">.</span><span class="at">rows</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"p"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">===</span> <span class="dv">0</span> <span class="op">?</span> red <span class="op">:</span> grey)})<span class="op">,</span> Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])]</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>})<span class="sc">}</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;Shannon H′ = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(dv<span class="op">.</span><span class="at">H</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt; (the maximum possible for </span><span class="sc">${</span>dv_s<span class="sc">}</span><span class="vs"> species is ln(S) = </span><span class="sc">${</span><span class="fu">fmt</span>(dv<span class="op">.</span><span class="at">Hmax</span>)<span class="sc">}</span><span class="vs">) ·</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="vs">Simpson's 1 − D = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(dv<span class="op">.</span><span class="at">simpson</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt; · Inverse Simpson = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(dv<span class="op">.</span><span class="at">inv</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt; "effective species".</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="vs">Both indices are highest when all species are equally common, and fall as one species dominates, even though richness stays the same.&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="before-we-start" class="level1 unnumbered">
+<h1 class="unnumbered">Before we start</h1>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 4 workshop - Diversity indices</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Written by Nicholas Wu, 1234578, 18/03/2027</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("vegan")  # run once in the console if needed</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># data wrangling and plotting</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)      <span class="co"># rarefied richness (and many other community ecology tools)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd("C:/Users/YOUR-NAME/Documents/ECS200")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>We start with a small example survey: five samples at each of three sites, with the number of individuals of five species in each sample.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>survey_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">site      =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"b"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_1 =</span> <span class="fu">c</span>(<span class="dv">57</span>, <span class="dv">73</span>, <span class="dv">20</span>, <span class="dv">75</span>, <span class="dv">83</span>, <span class="dv">41</span>, <span class="dv">6</span>, <span class="dv">61</span>, <span class="dv">45</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">93</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">86</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_2 =</span> <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">41</span>, <span class="dv">4</span>, <span class="dv">49</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">54</span>, <span class="dv">64</span>, <span class="dv">35</span>, <span class="dv">38</span>, <span class="dv">53</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_3 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">38</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">39</span>, <span class="dv">0</span>, <span class="dv">29</span>, <span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">23</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_4 =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">28</span>, <span class="dv">19</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">34</span>, <span class="dv">7</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">45</span>, <span class="dv">5</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_5 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Quality check: one site was entered as "b" instead of "B"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>survey_clean <span class="ot">&lt;-</span> survey_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">site =</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(site <span class="sc">==</span> <span class="st">"b"</span>, <span class="st">"B"</span>, site),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">site =</span> <span class="fu">factor</span>(site))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Long format (Week 2): one row per sample and species. This makes</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># group-by-group calculations much easier.</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>survey_long <span class="ot">&lt;-</span> survey_clean <span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">sample =</span> dplyr<span class="sc">::</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span>     <span class="co"># give each sample (row) a number</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols      =</span> species_1<span class="sc">:</span>species_5,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                      <span class="at">names_to  =</span> <span class="st">"species"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                      <span class="at">values_to =</span> <span class="st">"abundance"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(survey_long)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  site  sample species   abundance
+  &lt;fct&gt;  &lt;int&gt; &lt;chr&gt;         &lt;dbl&gt;
+1 A          1 species_1        57
+2 A          1 species_2        31
+3 A          1 species_3         0
+4 A          1 species_4        11
+5 A          1 species_5         0
+6 A          2 species_1        73</code></pre>
+</div>
+</div>
+</section>
+<section id="part-1-abundance" class="level1 unnumbered">
+<h1 class="unnumbered">Part 1: Abundance</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Absolute abundance</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Relative abundance</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Density</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><span class="math display">\[
+N_i = \sum_{j=1}^{k} n_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(n_{ij}\)</span> is the number of individuals of species <em>i</em> in sample <em>j</em>. In other words, the total number of individuals of that species counted.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Total abundance of each species at each site</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>abundance_sum <span class="ot">&lt;-</span> survey_long <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site, species) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(abundance), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>abundance_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   site  species   total
+   &lt;fct&gt; &lt;chr&gt;     &lt;dbl&gt;
+ 1 A     species_1   308
+ 2 A     species_2    92
+ 3 A     species_3    80
+ 4 A     species_4    59
+ 5 A     species_5     0
+ 6 B     species_1   155
+ 7 B     species_2    74
+ 8 B     species_3    91
+ 9 B     species_4    42
+10 B     species_5     9
+11 C     species_1   179
+12 C     species_2   244
+13 C     species_3    18
+14 C     species_4    63
+15 C     species_5     7</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(abundance_sum, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> total, <span class="at">fill =</span> site)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span>  <span class="co"># bars side by side for each site</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Total abundance"</span>, <span class="at">fill =</span> <span class="st">"Site"</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week04_diversity_files/figure-html/absolute-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><span class="math display">\[
+p_i = \frac{N_i}{N}
+\]</span></p>
+<p>where <span class="math inline">\(N_i\)</span> is the abundance of species <em>i</em> and <span class="math inline">\(N\)</span> is the total abundance of all species. If 10 of the 50 individuals in a quadrat are species A, then <span class="math inline">\(p_A\)</span> = 10/50 = 0.20, so species A makes up 20% of the community.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Relative abundance of each species within each site</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>relative_sum <span class="ot">&lt;-</span> abundance_sum <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span>                            <span class="co"># within each site...</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">site_total   =</span> <span class="fu">sum</span>(total),             <span class="co"># ...total of all species</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">rel_abundance =</span> total <span class="sc">/</span> site_total) <span class="sc">%&gt;%</span> <span class="co"># ...each species' share</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>relative_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 5
+   site  species   total site_total rel_abundance
+   &lt;fct&gt; &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+ 1 A     species_1   308        539        0.571 
+ 2 A     species_2    92        539        0.171 
+ 3 A     species_3    80        539        0.148 
+ 4 A     species_4    59        539        0.109 
+ 5 A     species_5     0        539        0     
+ 6 B     species_1   155        371        0.418 
+ 7 B     species_2    74        371        0.199 
+ 8 B     species_3    91        371        0.245 
+ 9 B     species_4    42        371        0.113 
+10 B     species_5     9        371        0.0243
+11 C     species_1   179        511        0.350 
+12 C     species_2   244        511        0.477 
+13 C     species_3    18        511        0.0352
+14 C     species_4    63        511        0.123 
+15 C     species_5     7        511        0.0137</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(relative_sum, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">y =</span> rel_abundance, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_col</span>() <span class="sc">+</span>  <span class="co"># stacked bars add up to 1 for each site</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>, <span class="at">y =</span> <span class="st">"Relative abundance"</span>, <span class="at">fill =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week04_diversity_files/figure-html/relative-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Species 1 makes up about 57% of the individuals at site A. Because relative abundances always add up to 1, they remove differences in total abundance between sites.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><span class="math display">\[
+d_i = \frac{N_i}{A}
+\]</span></p>
+<p>where <span class="math inline">\(A\)</span> is the area (or effort) sampled. For example, 42 lizards counted in a 0.5 ha plot gives <span class="math inline">\(d\)</span> = 42 / 0.5 = 84 lizards per hectare. When every sample covers the same area, the mean count per sample is a measure of density (individuals per sample).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean number of individuals per sample, for each species at each site</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>survey_long <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site, species) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">density =</span> <span class="fu">mean</span>(abundance), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> species, <span class="at">values_from =</span> density) <span class="co"># easier-to-read table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+  site  species_1 species_2 species_3 species_4 species_5
+  &lt;fct&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 A          61.6      18.4      16        11.8       0  
+2 B          31        14.8      18.2       8.4       1.8
+3 C          35.8      48.8       3.6      12.6       1.4</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercise-1-10-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-1-10-min">Exercise 1 (10 min)</h3>
+<p>🧪 <strong>Calculate abundance metrics for this survey</strong></p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>exercise_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">site      =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot      =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_1 =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">15</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">25</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_2 =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_3 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">species_4 =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">5</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<ol type="1">
+<li>What is the total (absolute) abundance of species 1 across all sites?</li>
+<li>What proportion of all individuals at site B belong to species 2?</li>
+<li>What is the mean density (individuals per plot) of species 3 at each site?</li>
+</ol>
+<details>
+<summary>
+<strong>Show answer</strong>
+</summary>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>exercise_long <span class="ot">&lt;-</span> exercise_data <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> species_1<span class="sc">:</span>species_4, <span class="at">names_to =</span> <span class="st">"species"</span>, <span class="at">values_to =</span> <span class="st">"abundance"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Total abundance of species 1</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>exercise_long <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"species_1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(abundance))         <span class="co"># 116</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  total
+  &lt;dbl&gt;
+1   116</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Relative abundance of each species at site B</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>exercise_long <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(site <span class="sc">==</span> <span class="st">"B"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(abundance)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">rel_abundance =</span> total <span class="sc">/</span> <span class="fu">sum</span>(total)) <span class="co"># species_2 = 21 / 62 = 0.34</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  species   total rel_abundance
+  &lt;chr&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+1 species_1    19         0.306
+2 species_2    21         0.339
+3 species_3    15         0.242
+4 species_4     7         0.113</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Mean density of species 3 per plot at each site</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>exercise_long <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"species_3"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">density =</span> <span class="fu">mean</span>(abundance))      <span class="co"># A = 1.67, B = 5, C = 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  site  density
+  &lt;chr&gt;   &lt;dbl&gt;
+1 A        1.67
+2 B        5   
+3 C        1   </code></pre>
+</div>
+</div>
+</details>
+</section>
+</section>
+<section id="part-2-species-richness" class="level1 unnumbered">
+<h1 class="unnumbered">Part 2: Species richness</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Species richness</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Rarefied richness</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><span class="math display">\[
+S = \text{number of species observed}
+\]</span></p>
+<p>Count the species with an abundance <strong>greater than zero</strong>. If you forget to remove the zeros, every site gets every species in the dataset.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>survey_long <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site, species) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(abundance), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(total <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span>                   <span class="co"># keep only species that were found</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">richness =</span> dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(species)) <span class="co"># count the different species</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  site  richness
+  &lt;fct&gt;    &lt;int&gt;
+1 A            4
+2 B            5
+3 C            5</code></pre>
+</div>
+</div>
+<p>Site A has 4 species and sites B and C have all 5.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>The more individuals you count, the more species you find. If sites were sampled with different effort, differences in richness may just reflect differences in sample size. <strong>Rarefaction</strong> estimates how many species you would have found if every site had the same number of individuals (the smallest total among the sites).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Total of each species per site, in wide format (one row per site)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>site_totals <span class="ot">&lt;-</span> survey_clean <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(dplyr<span class="sc">::</span><span class="fu">across</span>(species_1<span class="sc">:</span>species_5, sum))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The smallest number of individuals counted at any site</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>n_min <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">rowSums</span>(site_totals[, <span class="sc">-</span><span class="dv">1</span>])) <span class="co"># [, -1] drops the site column</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected number of species in a sample of n_min individuals</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>site_totals <span class="sc">%&gt;%</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">rarefied_richness =</span> vegan<span class="sc">::</span><span class="fu">rarefy</span>(site_totals[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">sample =</span> n_min)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(site, rarefied_richness)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  site  rarefied_richness
+  &lt;fct&gt;             &lt;dbl&gt;
+1 A                  4   
+2 B                  5   
+3 C                  5.00</code></pre>
+</div>
+</div>
+<p>Here the rarefied values are almost the same as the raw richness, because the three sites had similar totals. Rarefaction matters most when effort differs a lot, or when there are many rare species. Always justify which metric you use in your report.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-3-diversity-indices" class="level1 unnumbered">
+<h1 class="unnumbered">Part 3: Diversity indices</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Shannon index</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Simpson index</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><span class="math display">\[
+H' = -\sum_{i=1}^{S} p_i \ln(p_i)
+\]</span></p>
+<p>where <span class="math inline">\(p_i\)</span> is the relative abundance of species <em>i</em> and <span class="math inline">\(S\)</span> is the number of species. <span class="math inline">\(H'\)</span> = 0 when only one species is present. It increases with more species and with more even abundances.</p>
+<p>Because we already calculated relative abundances, the formula translates directly into R:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>shannon_sum <span class="ot">&lt;-</span> relative_sum <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(rel_abundance <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span>   <span class="co"># log(0) is undefined, and absent species add nothing</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">shannon =</span> <span class="sc">-</span><span class="fu">sum</span>(rel_abundance <span class="sc">*</span> <span class="fu">log</span>(rel_abundance)))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>shannon_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  site  shannon
+  &lt;fct&gt;   &lt;dbl&gt;
+1 A        1.15
+2 B        1.37
+3 C        1.16</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(shannon_sum, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">y =</span> shannon)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"grey60"</span>) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>, <span class="at">y =</span> <span class="st">"Shannon diversity (H')"</span>) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week04_diversity_files/figure-html/shannon-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Site B has the highest diversity: it has the most species and the most even distribution of individuals among them.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p><span class="math display">\[
+D = \sum_{i=1}^{S} p_i^2 \qquad \text{Simpson's diversity} = 1 - D \qquad \text{Inverse Simpson} = \frac{1}{D}
+\]</span></p>
+<p><span class="math inline">\(D\)</span> is the probability that two individuals picked at random belong to the <strong>same</strong> species, so <strong>1 − D</strong> (the probability they are different species) increases with diversity. The <strong>inverse Simpson</strong> index (1/D) can be read as the “effective number of equally common species”.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>relative_sum <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">simpson     =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(rel_abundance<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">inv_simpson =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sum</span>(rel_abundance<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  site  simpson inv_simpson
+  &lt;fct&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+1 A       0.610        2.57
+2 B       0.712        3.47
+3 C       0.633        2.72</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A shortcut with <code>vegan</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>vegan::diversity()</code> calculates the same indices from wide data (one row per site, one column per species):</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>vegan<span class="sc">::</span><span class="fu">diversity</span>(site_totals[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">index =</span> <span class="st">"shannon"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        3 
+1.146836 1.367746 1.155124 </code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>vegan<span class="sc">::</span><span class="fu">diversity</span>(site_totals[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">index =</span> <span class="st">"simpson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1         2         3 
+0.6103242 0.7120989 0.6326646 </code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>vegan<span class="sc">::</span><span class="fu">diversity</span>(site_totals[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">index =</span> <span class="st">"invsimpson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        3 
+2.566236 3.473415 2.722307 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercise-2-10-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-2-10-min">Exercise 2 (10 min)</h3>
+<p>🧪 <strong>Calculate richness and diversity for <code>exercise_data</code></strong></p>
+<ol type="1">
+<li>What is the species richness at each site?</li>
+<li>What is the Shannon diversity of site A?</li>
+<li>What is the inverse Simpson index of site B?</li>
+</ol>
+<details>
+<summary>
+<strong>Show answer</strong>
+</summary>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>exercise_rel <span class="ot">&lt;-</span> exercise_long <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site, species) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(abundance), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">p =</span> total <span class="sc">/</span> <span class="fu">sum</span>(total)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(p <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>exercise_rel <span class="sc">%&gt;%</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">richness    =</span> dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(species),</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">shannon     =</span> <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log</span>(p)),</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">inv_simpson =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sum</span>(p<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  site  richness shannon inv_simpson
+  &lt;chr&gt;    &lt;int&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+1 A            4   1.15         2.67
+2 B            4   1.32         3.57
+3 C            4   0.849        1.89</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. A = 4, B = 4, C = 4 species</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Shannon (site A) = 1.15</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Inverse Simpson (site B) = 3.57</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</details>
+</section>
+</section>
+<section id="assessment" class="level1 unnumbered">
+<h1 class="unnumbered">Assessment</h1>
+<p>Task to complete before the end of the workshop.</p>
+<p><a href="assessments/week04_assessment.R" class="btn btn-danger btn-sm download-btn" download="week04_assessment.R"><i class="bi bi-download"></i> week04_assessment.R</a> <a href="data/invert_exp_survey.csv" class="btn btn-outline-danger btn-sm download-btn" download="invert_exp_survey.csv"><i class="bi bi-download"></i> invert_exp_survey.csv</a></p>
+<p><strong>Does drought change soil invertebrate communities?</strong> This real dataset comes from a field experiment in which rain-out shelters created an experimental <strong>drought</strong>, next to <strong>control</strong> plots, in 5 blocks. Invertebrates were caught in pitfall traps (3 traps per plot, sampled in several months) <span class="citation" data-cites="Farkas2025">(<a href="references.html#ref-Farkas2025" role="doc-biblioref">Farkas et al., 2025</a>)</span>. Invertebrates were identified to order, except Crustacea (subphylum), Diplopoda and Chilopoda (class) and Annelida (phylum). We will call these groups “orders”.</p>
+<p><img src="images/invert_diveristy.jpg" class="img-fluid" style="width:100.0%"></p>
+<ol type="1">
+<li>Import the data and run a quality check (structure, missing values, duplicates).</li>
+<li>Convert the data to long format with one row per sample and order. Leave out the <code>unidentified</code> column. Why should unidentified individuals not be counted as a separate group when calculating richness?</li>
+<li>Calculate the relative abundance of each order in the control and drought treatments, and plot it. Which order dominates both treatments?</li>
+<li>Calculate the richness (number of orders with at least one individual) in each treatment.</li>
+<li>Calculate the Shannon diversity index for each treatment and plot it.</li>
+<li><strong>Interpretation</strong>: in two or three sentences, describe how drought affected the invertebrate community, using your answers to Q3–Q5.</li>
+</ol>
+<p>The relative abundance figure might look like this:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week04_diversity_files/figure-html/target-fig-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How your assessment is marked
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Submit <strong>one R script</strong> (<code>.R</code>) before the end of the class. Write your answers to written questions as <code>#</code> comments next to the code that produced them.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 74%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Score</th>
+<th style="text-align: left;">What it looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">No submission or no attempt.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.25</td>
+<td style="text-align: left;">Submitted, but a very poor attempt (e.g.&nbsp;incomplete, or lots of gaps).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.5</td>
+<td style="text-align: left;">Most questions answered, <strong>or</strong> all answered but most annotations missing.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.75</td>
+<td style="text-align: left;">All questions answered, but some annotations missing or some answers incorrect.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Everything completed, with annotations on all code so the marker can follow it.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tip</strong>: an annotation is a short <code>#</code> comment that says <em>what</em> the line does and <em>why</em>. For example: <code># remove the one plant with a stem dry mass of 7.4 g (data entry error)</code>.</p>
+</div>
+</div>
+</div>
+<section id="for-the-adventurous" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="for-the-adventurous">For the adventurous</h2>
+<p>Calculate the Shannon index for each <strong>treatment × block</strong> combination and plot the values for each treatment. This shows the variation among experimental blocks, which is what your report should show, rather than a single value per treatment.</p>
+</section>
+</section>
+<section id="additional-resources" class="level1 unnumbered">
+<h1 class="unnumbered">Additional resources</h1>
+<ul>
+<li>D. Zelený’s <a href="https://www.davidzeleny.net/anadat-r/doku.php/en:diversity_analysis">Analysis of community ecology data in R</a>: more on <a href="https://www.davidzeleny.net/anadat-r/doku.php/en:div-ind">diversity and evenness indices</a>, with R code.</li>
+<li><a href="https://vegandevs.r-universe.dev/vegan/doc/diversity-vegan.pdf"><code>vegan</code> diversity vignette</a> for rarefaction curves, beta diversity and more.</li>
+<li>Coding Club: <a href="https://ourcodingclub.github.io/tutorials/ordination/">Introduction to ordination</a>, a next step for comparing whole communities with <code>vegan</code>.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Farkas2025" class="csl-entry" role="listitem">
+<strong>Farkas, K. R., Brown, Z. A., King, J. L., Nicotra, A. B., Head, M. L. and Arnold, P. A.</strong> (2025). <a href="https://doi.org/10.1111/een.70015">Combined heat and drought affect the abundance, composition and diversity of subalpine surface-active soil arthropod communities</a>. <em>Ecological Entomology</em>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7Zm10LCByZWQsIGdyZXl9IGZyb20gXCIuL2FwcHMvZWNzMjAwLmpzXCJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBkdl9zID0gSW5wdXRzLnJhbmdlKFsxLCAxMl0sIHt2YWx1ZTogNSwgc3RlcDogMSwgbGFiZWw6IFwiTnVtYmVyIG9mIHNwZWNpZXMgKHJpY2huZXNzLCBTKVwifSlcbnZpZXdvZiBkdl9kb20gPSBJbnB1dHMucmFuZ2UoWzAsIDAuOTVdLCB7dmFsdWU6IDAsIHN0ZXA6IDAuMDUsIGxhYmVsOiBcIkRvbWluYW5jZSBvZiB0aGUgbW9zdCBjb21tb24gc3BlY2llcyAoMCA9IHBlcmZlY3RseSBldmVuKVwifSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImR2ID0ge1xuICAvLyB0aGUgZmlyc3Qgc3BlY2llcyB0YWtlcyBhIHNoYXJlIHNldCBieSB0aGUgc2xpZGVyOyB0aGUgcmVzdCBpcyBzcGxpdCBldmVubHlcbiAgY29uc3QgcyA9IGR2X3M7XG4gIGxldCBwO1xuICBpZiAocyA9PT0gMSkgcCA9IFsxXTtcbiAgZWxzZSB7XG4gICAgY29uc3QgZmlyc3QgPSAxIC8gcyArIGR2X2RvbSAqICgxIC0gMSAvIHMpO1xuICAgIHAgPSBbZmlyc3QsIC4uLkFycmF5KHMgLSAxKS5maWxsKCgxIC0gZmlyc3QpIC8gKHMgLSAxKSldO1xuICB9XG4gIGNvbnN0IHJvd3MgPSBwLm1hcCgodiwgaSkgPT4gKHtzcGVjaWVzOiBgc3Ake2kgKyAxfWAsIHA6IHZ9KSk7XG4gIGNvbnN0IEggPSAtcC5maWx0ZXIoKHYpID0+IHYgPiAwKS5yZWR1Y2UoKGEsIHYpID0+IGEgKyB2ICogTWF0aC5sb2codiksIDApO1xuICBjb25zdCBzaW1wc29uID0gMSAtIHAucmVkdWNlKChhLCB2KSA9PiBhICsgdiAqIHYsIDApO1xuICBjb25zdCBpbnYgPSAxIC8gcC5yZWR1Y2UoKGEsIHYpID0+IGEgKyB2ICogdiwgMCk7XG4gIHJldHVybiB7cm93cywgSCwgc2ltcHNvbiwgaW52LCBIbWF4OiBNYXRoLmxvZyhzKX07XG59XG5cbmh0bWxgPGRpdj4ke1Bsb3QucGxvdCh7XG4gIHdpZHRoOiA1NjAsIGhlaWdodDogMjUwLCBtYXJnaW5MZWZ0OiA0NSxcbiAgeDoge2xhYmVsOiBudWxsLCBkb21haW46IGR2LnJvd3MubWFwKChkKSA9PiBkLnNwZWNpZXMpfSxcbiAgeToge2xhYmVsOiBcIlJlbGF0aXZlIGFidW5kYW5jZSAocOG1oilcIiwgZG9tYWluOiBbMCwgMV0sIGdyaWQ6IHRydWV9LFxuICBtYXJrczogW1Bsb3QuYmFyWShkdi5yb3dzLCB7eDogXCJzcGVjaWVzXCIsIHk6IFwicFwiLCBmaWxsOiAoZCwgaSkgPT4gKGkgPT09IDAgPyByZWQgOiBncmV5KX0pLCBQbG90LnJ1bGVZKFswXSldXG59KX1cbjxkaXYgY2xhc3M9XCJhcHAtdmVyZGljdFwiPlNoYW5ub24gSOKAsiA9IDxiPiR7Zm10KGR2LkgpfTwvYj4gKHRoZSBtYXhpbXVtIHBvc3NpYmxlIGZvciAke2R2X3N9IHNwZWNpZXMgaXMgbG4oUykgPSAke2ZtdChkdi5IbWF4KX0pIMK3XG5TaW1wc29uJ3MgMSDiiJIgRCA9IDxiPiR7Zm10KGR2LnNpbXBzb24pfTwvYj4gwrcgSW52ZXJzZSBTaW1wc29uID0gPGI+JHtmbXQoZHYuaW52KX08L2I+IFwiZWZmZWN0aXZlIHNwZWNpZXNcIi5cbkJvdGggaW5kaWNlcyBhcmUgaGlnaGVzdCB3aGVuIGFsbCBzcGVjaWVzIGFyZSBlcXVhbGx5IGNvbW1vbiwgYW5kIGZhbGwgYXMgb25lIHNwZWNpZXMgZG9taW5hdGVzLCBldmVuIHRob3VnaCByaWNobmVzcyBzdGF5cyB0aGUgc2FtZS48L2Rpdj48L2Rpdj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2R2X3MnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZHZfZG9tJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week03_descriptive_stats.html" class="pagination-link" aria-label="Descriptive Statistics and Figures">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics and Figures</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week05_inference.html" class="pagination-link" aria-label="Statistical Inference">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

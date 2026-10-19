@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Linear and Multiple Regression – ECS200 Research Methods in Ecology</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week08_glm_counts.html" rel="next">
+<link href="./week06_time_series.html" rel="prev">
+<link href="./images/MU_CREST_Red.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c140cb0e3f64d73de25775a391ba3148.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.usefathom.com/script.js" data-site="QDWZORBB" defer=""></script>
+
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week07_regression.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ECS200 Research Methods in Ecology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01_quality_check.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Check</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02_tidy_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tidy Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03_descriptive_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics and Figures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04_diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diversity Indices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06_time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">OPTIONAL: Time Series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07_regression.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08_glm_counts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Count Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09_spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OPTIONAL: Spatial Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10_movement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OPTIONAL: Movement Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11_glm_binary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Binary Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12_mixed_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mixed-Effects Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13_survival.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./the_islands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Islands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./research_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#before-we-start" id="toc-before-we-start" class="nav-link active" data-scroll-target="#before-we-start">Before we start</a></li>
+  <li><a href="#part-a-simple-linear-regression" id="toc-part-a-simple-linear-regression" class="nav-link" data-scroll-target="#part-a-simple-linear-regression">Part A: Simple linear regression</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">1. Background</a></li>
+  <li><a href="#visualise" id="toc-visualise" class="nav-link" data-scroll-target="#visualise">2. Visualise</a></li>
+  <li><a href="#check-assumptions" id="toc-check-assumptions" class="nav-link" data-scroll-target="#check-assumptions">3. Check assumptions</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. Model</a></li>
+  <li><a href="#interpret" id="toc-interpret" class="nav-link" data-scroll-target="#interpret">5. Interpret</a></li>
+  </ul></li>
+  <li><a href="#part-b-multiple-regression" id="toc-part-b-multiple-regression" class="nav-link" data-scroll-target="#part-b-multiple-regression">Part B: Multiple regression</a>
+  <ul class="collapse">
+  <li><a href="#background-1" id="toc-background-1" class="nav-link" data-scroll-target="#background-1">1. Background</a></li>
+  <li><a href="#visualise-1" id="toc-visualise-1" class="nav-link" data-scroll-target="#visualise-1">2. Visualise</a></li>
+  <li><a href="#check-assumptions-1" id="toc-check-assumptions-1" class="nav-link" data-scroll-target="#check-assumptions-1">3. Check assumptions</a></li>
+  <li><a href="#model-1" id="toc-model-1" class="nav-link" data-scroll-target="#model-1">4. Model</a></li>
+  <li><a href="#interpret-1" id="toc-interpret-1" class="nav-link" data-scroll-target="#interpret-1">5. Interpret</a></li>
+  </ul></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week01_quality_check.html">Weeks</a></li><li class="breadcrumb-item"><a href="./week07_regression.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear and Multiple Regression</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Week 7</strong>: Relationships between a response and one or more numeric predictors</p>
+<p>Last week you compared <strong>groups</strong>. This week the predictor is a <strong>number</strong> (latitude, temperature, chlorophyll) and we ask how the response changes as that number changes. You will fit a simple linear regression (one predictor) and then a multiple regression (several predictors). Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p><img src="images/base_model.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Learning outcomes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this workshop you should be able to:</p>
+<ol type="1">
+<li>Explain what the intercept, slope and R<sup>2</sup> of a regression mean.</li>
+<li>Use diagnostic plots to check linearity, equal variance, normality and influential points.</li>
+<li>Recognise collinearity between predictors and decide what to do about it.</li>
+<li>Fit, visualise and write up simple and multiple regression models in R.</li>
+</ol>
+</div>
+</div>
+<section id="before-we-start" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="before-we-start">Before we start</h2>
+<p><a href="data/pie_crab.csv" class="btn btn-outline-danger btn-sm download-btn" download="pie_crab.csv"><i class="bi bi-download"></i> pie_crab.csv</a> <a href="data/coralreefdata.csv" class="btn btn-outline-danger btn-sm download-btn" download="coralreefdata.csv"><i class="bi bi-download"></i> coralreefdata.csv</a></p>
+<p>We use one new package, <code>ggeffects</code>, to plot what a model predicts.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Week 7 workshop - Linear and multiple regression</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Written by Nicholas Wu, 1234578, 15/04/2027</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggeffects")  # run once in the console if needed</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)   <span class="co"># data import, wrangling and plotting</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance) <span class="co"># checking model assumptions</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(see)         <span class="co"># draws the plots for performance</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeffects)   <span class="co"># predictions from models for plotting</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd("C:/Users/YOUR-NAME/Documents/ECS200")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="part-a-simple-linear-regression" class="level1 unnumbered page-columns page-full">
+<h1 class="unnumbered">Part A: Simple linear regression</h1>
+<p><strong>Question</strong>: Are fiddler crabs bigger at higher latitudes (Bergmann’s rule)?</p>
+<p>Bergmann’s rule predicts that individuals of a species are larger in colder places, which usually means at higher latitudes. In summer 2016, researchers measured the carapace width of adult male Atlantic marsh fiddler crabs (<em>Minuca pugnax</em>) at 13 salt marshes spanning more than 12 degrees of latitude, from Florida to Massachusetts <span class="citation" data-cites="Johnson2019">(<a href="references.html#ref-Johnson2019" role="doc-biblioref">Johnson, 2019</a>)</span>. The data come from the <a href="https://lter.github.io/lterdatasampler/"><code>lterdatasampler</code></a> collection.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Minuca_pugnax.jpg" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Atlantic marsh fiddler crab (<em>Minuca pugnax</em>).</figcaption>
+</figure>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>crab_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/pie_crab.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(crab_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 392
+Columns: 9
+$ date          &lt;date&gt; 2016-07-24, 2016-07-24, 2016-07-24, 2016-07-24, 2016-07…
+$ latitude      &lt;dbl&gt; 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, …
+$ site          &lt;chr&gt; "GTM", "GTM", "GTM", "GTM", "GTM", "GTM", "GTM", "GTM", …
+$ size          &lt;dbl&gt; 12.43, 14.18, 14.52, 12.94, 12.45, 12.99, 10.32, 11.19, …
+$ air_temp      &lt;dbl&gt; 21.792, 21.792, 21.792, 21.792, 21.792, 21.792, 21.792, …
+$ air_temp_sd   &lt;dbl&gt; 6.391, 6.391, 6.391, 6.391, 6.391, 6.391, 6.391, 6.391, …
+$ water_temp    &lt;dbl&gt; 24.502, 24.502, 24.502, 24.502, 24.502, 24.502, 24.502, …
+$ water_temp_sd &lt;dbl&gt; 6.121, 6.121, 6.121, 6.121, 6.121, 6.121, 6.121, 6.121, …
+$ name          &lt;chr&gt; "Guana Tolomoto Matanzas NERR", "Guana Tolomoto Matanzas…</code></pre>
+</div>
+</div>
+<p>The columns we need are <code>size</code> (carapace width, mm) and <code>latitude</code> (degrees north).</p>
+<section id="background" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="background">1. Background</h2>
+<p>A simple linear regression fits the straight line that best describes how a numeric response (<em>y</em>) changes with a numeric predictor (<em>x</em>):</p>
+<p><span class="math display">\[
+y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span> is the <strong>intercept</strong>: the predicted <em>y</em> when <em>x</em> = 0.</li>
+<li><span class="math inline">\(\beta_1\)</span> is the <strong>slope</strong>: how much <em>y</em> changes, on average, for every one-unit increase in <em>x</em>. This is usually the number your research question is about.</li>
+<li><span class="math inline">\(\varepsilon_i\)</span> is the <strong>residual</strong>: the vertical distance between each point and the line. Residuals are assumed to be normally distributed with constant spread.</li>
+</ul>
+<p>R finds the line that makes the sum of the squared residuals as small as possible (<em>least squares</em>). The null hypothesis is that the slope is zero (no relationship).</p>
+<p>A straight line is only a good summary if the relationship really is straight. In the app below, choose a pattern and compare the diagnostic plots with the ideal: a <strong>flat, patternless cloud</strong> in the residuals plot and points <strong>along the line</strong> in the Q-Q plot.</p>
+<div class="app-box column-body-outset">
+<div class="app-title">
+<p>App: is a straight line a good fit?</p>
+</div>
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell hidden">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="101" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 100;"><span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {rng<span class="op">,</span> rnorm<span class="op">,</span> runif<span class="op">,</span> mean<span class="op">,</span> sd<span class="op">,</span> lm1<span class="op">,</span> lm2<span class="op">,</span> cor<span class="op">,</span> qqpoints<span class="op">,</span> smooth<span class="op">,</span> fmt<span class="op">,</span> fmtp<span class="op">,</span> red<span class="op">,</span> grey<span class="op">,</span> dark} <span class="im">from</span> <span class="st">"./apps/ecs200.js"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display hidden">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="107" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 106;"><span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>viewof lin_type <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Linear, going up"</span><span class="op">,</span> <span class="st">"up"</span>]<span class="op">,</span> [<span class="st">"Linear, going down"</span><span class="op">,</span> <span class="st">"down"</span>]<span class="op">,</span> [<span class="st">"Curved"</span><span class="op">,</span> <span class="st">"curve"</span>]<span class="op">,</span> [<span class="st">"Fan-shaped"</span><span class="op">,</span> <span class="st">"fan"</span>]<span class="op">,</span> [<span class="st">"One extreme outlier"</span><span class="op">,</span> <span class="st">"outlier"</span>]])<span class="op">,</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">value</span><span class="op">:</span> <span class="st">"up"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Pattern in the data"</span>})</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>viewof lin_resid <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">toggle</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">"Show residuals"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="kw">false</span>})</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>viewof lin_seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Resample"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="117" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 116;"><span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>lin_data <span class="op">=</span> {</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">707</span> <span class="op">+</span> lin_seed)<span class="op">;</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> n <span class="op">=</span> <span class="dv">80</span><span class="op">;</span></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> x <span class="op">=</span> <span class="fu">runif</span>(r<span class="op">,</span> n<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> e <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> n<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y<span class="op">;</span></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (lin_type <span class="op">===</span> <span class="st">"up"</span>) y <span class="op">=</span> x<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> v <span class="op">+</span> e[i])<span class="op">;</span></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (lin_type <span class="op">===</span> <span class="st">"down"</span>) y <span class="op">=</span> x<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">8</span> <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> v <span class="op">+</span> e[i])<span class="op">;</span></span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (lin_type <span class="op">===</span> <span class="st">"curve"</span>) y <span class="op">=</span> x<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">0.6</span> <span class="op">*</span> v <span class="op">**</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> e[i])<span class="op">;</span></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (lin_type <span class="op">===</span> <span class="st">"fan"</span>) y <span class="op">=</span> x<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">2</span> <span class="op">+</span> <span class="fl">1.2</span> <span class="op">*</span> v <span class="op">+</span> e[i] <span class="op">*</span> (<span class="fl">0.2</span> <span class="op">+</span> <span class="fl">1.1</span> <span class="op">*</span> v))<span class="op">;</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (lin_type <span class="op">===</span> <span class="st">"outlier"</span>) { y <span class="op">=</span> x<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">2</span> <span class="op">+</span> <span class="fl">0.3</span> <span class="op">*</span> v <span class="op">+</span> <span class="fl">0.8</span> <span class="op">*</span> e[i])<span class="op">;</span> x[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">3.9</span><span class="op">;</span> y[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">14</span><span class="op">;</span> }</span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> fit <span class="op">=</span> <span class="fu">lm1</span>(x<span class="op">,</span> y)<span class="op">;</span></span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pts <span class="op">=</span> x<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> v<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> y[i]<span class="op">,</span> <span class="dt">fitted</span><span class="op">:</span> fit<span class="op">.</span><span class="at">fitted</span>[i]<span class="op">,</span> <span class="dt">resid</span><span class="op">:</span> fit<span class="op">.</span><span class="at">resid</span>[i]<span class="op">,</span> <span class="dt">std</span><span class="op">:</span> fit<span class="op">.</span><span class="at">stdres</span>[i]}))<span class="op">;</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {pts<span class="op">,</span> fit}<span class="op">;</span></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>lin_scatter <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"x (predictor)"</span>}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"y (response)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>    lin_resid <span class="op">?</span> Plot<span class="op">.</span><span class="fu">link</span>(lin_data<span class="op">.</span><span class="at">pts</span><span class="op">,</span> {<span class="dt">x1</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"fitted"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.5</span>}) <span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(lin_data<span class="op">.</span><span class="at">pts</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> grey<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(lin_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">slice</span>()<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a<span class="op">.</span><span class="at">x</span> <span class="op">-</span> b<span class="op">.</span><span class="at">x</span>)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"fitted"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>lin_resplot <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">275</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">210</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fitted values"</span>}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Residuals"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,3"</span>})<span class="op">,</span></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(lin_data<span class="op">.</span><span class="at">pts</span><span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"fitted"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"resid"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> grey<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(<span class="fu">smooth</span>(lin_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">fitted</span>)<span class="op">,</span> lin_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">resid</span>))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})</span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>lin_qq <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">275</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">210</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Theoretical quantiles"</span>}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Standardised residuals"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([[<span class="op">-</span><span class="fl">2.6</span><span class="op">,</span> <span class="op">-</span><span class="fl">2.6</span>]<span class="op">,</span> [<span class="fl">2.6</span><span class="op">,</span> <span class="fl">2.6</span>]]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(<span class="fu">qqpoints</span>(lin_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">std</span>))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"theoretical"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"sample"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> grey<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="fl">2.5</span>})</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;</span><span class="sc">${</span>lin_scatter<span class="sc">}</span><span class="vs">&lt;div class="app-row"&gt;&lt;div&gt;&lt;div class="app-plot-label"&gt;Residuals vs fitted&lt;/div&gt;</span><span class="sc">${</span>lin_resplot<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;div&gt;&lt;div class="app-plot-label"&gt;Normal Q-Q plot of residuals&lt;/div&gt;</span><span class="sc">${</span>lin_qq<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/div&gt;</span></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;R&lt;sup&gt;2&lt;/sup&gt; = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(lin_data<span class="op">.</span><span class="at">fit</span><span class="op">.</span><span class="at">r2</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;, slope = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(lin_data<span class="op">.</span><span class="at">fit</span><span class="op">.</span><span class="at">b1</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;, &lt;i&gt;p&lt;/i&gt; </span><span class="sc">${</span><span class="fu">fmtp</span>(lin_data<span class="op">.</span><span class="at">fit</span><span class="op">.</span><span class="at">p</span>)<span class="sc">}</span><span class="vs">.</span></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="sc">${</span>{<span class="dt">up</span><span class="op">:</span> <span class="st">"A good fit: residuals are a flat cloud and the Q-Q points sit on the line."</span><span class="op">,</span></span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>   <span class="dt">down</span><span class="op">:</span> <span class="st">"A good fit: the direction of the slope does not matter, only the pattern of the residuals."</span><span class="op">,</span></span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>   <span class="dt">curve</span><span class="op">:</span> <span class="st">"A poor fit: the residuals form a U-shape. The relationship is curved, so a straight line is the wrong model."</span><span class="op">,</span></span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>   <span class="dt">fan</span><span class="op">:</span> <span class="st">"A poor fit: the residuals spread out as fitted values increase (unequal variance). A log transformation or a GLM may help."</span><span class="op">,</span></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>   <span class="dt">outlier</span><span class="op">:</span> <span class="st">"One point drags the line and creates a long tail in the Q-Q plot. Check whether it is a data entry error."</span>}[lin_type]<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualise" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="visualise">2. Visualise</h2>
+<p>Always plot the data before fitting a model. Describe the <strong>direction</strong> (positive or negative), <strong>form</strong> (linear or curved), <strong>strength</strong> (tight or scattered) and any <strong>unusual points</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scatterplot_descriptions.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>What to describe when looking at a scatterplot.</figcaption>
+</figure>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(crab_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> latitude, <span class="at">y =</span> size)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Latitude (°N)"</span>, <span class="at">y =</span> <span class="st">"Carapace width (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/crab-scatter-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The relationship is <strong>positive</strong> (crabs are wider further north), roughly <strong>linear</strong>, of <strong>moderate strength</strong>, and there are no obvious errors. Notice that the points form 13 vertical stripes: every crab from the same marsh shares the same latitude. Keep that in mind for the independence assumption below.</p>
+</section>
+<section id="check-assumptions" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="check-assumptions">3. Check assumptions</h2>
+<p>Fit the model first, then check the residuals with <code>performance::check_model()</code>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size explained by latitude</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>crab_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(size <span class="sc">~</span> latitude, <span class="at">data =</span> crab_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(crab_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/crab-check-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Each panel has a subtitle that describes what you want to see:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 51%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Panel</th>
+<th style="text-align: left;">Checks</th>
+<th style="text-align: left;">What you want to see</th>
+<th style="text-align: left;">Here</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Posterior predictive check</td>
+<td style="text-align: left;">Overall fit</td>
+<td style="text-align: left;">Model-predicted lines (blue) resemble the data (green)</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Linearity</td>
+<td style="text-align: left;">Straight-line relationship</td>
+<td style="text-align: left;">Flat, horizontal reference line</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Homogeneity of variance</td>
+<td style="text-align: left;">Equal spread of residuals</td>
+<td style="text-align: left;">Flat, horizontal reference line</td>
+<td style="text-align: left;">✅ Roughly flat</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Influential observations</td>
+<td style="text-align: left;">Single points controlling the fit</td>
+<td style="text-align: left;">All points inside the contour lines</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Normality of residuals</td>
+<td style="text-align: left;">Normal residuals</td>
+<td style="text-align: left;">Dots fall along the line</td>
+<td style="text-align: left;">✅ Slight wobble in the tails, acceptable with <em>n</em> = 392</td>
+</tr>
+</tbody>
+</table>
+<p>The plots cannot check <strong>independence</strong>. That comes from the study design: 392 crabs were measured, but they come from only 13 marshes, and crabs from the same marsh share the same environment. This means we have less independent information than 392 data points suggest, and the <em>p</em>-value will be too small. We will handle this properly with a mixed-effects model in <a href="./week12_mixed_models.html">Week 12</a>. For now we note it as a caveat.</p>
+<p>Influential points deserve a closer look. Use the app to see how a single point can change the regression line, depending on where it sits.</p>
+<div class="app-box column-body-outset">
+<div class="app-title">
+<p>App: leverage and influential points</p>
+</div>
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="245" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 244;"><span id="cb10-245"><a href="#cb10-245" aria-hidden="true" tabindex="-1"></a>viewof inf_x <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">10</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">42</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Red point: x position"</span>})</span>
+<span id="cb10-246"><a href="#cb10-246" aria-hidden="true" tabindex="-1"></a>viewof inf_y <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">20</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Red point: y position"</span>})</span>
+<span id="cb10-247"><a href="#cb10-247" aria-hidden="true" tabindex="-1"></a>viewof inf_n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">5</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Number of black points"</span>})</span>
+<span id="cb10-248"><a href="#cb10-248" aria-hidden="true" tabindex="-1"></a>viewof inf_seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Resample"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb11" data-startfrom="254" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 253;"><span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>inf_data <span class="op">=</span> {</span>
+<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">808</span> <span class="op">+</span> inf_seed)<span class="op">;</span></span>
+<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> n <span class="op">=</span> inf_n<span class="op">;</span></span>
+<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xb <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> n}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">*</span> <span class="dv">20</span>) <span class="op">/</span> (n <span class="op">-</span> <span class="dv">1</span>))<span class="op">;</span></span>
+<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> yb <span class="op">=</span> xb<span class="op">.</span><span class="fu">map</span>((v) <span class="kw">=&gt;</span> v <span class="op">+</span> <span class="fu">rnorm</span>(r<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">3</span>)[<span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> x <span class="op">=</span> [<span class="op">...</span>xb<span class="op">,</span> inf_x]<span class="op">,</span> y <span class="op">=</span> [<span class="op">...</span>yb<span class="op">,</span> inf_y]<span class="op">;</span></span>
+<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> all <span class="op">=</span> <span class="fu">lm1</span>(x<span class="op">,</span> y)<span class="op">,</span> black <span class="op">=</span> <span class="fu">lm1</span>(xb<span class="op">,</span> yb)<span class="op">;</span></span>
+<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pts <span class="op">=</span> x<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> v<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> y[i]<span class="op">,</span> <span class="dt">red</span><span class="op">:</span> i <span class="op">===</span> n<span class="op">,</span> <span class="dt">hat</span><span class="op">:</span> all<span class="op">.</span><span class="at">hat</span>[i]<span class="op">,</span> <span class="dt">std</span><span class="op">:</span> all<span class="op">.</span><span class="at">stdres</span>[i]<span class="op">,</span> <span class="dt">cook</span><span class="op">:</span> all<span class="op">.</span><span class="at">cook</span>[i]}))<span class="op">;</span></span>
+<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {pts<span class="op">,</span> all<span class="op">,</span> black<span class="op">,</span> n}<span class="op">;</span></span>
+<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a>inf_scatter <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">330</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">260</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">40</span><span class="op">,</span></span>
+<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">12</span><span class="op">,</span> <span class="dv">52</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span>}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">25</span><span class="op">,</span> <span class="dv">65</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([[<span class="op">-</span><span class="dv">12</span><span class="op">,</span> inf_data<span class="op">.</span><span class="at">black</span><span class="op">.</span><span class="at">b0</span> <span class="op">-</span> <span class="dv">12</span> <span class="op">*</span> inf_data<span class="op">.</span><span class="at">black</span><span class="op">.</span><span class="at">b1</span>]<span class="op">,</span> [<span class="dv">52</span><span class="op">,</span> inf_data<span class="op">.</span><span class="at">black</span><span class="op">.</span><span class="at">b0</span> <span class="op">+</span> <span class="dv">52</span> <span class="op">*</span> inf_data<span class="op">.</span><span class="at">black</span><span class="op">.</span><span class="at">b1</span>]]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"5,4"</span>})<span class="op">,</span></span>
+<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([[<span class="op">-</span><span class="dv">12</span><span class="op">,</span> inf_data<span class="op">.</span><span class="at">all</span><span class="op">.</span><span class="at">b0</span> <span class="op">-</span> <span class="dv">12</span> <span class="op">*</span> inf_data<span class="op">.</span><span class="at">all</span><span class="op">.</span><span class="at">b1</span>]<span class="op">,</span> [<span class="dv">52</span><span class="op">,</span> inf_data<span class="op">.</span><span class="at">all</span><span class="op">.</span><span class="at">b0</span> <span class="op">+</span> <span class="dv">52</span> <span class="op">*</span> inf_data<span class="op">.</span><span class="at">all</span><span class="op">.</span><span class="at">b1</span>]]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(inf_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">filter</span>((d) <span class="kw">=&gt;</span> <span class="op">!</span>d<span class="op">.</span><span class="at">red</span>)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(inf_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">red</span>)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span> <span class="dt">symbol</span><span class="op">:</span> <span class="st">"triangle"</span>})</span>
+<span id="cb11-273"><a href="#cb11-273" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-276"><a href="#cb11-276" aria-hidden="true" tabindex="-1"></a>inf_lev <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">260</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">40</span><span class="op">,</span></span>
+<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Leverage"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Std. residuals"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">2</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">/</span> (inf_data<span class="op">.</span><span class="at">n</span> <span class="op">+</span> <span class="dv">1</span>)]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,3"</span>})<span class="op">,</span></span>
+<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> grey})<span class="op">,</span></span>
+<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(inf_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">filter</span>((d) <span class="kw">=&gt;</span> <span class="op">!</span>d<span class="op">.</span><span class="at">red</span>)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"hat"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"std"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(inf_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">red</span>)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"hat"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"std"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span> <span class="dt">symbol</span><span class="op">:</span> <span class="st">"triangle"</span>})</span>
+<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a>inf_red <span class="op">=</span> inf_data<span class="op">.</span><span class="at">pts</span><span class="op">.</span><span class="fu">find</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">red</span>)</span>
+<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;div class="app-row"&gt;&lt;div&gt;&lt;div class="app-plot-label"&gt;Data and fitted lines&lt;/div&gt;</span><span class="sc">${</span>inf_scatter<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;div&gt;&lt;div class="app-plot-label"&gt;Residuals vs leverage&lt;/div&gt;</span><span class="sc">${</span>inf_lev<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/div&gt;</span></span>
+<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="app-verdict"&gt;Slope with the red point: &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(inf_data<span class="op">.</span><span class="at">all</span><span class="op">.</span><span class="at">b1</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt; (solid red line); without it: &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(inf_data<span class="op">.</span><span class="at">black</span><span class="op">.</span><span class="at">b1</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt; (dashed line).</span></span>
+<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a><span class="vs">Red point leverage = </span><span class="sc">${</span><span class="fu">fmt</span>(inf_red<span class="op">.</span><span class="at">hat</span>)<span class="sc">}</span><span class="vs">, Cook's distance = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(inf_red<span class="op">.</span><span class="at">cook</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;.</span></span>
+<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a><span class="sc">${</span>inf_red<span class="op">.</span><span class="at">cook</span> <span class="op">&gt;</span> <span class="dv">1</span> <span class="op">?</span> <span class="st">"This point is &lt;b&gt;highly influential&lt;/b&gt;: it changes the slope on its own."</span></span>
+<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> inf_red<span class="op">.</span><span class="at">hat</span> <span class="op">&gt;</span> <span class="dv">4</span> <span class="op">/</span> (inf_data<span class="op">.</span><span class="at">n</span> <span class="op">+</span> <span class="dv">1</span>) <span class="op">?</span> <span class="st">"High leverage (unusual x) but the point follows the trend, so it has little influence."</span></span>
+<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="st">"This point has little influence on the fitted line."</span><span class="sc">}</span></span>
+<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a><span class="vs">Move the red point far to the right &lt;i&gt;and&lt;/i&gt; away from the trend to make it influential.&lt;/div&gt;&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Leverage</strong> measures how unusual a point’s <em>x</em> value is.</p>
+<p><strong>Cook’s distance</strong> combines leverage with the size of the residual. A point is only a problem when it is both unusual in <em>x</em> and far from the line. Never delete a point just because it is influential. Check whether it is a data entry error (Week 1) and, if it is real, report the results with and without it.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>When is a linear regression NOT appropriate? (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 20%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">What you see</th>
+<th style="text-align: left;">Problem</th>
+<th style="text-align: left;">What to do instead</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Curved pattern in the scatterplot or a U-shape in the residuals</td>
+<td style="text-align: left;">Relationship is not linear</td>
+<td style="text-align: left;">Transform <em>x</em> and/or <em>y</em> (e.g.&nbsp;log, see the Assessment), or add a curved term <code>y ~ x + I(x^2)</code>. For wiggly relationships, use a generalised additive model <span class="citation" data-cites="Pedersen2019">(<a href="references.html#ref-Pedersen2019" role="doc-biblioref">Pedersen et al., 2019</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residual spread increases with fitted values (fan shape)</td>
+<td style="text-align: left;">Unequal variance</td>
+<td style="text-align: left;">Log-transform <em>y</em>, or use a GLM (Weeks 8 and 11)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Observations grouped by site, individual or time</td>
+<td style="text-align: left;">Not independent</td>
+<td style="text-align: left;">Mixed-effects model (Week 12)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Response is a count, a proportion or yes/no</td>
+<td style="text-align: left;">Residuals cannot be normal</td>
+<td style="text-align: left;">GLM (Weeks 8 and 11)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Predictor measured with large error</td>
+<td style="text-align: left;">Slope is biased towards zero</td>
+<td style="text-align: left;">Discuss as a caveat. Better measurements are the real fix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model">4. Model</h2>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficients, standard errors, t values, p-values and R-squared</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(crab_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = size ~ latitude, data = crab_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.8376 -1.8797  0.1144  1.9484  6.9280 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -3.62442    1.27405  -2.845  0.00468 ** 
+latitude     0.48512    0.03359  14.441  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.832 on 390 degrees of freedom
+Multiple R-squared:  0.3484,    Adjusted R-squared:  0.3467 
+F-statistic: 208.5 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% confidence intervals for the intercept and slope</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(crab_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %    97.5 %
+(Intercept) -6.1292889 -1.119554
+latitude     0.4190732  0.551165</code></pre>
+</div>
+</div>
+<p>The output gives everything you need:</p>
+<ul>
+<li><code>Residuals</code>: a summary of the residuals. The median should be close to 0, and the minimum and maximum (and 1Q and 3Q) roughly the same distance from it.</li>
+<li><code>Coefficients</code>: one row for the intercept and one for the slope.
+<ul>
+<li><code>Estimate</code>: <code>(Intercept)</code> is the predicted width at latitude 0; <code>latitude</code> is the <strong>slope</strong>, the change in width (mm) per degree of latitude. A positive slope means width increases with latitude.</li>
+<li><code>Std. Error</code>: the uncertainty in each estimate.</li>
+<li><code>t value</code>: the estimate divided by its standard error.</li>
+<li><code>Pr(&gt;|t|)</code>: the <em>p</em>-value for the null hypothesis that the coefficient is 0 (for the slope: no relationship).</li>
+</ul></li>
+<li><code>Residual standard error</code>: the typical distance of a crab from the fitted line (mm), with its degrees of freedom (number of crabs − 2).</li>
+<li><code>Multiple R-squared</code>: the proportion of variation in width explained by latitude. <code>Adjusted R-squared</code> is slightly lower because it penalises extra predictors; it matters more in multiple regression.</li>
+<li><code>F-statistic ... on 1 and ... DF, p-value</code>: compares this model with a model that has no predictor. With one predictor its <em>p</em>-value equals the slope’s <em>p</em>-value.</li>
+<li><code>confint()</code>: the 95% confidence intervals (<code>2.5 %</code> to <code>97.5 %</code>) for the intercept and slope. If the slope’s CI does not include 0, the relationship is significant at α = 0.05.</li>
+</ul>
+<p>Add the fitted line and its 95% confidence band to the scatterplot. <code>geom_smooth(method = "lm")</code> fits the same model as <code>lm(size ~ latitude)</code>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(crab_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> latitude, <span class="at">y =</span> size)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">colour =</span> <span class="st">"#e12744"</span>, <span class="at">fill =</span> <span class="st">"#e12744"</span>) <span class="sc">+</span> <span class="co"># line + 95% CI</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Latitude (°N)"</span>, <span class="at">y =</span> <span class="st">"Carapace width (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/crab-fit-plot-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interpret" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="interpret">5. Interpret</h2>
+<p>The fitted model is:</p>
+<p><span class="math display">\[
+\widehat{\text{width}} = -3.62 + 0.485 \times \text{latitude}
+\]</span></p>
+<ul>
+<li><strong>Slope</strong> (0.485): carapace width increases by about 0.49 mm for every degree further north (95% CI 0.42–0.55 mm). Across the 12 degrees sampled, that is about 5.8 mm.</li>
+<li><strong>Intercept</strong> (-3.62): the predicted width at latitude 0 (the equator). This is outside the range of the data and a negative width is impossible, so the intercept has no biological meaning here. That is common, and fine.</li>
+<li><strong>R<sup>2</sup></strong> (0.35): latitude explains 35% of the variation in carapace width. The rest is variation among individual crabs.</li>
+<li><strong>F-test</strong> at the bottom: compares this model with a model that has no predictor. With one predictor its <em>p</em>-value equals the slope’s <em>p</em>-value.</li>
+</ul>
+<p><strong>Methods sentence</strong>: <em>The relationship between carapace width and latitude was analysed with a simple linear regression using the <code>lm()</code> function in R. Model assumptions were checked with diagnostic plots using the <code>performance</code> package. Significance was set with α = 0.05.</em></p>
+<p><strong>Results sentence</strong>:</p>
+<blockquote class="blockquote">
+<p>Consistent with Bergmann’s rule, fiddler crabs were larger at higher latitudes. Carapace width increased by 0.49 mm per degree of latitude (95% CI 0.42–0.55; <em>F</em><sub>1,390</sub> = 208.5, <em>p</em> &lt; 0.001, R<sup>2</sup> = 0.35; Fig. 1). Because crabs were sampled from only 13 marshes, this <em>p</em>-value is likely too small (see Week 12).</p>
+</blockquote>
+</section>
+</section>
+<section id="part-b-multiple-regression" class="level1 unnumbered page-columns page-full">
+<h1 class="unnumbered">Part B: Multiple regression</h1>
+<p><strong>Question</strong>: Which environmental factors are associated with coral reef diversity?</p>
+<p>This simulated dataset describes reef health (the Shannon diversity index of the coral community, Week 4) at 72 reef sites, together with five potential predictors:</p>
+<ul>
+<li><code>sst</code>: sea surface temperature at the time of the visit (°C)</li>
+<li><code>pH</code>: surface water pH</li>
+<li><code>chlorophyll</code>: chlorophyll-<em>a</em> concentration (mg/m<sup>3</sup>), a proxy for nutrient run-off and poor water clarity</li>
+<li><code>distance_from_land</code>: distance from the coast (km)</li>
+<li><code>fishing_allowed</code>: whether commercial fishing is allowed (Yes/No)</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/coral_reef.jpg" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>The Great Barrier Reef.</figcaption>
+</figure>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>reef_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/coralreefdata.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">fishing_allowed =</span> <span class="fu">factor</span>(fishing_allowed)) <span class="co"># categorical predictor</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(reef_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 72
+Columns: 6
+$ shannon            &lt;dbl&gt; 2.401169, 3.300000, 2.975029, 2.006727, 2.831517, 3…
+$ sst                &lt;dbl&gt; 28.40798, 27.20761, 27.06746, 28.99881, 27.06975, 2…
+$ pH                 &lt;dbl&gt; 8.096462, 8.093622, 8.111877, 8.094532, 8.100962, 8…
+$ chlorophyll        &lt;dbl&gt; 0.1499800, 0.1815619, 0.2310620, 0.4149387, 0.11594…
+$ distance_from_land &lt;dbl&gt; 78.53486, 70.32110, 62.20095, 37.52461, 83.42137, 7…
+$ fishing_allowed    &lt;fct&gt; Yes, No, Yes, No, Yes, No, No, Yes, No, No, Yes, Ye…</code></pre>
+</div>
+</div>
+<section id="background-1" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="background-1">1. Background</h2>
+<p>Multiple regression adds more predictors to the same equation:</p>
+<p><span class="math display">\[
+y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \varepsilon_i
+\]</span></p>
+<p>Each slope is now a <strong>partial effect</strong>: the change in <em>y</em> for a one-unit change in that predictor <strong>while all other predictors are held constant</strong>. This lets you separate the effects of predictors that would otherwise be tangled together, for example temperature and fishing.</p>
+<p>Predictors can be numbers or categories. For a categorical predictor such as <code>fishing_allowed</code>, the coefficient is the difference in mean <em>y</em> between that category and the reference category (here “No”).</p>
+<p><strong>Collinearity</strong> is the big trap. When two predictors are strongly correlated with each other (e.g.&nbsp;chlorophyll is high close to land and low far from land), the model cannot tell which one is responsible. The estimates become unstable: standard errors grow, slopes can flip sign, and neither predictor may look significant even though together they explain a lot <span class="citation" data-cites="Dormann2013">(<a href="references.html#ref-Dormann2013" role="doc-biblioref">Dormann et al., 2013</a>)</span>. The <strong>variance inflation factor (VIF)</strong> measures this. VIF &lt; 5 is fine, 5–10 is worrying and &gt; 10 is serious.</p>
+<div class="app-box column-body-outset">
+<div class="app-title">
+<p>App: what collinearity does to your estimates</p>
+</div>
+<div class="app-grid">
+<div class="app-controls">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb19" data-startfrom="471" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 470;"><span id="cb19-471"><a href="#cb19-471" aria-hidden="true" tabindex="-1"></a>viewof col_r <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="fl">0.98</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.3</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.02</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Correlation between predictors x1 and x2"</span>})</span>
+<span id="cb19-472"><a href="#cb19-472" aria-hidden="true" tabindex="-1"></a>viewof col_n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">20</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Sample size per study"</span>})</span>
+<span id="cb19-473"><a href="#cb19-473" aria-hidden="true" tabindex="-1"></a>viewof col_seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Run 300 new studies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="app-output">
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb20" data-startfrom="479" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 478;"><span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a>col_sims <span class="op">=</span> {</span>
+<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> r <span class="op">=</span> <span class="fu">rng</span>(<span class="dv">909</span> <span class="op">+</span> col_seed)<span class="op">;</span></span>
+<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> out <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> s <span class="op">&lt;</span> <span class="dv">300</span><span class="op">;</span> s<span class="op">++</span>) {</span>
+<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x1 <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> col_n)<span class="op">,</span> e <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> col_n)<span class="op">,</span> noise <span class="op">=</span> <span class="fu">rnorm</span>(r<span class="op">,</span> col_n)<span class="op">;</span></span>
+<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x2 <span class="op">=</span> x1<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> col_r <span class="op">*</span> v <span class="op">+</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(<span class="dv">1</span> <span class="op">-</span> col_r <span class="op">**</span> <span class="dv">2</span>) <span class="op">*</span> e[i])<span class="op">;</span></span>
+<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> y <span class="op">=</span> x1<span class="op">.</span><span class="fu">map</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> v <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> x2[i] <span class="op">+</span> noise[i])<span class="op">;</span></span>
+<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">push</span>(<span class="fu">lm2</span>(x1<span class="op">,</span> x2<span class="op">,</span> y)<span class="op">.</span><span class="at">b1</span>)<span class="op">;</span></span>
+<span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> out<span class="op">;</span></span>
+<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">560</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">270</span><span class="op">,</span> <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span></span>
+<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Estimated slope of x1 in each simulated study"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.5</span>]}<span class="op">,</span></span>
+<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Number of studies"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(col_sims<span class="op">,</span> Plot<span class="op">.</span><span class="fu">binX</span>({<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="fl">2.49</span><span class="op">,</span> d))<span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">41</span>}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="op">-</span><span class="fl">1.5</span> <span class="op">+</span> i <span class="op">*</span> <span class="fl">0.1</span>)<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> grey<span class="op">,</span> <span class="dt">inset</span><span class="op">:</span> <span class="fl">0.5</span>}))<span class="op">,</span></span>
+<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="fl">0.5</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> red<span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> dark<span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,3"</span>})<span class="op">,</span></span>
+<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb21" data-startfrom="503" data-source-offset="-905"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 502;"><span id="cb21-503"><a href="#cb21-503" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div class="app-verdict"&gt;The true slope is 0.5 (red line). Spread of the estimates (SD) = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(<span class="fu">sd</span>(col_sims))<span class="sc">}</span><span class="vs">&lt;/b&gt;.</span></span>
+<span id="cb21-504"><a href="#cb21-504" aria-hidden="true" tabindex="-1"></a><span class="vs">VIF = 1 / (1 − r²) = &lt;b&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(<span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> col_r <span class="op">**</span> <span class="dv">2</span>)<span class="op">,</span> <span class="dv">1</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;.</span></span>
+<span id="cb21-505"><a href="#cb21-505" aria-hidden="true" tabindex="-1"></a><span class="sc">${</span>col_r <span class="op">&gt;</span> <span class="fl">0.9</span> <span class="op">?</span> <span class="st">"With strongly correlated predictors the estimates are all over the place, and some studies even get the sign wrong (left of the dashed line)."</span></span>
+<span id="cb21-506"><a href="#cb21-506" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> <span class="st">"With weakly correlated predictors most studies estimate the slope close to its true value."</span><span class="sc">}</span></span>
+<span id="cb21-507"><a href="#cb21-507" aria-hidden="true" tabindex="-1"></a><span class="vs">Increase the correlation and watch the histogram spread out.&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualise-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="visualise-1">2. Visualise</h2>
+<p>With several predictors, look at every pair of variables at once. <code>pairs()</code> draws a scatterplot for each pair, and <code>cor()</code> gives the correlation coefficients.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of every pair of numeric variables</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>reef_data <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(shannon, sst, pH, chlorophyll, distance_from_land) <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/reef-pairs-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix (rounded to 2 decimal places)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>reef_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(shannon, sst, pH, chlorophyll, distance_from_land) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   shannon   sst    pH chlorophyll distance_from_land
+shannon               1.00 -0.33  0.08       -0.81               0.84
+sst                  -0.33  1.00 -0.09        0.12              -0.14
+pH                    0.08 -0.09  1.00       -0.05               0.03
+chlorophyll          -0.81  0.12 -0.05        1.00              -0.97
+distance_from_land    0.84 -0.14  0.03       -0.97               1.00</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The categorical predictor</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(reef_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> fishing_allowed, <span class="at">y =</span> shannon)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">fill =</span> <span class="st">"grey90"</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Commercial fishing allowed"</span>, <span class="at">y =</span> <span class="st">"Shannon diversity (H')"</span>) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/reef-box-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What do we see?</p>
+<ul>
+<li>Diversity decreases strongly with chlorophyll and increases with distance from land.</li>
+<li><strong>Chlorophyll and distance from land are almost perfectly correlated (r = −0.97).</strong> This is a collinearity warning.</li>
+<li>The relationships look linear and diversity seems lower where fishing is allowed.</li>
+</ul>
+</section>
+<section id="check-assumptions-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="check-assumptions-1">3. Check assumptions</h2>
+<p>Fit the full model with all five predictors and check it, including collinearity.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>reef_lm_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(shannon <span class="sc">~</span> sst <span class="sc">+</span> pH <span class="sc">+</span> chlorophyll <span class="sc">+</span> distance_from_land <span class="sc">+</span> fishing_allowed,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> reef_data)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(reef_lm_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/reef-full-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variance inflation factors</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_collinearity</span>(reef_lm_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># Check for Multicollinearity
+
+Low Correlation
+
+            Term  VIF     VIF 95% CI adj. VIF Tolerance Tolerance 95% CI
+             sst 1.06 [ 1.00,  3.80]     1.03      0.94     [0.26, 1.00]
+              pH 1.04 [ 1.00, 16.94]     1.02      0.97     [0.06, 1.00]
+ fishing_allowed 1.07 [ 1.00,  2.77]     1.04      0.93     [0.36, 1.00]
+
+High Correlation
+
+               Term   VIF     VIF 95% CI adj. VIF Tolerance Tolerance 95% CI
+        chlorophyll 15.22 [10.32, 22.71]     3.90      0.07     [0.04, 0.10]
+ distance_from_land 15.22 [10.31, 22.70]     3.90      0.07     [0.04, 0.10]</code></pre>
+</div>
+</div>
+<p>Chlorophyll and distance from land have very high VIFs. In this full model, chlorophyll does not even look significant (try <code>summary(reef_lm_full)</code>), even though it is the variable most strongly correlated with diversity. That is collinearity at work.</p>
+<p><strong>How to fix it</strong>: keep <strong>one</strong> of the correlated predictors. Choose using biology, not <em>p</em>-values. Chlorophyll is the more direct measure of water quality, which is what affects corals, while distance from land is only a proxy for it. So we keep chlorophyll and remove distance.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>reef_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(shannon <span class="sc">~</span> sst <span class="sc">+</span> pH <span class="sc">+</span> chlorophyll <span class="sc">+</span> fishing_allowed, <span class="at">data =</span> reef_data)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_collinearity</span>(reef_lm) <span class="co"># all VIFs now close to 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># Check for Multicollinearity
+
+Low Correlation
+
+            Term  VIF    VIF 95% CI adj. VIF Tolerance Tolerance 95% CI
+             sst 1.05 [1.00,  6.73]     1.02      0.95     [0.15, 1.00]
+              pH 1.03 [1.00, 38.53]     1.02      0.97     [0.03, 1.00]
+     chlorophyll 1.03 [1.00, 75.98]     1.01      0.97     [0.01, 1.00]
+ fishing_allowed 1.07 [1.00,  3.08]     1.03      0.94     [0.32, 1.00]</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(reef_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/reef-final-check-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 28%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Assumption</th>
+<th style="text-align: left;">Check</th>
+<th style="text-align: left;">Here</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Linearity</td>
+<td style="text-align: left;">Linearity panel and the pairs plot</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Equal variance</td>
+<td style="text-align: left;">Homogeneity panel</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Normal residuals</td>
+<td style="text-align: left;">Q-Q panel</td>
+<td style="text-align: left;">✅ Close enough</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No influential points</td>
+<td style="text-align: left;">Influential observations panel</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No collinearity</td>
+<td style="text-align: left;">VIF &lt; 5</td>
+<td style="text-align: left;">✅ After removing distance from land</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Independence</td>
+<td style="text-align: left;">Study design</td>
+<td style="text-align: left;">⚠️ We assume reef sites were far enough apart to be independent</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Common mistakes with multiple regression (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Too many predictors for the data.</strong> A rough rule is at least 10–20 observations per predictor. With 72 sites, 4–5 predictors is the maximum.</li>
+<li><strong>Choosing predictors by trial and error</strong> (adding and removing them until something is significant, or automated “stepwise” selection). This produces over-confident <em>p</em>-values. Decide which predictors to include <strong>before</strong> you analyse, based on your hypotheses, and keep non-significant predictors in the model <span class="citation" data-cites="Harrison2018 Popovic2024">(<a href="references.html#ref-Harrison2018" role="doc-biblioref">Harrison et al., 2018</a>; <a href="references.html#ref-Popovic2024" role="doc-biblioref"><span class="nocase">Popovic et al.</span>, 2024</a>)</span>.</li>
+<li><strong>Comparing the size of slopes measured in different units.</strong> A slope of −3.7 for chlorophyll and −0.26 for SST cannot be compared directly, because a 1-unit change means very different things for each.</li>
+<li><strong>Interpreting a slope outside the range of the data</strong> (extrapolation).</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="model-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-1">4. Model</h2>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reef_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = shannon ~ sst + pH + chlorophyll + fishing_allowed, 
+    data = reef_data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.86398 -0.14961 -0.00375  0.18900  0.61316 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        -37.22335   49.60278  -0.750  0.45562    
+sst                 -0.25568    0.05674  -4.506 2.72e-05 ***
+pH                   5.92832    6.10925   0.970  0.33534    
+chlorophyll         -3.69597    0.27060 -13.659  &lt; 2e-16 ***
+fishing_allowedYes  -0.26429    0.06872  -3.846  0.00027 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.273 on 67 degrees of freedom
+Multiple R-squared:  0.7699,    Adjusted R-squared:  0.7562 
+F-statistic: 56.05 on 4 and 67 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(reef_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          2.5 %     97.5 %
+(Intercept)        -136.2309065 61.7842086
+sst                  -0.3689359 -0.1424201
+pH                   -6.2657908 18.1224398
+chlorophyll          -4.2360869 -3.1558543
+fishing_allowedYes   -0.4014664 -0.1271201</code></pre>
+</div>
+</div>
+<p>The output has the same parts as for the simple regression, with a few differences:</p>
+<ul>
+<li><code>Coefficients</code>: one row per predictor. Each <code>Estimate</code> is a <strong>partial effect</strong>: the change in diversity for a one-unit increase in that predictor, holding the others constant.
+<ul>
+<li><code>(Intercept)</code>: predicted diversity when every numeric predictor is 0 and fishing is “No” (the reference level). Not meaningful here (no reef has a pH of 0).</li>
+<li><code>sst</code>, <code>pH</code>, <code>chlorophyll</code>: the change in diversity per °C, per pH unit and per mg/m<sup>3</sup>.</li>
+<li><code>fishing_allowedYes</code>: the difference in mean diversity between fished (“Yes”) and unfished (“No”) reefs, at the same SST, pH and chlorophyll.</li>
+<li><code>Std. Error</code>, <code>t value</code> and <code>Pr(&gt;|t|)</code>: as before, one test for each predictor.</li>
+</ul></li>
+<li><code>Residual standard error ... on ... degrees of freedom</code>: the df is now the number of sites minus the number of coefficients (72 − 5 = 67).</li>
+<li><code>Multiple R-squared</code> and <code>Adjusted R-squared</code>: the proportion of variation explained by all predictors together. Report the adjusted R<sup>2</sup> when comparing models with different numbers of predictors, because R<sup>2</sup> always increases when you add one.</li>
+<li><code>F-statistic</code>: tests whether the predictors <strong>together</strong> explain more than a model with no predictors. It can be significant even when no single predictor is.</li>
+<li><code>confint()</code>: the 95% CIs for each coefficient. A CI that includes 0 means no clear effect of that predictor.</li>
+</ul>
+<p>The best way to understand a multiple regression is to plot its <strong>predictions</strong>. <code>ggeffects::predict_response()</code> predicts diversity across the range of one predictor while holding the other predictors at their average (or reference level).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted diversity across the observed range of each predictor</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>pred_chl  <span class="ot">&lt;-</span> ggeffects<span class="sc">::</span><span class="fu">predict_response</span>(reef_lm, <span class="at">terms =</span> <span class="st">"chlorophyll"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>pred_sst  <span class="ot">&lt;-</span> ggeffects<span class="sc">::</span><span class="fu">predict_response</span>(reef_lm, <span class="at">terms =</span> <span class="st">"sst"</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>pred_fish <span class="ot">&lt;-</span> ggeffects<span class="sc">::</span><span class="fu">predict_response</span>(reef_lm, <span class="at">terms =</span> <span class="st">"fishing_allowed"</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>pred_chl   <span class="co"># print the predictions: note the "Adjusted for" lines at the bottom</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># Predicted values of shannon
+
+chlorophyll | Predicted |     95% CI
+------------------------------------
+       0.00 |      3.63 | 3.43, 3.83
+       0.20 |      2.89 | 2.77, 3.01
+       0.40 |      2.15 | 2.03, 2.27
+       0.60 |      1.41 | 1.22, 1.60
+
+Adjusted for:
+*             sst = 28.02
+*              pH =  8.10
+* fishing_allowed =    No</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot() draws each prediction with its 95% CI; show_data = TRUE adds the raw data</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred_chl, <span class="at">show_data =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="st">"Chlorophyll-a (mg/m³)"</span>, <span class="at">y =</span> <span class="st">"Shannon diversity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/reef-predict-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred_sst, <span class="at">show_data =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="st">"Sea surface temperature (°C)"</span>, <span class="at">y =</span> <span class="st">"Shannon diversity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/reef-predict-2.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred_fish, <span class="at">show_data =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="st">"Fishing allowed"</span>, <span class="at">y =</span> <span class="st">"Shannon diversity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week07_regression_files/figure-html/reef-predict-3.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interpret-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="interpret-1">5. Interpret</h2>
+<p>Each slope is the change in Shannon diversity for a one-unit increase in that predictor, <strong>holding all the other predictors constant</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 23%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Predictor</th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">95% CI</th>
+<th style="text-align: center;"><em>p</em></th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Chlorophyll</td>
+<td style="text-align: center;">-3.7</td>
+<td style="text-align: center;">-4.24 to -3.16</td>
+<td style="text-align: center;">&lt; 0.001</td>
+<td style="text-align: left;">Diversity drops by 0.37 for every 0.1 mg/m<sup>3</sup> increase in chlorophyll</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SST</td>
+<td style="text-align: center;">-0.26</td>
+<td style="text-align: center;">-0.37 to -0.14</td>
+<td style="text-align: center;">&lt; 0.001</td>
+<td style="text-align: left;">Diversity drops by 0.26 per 1 °C warmer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fishing allowed (Yes vs No)</td>
+<td style="text-align: center;">-0.26</td>
+<td style="text-align: center;">-0.4 to -0.13</td>
+<td style="text-align: center;">&lt; 0.001</td>
+<td style="text-align: left;">Fished reefs are 0.26 lower in diversity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pH</td>
+<td style="text-align: center;">5.93</td>
+<td style="text-align: center;">-6.27 to 18.12</td>
+<td style="text-align: center;">0.335</td>
+<td style="text-align: left;">No clear effect: the CI is very wide and includes 0</td>
+</tr>
+</tbody>
+</table>
+<p>A non-significant result for pH does <strong>not</strong> prove pH has no effect. pH varied very little among these sites (8.08–8.11), so the data contain little information about it.</p>
+<p><strong>Results sentence</strong>:</p>
+<blockquote class="blockquote">
+<p>Coral diversity was lower at reefs with higher chlorophyll-<em>a</em> concentrations (β = -3.7, 95% CI -4.24 to -3.16, <em>p</em> &lt; 0.001), higher sea surface temperatures (β = -0.26 per °C, 95% CI -0.37 to -0.14, <em>p</em> &lt; 0.001) and where commercial fishing was allowed (0.26 lower, 95% CI 0.13–0.4, <em>p</em> &lt; 0.001), but showed no clear relationship with pH (<em>p</em> = 0.34). Together these predictors explained 77% of the variation in diversity (<em>F</em><sub>4,67</sub> = 56.1, <em>p</em> &lt; 0.001; Fig. 2). Distance from land was excluded because it was strongly correlated with chlorophyll (<em>r</em> = −0.97).</p>
+</blockquote>
+</section>
+</section>
+<section id="assessment" class="level1 unnumbered">
+<h1 class="unnumbered">Assessment</h1>
+<p>Task to complete before the end of the workshop.</p>
+<p><a href="assessments/week07_assessment.R" class="btn btn-danger btn-sm download-btn" download="week07_assessment.R"><i class="bi bi-download"></i> week07_assessment.R</a> <a href="data/island.csv" class="btn btn-outline-danger btn-sm download-btn" download="island.csv"><i class="bi bi-download"></i> island.csv</a> <a href="data/foraging_shrub.csv" class="btn btn-outline-danger btn-sm download-btn" download="foraging_shrub.csv"><i class="bi bi-download"></i> foraging_shrub.csv</a></p>
+<p><strong>Question 1. Island size and herbivore species richness (simple regression).</strong> Larger islands usually support more species (the <em>species–area relationship</em>). <code>island.csv</code> contains island area and herbivore species richness for 32 islands, in a similar way to <span class="citation" data-cites="Ross2019">Ross et al. (<a href="references.html#ref-Ross2019" role="doc-biblioref">2019</a>)</span>. Island area (<code>island_area_log</code>) is on the natural log scale, and species richness is given on both the raw (<code>species_richness</code>) and log (<code>species_richness_log</code>) scales.</p>
+<ol type="a">
+<li>Plot raw species richness against log island area, then log species richness against log island area. Which looks more linear?</li>
+<li>Fit a linear model using the log-log version and check its assumptions.</li>
+<li>Report the slope and its 95% CI, the R<sup>2</sup> and the <em>p</em>-value, and write a results sentence.</li>
+<li>Plot the data with the fitted line and its 95% CI.</li>
+</ol>
+<p><strong>Question 2. What determines fairy-wren foraging height? (multiple regression).</strong> <code>foraging_shrub.csv</code> records the foraging height (m) of superb fairy-wrens, the mean size of the surrounding shrubs (<code>mean_shrub_size</code>, a PCA score where larger values mean bigger shrubs), the bird’s sex (<code>sex_mf</code>) and the foraging substrate (<code>substrate</code>: air, bark, foliage or ground).</p>
+<ol type="a">
+<li>Visualise the relationship between foraging height and each predictor.</li>
+<li>Fit a multiple regression with shrub size, sex and substrate as predictors (no interactions). Check the assumptions, including collinearity.</li>
+<li>Interpret the coefficient for <code>mean_shrub_size</code> and for <code>sex_mfMale</code> in words.</li>
+<li>Use <code>ggeffects::predict_response()</code> to plot predicted foraging height against shrub size.</li>
+<li><em>Extra (not marked)</em>: add an interaction between sex and substrate. Does it improve the model? What does it mean biologically?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How your assessment is marked
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Submit <strong>one R script</strong> (<code>.R</code>) before the end of the class. Write your answers to written questions as <code>#</code> comments next to the code that produced them.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 74%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Score</th>
+<th style="text-align: left;">What it looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">No submission or no attempt.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.25</td>
+<td style="text-align: left;">Submitted, but a very poor attempt (e.g.&nbsp;incomplete, or lots of gaps).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.5</td>
+<td style="text-align: left;">Most questions answered, <strong>or</strong> all answered but most annotations missing.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.75</td>
+<td style="text-align: left;">All questions answered, but some annotations missing or some answers incorrect.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Everything completed, with annotations on all code so the marker can follow it.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tip</strong>: an annotation is a short <code>#</code> comment that says <em>what</em> the line does and <em>why</em>. For example: <code># remove the one plant with a stem dry mass of 7.4 g (data entry error)</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="additional-resources" class="level1 unnumbered">
+<h1 class="unnumbered">Additional resources</h1>
+<ul>
+<li>Coding Club: <a href="https://ourcodingclub.github.io/tutorials/modelling/">From distributions to linear models</a> and <a href="https://ourcodingclub.github.io/tutorials/model-design/">Intro to model design</a>.</li>
+<li><a href="https://danielroelfs.com/posts/everything-is-a-linear-model/">Everything is a linear model</a>.</li>
+<li><span class="citation" data-cites="Zuur2010">Zuur et al. (<a href="references.html#ref-Zuur2010" role="doc-biblioref">2010</a>)</span> <em>A protocol for data exploration to avoid common statistical problems</em>: a short, practical checklist (outliers, collinearity, independence) to work through before any regression.</li>
+<li><span class="citation" data-cites="Zuur2016">Zuur and Ieno (<a href="references.html#ref-Zuur2016" role="doc-biblioref">2016</a>)</span> <em>A protocol for conducting and presenting results of regression-type analyses</em>: how to report a regression clearly.</li>
+<li><span class="citation" data-cites="Dormann2013">Dormann et al. (<a href="references.html#ref-Dormann2013" role="doc-biblioref">2013</a>)</span>: a review of collinearity and the methods to deal with it.</li>
+<li><a href="https://aterui.github.io/biostats/">Biostatistics with R (A. Terui)</a>: clear, ecology-focused notes on regression and GLMs.</li>
+<li>Quinn &amp; Keough <span class="citation" data-cites="Quinn2002">(<a href="references.html#ref-Quinn2002" role="doc-biblioref">2002</a>)</span>, chapters 5 (correlation and regression) and 6 (multiple regression).</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Dormann2013" class="csl-entry" role="listitem">
+<strong>Dormann, C. F., Elith, J., Bacher, S., Buchmann, C., Carl, G., Carré, G., García Marquéz, J. R., Gruber, B., Lafourcade, B., Leitão, P. J., et al.</strong> (2013). <a href="https://doi.org/10.1111/j.1600-0587.2012.07348.x">Collinearity: A review of methods to deal with it and a simulation study evaluating their performance</a>. <em>Ecography</em> <strong>36</strong>, 27–46.
+</div>
+<div id="ref-Harrison2018" class="csl-entry" role="listitem">
+<strong>Harrison, X. A., Donaldson, L., Correa-Cano, M. E., Evans, J., Fisher, D. N., Goodwin, C. E. D., Robinson, B. S., Hodgson, D. J. and Inger, R.</strong> (2018). <a href="https://doi.org/10.7717/peerj.4794">A brief introduction to mixed effects modelling and multi-model inference in ecology</a>. <em>PeerJ</em> <strong>6</strong>, e4794.
+</div>
+<div id="ref-Johnson2019" class="csl-entry" role="listitem">
+<strong>Johnson, D.</strong> (2019). <a href="https://doi.org/10.6073/pasta/4c27d2e778d3325d3830a5142e3839bb">Fiddler crab body size in salt marshes from florida to massachusetts, USA at PIE and VCR LTER and NOAA NERR sites during summer 2016</a>.
+</div>
+<div id="ref-Pedersen2019" class="csl-entry" role="listitem">
+<strong>Pedersen, E. J., Miller, D. L., Simpson, G. L. and Ross, N.</strong> (2019). <a href="https://doi.org/10.7717/peerj.6876">Hierarchical generalized additive models in ecology: An introduction with mgcv</a>. <em>PeerJ</em> <strong>7</strong>, e6876.
+</div>
+<div id="ref-Popovic2024" class="csl-entry" role="listitem">
+<strong><span class="nocase">Popovic, G., Mason, T. J., Drobniak, S. M., Marques, T. A., Potts, J., Joo, R., Altwegg, R., et al.</span></strong> (2024). <a href="https://doi.org/10.1111/2041-210X.14270">Four principles for improved statistical ecology</a>. <em>Methods in Ecology and Evolution</em> <strong>15</strong>, 266–281.
+</div>
+<div id="ref-Quinn2002" class="csl-entry" role="listitem">
+<strong>Quinn, G. P. and Keough, M. J.</strong> (2002). <em><a href="https://doi.org/10.1017/CBO9780511806384">Experimental design and data analysis for biologists</a></em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-Ross2019" class="csl-entry" role="listitem">
+<strong>Ross, S. R.-J., Friedman, N. R., Janicki, J. and Economo, E. P.</strong> (2019). <a href="https://doi.org/10.1111/1365-2656.13029">A test of trophic and functional island biogeography theory with the avifauna of a continental archipelago</a>. <em>Journal of Animal Ecology</em> <strong>88</strong>, 1392–1405.
+</div>
+<div id="ref-Zuur2016" class="csl-entry" role="listitem">
+<strong>Zuur, A. F. and Ieno, E. N.</strong> (2016). <a href="https://doi.org/10.1111/2041-210X.12577">A protocol for conducting and presenting results of regression-type analyses</a>. <em>Methods in Ecology and Evolution</em> <strong>7</strong>, 636–645.
+</div>
+<div id="ref-Zuur2010" class="csl-entry" role="listitem">
+<strong>Zuur, A. F., Ieno, E. N. and Elphick, C. S.</strong> (2010). <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">A protocol for data exploration to avoid common statistical problems</a>. <em>Methods in Ecology and Evolution</em> <strong>1</strong>, 3–14.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7cm5nLCBybm9ybSwgcnVuaWYsIG1lYW4sIHNkLCBsbTEsIGxtMiwgY29yLCBxcXBvaW50cywgc21vb3RoLCBmbXQsIGZtdHAsIHJlZCwgZ3JleSwgZGFya30gZnJvbSBcIi4vYXBwcy9lY3MyMDAuanNcIlxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGxpbl90eXBlID0gSW5wdXRzLnJhZGlvKFxuICBuZXcgTWFwKFtbXCJMaW5lYXIsIGdvaW5nIHVwXCIsIFwidXBcIl0sIFtcIkxpbmVhciwgZ29pbmcgZG93blwiLCBcImRvd25cIl0sIFtcIkN1cnZlZFwiLCBcImN1cnZlXCJdLCBbXCJGYW4tc2hhcGVkXCIsIFwiZmFuXCJdLCBbXCJPbmUgZXh0cmVtZSBvdXRsaWVyXCIsIFwib3V0bGllclwiXV0pLFxuICB7dmFsdWU6IFwidXBcIiwgbGFiZWw6IFwiUGF0dGVybiBpbiB0aGUgZGF0YVwifSlcbnZpZXdvZiBsaW5fcmVzaWQgPSBJbnB1dHMudG9nZ2xlKHtsYWJlbDogXCJTaG93IHJlc2lkdWFsc1wiLCB2YWx1ZTogZmFsc2V9KVxudmlld29mIGxpbl9zZWVkID0gSW5wdXRzLmJ1dHRvbihcIlJlc2FtcGxlXCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJsaW5fZGF0YSA9IHtcbiAgY29uc3QgciA9IHJuZyg3MDcgKyBsaW5fc2VlZCk7XG4gIGNvbnN0IG4gPSA4MDtcbiAgY29uc3QgeCA9IHJ1bmlmKHIsIG4sIDAsIDQpO1xuICBjb25zdCBlID0gcm5vcm0ociwgbiwgMCwgMSk7XG4gIGxldCB5O1xuICBpZiAobGluX3R5cGUgPT09IFwidXBcIikgeSA9IHgubWFwKCh2LCBpKSA9PiAxICsgMS41ICogdiArIGVbaV0pO1xuICBpZiAobGluX3R5cGUgPT09IFwiZG93blwiKSB5ID0geC5tYXAoKHYsIGkpID0+IDggLSAxLjUgKiB2ICsgZVtpXSk7XG4gIGlmIChsaW5fdHlwZSA9PT0gXCJjdXJ2ZVwiKSB5ID0geC5tYXAoKHYsIGkpID0+IDEgKyAwLjYgKiB2ICoqIDMgKyAyICogZVtpXSk7XG4gIGlmIChsaW5fdHlwZSA9PT0gXCJmYW5cIikgeSA9IHgubWFwKCh2LCBpKSA9PiAyICsgMS4yICogdiArIGVbaV0gKiAoMC4yICsgMS4xICogdikpO1xuICBpZiAobGluX3R5cGUgPT09IFwib3V0bGllclwiKSB7IHkgPSB4Lm1hcCgodiwgaSkgPT4gMiArIDAuMyAqIHYgKyAwLjggKiBlW2ldKTsgeFswXSA9IDMuOTsgeVswXSA9IDE0OyB9XG4gIGNvbnN0IGZpdCA9IGxtMSh4LCB5KTtcbiAgY29uc3QgcHRzID0geC5tYXAoKHYsIGkpID0+ICh7eDogdiwgeTogeVtpXSwgZml0dGVkOiBmaXQuZml0dGVkW2ldLCByZXNpZDogZml0LnJlc2lkW2ldLCBzdGQ6IGZpdC5zdGRyZXNbaV19KSk7XG4gIHJldHVybiB7cHRzLCBmaXR9O1xufVxuXG5saW5fc2NhdHRlciA9IFBsb3QucGxvdCh7XG4gIHdpZHRoOiA1NjAsIGhlaWdodDogMjUwLCBtYXJnaW5MZWZ0OiA0NSxcbiAgeDoge2xhYmVsOiBcInggKHByZWRpY3RvcilcIn0sIHk6IHtsYWJlbDogXCJ5IChyZXNwb25zZSlcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgbGluX3Jlc2lkID8gUGxvdC5saW5rKGxpbl9kYXRhLnB0cywge3gxOiBcInhcIiwgeDI6IFwieFwiLCB5MTogXCJ5XCIsIHkyOiBcImZpdHRlZFwiLCBzdHJva2U6IHJlZCwgc3Ryb2tlT3BhY2l0eTogMC41fSkgOiBudWxsLFxuICAgIFBsb3QuZG90KGxpbl9kYXRhLnB0cywge3g6IFwieFwiLCB5OiBcInlcIiwgZmlsbDogZ3JleSwgcjogM30pLFxuICAgIFBsb3QubGluZShsaW5fZGF0YS5wdHMuc2xpY2UoKS5zb3J0KChhLCBiKSA9PiBhLnggLSBiLngpLCB7eDogXCJ4XCIsIHk6IFwiZml0dGVkXCIsIHN0cm9rZTogcmVkLCBzdHJva2VXaWR0aDogMi41fSlcbiAgXVxufSlcblxubGluX3Jlc3Bsb3QgPSBQbG90LnBsb3Qoe1xuICB3aWR0aDogMjc1LCBoZWlnaHQ6IDIxMCwgbWFyZ2luTGVmdDogNDUsXG4gIHg6IHtsYWJlbDogXCJGaXR0ZWQgdmFsdWVzXCJ9LCB5OiB7bGFiZWw6IFwiUmVzaWR1YWxzXCIsIGdyaWQ6IHRydWV9LFxuICBtYXJrczogW1xuICAgIFBsb3QucnVsZVkoWzBdLCB7c3Ryb2tlOiBkYXJrLCBzdHJva2VEYXNoYXJyYXk6IFwiNCwzXCJ9KSxcbiAgICBQbG90LmRvdChsaW5fZGF0YS5wdHMsIHt4OiBcImZpdHRlZFwiLCB5OiBcInJlc2lkXCIsIGZpbGw6IGdyZXksIHI6IDIuNX0pLFxuICAgIFBsb3QubGluZShzbW9vdGgobGluX2RhdGEucHRzLm1hcCgoZCkgPT4gZC5maXR0ZWQpLCBsaW5fZGF0YS5wdHMubWFwKChkKSA9PiBkLnJlc2lkKSksIHt4OiBcInhcIiwgeTogXCJ5XCIsIHN0cm9rZTogcmVkLCBzdHJva2VXaWR0aDogMn0pXG4gIF1cbn0pXG5cbmxpbl9xcSA9IFBsb3QucGxvdCh7XG4gIHdpZHRoOiAyNzUsIGhlaWdodDogMjEwLCBtYXJnaW5MZWZ0OiA0NSxcbiAgeDoge2xhYmVsOiBcIlRoZW9yZXRpY2FsIHF1YW50aWxlc1wifSwgeToge2xhYmVsOiBcIlN0YW5kYXJkaXNlZCByZXNpZHVhbHNcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5saW5lKFtbLTIuNiwgLTIuNl0sIFsyLjYsIDIuNl1dLCB7c3Ryb2tlOiByZWQsIHN0cm9rZVdpZHRoOiAyfSksXG4gICAgUGxvdC5kb3QocXFwb2ludHMobGluX2RhdGEucHRzLm1hcCgoZCkgPT4gZC5zdGQpKSwge3g6IFwidGhlb3JldGljYWxcIiwgeTogXCJzYW1wbGVcIiwgZmlsbDogZ3JleSwgcjogMi41fSlcbiAgXVxufSlcblxuaHRtbGA8ZGl2PiR7bGluX3NjYXR0ZXJ9PGRpdiBjbGFzcz1cImFwcC1yb3dcIj48ZGl2PjxkaXYgY2xhc3M9XCJhcHAtcGxvdC1sYWJlbFwiPlJlc2lkdWFscyB2cyBmaXR0ZWQ8L2Rpdj4ke2xpbl9yZXNwbG90fTwvZGl2PjxkaXY+PGRpdiBjbGFzcz1cImFwcC1wbG90LWxhYmVsXCI+Tm9ybWFsIFEtUSBwbG90IG9mIHJlc2lkdWFsczwvZGl2PiR7bGluX3FxfTwvZGl2PjwvZGl2PlxuPGRpdiBjbGFzcz1cImFwcC12ZXJkaWN0XCI+UjxzdXA+Mjwvc3VwPiA9IDxiPiR7Zm10KGxpbl9kYXRhLmZpdC5yMil9PC9iPiwgc2xvcGUgPSA8Yj4ke2ZtdChsaW5fZGF0YS5maXQuYjEpfTwvYj4sIDxpPnA8L2k+ICR7Zm10cChsaW5fZGF0YS5maXQucCl9LlxuJHt7dXA6IFwiQSBnb29kIGZpdDogcmVzaWR1YWxzIGFyZSBhIGZsYXQgY2xvdWQgYW5kIHRoZSBRLVEgcG9pbnRzIHNpdCBvbiB0aGUgbGluZS5cIixcbiAgIGRvd246IFwiQSBnb29kIGZpdDogdGhlIGRpcmVjdGlvbiBvZiB0aGUgc2xvcGUgZG9lcyBub3QgbWF0dGVyLCBvbmx5IHRoZSBwYXR0ZXJuIG9mIHRoZSByZXNpZHVhbHMuXCIsXG4gICBjdXJ2ZTogXCJBIHBvb3IgZml0OiB0aGUgcmVzaWR1YWxzIGZvcm0gYSBVLXNoYXBlLiBUaGUgcmVsYXRpb25zaGlwIGlzIGN1cnZlZCwgc28gYSBzdHJhaWdodCBsaW5lIGlzIHRoZSB3cm9uZyBtb2RlbC5cIixcbiAgIGZhbjogXCJBIHBvb3IgZml0OiB0aGUgcmVzaWR1YWxzIHNwcmVhZCBvdXQgYXMgZml0dGVkIHZhbHVlcyBpbmNyZWFzZSAodW5lcXVhbCB2YXJpYW5jZSkuIEEgbG9nIHRyYW5zZm9ybWF0aW9uIG9yIGEgR0xNIG1heSBoZWxwLlwiLFxuICAgb3V0bGllcjogXCJPbmUgcG9pbnQgZHJhZ3MgdGhlIGxpbmUgYW5kIGNyZWF0ZXMgYSBsb25nIHRhaWwgaW4gdGhlIFEtUSBwbG90LiBDaGVjayB3aGV0aGVyIGl0IGlzIGEgZGF0YSBlbnRyeSBlcnJvci5cIn1bbGluX3R5cGVdfTwvZGl2PjwvZGl2PmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBpbmZfeCA9IElucHV0cy5yYW5nZShbLTEwLCA1MF0sIHt2YWx1ZTogNDIsIHN0ZXA6IDEsIGxhYmVsOiBcIlJlZCBwb2ludDogeCBwb3NpdGlvblwifSlcbnZpZXdvZiBpbmZfeSA9IElucHV0cy5yYW5nZShbLTIwLCA2MF0sIHt2YWx1ZTogNSwgc3RlcDogMSwgbGFiZWw6IFwiUmVkIHBvaW50OiB5IHBvc2l0aW9uXCJ9KVxudmlld29mIGluZl9uID0gSW5wdXRzLnJhbmdlKFs1LCA2MF0sIHt2YWx1ZTogMjAsIHN0ZXA6IDEsIGxhYmVsOiBcIk51bWJlciBvZiBibGFjayBwb2ludHNcIn0pXG52aWV3b2YgaW5mX3NlZWQgPSBJbnB1dHMuYnV0dG9uKFwiUmVzYW1wbGVcIilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImluZl9kYXRhID0ge1xuICBjb25zdCByID0gcm5nKDgwOCArIGluZl9zZWVkKTtcbiAgY29uc3QgbiA9IGluZl9uO1xuICBjb25zdCB4YiA9IEFycmF5LmZyb20oe2xlbmd0aDogbn0sIChfLCBpKSA9PiAoaSAqIDIwKSAvIChuIC0gMSkpO1xuICBjb25zdCB5YiA9IHhiLm1hcCgodikgPT4gdiArIHJub3JtKHIsIDEsIDAsIDMpWzBdKTtcbiAgY29uc3QgeCA9IFsuLi54YiwgaW5mX3hdLCB5ID0gWy4uLnliLCBpbmZfeV07XG4gIGNvbnN0IGFsbCA9IGxtMSh4LCB5KSwgYmxhY2sgPSBsbTEoeGIsIHliKTtcbiAgY29uc3QgcHRzID0geC5tYXAoKHYsIGkpID0+ICh7eDogdiwgeTogeVtpXSwgcmVkOiBpID09PSBuLCBoYXQ6IGFsbC5oYXRbaV0sIHN0ZDogYWxsLnN0ZHJlc1tpXSwgY29vazogYWxsLmNvb2tbaV19KSk7XG4gIHJldHVybiB7cHRzLCBhbGwsIGJsYWNrLCBufTtcbn1cblxuaW5mX3NjYXR0ZXIgPSBQbG90LnBsb3Qoe1xuICB3aWR0aDogMzMwLCBoZWlnaHQ6IDI2MCwgbWFyZ2luTGVmdDogNDAsXG4gIHg6IHtkb21haW46IFstMTIsIDUyXSwgbGFiZWw6IFwieFwifSwgeToge2RvbWFpbjogWy0yNSwgNjVdLCBsYWJlbDogXCJ5XCIsIGdyaWQ6IHRydWV9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZShbWy0xMiwgaW5mX2RhdGEuYmxhY2suYjAgLSAxMiAqIGluZl9kYXRhLmJsYWNrLmIxXSwgWzUyLCBpbmZfZGF0YS5ibGFjay5iMCArIDUyICogaW5mX2RhdGEuYmxhY2suYjFdXSwge3N0cm9rZTogZGFyaywgc3Ryb2tlV2lkdGg6IDIsIHN0cm9rZURhc2hhcnJheTogXCI1LDRcIn0pLFxuICAgIFBsb3QubGluZShbWy0xMiwgaW5mX2RhdGEuYWxsLmIwIC0gMTIgKiBpbmZfZGF0YS5hbGwuYjFdLCBbNTIsIGluZl9kYXRhLmFsbC5iMCArIDUyICogaW5mX2RhdGEuYWxsLmIxXV0sIHtzdHJva2U6IHJlZCwgc3Ryb2tlV2lkdGg6IDIuNX0pLFxuICAgIFBsb3QuZG90KGluZl9kYXRhLnB0cy5maWx0ZXIoKGQpID0+ICFkLnJlZCksIHt4OiBcInhcIiwgeTogXCJ5XCIsIGZpbGw6IGRhcmssIHI6IDN9KSxcbiAgICBQbG90LmRvdChpbmZfZGF0YS5wdHMuZmlsdGVyKChkKSA9PiBkLnJlZCksIHt4OiBcInhcIiwgeTogXCJ5XCIsIGZpbGw6IHJlZCwgcjogNywgc3ltYm9sOiBcInRyaWFuZ2xlXCJ9KVxuICBdXG59KVxuXG5pbmZfbGV2ID0gUGxvdC5wbG90KHtcbiAgd2lkdGg6IDI1MCwgaGVpZ2h0OiAyNjAsIG1hcmdpbkxlZnQ6IDQwLFxuICB4OiB7bGFiZWw6IFwiTGV2ZXJhZ2VcIiwgZG9tYWluOiBbMCwgMV19LCB5OiB7bGFiZWw6IFwiU3RkLiByZXNpZHVhbHNcIiwgZ3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5ydWxlWChbMiAqIDIgLyAoaW5mX2RhdGEubiArIDEpXSwge3N0cm9rZTogcmVkLCBzdHJva2VEYXNoYXJyYXk6IFwiNCwzXCJ9KSxcbiAgICBQbG90LnJ1bGVZKFswXSwge3N0cm9rZTogZ3JleX0pLFxuICAgIFBsb3QuZG90KGluZl9kYXRhLnB0cy5maWx0ZXIoKGQpID0+ICFkLnJlZCksIHt4OiBcImhhdFwiLCB5OiBcInN0ZFwiLCBmaWxsOiBkYXJrLCByOiAzfSksXG4gICAgUGxvdC5kb3QoaW5mX2RhdGEucHRzLmZpbHRlcigoZCkgPT4gZC5yZWQpLCB7eDogXCJoYXRcIiwgeTogXCJzdGRcIiwgZmlsbDogcmVkLCByOiA3LCBzeW1ib2w6IFwidHJpYW5nbGVcIn0pXG4gIF1cbn0pXG5cbmluZl9yZWQgPSBpbmZfZGF0YS5wdHMuZmluZCgoZCkgPT4gZC5yZWQpXG5cbmh0bWxgPGRpdj48ZGl2IGNsYXNzPVwiYXBwLXJvd1wiPjxkaXY+PGRpdiBjbGFzcz1cImFwcC1wbG90LWxhYmVsXCI+RGF0YSBhbmQgZml0dGVkIGxpbmVzPC9kaXY+JHtpbmZfc2NhdHRlcn08L2Rpdj48ZGl2PjxkaXYgY2xhc3M9XCJhcHAtcGxvdC1sYWJlbFwiPlJlc2lkdWFscyB2cyBsZXZlcmFnZTwvZGl2PiR7aW5mX2xldn08L2Rpdj48L2Rpdj5cbjxkaXYgY2xhc3M9XCJhcHAtdmVyZGljdFwiPlNsb3BlIHdpdGggdGhlIHJlZCBwb2ludDogPGI+JHtmbXQoaW5mX2RhdGEuYWxsLmIxKX08L2I+IChzb2xpZCByZWQgbGluZSk7IHdpdGhvdXQgaXQ6IDxiPiR7Zm10KGluZl9kYXRhLmJsYWNrLmIxKX08L2I+IChkYXNoZWQgbGluZSkuXG5SZWQgcG9pbnQgbGV2ZXJhZ2UgPSAke2ZtdChpbmZfcmVkLmhhdCl9LCBDb29rJ3MgZGlzdGFuY2UgPSA8Yj4ke2ZtdChpbmZfcmVkLmNvb2spfTwvYj4uXG4ke2luZl9yZWQuY29vayA+IDEgPyBcIlRoaXMgcG9pbnQgaXMgPGI+aGlnaGx5IGluZmx1ZW50aWFsPC9iPjogaXQgY2hhbmdlcyB0aGUgc2xvcGUgb24gaXRzIG93bi5cIlxuICA6IGluZl9yZWQuaGF0ID4gNCAvIChpbmZfZGF0YS5uICsgMSkgPyBcIkhpZ2ggbGV2ZXJhZ2UgKHVudXN1YWwgeCkgYnV0IHRoZSBwb2ludCBmb2xsb3dzIHRoZSB0cmVuZCwgc28gaXQgaGFzIGxpdHRsZSBpbmZsdWVuY2UuXCJcbiAgOiBcIlRoaXMgcG9pbnQgaGFzIGxpdHRsZSBpbmZsdWVuY2Ugb24gdGhlIGZpdHRlZCBsaW5lLlwifVxuTW92ZSB0aGUgcmVkIHBvaW50IGZhciB0byB0aGUgcmlnaHQgPGk+YW5kPC9pPiBhd2F5IGZyb20gdGhlIHRyZW5kIHRvIG1ha2UgaXQgaW5mbHVlbnRpYWwuPC9kaXY+PC9kaXY+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGNvbF9yID0gSW5wdXRzLnJhbmdlKFswLCAwLjk4XSwge3ZhbHVlOiAwLjMsIHN0ZXA6IDAuMDIsIGxhYmVsOiBcIkNvcnJlbGF0aW9uIGJldHdlZW4gcHJlZGljdG9ycyB4MSBhbmQgeDJcIn0pXG52aWV3b2YgY29sX24gPSBJbnB1dHMucmFuZ2UoWzIwLCAyMDBdLCB7dmFsdWU6IDUwLCBzdGVwOiAxMCwgbGFiZWw6IFwiU2FtcGxlIHNpemUgcGVyIHN0dWR5XCJ9KVxudmlld29mIGNvbF9zZWVkID0gSW5wdXRzLmJ1dHRvbihcIlJ1biAzMDAgbmV3IHN0dWRpZXNcIilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImNvbF9zaW1zID0ge1xuICBjb25zdCByID0gcm5nKDkwOSArIGNvbF9zZWVkKTtcbiAgY29uc3Qgb3V0ID0gW107XG4gIGZvciAobGV0IHMgPSAwOyBzIDwgMzAwOyBzKyspIHtcbiAgICBjb25zdCB4MSA9IHJub3JtKHIsIGNvbF9uKSwgZSA9IHJub3JtKHIsIGNvbF9uKSwgbm9pc2UgPSBybm9ybShyLCBjb2xfbik7XG4gICAgY29uc3QgeDIgPSB4MS5tYXAoKHYsIGkpID0+IGNvbF9yICogdiArIE1hdGguc3FydCgxIC0gY29sX3IgKiogMikgKiBlW2ldKTtcbiAgICBjb25zdCB5ID0geDEubWFwKCh2LCBpKSA9PiAxICsgMC41ICogdiArIDAuNSAqIHgyW2ldICsgbm9pc2VbaV0pO1xuICAgIG91dC5wdXNoKGxtMih4MSwgeDIsIHkpLmIxKTtcbiAgfVxuICByZXR1cm4gb3V0O1xufVxuXG5QbG90LnBsb3Qoe1xuICB3aWR0aDogNTYwLCBoZWlnaHQ6IDI3MCwgbWFyZ2luTGVmdDogNDUsXG4gIHg6IHtsYWJlbDogXCJFc3RpbWF0ZWQgc2xvcGUgb2YgeDEgaW4gZWFjaCBzaW11bGF0ZWQgc3R1ZHlcIiwgZG9tYWluOiBbLTEuNSwgMi41XX0sXG4gIHk6IHtsYWJlbDogXCJOdW1iZXIgb2Ygc3R1ZGllc1wiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJlY3RZKGNvbF9zaW1zLCBQbG90LmJpblgoe3k6IFwiY291bnRcIn0sIHt4OiAoZCkgPT4gTWF0aC5tYXgoLTEuNSwgTWF0aC5taW4oMi40OSwgZCkpLCB0aHJlc2hvbGRzOiBBcnJheS5mcm9tKHtsZW5ndGg6IDQxfSwgKF8sIGkpID0+IC0xLjUgKyBpICogMC4xKSwgZmlsbDogZ3JleSwgaW5zZXQ6IDAuNX0pKSxcbiAgICBQbG90LnJ1bGVYKFswLjVdLCB7c3Ryb2tlOiByZWQsIHN0cm9rZVdpZHRoOiAzfSksXG4gICAgUGxvdC5ydWxlWChbMF0sIHtzdHJva2U6IGRhcmssIHN0cm9rZURhc2hhcnJheTogXCI0LDNcIn0pLFxuICAgIFBsb3QucnVsZVkoWzBdKVxuICBdXG59KVxuXG5odG1sYDxkaXYgY2xhc3M9XCJhcHAtdmVyZGljdFwiPlRoZSB0cnVlIHNsb3BlIGlzIDAuNSAocmVkIGxpbmUpLiBTcHJlYWQgb2YgdGhlIGVzdGltYXRlcyAoU0QpID0gPGI+JHtmbXQoc2QoY29sX3NpbXMpKX08L2I+LlxuVklGID0gMSAvICgxIOKIkiBywrIpID0gPGI+JHtmbXQoMSAvICgxIC0gY29sX3IgKiogMiksIDEpfTwvYj4uXG4ke2NvbF9yID4gMC45ID8gXCJXaXRoIHN0cm9uZ2x5IGNvcnJlbGF0ZWQgcHJlZGljdG9ycyB0aGUgZXN0aW1hdGVzIGFyZSBhbGwgb3ZlciB0aGUgcGxhY2UsIGFuZCBzb21lIHN0dWRpZXMgZXZlbiBnZXQgdGhlIHNpZ24gd3JvbmcgKGxlZnQgb2YgdGhlIGRhc2hlZCBsaW5lKS5cIlxuICA6IFwiV2l0aCB3ZWFrbHkgY29ycmVsYXRlZCBwcmVkaWN0b3JzIG1vc3Qgc3R1ZGllcyBlc3RpbWF0ZSB0aGUgc2xvcGUgY2xvc2UgdG8gaXRzIHRydWUgdmFsdWUuXCJ9XG5JbmNyZWFzZSB0aGUgY29ycmVsYXRpb24gYW5kIHdhdGNoIHRoZSBoaXN0b2dyYW0gc3ByZWFkIG91dC48L2Rpdj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2xpbl90eXBlJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2xpbl9yZXNpZCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdsaW5fc2VlZCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdpbmZfeCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdpbmZfeScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdpbmZfbicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdpbmZfc2VlZCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjb2xfcicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjb2xfbicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjb2xfc2VlZCcpIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week06_time_series.html" class="pagination-link" aria-label="OPTIONAL: Time Series">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">OPTIONAL: Time Series</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week08_glm_counts.html" class="pagination-link" aria-label="Generalised Linear Models: Count Data">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalised Linear Models: Count Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND 4.0 Int License</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
