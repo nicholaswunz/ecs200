@@ -135,13 +135,13 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -296,7 +296,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#randomisation" id="toc-randomisation" class="nav-link" data-scroll-target="#randomisation">Randomisation</a></li>
   </ul></li>
-  <li><a href="#what-you-can-measure" id="toc-what-you-can-measure" class="nav-link" data-scroll-target="#what-you-can-measure">What you can measure?</a></li>
+  <li><a href="#what-can-you-measure" id="toc-what-can-you-measure" class="nav-link" data-scroll-target="#what-can-you-measure">What can you measure?</a></li>
   <li><a href="#which-analysis-suits-which-measurement" id="toc-which-analysis-suits-which-measurement" class="nav-link" data-scroll-target="#which-analysis-suits-which-measurement">Which analysis suits which measurement?</a></li>
   </ul>
 </nav>
@@ -323,35 +323,35 @@ window.Quarto = {
 </header>
 
 
-<p>The Island is a virtual environment where the original intention was for students to collect data for addressing questions in epidemiology. However, the Island has since been updated to include field stations that allow for plant growth. The plants can represent any plant species, either an agriculturally significant plant, an indigenous significant plant, a species of conservation concern, or a pest species. <strong>You will decide on what plant it is and how it is related to your topic</strong>.</p>
-<p><strong>Note</strong>, the plants grow in real time, and typically take at least 14 days to fully grow, depending on the local climate.</p>
-<p>Access ‘The Island’ from <a href="https://moodleprod.murdoch.edu.au/course/view.php?id=28681">myMurdoch Learning</a> under the ‘Group Project’ tab</p>
+<p>The Islands is a virtual environment originally designed for students to collect data to answer questions in epidemiology. It has since been updated to include field stations that allow for plant growth. The plants can represent any plant species: an agriculturally important plant, a plant of cultural significance to Indigenous people, a species of conservation concern or a pest species. <strong>You will decide on what plant it is and how it is related to your topic</strong>.</p>
+<p><strong>Note</strong>: the plants grow in real time, and typically take at least 14 days to fully grow, depending on the local climate.</p>
+<p>Access The Islands from <a href="https://moodleprod.murdoch.edu.au/course/view.php?id=28681">myMurdoch Learning</a> under the ‘Group Project’ tab.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/islands_labelled.png" class="img-fluid figure-img" style="width:85.0%"></p>
 <figcaption><strong>Fig. 1</strong>. Layout of the islands with locations of the field and weather stations.</figcaption>
 </figure>
 </div>
-<p>There are three islands in this world, all occupied by human settlers with a plant field and weather station (<strong>Fig. 1</strong>):</p>
+<p>There are three islands in this world, each occupied by human settlers and each with a plant field station and a weather station (<strong>Fig. 1</strong>):</p>
 <ol type="1">
 <li><p><strong>Ironbard</strong>: Ironbard is the most northern island and has a temperate climate (equivalent to Tasmania’s climate). The plant field station in Ironbard is called <strong>Hofn Field Station</strong>. The local weather station is called <strong>Abramsen Climate Station</strong>.</p></li>
-<li><p><strong>Providance</strong>: Providance is the island located on the east and has a semi-arid climate (equivalent to Perth’s climate). The plant field station in Providance is called <strong>Biruwa Field Station</strong>. The local weather station is called <strong>Kennedy Climate Station</strong>.</p></li>
+<li><p><strong>Providance</strong>: Providance is the eastern island and has a semi-arid climate (equivalent to Perth’s climate). The plant field station in Providance is called <strong>Biruwa Field Station</strong>. The local weather station is called <strong>Kennedy Climate Station</strong>.</p></li>
 <li><p><strong>Bonne Sante</strong>: Bonne Sante is the most southern island and has a subtropical climate (equivalent to Brisbane’s climate). The plant field station in Bonne Sante is called <strong>Mutalau Field Station</strong>. The local weather station is called <strong>Nanu Forest Climate Station</strong>.</p></li>
 </ol>
 <p>Altogether, there are three field stations from three islands with differing climates. Each station has <strong>36 plots</strong>.</p>
-<section id="design-your-project" class="level2">
-<h2 class="anchored" data-anchor-id="design-your-project">Design your project</h2>
-<p>First, you are designing your experiment as if it was a real experiment. So chose a plant species of your choice to tell your story.</p>
-<p>Next, you can manipulate Nitrogen (N) and Phosphorus (P) levels in the soil prior to growing the plants. The level of N and P are represented by ‘blocks’. Two blocks are the default settling, so we would consider this normal level of N and P (<strong>Fig. 2</strong>). No blocks means no N or P, four blocks means twice the concentration of normal levels, and five blocks is the maximum allowed (represents 2.5 times normal levels). Give the blocks some values (e.g.&nbsp;milligram nitrogen per kilogram of soil; mg/kg). <strong>Use realistic values based on the literature</strong> and what is considered normal for the plant of interest.</p>
+<section id="design-your-project" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="design-your-project">Design your project</h2>
+<p>Design your experiment as if it were a real experiment. First, choose a plant species to tell your story.</p>
+<p>Next, you can manipulate nitrogen (N) and phosphorus (P) levels in the soil prior to growing the plants. The levels of N and P are represented by ‘blocks’. Two blocks is the default setting, which represents normal levels of N and P (<strong>Fig. 2</strong>). No blocks means no N or P, four blocks means twice the concentration of normal levels, and five blocks is the maximum allowed (represents 2.5 times normal levels). Give the blocks some values (e.g.&nbsp;milligram nitrogen per kilogram of soil; mg/kg). <strong>Use realistic values based on the literature</strong> and what is considered normal for the plant of interest.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/islands_blocks.png" class="img-fluid figure-img" style="width:45.0%"></p>
 <figcaption><strong>Fig. 2</strong>. Example nitrogen (N) or phosphorus (P) block manipulation, where no blocks mean no N or P, two blocks is the default/normal N or P levels, four blocks means twice the concentration of normal levels, and five blocks is the maximum allowed (represents 2.5 times normal levels).</figcaption>
 </figure>
 </div>
-<p>Because there are three stations that span across different climates, you can compare the effect of temperature or rainfall on plant growth, fruit production etc. All stations provide the date, maximum temperature in degrees Celsius and rainfall in millimetres (<strong>Table 1</strong>). You can use this data to correlate with your dependent variables. You have the option to look at the interaction of N or P with temperature or rainfall (factorial design).</p>
+<p>Because there are three stations that span across different climates, you can compare the effects of temperature or rainfall on plant growth, fruit production, etc. All stations provide the date, maximum temperature in degrees Celsius and rainfall in millimetres (<strong>Table 1</strong>). You can relate these data to your dependent variables. You have the option to look at the interaction of N or P with temperature or rainfall (factorial design).</p>
 <table class="caption-top table">
-<caption><strong>Table 1</strong>: Example table output from the Kennedy Climate Station on Providence Island. Date is based on the simulation and presented by day, Max Temp is the maximum temperature (°C) recorded on the day, and Rainfall is the cumulative rainfall of the day (mm).</caption>
+<caption><strong>Table 1</strong>: Example table output from the Kennedy Climate Station on Providance Island. Date is based on the simulation and presented by day, Max Temp is the maximum temperature (°C) recorded on the day, and Rainfall is the cumulative rainfall of the day (mm).</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Date</th>
@@ -387,15 +387,15 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>For the 36 plots per site, it means you can have 18 replicate plots/treatment if you have <strong>two treatments</strong>, 12 replicate plots/treatment if you have <strong>three treatments</strong>, 9 replicate plots/treatment if you have <strong>four treatments</strong>, and 6 replicate plots/treatment if you have <strong>five treatments</strong>. Balance between number of treatments and number of replicates. The <a href="./research_design.html#how-many-samples-do-i-need">Research Design</a> appendix shows how to check whether your design has enough replicates (power analysis).</p>
-<section id="randomisation" class="level3">
-<h3 class="anchored" data-anchor-id="randomisation">Randomisation</h3>
-<p>Take note that the 36 plots are laid out with potential spatial autocorrelation to replicate real landscapes. Meaning neighboring plots will have similar soil composition than distant plots.</p>
-<p>This can be a problem if you don’t randomise because if you put all your control treatments on the top row, it is impossible to know whether differences across are due to the actual treatment effects or due to spatial autocorrelation. This is why randomisation is important in research designs. See the second lecture slides, and the <a href="./research_design.html#randomise-intersperse-and-block">Research Design</a> appendix for R code to randomise your design.</p>
+<p>With 36 plots per station, you can have 18 replicate plots per treatment if you have <strong>two treatments</strong>, 12 replicate plots per treatment if you have <strong>three treatments</strong>, 9 replicate plots per treatment if you have <strong>four treatments</strong>, and 6 replicate plots per treatment if you have <strong>six treatments</strong>. Balance the number of treatments against the number of replicates. The <a href="./research_design.html#how-many-samples-do-i-need">Research Design</a> appendix shows how to check whether your design has enough replicates (power analysis).</p>
+<section id="randomisation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="randomisation">Randomisation</h3>
+<p>The 36 plots are laid out with spatial autocorrelation to mimic real landscapes: neighbouring plots have more similar soil than distant plots.</p>
+<p>This is a problem if you don’t randomise. If you put all your control treatments in the top row, it is impossible to know whether differences are due to the treatments or to spatial autocorrelation. This is why randomisation is important. See the second lecture slides, and the <a href="./research_design.html#randomise-intersperse-and-block">Research Design</a> appendix for R code to randomise your design.</p>
 </section>
 </section>
-<section id="what-you-can-measure" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-can-measure">What you can measure?</h2>
+<section id="what-can-you-measure" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="what-can-you-measure">What can you measure?</h2>
 <p>Your plant will look like this (<strong>Fig. 3</strong>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -403,21 +403,21 @@ window.Quarto = {
 <figcaption><strong>Fig. 3</strong>. Example plant after 10 days since germination.</figcaption>
 </figure>
 </div>
-<p>The green parts represent leaves, the purple circles represent fruits, and the white circles represent flowers. You can measure the following as response dependent variables:</p>
+<p>The green parts represent leaves, the purple circles represent fruits, and the white circles represent flowers. You can measure the following response (dependent) variables:</p>
 <p><strong>1. Height</strong>: You can use a ruler to measure height on your screen.</p>
 <p><strong>2. Growth rate</strong>: If you measure height over time, you can calculate absolute growth rate (AGR) as:</p>
 <p><span class="math display">\[
 \text{AGR}=\frac{H_{2}-H_{1}}{t_{2}-t_{1}}
-\]</span> where <span class="math inline">\(H_{1}\)</span> is the initial measured height at time <span class="math inline">\(t_{1}\)</span>, and <span class="math inline">\(H_{2}\)</span> is the final or next measured height at time <span class="math inline">\(t_{2}\)</span>. Note, make sure your screen is the same size to ensure consistency in your measurements over time.</p>
-<p><strong>3. Number of leaves</strong>: Count the number of green parts at specific time point.</p>
-<p><strong>4. Number of fruits</strong>: Count the number of purple circles at specific time point.</p>
-<p><strong>5. Number of flowers</strong>: Count the number of white spots at specific time point.</p>
-<p><strong>6. Branches</strong>: Count the number of diverging branches from the main stem at specific time point.</p>
+\]</span> where <span class="math inline">\(H_{1}\)</span> is the initial measured height at time <span class="math inline">\(t_{1}\)</span>, and <span class="math inline">\(H_{2}\)</span> is the final or next measured height at time <span class="math inline">\(t_{2}\)</span>. Make sure your screen is the same size each time so that your measurements are consistent over time.</p>
+<p><strong>3. Number of leaves</strong>: Count the number of green parts at a specific time point.</p>
+<p><strong>4. Number of fruits</strong>: Count the number of purple circles at a specific time point.</p>
+<p><strong>5. Number of flowers</strong>: Count the number of white circles at a specific time point.</p>
+<p><strong>6. Branches</strong>: Count the number of diverging branches from the main stem at a specific time point.</p>
 <p><strong>7. Time to first flowering</strong>: The time difference from the start of the experiment to the first observed flower in the experimental plot.</p>
 <p><strong>8. Time to first fruit</strong>: The time difference from the start of the experiment to the first observed fruit in the experimental plot.</p>
-<p><strong>9. Yield</strong>: Once harvested, you will get a number in the “Harvest” tab (<strong>Table 2</strong>). The data table will include Date of harvest, the row and column of the plot, and the yield or biomass (g). Once harvested, the plant doesn’t grow again (ONE time, destructive). So, be careful on when you plan to harvest the plant.</p>
+<p><strong>9. Yield</strong>: Once harvested, you will get a number in the “Harvest” tab (<strong>Table 2</strong>). The data table includes the date of harvest, the row and column of the plot, and the yield or biomass (g). Once harvested, the plant does not grow again (harvesting is a one-time, destructive measurement), so plan carefully when to harvest.</p>
 <table class="caption-top table">
-<caption><strong>Table 2</strong>: Example yield table output from Hofn Field Station on Ironbard. Date is based on the simulation and presented by day, Row and Column are the positon of the plant in the field grid, and Yield is total biomass value (g).</caption>
+<caption><strong>Table 2</strong>: Example yield table output from Hofn Field Station on Ironbard. Date is based on the simulation and presented by day, Row and Column are the position of the plant in the field grid, and Yield is total biomass value (g).</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Date</th>
@@ -634,7 +634,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

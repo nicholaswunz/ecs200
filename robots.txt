@@ -1,1 +1,1 @@
-Sitemap: https://nicholaswu.quarto.pub/ecs200/sitemap.xml
+Sitemap: https://nicholaswunz.github.io/ecs200/sitemap.xml

@@ -191,13 +191,13 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -388,7 +388,7 @@ window.Quarto = {
 
 
 <p><strong>Week 11</strong>: Logistic regression for presence/absence, alive/dead and other yes/no responses</p>
-<p>Many ecological questions have a yes/no answer. Is the species present at this site? Did the seedling survive? Did the coral bleach? Did the bird nest successfully? This week you will model these <strong>binary</strong> responses with <strong>logistic regression</strong>, a GLM with a binomial distribution and a logit link. It works the same way as the count GLMs from Week 8. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p>Many ecological questions have a yes/no answer. Is the species present at this site? Did the seedling survive? Did the coral bleach? Did the bird nest successfully? This week you will model these <strong>binary</strong> responses with <strong>logistic regression</strong>, a GLM with a binomial distribution and a logit link. It works the same way as the count GLMs from Week 8. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ecs200">ECS200</a>.</p>
 <p><img src="images/base_model.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -658,7 +658,7 @@ $ frog_present &lt;dbl&gt; 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1,
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Independent observations</td>
-<td style="text-align: left;">Study design: one survey per dam ✅ . Multiple surveys per dam requires <a href="./week12_mixed_models.html">random effects models</a></td>
+<td style="text-align: left;">Study design: one survey per dam ✅. Repeated surveys of the same dam would need a mixed-effects model (<a href="./week12_mixed_models.html">Week 12</a>)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">The relationship is linear on the logit scale</td>
@@ -915,7 +915,7 @@ veg_cover | Predicted |     95% CI
 <p>An odds ratio of 0.2 does <strong>not</strong> mean the probability is 80% lower. The change in probability depends on where you are on the S-curve. That is why it is good practice to also report predicted probabilities, as in the results sentence below.</p>
 </div>
 </div>
-<p><strong>Methods sentence</strong>: <em>Frog detection (detected/not detected) was modelled with a binomial generalised linear model (logistic regression) using the <code>glm()</code> function in R, with fringing vegetation cover and fish presence as the main predictors. Model fit was assessed with binned residuals using the <code>performance::binned_residuals()</code> function. Significance was set with α = 0.05.</em></p>
+<p><strong>Methods sentence</strong>: <em>Frog detection (detected/not detected) was modelled with a binomial generalised linear model (logistic regression) using the <code>glm()</code> function in R, with fringing vegetation cover and fish presence as predictors. Model fit was assessed with binned residuals using the <code>performance::binned_residuals()</code> function. Significance was set at α = 0.05.</em></p>
 <p><strong>Results sentence</strong>:</p>
 <blockquote class="blockquote">
 <p>The probability of detecting frogs increased with fringing vegetation (odds ratio = 1.04 per 1% cover, 95% CI 1.021–1.063, <em>p</em> &lt; 0.001) and was lower at dams with fish (odds ratio = 0.18, 95% CI 0.06–0.51, <em>p</em> &lt; 0.001; Fig. 1). At dams without fish, the predicted probability of detecting frogs rose from 0.24 at 10% vegetation cover to 0.88 at 90% cover, whereas at dams with fish it rose from 0.06 to 0.58. Because each dam was surveyed once, these are probabilities of <em>detection</em>, which may underestimate true occupancy.</p>
@@ -1145,7 +1145,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

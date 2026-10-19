@@ -191,13 +191,13 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -391,8 +391,8 @@ window.Quarto = {
 
 
 <p><strong>Week 12</strong>: Accounting for sites, repeated measurements and other sampling structure with random effects</p>
-<p>So far, every model has assumed that each observation is <strong>independent</strong>. In real ecological studies that is rarely true (including your study): we measure the same animal more than once,take several quadrats from each site, or put several seedlings in each pot.</p>
-<p>This week you will learn <strong>mixed-effects models</strong>, which add <strong>random effects</strong> to a linear model to account for this structure. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p>So far, every model has assumed that each observation is <strong>independent</strong>. In real ecological studies (including your project) that is rarely true: we measure the same animal more than once, take several quadrats from each site, or put several seedlings in each pot.</p>
+<p>This week you will learn <strong>mixed-effects models</strong>, which add <strong>random effects</strong> to a linear model to account for this structure. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ecs200">ECS200</a>.</p>
 <p><img src="images/base_model.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -522,7 +522,7 @@ $ sprint_speed &lt;dbl&gt; 1.10, 1.10, 1.36, 1.71, 1.64, 1.84, 1.95, 2.32, 1.35,
 </tr>
 </tbody>
 </table>
-<p>Another example is spatial autocorrelation, where sampling closer to each other may yield similar results because of similar soil composition (a problem you will see with <a href="./the_islands.html">The Island</a>). <strong>Randomisation matters!</strong></p>
+<p>Another example is spatial autocorrelation: samples taken close together tend to give similar results, for example because they share similar soil (a problem you will meet on <a href="./the_islands.html">The Islands</a>). <strong>Randomisation matters!</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/spatial_autocorrelation.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -967,7 +967,7 @@ temperature 0.03927091 0.04929159</code></pre>
 <li><strong>Random effects</strong>: lizards differed in their baseline speed with an SD of 0.31 m/s, while the residual SD within a lizard was 0.09 m/s. The ICC of 0.92 means 92% of the unexplained variation was due to consistent differences between individual lizards.</li>
 <li><strong>R<sup>2</sup></strong>: temperature alone explains 0.28 of the variation (marginal R<sup>2</sup>), and temperature plus lizard identity explain 0.94 (conditional R<sup>2</sup>).</li>
 </ul>
-<p><strong>Methods sentence</strong>: <em>Because each lizard was tested at all four temperatures, the effect of temperature on sprint speed was analysed with a linear mixed-effects model with temperature as a fixed effect and lizard identity as a random intercept, fitted with <code>lme4</code> and <code>lmerTest</code> in R (p-values from Satterthwaite’s degrees of freedom). Significance was set with α = 0.05.</em></p>
+<p><strong>Methods sentence</strong>: <em>Because each lizard was tested at all four temperatures, the effect of temperature on sprint speed was analysed with a linear mixed-effects model with temperature as a fixed effect and lizard identity as a random intercept, fitted with <code>lme4</code> and <code>lmerTest</code> in R (p-values from Satterthwaite’s degrees of freedom). Significance was set at α = 0.05.</em></p>
 <p><strong>Results sentence</strong>:</p>
 <blockquote class="blockquote">
 <p>Sprint speed increased with temperature by 0.044 m/s per °C (95% CI 0.039–0.049; <em>t</em><sub>47</sub> = 17.3, <em>p</em> &lt; 0.001; Fig. 1). Individual lizards differed consistently in speed (SD among lizards = 0.31 m/s; ICC = 0.92).</p>
@@ -1245,7 +1245,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

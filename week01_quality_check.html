@@ -160,13 +160,13 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -341,7 +341,7 @@ div.csl-indent {
   <li><a href="#step-2-visualising-data" id="toc-step-2-visualising-data" class="nav-link" data-scroll-target="#step-2-visualising-data">Step 2: Visualising data</a>
   <ul class="collapse">
   <li><a href="#check-for-outliers" id="toc-check-for-outliers" class="nav-link" data-scroll-target="#check-for-outliers">2.1. Check for outliers</a></li>
-  <li><a href="#is-the-data-normally-distributed" id="toc-is-the-data-normally-distributed" class="nav-link" data-scroll-target="#is-the-data-normally-distributed">2.2. Is the data normally distributed?</a></li>
+  <li><a href="#are-the-data-normally-distributed" id="toc-are-the-data-normally-distributed" class="nav-link" data-scroll-target="#are-the-data-normally-distributed">2.2. Are the data normally distributed?</a></li>
   </ul></li>
   <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a>
   <ul class="collapse">
@@ -374,7 +374,7 @@ div.csl-indent {
 
 
 <p><strong>Week 1</strong>: Quality checks and data exploration</p>
-<p>In this workshop you will learn how to check the quality of raw data after you import it into R, and how to fix common errors. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p>In this workshop you will learn how to check the quality of raw data after you import it into R, and how to fix common errors. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ecs200">ECS200</a>.</p>
 <blockquote class="blockquote">
 <p>All statistical techniques have in common the problem of ‘<em>rubbish in, rubbish out</em>’.</p>
 </blockquote>
@@ -577,7 +577,7 @@ Note
   ..   stem_dry_mass = col_double(),
   ..   corrected_leaf_area = col_double()
   .. )
- - attr(*, "problems")=&lt;pointer: 0x00000200e04fe390&gt; </code></pre>
+ - attr(*, "problems")=&lt;pointer: 0x0000020b3f1fd890&gt; </code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -981,8 +981,8 @@ $ species_1 &lt;dbl&gt; 3, 7, 5, 2, 9, 4, 6, 1, 8</code></pre>
 </div>
 <p>The IQR rule flags a few leaves, but only the 100 cm<sup>2</sup> leaf is biologically unrealistic for a sugar maple seedling, so it is almost certainly a data entry error. Always use your biological knowledge (and the literature) to decide. <strong>Do not remove values just because a rule flags them.</strong></p>
 </section>
-<section id="is-the-data-normally-distributed" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="is-the-data-normally-distributed">2.2. Is the data normally distributed?</h2>
+<section id="are-the-data-normally-distributed" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="are-the-data-normally-distributed">2.2. Are the data normally distributed?</h2>
 <p>Many statistical tests (<em>t</em>-tests, ANOVA, linear regression) assume that the data (or, more precisely, the model’s residuals) are roughly normally distributed, with constant variance. If the data are strongly skewed, have outliers or have unequal variances, those tests can give <strong>biased estimates and wrong conclusions</strong>. You will learn how to check this properly in Weeks 5 and 7, and how to transform data in Week 2.</p>
 <p>Let’s look at <code>leaf2area</code> again after removing the impossible value.</p>
 <div class="cell">
@@ -1231,7 +1231,7 @@ $ species_1 &lt;dbl&gt; 3, 7, 5, 2, 9, 4, 6, 1, 8</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

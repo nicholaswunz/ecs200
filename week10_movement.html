@@ -160,13 +160,13 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -355,7 +355,7 @@ div.csl-indent {
 </header>
 
 
-<p><strong>Week 10 (study week)</strong>: Cleaning and plotting animal tracking data</p>
+<p><strong>Week 10</strong>: Cleaning and plotting animal tracking data</p>
 <p>This is an optional tutorial for anyone working with animal tracking (telemetry) data.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -384,29 +384,29 @@ Note
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Marking</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Radio telemetry</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Satellite telemetry</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Acoustic telemetry</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Onboard loggers</a></li></ul>
 <div class="tab-content nav-pills">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>The simplest and cheapest method uses capture–mark–recapture or direct observation of marked animals. It is time-consuming, and following or recapturing animals can <strong>disturb their behaviour</strong>. It is still widely used, for example to monitor bird movements through citizen science reports of leg bands. <strong>Example study <span class="citation" data-cites="counilh2023">(<a href="references.html#ref-counilh2023" role="doc-biblioref">Counilh and Arnould, 2023</a>)</span></strong></p>
+<p>The simplest and cheapest method uses capture–mark–recapture or direct observation of marked animals. It is time-consuming, and following or recapturing animals can <strong>disturb their behaviour</strong>. It is still widely used, for example to monitor bird movements through citizen science reports of leg bands. <strong>Example study:</strong> <span class="citation" data-cites="counilh2023">(<a href="references.html#ref-counilh2023" role="doc-biblioref">Counilh and Arnould, 2023</a>)</span>.</p>
 <p><img src="images/gannet_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>VHF radio telemetry</strong>: a small transmitter (usually &lt; 5% of the animal’s body mass) emits a very high frequency (VHF) radio signal that the researcher tracks with a receiver and antenna. Tags are cheap, light and have long battery lives, which suits terrestrial and semi-aquatic animals (e.g.&nbsp;freshwater turtles). However, tracking is labour intensive and gives only a few locations per day. Automated networks such as <a href="https://motus.org/">MOTUS</a> use fixed receivers to detect tags continuously. <strong>Example study <span class="citation" data-cites="yu2022">(<a href="references.html#ref-yu2022" role="doc-biblioref">Yu et al., 2022</a>)</span></strong></p>
+<p><strong>VHF radio telemetry</strong>: a small transmitter (usually &lt; 5% of the animal’s body mass) emits a very high frequency (VHF) radio signal that the researcher tracks with a receiver and antenna. Tags are cheap, light and have long battery lives, which suits terrestrial and semi-aquatic animals (e.g.&nbsp;freshwater turtles). However, tracking is labour intensive and gives only a few locations per day. Automated networks such as <a href="https://motus.org/">MOTUS</a> use fixed receivers to detect tags continuously. <strong>Example study:</strong> <span class="citation" data-cites="yu2022">(<a href="references.html#ref-yu2022" role="doc-biblioref">Yu et al., 2022</a>)</span>.</p>
 <p><img src="images/snake_track_study.jpg" class="img-fluid" style="width:100.0%"></p>
-<p><strong>Radio-frequency identification (RFID)</strong>: tiny, battery-free passive integrated transponder (PIT) tags are detected when an animal passes close to an antenna, for example at cave entrances to record when bats move between caves. <strong>Example study <span class="citation" data-cites="van2022">(<a href="references.html#ref-van2022" role="doc-biblioref">Harten et al., 2022</a>)</span></strong>.</p>
+<p><strong>Radio-frequency identification (RFID)</strong>: tiny, battery-free passive integrated transponder (PIT) tags are detected when an animal passes close to an antenna, for example at cave entrances to record when bats move between caves. <strong>Example study:</strong> <span class="citation" data-cites="van2022">(<a href="references.html#ref-van2022" role="doc-biblioref">Harten et al., 2022</a>)</span>.</p>
 <p><img src="images/bat_track_study.jpg" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><strong>GPS telemetry</strong>: tags (collars, backpacks, harnesses) record locations from satellites, often many per hour. GPS tags are among the most expensive options. <strong>GSM (cellular) tags</strong> upload data over the mobile network, so you do not need to recover the tag, but they need phone coverage <strong>Example study <span class="citation" data-cites="peel2024">(<a href="references.html#ref-peel2024" role="doc-biblioref"><span class="nocase">Peel et al.</span>, 2024</a>)</span></strong>.</p>
+<p><strong>GPS telemetry</strong>: tags (collars, backpacks, harnesses) record locations from satellites, often many per hour. GPS tags are among the most expensive options. <strong>GSM (cellular) tags</strong> upload data over the mobile network, so you do not need to recover the tag, but they need phone coverage. <strong>Example study:</strong> <span class="citation" data-cites="peel2024">(<a href="references.html#ref-peel2024" role="doc-biblioref"><span class="nocase">Peel et al.</span>, 2024</a>)</span>.</p>
 <p><img src="images/turtle_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
-<p><strong>Argos satellite telemetry</strong>: tags (platform transmitter terminals, PTTs) send signals to satellites, which estimate the location from the Doppler shift. Argos locations are less accurate than GPS (up to kilometres), but tags can last months to years, which suits large, wide-ranging species such as sharks, turtles and seals. <strong>Example study <span class="citation" data-cites="hoenner2012">(<a href="references.html#ref-hoenner2012" role="doc-biblioref">Hoenner et al., 2012</a>)</span></strong></p>
+<p><strong>Argos satellite telemetry</strong>: tags (platform transmitter terminals, PTTs) send signals to satellites, which estimate the location from the Doppler shift. Argos locations are less accurate than GPS (up to kilometres), but tags can last months to years, which suits large, wide-ranging species such as sharks, turtles and seals. <strong>Example study:</strong> <span class="citation" data-cites="hoenner2012">(<a href="references.html#ref-hoenner2012" role="doc-biblioref">Hoenner et al., 2012</a>)</span>.</p>
 <p><img src="images/argos_track_study.jpg" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>Radio signals do not travel through salt water, so most underwater tracking uses <strong>acoustic tags</strong>, which send coded sound pulses to fixed or mobile receivers. Tags can last for years, but you only detect animals near a receiver, so the design of the receiver array is crucial. It works best in confined habitats such as rivers, estuaries and reefs. <strong>Example study <span class="citation" data-cites="baker2023">(<a href="references.html#ref-baker2023" role="doc-biblioref">Baker et al., 2023</a>)</span></strong></p>
+<p>Radio signals do not travel through salt water, so most underwater tracking uses <strong>acoustic tags</strong>, which send coded sound pulses to fixed or mobile receivers. Tags can last for years, but you only detect animals near a receiver, so the design of the receiver array is crucial. It works best in confined habitats such as rivers, estuaries and reefs. <strong>Example study:</strong> <span class="citation" data-cites="baker2023">(<a href="references.html#ref-baker2023" role="doc-biblioref">Baker et al., 2023</a>)</span>.</p>
 <p><img src="images/croc_study.jpg" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-<p><strong>Accelerometers</strong> measure acceleration in three axes (the same technology as in smartwatches). They can show activity levels, classify behaviours (foraging, resting, hunting) and estimate energy expenditure. Behaviours must first be calibrated against known behaviours, and accelerometers do not record location, so they are often combined with GPS or VHF tags <strong>Example study <span class="citation" data-cites="wild2025">(<a href="references.html#ref-wild2025" role="doc-biblioref">Wild et al., 2025</a>)</span></strong>.</p>
+<p><strong>Accelerometers</strong> measure acceleration in three axes (the same technology as in smartwatches). They can show activity levels, classify behaviours (foraging, resting, hunting) and estimate energy expenditure. Behaviours must first be calibrated against known behaviours, and accelerometers do not record location, so they are often combined with GPS or VHF tags. <strong>Example study:</strong> <span class="citation" data-cites="wild2025">(<a href="references.html#ref-wild2025" role="doc-biblioref">Wild et al., 2025</a>)</span>.</p>
 <p><img src="images/lizard_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
-<p><strong>Biologgers</strong> record other variables such as light, temperature, depth, heart rate or internal body temperature <strong>Example study <span class="citation" data-cites="royer2023">(<a href="references.html#ref-royer2023" role="doc-biblioref">Royer et al., 2023</a>)</span></strong>.</p>
+<p><strong>Biologgers</strong> record other variables such as light, temperature, depth, heart rate or internal body temperature. <strong>Example study:</strong> <span class="citation" data-cites="royer2023">(<a href="references.html#ref-royer2023" role="doc-biblioref">Royer et al., 2023</a>)</span>.</p>
 <p><img src="images/shark_tracking_study.jpg" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
@@ -1025,7 +1025,7 @@ BreedingStage   deploy_time      nest_lon      nest_lat
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -172,13 +172,13 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -372,7 +372,7 @@ window.Quarto = {
 
 
 <p><strong>Week 3</strong>: Summarising data and producing figures with ggplot2</p>
-<p>Before testing any hypothesis, you need to describe your data: where the centre is, how spread out the values are, and what the data look like. In this workshop you will learn which summary statistics suit which kinds of data, and how to build clear, publication-quality figures with <code>ggplot2</code>. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p>Before testing any hypothesis, you need to describe your data: where the centre is, how spread out the values are, and what the data look like. In this workshop you will learn which summary statistics suit which kinds of data, and how to build clear, publication-quality figures with <code>ggplot2</code>. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ecs200">ECS200</a>.</p>
 <p><img src="images/base_visual.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -452,8 +452,8 @@ window.Quarto = {
 </table>
 <p>When you design a data sheet, think about what type each column will be. Here is an example colour-coded by type: <span style="background-color: #fadbfa;">nominal</span>, <span style="background-color: #cce8ff;">continuous</span>, <span style="background-color: #fff2c0;">ordinal</span> and <span style="background-color: #c6fbf5;">binary</span>.</p>
 <p><img src="images/types-of-variables.png" class="img-fluid" style="width:100.0%"></p>
-<p>Key terms used in this workshop.</p>
-<p>Central tendancy:</p>
+<p>Key terms used in this workshop:</p>
+<p>Central tendency:</p>
 <ul>
 <li><strong>Mean</strong>: the average. Best for roughly symmetrical data.</li>
 <li><strong>Median</strong>: the middle value. Robust to outliers and skew.</li>
@@ -1170,7 +1170,7 @@ window.Quarto = {
 </div>
 </div>
 <p>To save a figure for your report, use <code>ggplot2::ggsave("figures/fig1.png", width = 16, height = 10, units = "cm", dpi = 300)</code>.</p>
-<p><code>width</code> is the width of the plot in cm, <code>height</code> is the height of the plot in cm, and <code>dpi</code> (dots per inch) is the resolution of the figure</p>
+<p><code>width</code> is the width of the plot in cm, <code>height</code> is the height of the plot in cm, and <code>dpi</code> (dots per inch) is the resolution of the figure.</p>
 </div>
 </div>
 </div>
@@ -1421,7 +1421,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

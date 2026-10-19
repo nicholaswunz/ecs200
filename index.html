@@ -106,13 +106,13 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -308,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>All workshop materials are provided in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>, and the contents were developed by <a href="https://researchportal.murdoch.edu.au/esploro/profile/nicholas_wu/overview">Nicholas Wu</a> and <a href="https://researchportal.murdoch.edu.au/esploro/profile/alethea_rea/overview">Alethea Rea</a>.</p>
+<p>All workshop materials are provided in the GitHub repository <a href="https://github.com/nicholaswunz/ecs200">ECS200</a>, and the contents were developed by <a href="https://researchportal.murdoch.edu.au/esploro/profile/nicholas_wu/overview">Nicholas Wu</a> and <a href="https://researchportal.murdoch.edu.au/esploro/profile/alethea_rea/overview">Alethea Rea</a>.</p>
 <section id="welcome" class="level1 unnumbered">
 <h1 class="unnumbered">Welcome</h1>
 <p>The <a href="https://handbook.murdoch.edu.au/units/07/ecs200">ECS200 - Research Methods in Ecology</a> workshops go through the steps of a typical research project, which look something like <strong>Figure 1</strong>.</p>
@@ -337,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Surrounding all of these is <strong>programming</strong>. You will use code at every step. You don’t need to be an expert programmer, but better coding skills will help you work faster and solve problems more easily.</p>
 <section id="how-the-workshops-work" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="how-the-workshops-work">How the workshops work</h2>
-<p>Each workshop is <strong>2 hours</strong>. Spend about the first hour working through the page (reading, running the code and doing the 🧪 exercises), and the second hour on the <strong>assessment</strong>. Each assessment is an R script template that you download, complete and submit before the end of class.</p>
+<p>Each workshop is <strong>2 hours plut 1 hour extra time</strong>. Spend about the first hour working through the page (reading, running the code and doing the 🧪 exercises), and the second hour on the <strong>assessment</strong>. Each assessment is an R script template that you download, complete and submit before the end of class.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -348,7 +348,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The optional workshops (time series, spatial data and movement data) are not assessed, but instead provide additional learning experience if you want to work with environmental, occupancy, and movement data.</p>
+<p>The optional workshops (time series, spatial data and movement data) are not assessed, but provide extra practice if you want to work with environmental, occupancy or movement data.</p>
 </div>
 </div>
 </section>
@@ -618,7 +618,7 @@ Note
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -191,13 +191,13 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="https://raw.githubusercontent.com/nicholaswunz/ECS200-Workshop/refs/heads/main/images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MU_wordmark_2021_red_RGB.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECS200 Research Methods in Ecology</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nicholaswunz/ECS200-Workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nicholaswunz/ecs200" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -390,7 +390,7 @@ window.Quarto = {
 
 
 <p><strong>Week 8</strong>: Modelling counts with Poisson and negative binomial GLMs</p>
-<p>Much of ecology is counting: the number of birds on a transect, seedlings in a quadrat, frogs calling at a pond. Counts break the rules of the linear models from Weeks 5 and 7, because they are whole numbers, <strong>cannot be negative</strong>, and usually become more variable as the average increases. This week you will learn the <strong>generalised linear model (GLM)</strong>, which handles all of this. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ECS200-Workshop">ECS200</a>.</p>
+<p>Much of ecology is counting: the number of birds on a transect, seedlings in a quadrat, frogs calling at a pond. Counts break the rules of the linear models from Weeks 5 and 7, because they are whole numbers, <strong>cannot be negative</strong>, and usually become more variable as the average increases. This week you will learn the <strong>generalised linear model (GLM)</strong>, which handles all of this. Workshop materials are available in the GitHub repository <a href="https://github.com/nicholaswunz/ecs200">ECS200</a>.</p>
 <p><img src="images/base_model.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -437,7 +437,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/mayfly-nymph.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>A mayfly nymph photgraphed with a white background.</figcaption>
+<figcaption>A mayfly nymph photographed against a white background.</figcaption>
 </figure>
 </div>
 <p>Mayfly nymphs (order Ephemeroptera) are sensitive to sediment and pollution, so they are widely used as indicators of stream health. Shading from riparian (streamside) vegetation keeps water cool and supplies leaf litter, while clearing for agriculture adds sediment and nutrients.</p>
@@ -714,7 +714,7 @@ $ mayflies     &lt;dbl&gt; 30, 7, 11, 27, 58, 2, 4, 12, 19, 1, 29, 38, 8, 32, 12
 </tr>
 <tr class="even">
 <td style="text-align: left;">Independent observations</td>
-<td style="text-align: left;">Study design (one sample per stream ✅. Otherwise, need to account for repeated sampling).</td>
+<td style="text-align: left;">Study design: one sample per stream ✅. Repeated samples from the same stream would need a mixed-effects model (Week 12)</td>
 </tr>
 </tbody>
 </table>
@@ -972,7 +972,7 @@ land_useagriculture 0.2890159 0.7552373</code></pre>
 </tbody>
 </table>
 <p>A rate ratio of 1 means no effect. If the 95% CI of a rate ratio does not include 1, the effect is significant at α = 0.05.</p>
-<p><strong>Methods sentence</strong>: <em>Mayfly counts were analysed with a negative binomial generalised linear model (log link) with canopy cover and land use as predictors, fitted with <code>MASS::glm.nb()</code> in R. A Poisson model was rejected because the counts were overdispersed (dispersion ratio = 4.3). Significance was set with α = 0.05.</em></p>
+<p><strong>Methods sentence</strong>: <em>Mayfly counts were analysed with a negative binomial generalised linear model (log link) with canopy cover and land use as predictors, fitted with <code>MASS::glm.nb()</code> in R. A Poisson model was rejected because the counts were overdispersed (dispersion ratio = 4.3). Significance was set at α = 0.05.</em></p>
 <p><strong>Results sentence</strong>:</p>
 <blockquote class="blockquote">
 <p>Mayfly abundance increased with riparian canopy cover, by 3% for every 1% increase in cover (rate ratio = 1.027, 95% CI 1.017–1.037, <em>p</em> &lt; 0.001). At the same canopy cover, streams in agricultural catchments had 53% fewer mayflies than forested streams (rate ratio = 0.47, 95% CI 0.29–0.76, <em>p</em> = 0.002; Fig. 1).</p>
@@ -1208,7 +1208,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nicholaswu\.quarto\.pub\/ecs200\/");
+        var filterRegex = new RegExp("https:\/\/nicholaswunz\.github\.io\/ecs200\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
